@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC0011006Link"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="model.EO.SysC0011006Assoc">
+  <ViewLinkDefEnd
+    Name="ProductsVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.VO.ProductsVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ProductsVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.ProductsVO.ProductId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="ProductsPerOppurtunitiesVO"
+    Cardinality="-1"
+    Owner="model.VO.ProductsPerOppurtunitiesVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="ProductsPerOppurtunitiesVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.ProductsPerOppurtunitiesVO.ProductId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

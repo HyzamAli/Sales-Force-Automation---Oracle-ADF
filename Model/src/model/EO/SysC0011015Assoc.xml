@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC0011015Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="RoleProfileEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EO.RoleProfileEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="RoleProfileEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.RoleProfileEO.SysC0010984"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.RoleProfileEO.RolesId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="UserProfileEO"
+    Cardinality="-1"
+    Owner="model.EO.UserProfileEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="UserProfileEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.UserProfileEO.SysC0011015"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.RolesId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

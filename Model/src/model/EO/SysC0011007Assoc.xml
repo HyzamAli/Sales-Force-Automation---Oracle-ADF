@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC0011007Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="OppurtunitieEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EO.OppurtunitieEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="OppurtunitieEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.OppurtunitieEO.SysC0010995"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.OppurtunitieEO.OppurtunityId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="SalesTeamEO"
+    Cardinality="-1"
+    Owner="model.EO.SalesTeamEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="SalesTeamEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.SalesTeamEO.SysC0011007"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.SalesTeamEO.OppurtunityId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

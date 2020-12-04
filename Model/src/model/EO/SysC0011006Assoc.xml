@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC0011006Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="ProductEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EO.ProductEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ProductEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.ProductEO.SysC0010990"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.ProductEO.ProductId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="ProductsPerOppurtunityEO"
+    Cardinality="-1"
+    Owner="model.EO.ProductsPerOppurtunityEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="ProductsPerOppurtunityEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.ProductsPerOppurtunityEO.SysC0011006"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.ProductsPerOppurtunityEO.ProductId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>

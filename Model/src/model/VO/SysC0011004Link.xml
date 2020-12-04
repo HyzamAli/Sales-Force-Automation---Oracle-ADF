@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC0011004Link"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  EntityAssociation="model.EO.SysC0011004Assoc">
+  <ViewLinkDefEnd
+    Name="CustomerAppointmentsVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.VO.CustomerAppointmentsVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="CustomerAppointmentsVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.CustomerAppointmentsVO.AppId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="AppointmentAttendeesVO"
+    Cardinality="-1"
+    Owner="model.VO.AppointmentAttendeesVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="AppointmentAttendeesVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.AppointmentAttendeesVO.AppointmentId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

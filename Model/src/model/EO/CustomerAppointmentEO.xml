@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CustomerAppointmentEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="CUSTOMER_APPOINTMENTS"
+  AliasName="CustomerAppointmentEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="AppId"
+    IsNotNull="true"
+    ColumnName="APP_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CUSTOMER_APPOINTMENTS"
+    PrimaryKey="true"/>
+  <Attribute
+    Name="CustomerId"
+    ColumnName="CUSTOMER_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CUSTOMER_APPOINTMENTS"/>
+  <Attribute
+    Name="AppName"
+    Precision="1000"
+    ColumnName="APP_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AppDescription"
+    Precision="1000"
+    ColumnName="APP_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="StartTime"
+    ColumnName="START_TIME"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="CUSTOMER_APPOINTMENTS"/>
+  <Attribute
+    Name="AppointmentType"
+    Precision="1000"
+    ColumnName="APPOINTMENT_TYPE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="AppointmentDirection"
+    Precision="1000"
+    ColumnName="APPOINTMENT_DIRECTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="EndDate"
+    ColumnName="END_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="CUSTOMER_APPOINTMENTS"/>
+  <Attribute
+    Name="Location"
+    Precision="1000"
+    ColumnName="LOCATION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="Resolution"
+    Precision="1000"
+    ColumnName="RESOLUTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="1000"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="ContactId"
+    ColumnName="CONTACT_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CUSTOMER_APPOINTMENTS"/>
+  <AccessorAttribute
+    Name="AppointmentAttendeeEO"
+    Association="model.EO.SysC0011004Assoc"
+    AssociationEnd="model.EO.SysC0011004Assoc.AppointmentAttendeeEO"
+    AssociationOtherEnd="model.EO.SysC0011004Assoc.CustomerAppointmentEO"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <AccessorAttribute
+    Name="CustomerEO"
+    Association="model.EO.SysC0011003Assoc"
+    AssociationEnd="model.EO.SysC0011003Assoc.CustomerEO"
+    AssociationOtherEnd="model.EO.SysC0011003Assoc.CustomerAppointmentEO"
+    Type="oracle.jbo.server.EntityImpl"
+    IsUpdateable="true"/>
+  <Key
+    Name="SysC0010991"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="SYS_C0010991"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerAppointmentEO.AppId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="SysC0011003">
+    <DesignTime>
+      <Attr Name="_referencedKey" Value="SYS_C0010987"/>
+      <Attr Name="_isForeign" Value="true"/>
+      <Attr Name="_DBObjectName" Value="SYS_C0011003"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerAppointmentEO.CustomerId"/>
+    </AttrArray>
+  </Key>
+</Entity>

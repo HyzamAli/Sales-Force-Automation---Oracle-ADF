@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Association SYSTEM "jbo_03_01.dtd">
+<!---->
+<Association
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="SysC0011013Assoc"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <DesignTime>
+    <Attr Name="_isCodegen" Value="true"/>
+  </DesignTime>
+  <AssociationEnd
+    Name="UserProfileEO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.EO.UserProfileEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="UserProfileEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.UserProfileEO.SysC0010985"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.UserId"/>
+    </AttrArray>
+  </AssociationEnd>
+  <AssociationEnd
+    Name="AppointmentAttendeeEO"
+    Cardinality="-1"
+    Owner="model.EO.AppointmentAttendeeEO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_aggregation" Value="0"/>
+      <Attr Name="_finderName" Value="AppointmentAttendeeEO"/>
+      <Attr Name="_foreignKey" Value="model.EO.AppointmentAttendeeEO.SysC0011013"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.AppointmentAttendeeEO.EmployeeId"/>
+    </AttrArray>
+  </AssociationEnd>
+</Association>
