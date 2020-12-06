@@ -1,2 +1,42 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2"></adfc-config>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="RolesView">
+    <page>/RolesPage.jspx</page>
+  </view>
+  <view id="UsersView">
+    <page>/UsersPage.jspx</page>
+  </view>
+  <view id="ProductsView">
+    <page>/ProductsPage.jspx</page>
+  </view>
+  <control-flow-rule id="__1">
+    <from-activity-id>*</from-activity-id>
+    <control-flow-case id="__2">
+      <from-outcome>toRoles</from-outcome>
+      <to-activity-id>RolesView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__3">
+      <from-outcome>toUsers</from-outcome>
+      <to-activity-id>UsersView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__4">
+      <from-outcome>toProducts</from-outcome>
+      <to-activity-id>ProductsView</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+  <managed-bean id="__5">
+    <description>Menu Model Managed Bean</description>
+    <managed-bean-name>adminMenu</managed-bean-name>
+    <managed-bean-class>oracle.adf.view.rich.model.MDSMenuModel</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+    <managed-property id="__6">
+      <property-name>createHiddenNodes</property-name>
+      <value>false</value>
+    </managed-property>
+    <managed-property id="__7">
+      <property-name>source</property-name>
+      <property-class>java.lang.String</property-class>
+      <value>/WEB-INF/adminMenu.xml</value>
+    </managed-property>
+  </managed-bean>
+</adfc-config>
