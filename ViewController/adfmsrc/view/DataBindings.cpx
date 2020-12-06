@@ -3,9 +3,11 @@
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
   <pageMap>
     <page path="/ProductsPage.jspx" usageId="view_ProductsPagePageDef"/>
+    <page path="/RolesPage.jspx" usageId="view_RolesPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
+    <page id="view_RolesPagePageDef" path="view.pageDefs.RolesPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"
