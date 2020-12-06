@@ -12,13 +12,17 @@
   BindingStyle="OracleName">
   <Attribute
     Name="ProductId"
-    IsNotNull="true"
     ColumnName="PRODUCT_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="PRODUCTS"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="false"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"
+    IsEffectiveDateSequence="true"/>
   <Attribute
     Name="ProductName"
     Precision="1000"

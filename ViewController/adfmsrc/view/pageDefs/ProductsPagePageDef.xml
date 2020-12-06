@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="ProductsPagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ProductsVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="ProductsVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO1">
+      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO10">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="ProductDescription"/>
+          <Item Value="ProductCategory"/>
+          <Item Value="ProductPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+  </bindings>
+</pageDefinition>

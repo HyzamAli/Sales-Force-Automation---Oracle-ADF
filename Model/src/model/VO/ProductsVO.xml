@@ -28,28 +28,70 @@
     PrecisionRule="true"
     EntityAttrName="ProductName"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_NAME"/>
+    AliasName="PRODUCT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsVO.ProductName_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.ProductsVO.ProductName_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductDescription"
     PrecisionRule="true"
     EntityAttrName="ProductDescription"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_DESCRIPTION"/>
+    AliasName="PRODUCT_DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsVO.ProductDescription_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.ProductsVO.ProductDescription_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductCategory"
     PrecisionRule="true"
     EntityAttrName="ProductCategory"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_CATEGORY"/>
+    AliasName="PRODUCT_CATEGORY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsVO.ProductCategory_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.ProductsVO.ProductCategory_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductPrice"
     PrecisionRule="true"
     EntityAttrName="ProductPrice"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_PRICE"/>
+    AliasName="PRODUCT_PRICE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsVO.ProductPrice_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.ProductsVO.ProductPrice_LABEL_PLURAL"/>
+        <FMT_FORMATTER
+          ResId="model.VO.ProductsVO.ProductPrice_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="ProductsPerOppurtunitiesVO"
     ViewLink="model.VO.SysC0011006Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

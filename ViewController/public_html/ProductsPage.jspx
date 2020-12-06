@@ -1,0 +1,72 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="ProductsPage.jspx" id="d1">
+            <af:messages id="m1"/>
+            <af:form id="f1">
+                <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
+                    <f:attribute name="PanelText" value="Manage Products"/>
+                    <f:facet name="body">
+                        <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth">
+                            <f:facet name="first">
+                                <af:panelBox text="PanelBox1" id="pb1">
+                                    <f:facet name="toolbar"/>
+                                </af:panelBox>
+                            </f:facet>
+                            <f:facet name="second">
+                                <af:panelBox text="All Products" id="pb2">
+                                    <f:facet name="toolbar">
+                                    </f:facet>
+                                    <af:table value="#{bindings.ProductsVO1.collectionModel}" var="row"
+                                              rows="#{bindings.ProductsVO1.rangeSize}"
+                                              emptyText="#{bindings.ProductsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0" fetchSize="#{bindings.ProductsVO1.rangeSize}"
+                                              id="t1" rowSelection="single" columnStretching="last"
+                                              summary="Products table">
+                                        <af:column sortProperty="#{bindings.ProductsVO1.hints.ProductName.label}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ProductsVO1.hints.ProductName.label}" id="c1"
+                                                   rowHeader="true">
+                                            <af:outputText value="#{row.ProductName}"
+                                                           shortDesc="#{bindings.ProductsVO1.hints.ProductName.tooltip}"
+                                                           id="ot1"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductsVO1.hints.ProductDescription.label}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ProductsVO1.hints.ProductDescription.label}"
+                                                   id="c2">
+                                            <af:outputText value="#{row.ProductDescription}"
+                                                           shortDesc="#{bindings.ProductsVO1.hints.ProductDescription.tooltip}"
+                                                           id="ot2"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductsVO1.hints.ProductCategory.label}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ProductsVO1.hints.ProductCategory.label}"
+                                                   id="c3">
+                                            <af:outputText value="#{row.ProductCategory}"
+                                                           shortDesc="#{bindings.ProductsVO1.hints.ProductCategory.tooltip}"
+                                                           id="ot3"/>
+                                        </af:column>
+                                        <af:column sortProperty="#{bindings.ProductsVO1.hints.ProductPrice.label}"
+                                                   sortable="true"
+                                                   headerText="#{bindings.ProductsVO1.hints.ProductPrice.label}"
+                                                   id="c4">
+                                            <af:outputText value="#{row.ProductPrice}"
+                                                           shortDesc="#{bindings.ProductsVO1.hints.ProductPrice.tooltip}"
+                                                           id="ot4">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ProductsVO1.hints.ProductPrice.format}"/>
+                                            </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelBox>
+                            </f:facet>
+                        </af:panelSplitter>
+                    </f:facet>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
