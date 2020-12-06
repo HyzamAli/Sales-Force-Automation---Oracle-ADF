@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="RolesPagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="RoleProfilesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="RoleProfilesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="RoleProfilesVO1Iterator" id="RoleProfilesVO1">
+      <nodeDefinition DefName="model.VO.RoleProfilesVO" Name="RoleProfilesVO10">
+        <AttrNames>
+          <Item Value="RolesName"/>
+          <Item Value="RolesDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>
