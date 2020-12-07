@@ -11,8 +11,35 @@
                     <f:facet name="body">
                         <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth">
                             <f:facet name="first">
-                                <af:panelBox text="PanelBox1" id="pb1">
+                                <af:panelBox text="Add Roles" id="pb1">
                                     <f:facet name="toolbar"/>
+                                    <af:panelFormLayout id="pfl1">
+                                        <af:inputText value="#{bindings.RolesName.inputValue}" label="Role Name"
+                                                      required="#{bindings.RolesName.hints.mandatory}"
+                                                      columns="#{bindings.RolesName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.RolesName.hints.precision}"
+                                                      shortDesc="#{bindings.RolesName.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.RolesName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.RolesDescription.inputValue}"
+                                                      label="Role Description"
+                                                      required="#{bindings.RolesDescription.hints.mandatory}"
+                                                      columns="#{bindings.RolesDescription.hints.displayWidth}"
+                                                      maximumLength="#{bindings.RolesDescription.hints.precision}"
+                                                      shortDesc="#{bindings.RolesDescription.hints.tooltip}" id="it4">
+                                            <f:validator binding="#{bindings.RolesDescription.validator}"/>
+                                        </af:inputText>
+                                        <f:facet name="footer">
+                                            <af:toolbar id="t2">
+                                                <af:button actionListener="#{bindings.Create.execute}"
+                                                           text="Create New Role"
+                                                           disabled="#{!bindings.Create.enabled}" id="b7"/>
+                                                <af:button actionListener="#{bindings.Execute.execute}"
+                                                           text="Create/Update"
+                                                           disabled="#{!bindings.Execute.enabled}" id="b8"/>
+                                            </af:toolbar>
+                                        </f:facet>
+                                    </af:panelFormLayout>
                                 </af:panelBox>
                             </f:facet>
                             <f:facet name="second">
@@ -25,7 +52,7 @@
                                               selectedRowKeys="#{bindings.RoleProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
-                                              id="t1">
+                                              id="t1" partialTriggers="::b1 ::b2 ::b3 ::b4 ::b5 ::b6 ::b7 ::b8">
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
                                                    id="c1" rowHeader="true">
                                             <af:inputText value="#{row.bindings.RolesName.inputValue}"
@@ -51,6 +78,16 @@
                                             </af:inputText>
                                         </af:column>
                                     </af:table>
+                                    <af:toolbar id="t3">
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                                   disabled="#{!bindings.Commit.enabled}" id="b5"/>
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                    </af:toolbar>
                                 </af:panelBox>
                             </f:facet>
                         </af:panelSplitter>
