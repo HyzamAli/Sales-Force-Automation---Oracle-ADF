@@ -26,9 +26,14 @@
     Name="RolesId"
     ColumnName="ROLES_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
-    TableName="USER_PROFILES"/>
+    TableName="USER_PROFILES"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    PrimaryKey="true"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="NameFirst"
     Precision="1000"
@@ -40,6 +45,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="NameLast"
@@ -52,6 +63,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="NameMiddle"
@@ -64,6 +81,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Password1"
@@ -95,9 +118,10 @@
     Name="SupervisorId"
     ColumnName="SUPERVISOR_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.String"
     ColumnType="NUMBER"
-    TableName="USER_PROFILES"/>
+    TableName="USER_PROFILES"
+    PrimaryKey="true"/>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011012Assoc"
@@ -148,6 +172,8 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.UserProfileEO.UserId"/>
+      <Item Value="model.EO.UserProfileEO.RolesId"/>
+      <Item Value="model.EO.UserProfileEO.SupervisorId"/>
     </AttrArray>
   </Key>
   <Key

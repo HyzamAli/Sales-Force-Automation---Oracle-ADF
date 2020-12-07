@@ -14,7 +14,6 @@
           <Item Value="NameFirst"/>
           <Item Value="NameLast"/>
           <Item Value="NameMiddle"/>
-          <Item Value="Password1"/>
           <Item Value="StartDate"/>
           <Item Value="EndDate"/>
           <Item Value="SupervisorId"/>
@@ -24,5 +23,40 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameFirst">
+      <AttrNames>
+        <Item Value="NameFirst"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameLast">
+      <AttrNames>
+        <Item Value="NameLast"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameMiddle">
+      <AttrNames>
+        <Item Value="NameMiddle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="Password1">
+      <AttrNames>
+        <Item Value="Password1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="UserProfilesVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="UserProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <listOfValues IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_SupervisorId" id="SupervisorId1"/>
   </bindings>
 </pageDefinition>
