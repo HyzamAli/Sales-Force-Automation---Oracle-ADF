@@ -7,6 +7,17 @@
             <af:form id="f1">
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:attribute name="PanelText" value="Manage Users"/>
+                    <f:facet name="body">
+                        <af:panelStretchLayout id="psl1" styleClass="AFStretchWidth">
+                            
+                            <f:facet name="center">
+                                <af:panelSplitter id="ps1">
+                                    <f:facet name="first"/>
+                                    <f:facet name="second"/>
+                                </af:panelSplitter>
+                            </f:facet>
+                        </af:panelStretchLayout>
+                    </f:facet>
                 </af:pageTemplate>
             </af:form>
         </af:document>

@@ -29,22 +29,32 @@
                                                       shortDesc="#{bindings.RolesDescription.hints.tooltip}" id="it4">
                                             <f:validator binding="#{bindings.RolesDescription.validator}"/>
                                         </af:inputText>
-                                        <f:facet name="footer">
-                                            <af:toolbar id="t2">
-                                                <af:button actionListener="#{bindings.Create.execute}"
-                                                           text="Create New Role"
-                                                           disabled="#{!bindings.Create.enabled}" id="b7"/>
-                                                <af:button actionListener="#{bindings.Execute.execute}"
-                                                           text="Create/Update"
-                                                           disabled="#{!bindings.Execute.enabled}" id="b8"/>
-                                            </af:toolbar>
-                                        </f:facet>
+                                        <af:toolbar id="t2">
+                                            <af:button actionListener="#{bindings.Create.execute}"
+                                                       text="Create New Role" disabled="#{!bindings.Create.enabled}"
+                                                       id="b7"/>
+                                            <af:button actionListener="#{bindings.Execute.execute}" text="Create/Update"
+                                                       disabled="#{!bindings.Execute.enabled}" id="b8"/>
+                                        </af:toolbar>
+                                        <f:facet name="footer"/>
                                     </af:panelFormLayout>
                                 </af:panelBox>
                             </f:facet>
                             <f:facet name="second">
                                 <af:panelBox text="All Roles" id="pb3">
-                                    <f:facet name="toolbar"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t3">
+                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b5"/>
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b6">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </f:facet>
                                     <af:table value="#{bindings.RoleProfilesVO1.collectionModel}" var="row"
                                               rows="#{bindings.RoleProfilesVO1.rangeSize}"
                                               emptyText="#{bindings.RoleProfilesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
@@ -52,7 +62,7 @@
                                               selectedRowKeys="#{bindings.RoleProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
-                                              id="t1" partialTriggers="::b1 ::b2 ::b3 ::b4 ::b5 ::b6 ::b7 ::b8">
+                                              id="t1" partialTriggers="::b2 ::b5 ::b6 ::b7 ::b8">
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
                                                    id="c1" rowHeader="true">
                                             <af:inputText value="#{row.bindings.RolesName.inputValue}"
@@ -78,16 +88,6 @@
                                             </af:inputText>
                                         </af:column>
                                     </af:table>
-                                    <af:toolbar id="t3">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b2"/>
-                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                                                   disabled="#{!bindings.Commit.enabled}" id="b5"/>
-                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
-                                            <af:resetActionListener/>
-                                        </af:button>
-                                    </af:toolbar>
                                 </af:panelBox>
                             </f:facet>
                         </af:panelSplitter>
