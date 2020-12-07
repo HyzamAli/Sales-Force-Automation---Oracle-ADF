@@ -4,10 +4,12 @@
   <pageMap>
     <page path="/ProductsPage.jspx" usageId="view_ProductsPagePageDef"/>
     <page path="/RolesPage.jspx" usageId="view_RolesPagePageDef"/>
+    <page path="/UsersPage.jspx" usageId="view_UsersPagePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
     <page id="view_RolesPagePageDef" path="view.pageDefs.RolesPagePageDef"/>
+    <page id="view_UsersPagePageDef" path="view.pageDefs.UsersPagePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"

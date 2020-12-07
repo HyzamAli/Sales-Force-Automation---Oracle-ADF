@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="UsersPagePageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="UserProfilesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO1">
+      <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO10">
+        <AttrNames>
+          <Item Value="RolesId"/>
+          <Item Value="NameFirst"/>
+          <Item Value="NameLast"/>
+          <Item Value="NameMiddle"/>
+          <Item Value="Password1"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="SupervisorId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+  </bindings>
+</pageDefinition>

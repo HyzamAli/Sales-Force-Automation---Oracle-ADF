@@ -12,13 +12,16 @@
   BindingStyle="OracleName">
   <Attribute
     Name="UserId"
-    IsNotNull="true"
     ColumnName="USER_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="USER_PROFILES"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="false"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="RolesId"
     ColumnName="ROLES_ID"
