@@ -13,10 +13,37 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full"
-  FetchMode="FETCH_AS_NEEDED">
+  FetchMode="FETCH_AS_NEEDED"
+  AccessMode="DEFAULT">
+  <ListBinding
+    Name="LOV_ProductCategory"
+    ListVOName="ProductEO.ProductCategoriesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Category"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Category"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ProductEO"
     Entity="model.EO.ProductEO"/>
+  <EntityUsage
+    Name="ProductCategoryEO"
+    Entity="model.EO.ProductCategoryEO"
+    ReadOnly="true"
+    DeleteParticipant="false">
+    <DesignTime>
+      <Attr Name="_customjoin" Value="true"/>
+    </DesignTime>
+  </EntityUsage>
   <ViewAttribute
     Name="ProductId"
     IsNotNull="true"
@@ -37,6 +64,8 @@
           ResId="model.VO.ProductsVO.ProductName_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductName_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -52,6 +81,8 @@
           ResId="model.VO.ProductsVO.ProductDescription_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductDescription_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -60,13 +91,18 @@
     PrecisionRule="true"
     EntityAttrName="ProductCategory"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_CATEGORY">
+    AliasName="PRODUCT_CATEGORY"
+    LOVName="LOV_ProductCategory">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.ProductsVO.ProductCategory_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductCategory_LABEL_PLURAL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -90,6 +126,14 @@
     ViewLink="model.VO.SysC0011006Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <LOVUIHints
+    ListType="105"
+    MRUCount="0">
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductCategory"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </LOVUIHints>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

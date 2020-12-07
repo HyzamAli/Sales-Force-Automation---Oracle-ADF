@@ -18,10 +18,11 @@
     ColumnType="NUMBER"
     TableName="ROLE_PROFILES"
     PrimaryKey="true"
-    IsUpdateable="while_insert"
+    IsUpdateable="false"
     DefaultValue="@0"
     Domain="oracle.jbo.domain.DBSequence"
-    RetrievedOnInsert="true"/>
+    RetrievedOnInsert="true"
+    IsEffectiveDateSequence="true"/>
   <Attribute
     Name="RolesName"
     Precision="1000"
@@ -34,6 +35,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.RoleProfileEO.RolesName_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.EO.RoleProfileEO.RolesName_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="RolesDescription"
@@ -46,6 +55,14 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.RoleProfileEO.RolesDescription_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.EO.RoleProfileEO.RolesDescription_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IsVisible"
@@ -83,4 +100,8 @@
       <Item Value="model.EO.RoleProfileEO.RolesId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

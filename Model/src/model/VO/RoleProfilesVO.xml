@@ -22,28 +22,64 @@
     PrecisionRule="true"
     EntityAttrName="RolesId"
     EntityUsage="RoleProfileEO"
-    AliasName="ROLES_ID"/>
+    AliasName="ROLES_ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="RolesName"
     PrecisionRule="true"
     EntityAttrName="RolesName"
     EntityUsage="RoleProfileEO"
-    AliasName="ROLES_NAME"/>
+    AliasName="ROLES_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RolesDescription"
     PrecisionRule="true"
     EntityAttrName="RolesDescription"
     EntityUsage="RoleProfileEO"
-    AliasName="ROLES_DESCRIPTION"/>
+    AliasName="ROLES_DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsVisible"
     PrecisionRule="true"
     EntityAttrName="IsVisible"
     EntityUsage="RoleProfileEO"
-    AliasName="IS_VISIBLE"/>
+    AliasName="IS_VISIBLE"
+    DefaultValue="1"/>
   <ViewLinkAccessor
     Name="UserProfilesVO"
     ViewLink="model.VO.SysC0011015Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="RoleProfilesVOWhereCriteria"
+      ViewObjectName="model.VO.RoleProfilesVO"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="RoleProfilesVOWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="RoleProfilesVOWhereCriteria_RoleProfilesVOWhereCriteria_row_0_IsVisible"
+          ViewAttribute="IsVisible"
+          Operator="="
+          Conjunction="AND"
+          Value="1"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
 </ViewObject>
