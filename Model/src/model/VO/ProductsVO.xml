@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  FetchMode="FETCH_AS_NEEDED">
   <EntityUsage
     Name="ProductEO"
     Entity="model.EO.ProductEO"/>
@@ -22,7 +23,8 @@
     PrecisionRule="true"
     EntityAttrName="ProductId"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_ID"/>
+    AliasName="PRODUCT_ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ProductName"
     PrecisionRule="true"
@@ -80,8 +82,6 @@
           ResId="model.VO.ProductsVO.ProductPrice_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductPrice_LABEL_PLURAL"/>
-        <FMT_FORMATTER
-          ResId="model.VO.ProductsVO.ProductPrice_FMT_FORMATTER"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -94,4 +94,8 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="ProductId"/>
+  </SortCriteria>
 </ViewObject>
