@@ -9,7 +9,7 @@
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:attribute name="PanelText" value="Manage Products"/>
                     <f:facet name="body">
-                        <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth" dimensionsFrom="children"
+                        <af:panelSplitter id="ps1" orientation="vertical" dimensionsFrom="children"
                                           splitterPosition="270">
                             <f:facet name="first">
                                 <af:panelBox text="Create/Update Product" id="pb1">
@@ -31,14 +31,17 @@
                                                       shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it3">
                                             <f:validator binding="#{bindings.ProductDescription.validator}"/>
                                         </af:inputText>
-                                        <af:inputText value="#{bindings.ProductCategory.inputValue}"
-                                                      label="#{bindings.ProductCategory.hints.label}"
-                                                      required="#{bindings.ProductCategory.hints.mandatory}"
-                                                      columns="#{bindings.ProductCategory.hints.displayWidth}"
-                                                      maximumLength="#{bindings.ProductCategory.hints.precision}"
-                                                      shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="it4">
-                                            <f:validator binding="#{bindings.ProductCategory.validator}"/>
-                                        </af:inputText>
+                                        <af:inputComboboxListOfValues id="productCategory1Id"
+                                                                      popupTitle="Search and Select: #{bindings.ProductCategory1.hints.label}"
+                                                                      value="#{bindings.ProductCategory1.inputValue}"
+                                                                      label="#{bindings.ProductCategory1.hints.label}"
+                                                                      model="#{bindings.ProductCategory1.listOfValuesModel}"
+                                                                      required="#{bindings.ProductCategory1.hints.mandatory}"
+                                                                      columns="#{bindings.ProductCategory1.hints.displayWidth}"
+                                                                      shortDesc="#{bindings.ProductCategory1.hints.tooltip}"
+                                                                      resultsTableColumnStretching="none">
+                                            <f:validator binding="#{bindings.ProductCategory1.validator}"/>
+                                        </af:inputComboboxListOfValues>
                                         <af:inputText value="#{bindings.ProductPrice.inputValue}"
                                                       label="#{bindings.ProductPrice.hints.label}"
                                                       required="#{bindings.ProductPrice.hints.mandatory}"

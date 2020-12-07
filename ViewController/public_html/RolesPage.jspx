@@ -7,14 +7,15 @@
             <af:messages id="m1"/>
             <af:form id="f1">
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
-                    <f:attribute name="PanelText" value="Mange Roles"/>
+                    <f:attribute name="PanelText" value="Manage Roles"/>
                     <f:facet name="body">
                         <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth">
                             <f:facet name="first">
-                                <af:panelBox text="Add Roles" id="pb1">
+                                <af:panelBox text="Create/Edit Roles" id="pb1">
                                     <f:facet name="toolbar"/>
                                     <af:panelFormLayout id="pfl1">
-                                        <af:inputText value="#{bindings.RolesName.inputValue}" label="Role Name"
+                                        <af:inputText value="#{bindings.RolesName.inputValue}"
+                                                      label="#{bindings.RolesName.label}"
                                                       required="#{bindings.RolesName.hints.mandatory}"
                                                       columns="#{bindings.RolesName.hints.displayWidth}"
                                                       maximumLength="#{bindings.RolesName.hints.precision}"
@@ -22,21 +23,23 @@
                                             <f:validator binding="#{bindings.RolesName.validator}"/>
                                         </af:inputText>
                                         <af:inputText value="#{bindings.RolesDescription.inputValue}"
-                                                      label="Role Description"
+                                                      label="#{bindings.RolesDescription.label}"
                                                       required="#{bindings.RolesDescription.hints.mandatory}"
                                                       columns="#{bindings.RolesDescription.hints.displayWidth}"
                                                       maximumLength="#{bindings.RolesDescription.hints.precision}"
                                                       shortDesc="#{bindings.RolesDescription.hints.tooltip}" id="it4">
                                             <f:validator binding="#{bindings.RolesDescription.validator}"/>
                                         </af:inputText>
-                                        <af:toolbar id="t2">
-                                            <af:button actionListener="#{bindings.Create.execute}"
-                                                       text="Create New Role" disabled="#{!bindings.Create.enabled}"
-                                                       id="b7"/>
-                                            <af:button actionListener="#{bindings.Execute.execute}" text="Create/Update"
-                                                       disabled="#{!bindings.Execute.enabled}" id="b8"/>
-                                        </af:toolbar>
-                                        <f:facet name="footer"/>
+                                        <f:facet name="footer">
+                                            <af:toolbar id="t2">
+                                                <af:button actionListener="#{bindings.Create.execute}"
+                                                           text="Create New Role" disabled="#{!bindings.Create.enabled}"
+                                                           id="b7"/>
+                                                <af:button actionListener="#{bindings.Execute.execute}"
+                                                           text="Create/Update" disabled="#{!bindings.Execute.enabled}"
+                                                           id="b8"/>
+                                            </af:toolbar>
+                                        </f:facet>
                                     </af:panelFormLayout>
                                 </af:panelBox>
                             </f:facet>
@@ -44,9 +47,10 @@
                                 <af:panelBox text="All Roles" id="pb3">
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
-                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                            <af:button actionListener="#{bindings.Delete.execute}"
+                                                       text="Delete Selection"
                                                        disabled="#{!bindings.Delete.enabled}" id="b2"/>
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
                                                        disabled="#{!bindings.Commit.enabled}" id="b5"/>
                                             <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
                                                        disabled="#{!bindings.Rollback.enabled}" immediate="true"
@@ -62,30 +66,17 @@
                                               selectedRowKeys="#{bindings.RoleProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
-                                              id="t1" partialTriggers="::b2 ::b5 ::b6 ::b7 ::b8">
+                                              id="t1" partialTriggers="::b2 ::b5 ::b6 ::b7 ::b8"
+                                              columnStretching="last">
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
                                                    id="c1" rowHeader="true">
-                                            <af:inputText value="#{row.bindings.RolesName.inputValue}"
-                                                          label="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
-                                                          required="#{bindings.RoleProfilesVO1.hints.RolesName.mandatory}"
-                                                          columns="#{bindings.RoleProfilesVO1.hints.RolesName.displayWidth}"
-                                                          maximumLength="#{bindings.RoleProfilesVO1.hints.RolesName.precision}"
-                                                          shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"
-                                                          id="it1">
-                                                <f:validator binding="#{row.bindings.RolesName.validator}"/>
-                                            </af:inputText>
+                                            <af:outputText value="#{row.RolesName}"
+                                                           shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
                                                    id="c2">
-                                            <af:inputText value="#{row.bindings.RolesDescription.inputValue}"
-                                                          label="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
-                                                          required="#{bindings.RoleProfilesVO1.hints.RolesDescription.mandatory}"
-                                                          columns="#{bindings.RoleProfilesVO1.hints.RolesDescription.displayWidth}"
-                                                          maximumLength="#{bindings.RoleProfilesVO1.hints.RolesDescription.precision}"
-                                                          shortDesc="#{bindings.RoleProfilesVO1.hints.RolesDescription.tooltip}"
-                                                          id="it2">
-                                                <f:validator binding="#{row.bindings.RolesDescription.validator}"/>
-                                            </af:inputText>
+                                            <af:outputText value="#{row.RolesDescription}"
+                                                           shortDesc="#{bindings.RoleProfilesVO1.hints.RolesDescription.tooltip}"/>
                                         </af:column>
                                     </af:table>
                                 </af:panelBox>

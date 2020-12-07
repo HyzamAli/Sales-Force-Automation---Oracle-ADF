@@ -103,6 +103,9 @@
   <ViewUsage
     Name="UserProfilesVO2"
     ViewObjectName="model.VO.UserProfilesVO"/>
+  <ViewUsage
+    Name="ProductCategoriesVO1"
+    ViewObjectName="model.VO.ProductCategoriesVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"

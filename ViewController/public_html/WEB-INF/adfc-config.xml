@@ -9,6 +9,9 @@
   <view id="ProductsView">
     <page>/ProductsPage.jspx</page>
   </view>
+  <view id="WelcomeView">
+    <page>/HomePage.jspx</page>
+  </view>
   <control-flow-rule id="__1">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__2">
@@ -22,6 +25,10 @@
     <control-flow-case id="__4">
       <from-outcome>toProducts</from-outcome>
       <to-activity-id>ProductsView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__11">
+      <from-outcome>toHome</from-outcome>
+      <to-activity-id>WelcomeView</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__5">

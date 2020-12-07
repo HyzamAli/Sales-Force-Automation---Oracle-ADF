@@ -10,6 +10,11 @@
   DBObjectName="PRODUCTS"
   AliasName="ProductEO"
   BindingStyle="OracleName">
+  <ViewAccessor
+    Name="ProductCategoriesVO1"
+    ViewObjectName="model.VO.ProductCategoriesVO"
+    RowLevelBinds="true"
+    RangeSize="10"/>
   <Attribute
     Name="ProductId"
     ColumnName="PRODUCT_ID"

@@ -12,7 +12,51 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="RoleProfilesVO1"
+    ViewObjectName="model.VO.RoleProfilesVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UserProfilesVO1"
+    ViewObjectName="model.VO.UserProfilesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_RolesId"
+    ListVOName="RoleProfilesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RolesId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RolesId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="RolesName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_SupervisorId"
+    ListVOName="UserProfilesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="SupervisorId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="UserProfileEO"
     Entity="model.EO.UserProfileEO"/>
@@ -22,55 +66,127 @@
     PrecisionRule="true"
     EntityAttrName="UserId"
     EntityUsage="UserProfileEO"
-    AliasName="USER_ID"/>
+    AliasName="USER_ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="RolesId"
     PrecisionRule="true"
     EntityAttrName="RolesId"
     EntityUsage="UserProfileEO"
-    AliasName="ROLES_ID"/>
+    AliasName="ROLES_ID"
+    LOVName="LOV_RolesId"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NameFirst"
     PrecisionRule="true"
     EntityAttrName="NameFirst"
     EntityUsage="UserProfileEO"
-    AliasName="NAME_FIRST"/>
+    AliasName="NAME_FIRST">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.NameFirst_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NameLast"
     PrecisionRule="true"
     EntityAttrName="NameLast"
     EntityUsage="UserProfileEO"
-    AliasName="NAME_LAST"/>
+    AliasName="NAME_LAST">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.NameLast_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NameMiddle"
     PrecisionRule="true"
     EntityAttrName="NameMiddle"
     EntityUsage="UserProfileEO"
-    AliasName="NAME_MIDDLE"/>
+    AliasName="NAME_MIDDLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.NameMiddle_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Password1"
     PrecisionRule="true"
     EntityAttrName="Password1"
     EntityUsage="UserProfileEO"
-    AliasName="PASSWORD1"/>
+    AliasName="PASSWORD1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="100"/>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.Password1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StartDate"
     PrecisionRule="true"
     EntityAttrName="StartDate"
     EntityUsage="UserProfileEO"
-    AliasName="START_DATE"/>
+    AliasName="START_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.StartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EndDate"
     PrecisionRule="true"
     EntityAttrName="EndDate"
     EntityUsage="UserProfileEO"
-    AliasName="END_DATE"/>
+    AliasName="END_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.EndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SupervisorId"
     PrecisionRule="true"
     EntityAttrName="SupervisorId"
     EntityUsage="UserProfileEO"
-    AliasName="SUPERVISOR_ID"/>
+    AliasName="SUPERVISOR_ID"
+    LOVName="LOV_SupervisorId">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.SupervisorId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.SysC0011012Link"
@@ -96,4 +212,8 @@
     ViewLink="model.VO.SysC0011011Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

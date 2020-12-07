@@ -28,11 +28,6 @@
         <Item Value="ProductDescription"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductCategory">
-      <AttrNames>
-        <Item Value="ProductCategory"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
       <AttrNames>
         <Item Value="ProductPrice"/>
@@ -42,5 +37,7 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="ProductsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <listOfValues IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory"
+                  id="ProductCategory1"/>
   </bindings>
 </pageDefinition>
