@@ -12,13 +12,16 @@
   BindingStyle="OracleName">
   <Attribute
     Name="RolesId"
-    IsNotNull="true"
     ColumnName="ROLES_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="ROLE_PROFILES"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="RolesName"
     Precision="1000"
@@ -26,7 +29,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ROLE_PROFILES">
+    TableName="ROLE_PROFILES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -57,6 +61,18 @@
     AssociationOtherEnd="model.EO.SysC0011015Assoc.RoleProfileEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <Key
+    Name="RoleProfilesRolesNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ROLES_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ROLE_PROFILES_ROLES_NAME_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.RoleProfileEO.RolesName"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="SysC0010984"
     PrimaryKey="true">
