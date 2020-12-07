@@ -9,22 +9,82 @@
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:attribute name="PanelText" value="Manage Products"/>
                     <f:facet name="body">
-                        <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth">
+                        <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth" dimensionsFrom="children"
+                                          splitterPosition="270">
                             <f:facet name="first">
-                                <af:panelBox text="PanelBox1" id="pb1">
+                                <af:panelBox text="Create/Update Product" id="pb1">
                                     <f:facet name="toolbar"/>
+                                    <af:panelFormLayout id="pfl1">
+                                        <af:inputText value="#{bindings.ProductName.inputValue}"
+                                                      label="#{bindings.ProductName.hints.label}"
+                                                      required="#{bindings.ProductName.hints.mandatory}"
+                                                      columns="#{bindings.ProductName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductName.hints.precision}"
+                                                      shortDesc="#{bindings.ProductName.hints.tooltip}" id="it2">
+                                            <f:validator binding="#{bindings.ProductName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ProductDescription.inputValue}"
+                                                      label="#{bindings.ProductDescription.hints.label}"
+                                                      required="#{bindings.ProductDescription.hints.mandatory}"
+                                                      columns="#{bindings.ProductDescription.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductDescription.hints.precision}"
+                                                      shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it3">
+                                            <f:validator binding="#{bindings.ProductDescription.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ProductCategory.inputValue}"
+                                                      label="#{bindings.ProductCategory.hints.label}"
+                                                      required="#{bindings.ProductCategory.hints.mandatory}"
+                                                      columns="#{bindings.ProductCategory.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductCategory.hints.precision}"
+                                                      shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="it4">
+                                            <f:validator binding="#{bindings.ProductCategory.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ProductPrice.inputValue}"
+                                                      label="#{bindings.ProductPrice.hints.label}"
+                                                      required="#{bindings.ProductPrice.hints.mandatory}"
+                                                      columns="#{bindings.ProductPrice.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductPrice.hints.precision}"
+                                                      shortDesc="#{bindings.ProductPrice.hints.tooltip}" id="it5">
+                                            <f:validator binding="#{bindings.ProductPrice.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ProductPrice.format}"/>
+                                        </af:inputText>
+                                        <f:facet name="footer">
+                                            <af:toolbar id="t3">
+                                                <af:button actionListener="#{bindings.Create.execute}"
+                                                           text="Create New Product"
+                                                           disabled="#{!bindings.Create.enabled}" id="b4"/>
+                                                <af:button actionListener="#{bindings.Execute.execute}"
+                                                           text="Create/Update"
+                                                           disabled="#{!bindings.Execute.enabled}" id="b5"/>
+                                            </af:toolbar>
+                                        </f:facet>
+                                    </af:panelFormLayout>
                                 </af:panelBox>
                             </f:facet>
                             <f:facet name="second">
                                 <af:panelBox text="All Products" id="pb2">
                                     <f:facet name="toolbar">
+                                        <af:toolbar id="t2">
+                                            <af:button actionListener="#{bindings.Delete.execute}"
+                                                       text="Delete Selection"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b1"/>
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b3">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                        </af:toolbar>
                                     </f:facet>
                                     <af:table value="#{bindings.ProductsVO1.collectionModel}" var="row"
                                               rows="#{bindings.ProductsVO1.rangeSize}"
                                               emptyText="#{bindings.ProductsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                               rowBandingInterval="0" fetchSize="#{bindings.ProductsVO1.rangeSize}"
                                               id="t1" rowSelection="single" columnStretching="last"
-                                              summary="Products table">
+                                              summary="Products table" partialTriggers="::b1 ::b5"
+                                              selectionListener="#{bindings.ProductsVO1.treeModel.makeCurrent}">
                                         <af:column sortProperty="#{bindings.ProductsVO1.hints.ProductName.label}"
                                                    sortable="true"
                                                    headerText="#{bindings.ProductsVO1.hints.ProductName.label}" id="c1"

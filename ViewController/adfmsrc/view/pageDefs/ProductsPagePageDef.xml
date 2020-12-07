@@ -3,7 +3,6 @@
                 Package="view.pageDefs">
   <parameters/>
   <executables>
-    <variableIterator id="variables"/>
     <iterator Binds="ProductsVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="ProductsVO1Iterator"/>
   </executables>
   <bindings>
@@ -17,7 +16,31 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="ProductsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductDescription">
+      <AttrNames>
+        <Item Value="ProductDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductCategory">
+      <AttrNames>
+        <Item Value="ProductCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
+      <AttrNames>
+        <Item Value="ProductPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <action IterBinding="ProductsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>
