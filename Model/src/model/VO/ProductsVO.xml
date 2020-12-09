@@ -15,6 +15,18 @@
   PageIterMode="Full"
   FetchMode="FETCH_AS_NEEDED"
   AccessMode="DEFAULT">
+  <Variable
+    Name="pPN"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pPP"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="pPC"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ListBinding
     Name="LOV_ProductCategory"
     ListVOName="ProductEO.ProductCategoriesVO1"
@@ -121,6 +133,58 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="ProductsVOCriteria"
+    ViewObjectName="model.VO.ProductsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ProductsVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ProductName"
+        ViewAttribute="ProductName"
+        Operator="="
+        Conjunction="AND"
+        Value=":pPN"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductsVOCriteria_ProductsVOCriteria_row_0_ProductCategory"
+        ViewAttribute="ProductCategory"
+        Operator="="
+        Conjunction="AND"
+        Value=":pPC"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductPrice"
+        ViewAttribute="ProductPrice"
+        Operator="="
+        Conjunction="AND"
+        Value=":pPP"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="ProductsPerOppurtunitiesVO"
     ViewLink="model.VO.SysC0011006Link"
@@ -128,7 +192,8 @@
     IsUpdateable="false"/>
   <LOVUIHints
     ListType="105"
-    MRUCount="0">
+    MRUCount="0"
+    NullValueFlag="none">
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProductCategory"/>
     </AttrArray>

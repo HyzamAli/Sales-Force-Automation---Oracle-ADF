@@ -14,6 +14,22 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="pNF"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pNL"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pSD"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pED"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
   <ViewAccessor
     Name="RoleProfilesVO1"
     ViewObjectName="model.VO.RoleProfilesVO"
@@ -187,6 +203,66 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="UserProfilesVOCriteria"
+    ViewObjectName="model.VO.UserProfilesVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="UserProfilesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="NameFirst"
+        ViewAttribute="NameFirst"
+        Operator="="
+        Conjunction="AND"
+        Value=":pNF"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="NameLast"
+        ViewAttribute="NameLast"
+        Operator="="
+        Conjunction="AND"
+        Value=":pNL"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="StartDate"
+        ViewAttribute="StartDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":pSD"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="EndDate"
+        ViewAttribute="EndDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":pED"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.SysC0011012Link"

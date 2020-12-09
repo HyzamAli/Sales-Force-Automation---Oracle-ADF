@@ -5,6 +5,8 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="RoleProfilesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="RoleProfilesVO1Iterator"/>
+    <searchRegion Criteria="RoleProfilesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="RoleProfilesVO1Iterator" id="RoleProfilesVOCriteriaQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="RoleProfilesVO1Iterator" id="RoleProfilesVO1">
@@ -25,10 +27,7 @@
         <Item Value="RolesDescription"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="RoleProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="RoleProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
-    <action IterBinding="RoleProfilesVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="RoleProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
