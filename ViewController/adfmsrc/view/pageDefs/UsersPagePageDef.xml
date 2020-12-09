@@ -5,23 +5,24 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="UserProfilesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
+    <searchRegion Criteria="UserProfilesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery1"/>
   </executables>
   <bindings>
-    <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO1">
-      <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO10">
+    <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO11">
+      <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO110">
         <AttrNames>
           <Item Value="RolesId"/>
           <Item Value="NameFirst"/>
           <Item Value="NameLast"/>
           <Item Value="NameMiddle"/>
+          <Item Value="Password1"/>
           <Item Value="StartDate"/>
           <Item Value="EndDate"/>
           <Item Value="SupervisorId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
@@ -55,8 +56,8 @@
         <Item Value="EndDate"/>
       </AttrNames>
     </attributeValues>
-    <action IterBinding="UserProfilesVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_SupervisorId" id="SupervisorId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="UserProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
-    <listOfValues IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_SupervisorId" id="SupervisorId1"/>
   </bindings>
 </pageDefinition>

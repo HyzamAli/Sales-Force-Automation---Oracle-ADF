@@ -9,144 +9,102 @@
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:attribute name="PanelText" value="Manage Roles"/>
                     <f:facet name="body">
-                        <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth"
-                                          splitterPosition="157">
-                            <f:facet name="first">
-                                <af:panelGroupLayout layout="vertical" id="pgl1">
-                                    
-                                        <af:query id="qryId1" headerText="Search" disclosed="true"
-                                                  value="#{bindings.ProductsVOCriteriaQuery1.queryDescriptor}"
-                                                  model="#{bindings.ProductsVOCriteriaQuery1.queryModel}"
-                                                  queryListener="#{bindings.ProductsVOCriteriaQuery1.processQuery}"
-                                                  queryOperationListener="#{bindings.ProductsVOCriteriaQuery1.processQueryOperation}"/>
-                                   
-                                </af:panelGroupLayout>
-                            </f:facet>
-                            <f:facet name="second">
-                                <af:panelBox text="All Roles" id="pb3">
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t3">
-                                            <af:button text="Add" id="b1">
-                                                <af:showPopupBehavior popupId="p1"/>
-                                            </af:button>
-                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
-                                        </af:toolbar>
-                                    </f:facet>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                                        <af:dialog id="d2" type="none">
-                                            <?audit suppress oracle.adf.faces.compreqtitle?>
-                                            <f:facet name="buttonBar"/>
-                                            <af:panelFormLayout id="pfl1">
-                                                <af:inputText value="#{bindings.ProductName.inputValue}"
-                                                              label="#{bindings.ProductName.hints.label}"
-                                                              required="#{bindings.ProductName.hints.mandatory}"
-                                                              columns="#{bindings.ProductName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.ProductName.hints.precision}"
-                                                              shortDesc="#{bindings.ProductName.hints.tooltip}"
-                                                              id="it7">
-                                                    <f:validator binding="#{bindings.ProductName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.ProductDescription.inputValue}"
-                                                              label="#{bindings.ProductDescription.hints.label}"
-                                                              required="#{bindings.ProductDescription.hints.mandatory}"
-                                                              columns="#{bindings.ProductDescription.hints.displayWidth}"
-                                                              maximumLength="#{bindings.ProductDescription.hints.precision}"
-                                                              shortDesc="#{bindings.ProductDescription.hints.tooltip}"
-                                                              id="it8">
-                                                    <f:validator binding="#{bindings.ProductDescription.validator}"/>
-                                                </af:inputText>
-                                                <af:selectOneChoice value="#{bindings.ProductCategory.inputValue}"
-                                                                    label="#{bindings.ProductCategory.label}"
-                                                                    required="#{bindings.ProductCategory.hints.mandatory}"
-                                                                    shortDesc="#{bindings.ProductCategory.hints.tooltip}"
-                                                                    id="soc1">
-                                                    <f:selectItems value="#{bindings.ProductCategory.items}" id="si1"/>
-                                                    <f:validator binding="#{bindings.ProductCategory.validator}"/>
-                                                </af:selectOneChoice>
-                                                <af:inputText value="#{bindings.ProductPrice.inputValue}"
-                                                              label="#{bindings.ProductPrice.hints.label}"
-                                                              required="#{bindings.ProductPrice.hints.mandatory}"
-                                                              columns="#{bindings.ProductPrice.hints.displayWidth}"
-                                                              maximumLength="#{bindings.ProductPrice.hints.precision}"
-                                                              shortDesc="#{bindings.ProductPrice.hints.tooltip}"
-                                                              id="it9">
-                                                    <f:validator binding="#{bindings.ProductPrice.validator}"/>
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.ProductPrice.format}"/>
-                                                </af:inputText>
-                                                <af:toolbar id="t1">
-                                                    <af:button actionListener="#{bindings.Create.execute}" text="Clear"
-                                                               disabled="#{!bindings.Create.enabled}" id="b5"/>
-                                                    <af:button actionListener="#{bindings.Create.execute}" text="Add"
-                                                               disabled="#{!bindings.Create.enabled}" id="b6"/>
-                                                </af:toolbar>
-                                            </af:panelFormLayout>
-                                        </af:dialog>
-                                    </af:popup>
-                                    <af:table value="#{bindings.ProductsVO11.collectionModel}" var="row"
-                                              rows="#{bindings.ProductsVO11.rangeSize}"
-                                              emptyText="#{bindings.ProductsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                              rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
-                                              rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
-                                              id="t2" partialTriggers="::b2 ::b5 ::b6">
-                                        <?audit suppress oracle.adf.faces.compreqsummary?><?audit suppress oracle.adf.faces.tableneedsrowheader?>
-                                        <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}"
-                                                   id="c3">
-                                            <af:inputText value="#{row.bindings.ProductName.inputValue}"
-                                                          label="#{bindings.ProductsVO11.hints.ProductName.label}"
-                                                          required="#{bindings.ProductsVO11.hints.ProductName.mandatory}"
-                                                          columns="#{bindings.ProductsVO11.hints.ProductName}"
-                                                          maximumLength="#{bindings.ProductsVO11.hints.ProductName.precision}"
-                                                          shortDesc="#{bindings.ProductsVO11.hints.ProductName.tooltip}"
-                                                          id="it3">
-                                                <f:validator binding="#{row.bindings.ProductName.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ProductsVO11.hints.ProductDescription.label}"
-                                                   id="c4">
-                                            <af:inputText value="#{row.bindings.ProductDescription.inputValue}"
-                                                          label="#{bindings.ProductsVO11.hints.ProductDescription.label}"
-                                                          required="#{bindings.ProductsVO11.hints.ProductDescription.mandatory}"
-                                                          columns="#{bindings.ProductsVO11.hints.ProductDescription}"
-                                                          maximumLength="#{bindings.ProductsVO11.hints.ProductDescription.precision}"
-                                                          shortDesc="#{bindings.ProductsVO11.hints.ProductDescription.tooltip}"
-                                                          id="it4">
-                                                <f:validator binding="#{row.bindings.ProductDescription.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ProductsVO11.hints.ProductCategory.label}"
-                                                   id="c5">
-                                            <af:inputText value="#{row.bindings.ProductCategory.inputValue}"
-                                                          label="#{bindings.ProductsVO11.hints.ProductCategory.label}"
-                                                          required="#{bindings.ProductsVO11.hints.ProductCategory.mandatory}"
-                                                          columns="#{bindings.ProductsVO11.hints.ProductCategory.displayWidth}"
-                                                          maximumLength="#{bindings.ProductsVO11.hints.ProductCategory.precision}"
-                                                          shortDesc="#{bindings.ProductsVO11.hints.ProductCategory.tooltip}"
-                                                          id="it5">
-                                                <f:validator binding="#{row.bindings.ProductCategory.validator}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.ProductsVO11.hints.ProductPrice.label}"
-                                                   id="c6">
-                                            <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
-                                                          label="#{bindings.ProductsVO11.hints.ProductPrice.label}"
-                                                          required="#{bindings.ProductsVO11.hints.ProductPrice.mandatory}"
-                                                          columns="#{bindings.ProductsVO11.hints.ProductPrice.displayWidth}"
-                                                          maximumLength="#{bindings.ProductsVO11.hints.ProductPrice.precision}"
-                                                          shortDesc="#{bindings.ProductsVO11.hints.ProductPrice.tooltip}"
-                                                          id="it6">
-                                                <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
-                                                <af:convertNumber groupingUsed="false"
-                                                                  pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"/>
-                                            </af:inputText>
-                                        </af:column>
-                                    </af:table>
-                                </af:panelBox>
-                            </f:facet>
-                        </af:panelSplitter>
+                        <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:White;">
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.ProductsVOCriteriaQuery1.queryDescriptor}"
+                                      model="#{bindings.ProductsVOCriteriaQuery1.queryModel}"
+                                      queryListener="#{bindings.ProductsVOCriteriaQuery1.processQuery}"
+                                      queryOperationListener="#{bindings.ProductsVOCriteriaQuery1.processQueryOperation}"
+                                      resultComponentId="::resId1"/>
+                            <af:table value="#{bindings.ProductsVO11.collectionModel}" var="row"
+                                      rows="#{bindings.ProductsVO11.rangeSize}"
+                                      emptyText="#{bindings.ProductsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}" id="resId1"
+                                      partialTriggers="::b1 ::b3 ::b4">
+                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}" id="resId1c1">
+                                    <af:outputText value="#{row.ProductName}"
+                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductName.tooltip}"
+                                                   id="ot1"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductDescription.label}"
+                                           id="resId1c2">
+                                    <af:outputText value="#{row.ProductDescription}"
+                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductDescription.tooltip}"
+                                                   id="ot2"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductCategory.label}"
+                                           id="resId1c3">
+                                    <af:outputText value="#{row.ProductCategory}"
+                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductCategory.tooltip}"
+                                                   id="ot3"/>
+                                </af:column>
+                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductPrice.label}" id="resId1c4">
+                                    <af:outputText value="#{row.ProductPrice}"
+                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductPrice.tooltip}"
+                                                   id="ot4">
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"/>
+                                    </af:outputText>
+                                </af:column>
+                            </af:table>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                <af:dialog id="d2" type="none" inlineStyle="background-color:White;">
+                                    <f:facet name="buttonBar"/>
+                                </af:dialog>
+                                <af:panelFormLayout id="pfl1">
+                                    <af:inputText value="#{bindings.ProductName.inputValue}"
+                                                  label="#{bindings.ProductName.hints.label}"
+                                                  required="#{bindings.ProductName.hints.mandatory}"
+                                                  columns="#{bindings.ProductName.hints.displayWidth}"
+                                                  maximumLength="#{bindings.ProductName.hints.precision}"
+                                                  shortDesc="#{bindings.ProductName.hints.tooltip}" id="it1">
+                                        <f:validator binding="#{bindings.ProductName.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.ProductDescription.inputValue}"
+                                                  label="#{bindings.ProductDescription.hints.label}"
+                                                  required="#{bindings.ProductDescription.hints.mandatory}"
+                                                  columns="#{bindings.ProductDescription.hints.displayWidth}"
+                                                  maximumLength="#{bindings.ProductDescription.hints.precision}"
+                                                  shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it2">
+                                        <f:validator binding="#{bindings.ProductDescription.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.ProductCategory.inputValue}"
+                                                  label="#{bindings.ProductCategory.hints.label}"
+                                                  required="#{bindings.ProductCategory.hints.mandatory}"
+                                                  columns="#{bindings.ProductCategory.hints.displayWidth}"
+                                                  maximumLength="#{bindings.ProductCategory.hints.precision}"
+                                                  shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="it3">
+                                        <f:validator binding="#{bindings.ProductCategory.validator}"/>
+                                    </af:inputText>
+                                    <af:inputText value="#{bindings.ProductPrice.inputValue}"
+                                                  label="#{bindings.ProductPrice.hints.label}"
+                                                  required="#{bindings.ProductPrice.hints.mandatory}"
+                                                  columns="#{bindings.ProductPrice.hints.displayWidth}"
+                                                  maximumLength="#{bindings.ProductPrice.hints.precision}"
+                                                  shortDesc="#{bindings.ProductPrice.hints.tooltip}" id="it4">
+                                        <f:validator binding="#{bindings.ProductPrice.validator}"/>
+                                        <af:convertNumber groupingUsed="false"
+                                                          pattern="#{bindings.ProductPrice.format}"/>
+                                    </af:inputText>
+                                    <af:toolbar id="t2">
+                                        <af:button actionListener="#{bindings.Create.execute}" text="Clear"
+                                                   disabled="#{!bindings.Create.enabled}" id="b3"/>
+                                        <af:button actionListener="#{bindings.Create.execute}" text="Add"
+                                                   disabled="#{!bindings.Create.enabled}" id="b4"/>
+                                    </af:toolbar>
+                                </af:panelFormLayout>
+                            </af:popup>
+                            <af:toolbar id="t1">
+                                <af:button text="Add" id="b2">
+                                    <af:showPopupBehavior popupId="p1"/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete.enabled}" id="b1"/>
+                            </af:toolbar>
+                        </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>
             </af:form>

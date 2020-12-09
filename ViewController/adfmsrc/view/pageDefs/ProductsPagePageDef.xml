@@ -20,25 +20,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action IterBinding="ProductsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
-    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductName">
-      <AttrNames>
-        <Item Value="ProductName"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductDescription">
-      <AttrNames>
-        <Item Value="ProductDescription"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
-      <AttrNames>
-        <Item Value="ProductPrice"/>
-      </AttrNames>
-    </attributeValues>
-    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory" id="ProductCategory"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <tree IterBinding="ProductsVO1Iterator" id="ProductsVO11">
       <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO110">
         <AttrNames>
@@ -50,5 +32,26 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductDescription">
+      <AttrNames>
+        <Item Value="ProductDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductCategory">
+      <AttrNames>
+        <Item Value="ProductCategory"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
+      <AttrNames>
+        <Item Value="ProductPrice"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
   </bindings>
 </pageDefinition>
