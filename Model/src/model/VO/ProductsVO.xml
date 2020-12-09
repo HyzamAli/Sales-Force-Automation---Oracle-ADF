@@ -27,23 +27,6 @@
     Name="pPC"
     Kind="viewcriteria"
     Type="java.lang.String"/>
-  <ListBinding
-    Name="LOV_ProductCategory"
-    ListVOName="ProductEO.ProductCategoriesVO1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="ProductCategory"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="Category"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="Category"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
   <EntityUsage
     Name="ProductEO"
     Entity="model.EO.ProductEO"/>
@@ -103,16 +86,13 @@
     PrecisionRule="true"
     EntityAttrName="ProductCategory"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_CATEGORY"
-    LOVName="LOV_ProductCategory">
+    AliasName="PRODUCT_CATEGORY">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.ProductsVO.ProductCategory_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductCategory_LABEL_PLURAL"/>
-        <CONTROLTYPE
-          Value="choice"/>
         <DISPLAYWIDTH
           Value="100"/>
       </SchemaBasedProperties>
