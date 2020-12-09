@@ -1,0 +1,51 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">SalesCustomersList</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">508.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SalesCustomersList&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">356.53516</property>
+      <property
+         name="page">/SalesCustomersList.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <TaskFlowCall
+      id="TaskFlowCall3">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowCall1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">taskFlowCall1</property>
+      <property
+         name="x">722.0</property>
+      <property
+         name="y">314.8672</property>
+      <property
+         name="documentReference">/WEB-INF/customers-flow-detailed.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">customers-flow-detailed</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase4"
+      from="View2"
+      to="TaskFlowCall3">
+      <property
+         name="fromOutcome">toDetailed</property>
+      <property
+         name="sdm:polyPoints">R50,549.0,356.46875,681.0,314.80078,L50</property>
+   </ControlFlowCase>
+</SDM>

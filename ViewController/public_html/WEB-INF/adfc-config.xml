@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <metadata-resource id="__8">/WEB-INF/adfc-sales.xml</metadata-resource>
   <view id="RolesView">
     <page>/RolesPage.jspx</page>
   </view>

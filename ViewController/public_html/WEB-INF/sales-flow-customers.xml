@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sales-flow-customers">
+    <default-activity>SalesCustomersList</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="SalesCustomersList">
+      <page>/SalesCustomersList.jsff</page>
+    </view>
+    <task-flow-call id="taskFlowCall1">
+      <task-flow-reference>
+        <document>/WEB-INF/customers-flow-detailed.xml</document>
+        <id>customers-flow-detailed</id>
+      </task-flow-reference>
+    </task-flow-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>SalesCustomersList</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toDetailed</from-outcome>
+        <to-activity-id>taskFlowCall1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

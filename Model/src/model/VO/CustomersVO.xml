@@ -12,7 +12,73 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="IndustryLovsVO1"
+    ViewObjectName="model.VO.IndustryLovsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UserProfilesVO1"
+    ViewObjectName="model.VO.UserProfilesVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Industry"
+    ListVOName="IndustryLovsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Industry"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IndustryName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="IndustryName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ReferencePt"
+    ListVOName="UserProfilesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ReferencePt"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ParentAcc"
+    ListVOName="CustomersVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ParentAcc"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerEO"
     Entity="model.EO.CustomerEO"/>
@@ -22,73 +88,160 @@
     PrecisionRule="true"
     EntityAttrName="CustomerId"
     EntityUsage="CustomerEO"
-    AliasName="CUSTOMER_ID"/>
+    AliasName="CUSTOMER_ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="ReferencePt"
     PrecisionRule="true"
     EntityAttrName="ReferencePt"
     EntityUsage="CustomerEO"
-    AliasName="REFERENCE_PT"/>
+    AliasName="REFERENCE_PT"
+    LOVName="LOV_ReferencePt">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccName"
     PrecisionRule="true"
     EntityAttrName="AccName"
     EntityUsage="CustomerEO"
-    AliasName="ACC_NAME"/>
+    AliasName="ACC_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AddLine1"
     PrecisionRule="true"
     EntityAttrName="AddLine1"
     EntityUsage="CustomerEO"
-    AliasName="ADD_LINE1"/>
+    AliasName="ADD_LINE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AddLine2"
     PrecisionRule="true"
     EntityAttrName="AddLine2"
     EntityUsage="CustomerEO"
-    AliasName="ADD_LINE2"/>
+    AliasName="ADD_LINE2">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Country"
     PrecisionRule="true"
     EntityAttrName="Country"
     EntityUsage="CustomerEO"
-    AliasName="COUNTRY"/>
+    AliasName="COUNTRY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Pincode"
     PrecisionRule="true"
     EntityAttrName="Pincode"
     EntityUsage="CustomerEO"
-    AliasName="PINCODE"/>
+    AliasName="PINCODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="10"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ParentAcc"
     PrecisionRule="true"
     EntityAttrName="ParentAcc"
     EntityUsage="CustomerEO"
-    AliasName="PARENT_ACC"/>
+    AliasName="PARENT_ACC"
+    LOVName="LOV_ParentAcc">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccUrl"
     PrecisionRule="true"
     EntityAttrName="AccUrl"
     EntityUsage="CustomerEO"
-    AliasName="ACC_URL"/>
+    AliasName="ACC_URL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Industry"
     PrecisionRule="true"
     EntityAttrName="Industry"
     EntityUsage="CustomerEO"
-    AliasName="INDUSTRY"/>
+    AliasName="INDUSTRY"
+    LOVName="LOV_Industry">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+        <DISPLAYWIDTH
+          Value="25"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Email"
     PrecisionRule="true"
     EntityAttrName="Email"
     EntityUsage="CustomerEO"
-    AliasName="EMAIL"/>
+    AliasName="EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Phone"
     PrecisionRule="true"
     EntityAttrName="Phone"
     EntityUsage="CustomerEO"
-    AliasName="PHONE"/>
+    AliasName="PHONE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsVisible"
     PrecisionRule="true"
@@ -120,4 +273,24 @@
     ViewLink="model.VO.SysC0011008Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="CustomersVOWhereCriteria"
+      ViewObjectName="model.VO.CustomersVO"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="CustomersVOWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="IsVisible"
+          ViewAttribute="IsVisible"
+          Operator="="
+          Conjunction="AND"
+          Value="1"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
 </ViewObject>

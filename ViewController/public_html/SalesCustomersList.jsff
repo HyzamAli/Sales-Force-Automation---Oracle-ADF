@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelBox text="PanelBox1" id="pb1">
+      <f:facet name="toolbar">
+        <af:toolbar id="t1">
+          <af:button text="Detailed" id="b1" action="toDetailed"/>
+        </af:toolbar>
+      </f:facet>
+    </af:panelBox>
+  </af:panelGroupLayout>
+</ui:composition>
