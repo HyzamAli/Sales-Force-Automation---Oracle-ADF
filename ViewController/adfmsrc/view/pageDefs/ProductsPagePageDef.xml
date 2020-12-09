@@ -4,6 +4,10 @@
   <parameters/>
   <executables>
     <iterator Binds="ProductsVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="ProductsVO1Iterator"/>
+    <searchRegion Criteria="ProductsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ProductsVO1Iterator" id="ProductsVOCriteriaQuery"/>
+    <searchRegion Criteria="ProductsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ProductsVO1Iterator" id="ProductsVOCriteriaQuery1"/>
   </executables>
   <bindings>
     <tree IterBinding="ProductsVO1Iterator" id="ProductsVO1">
@@ -33,11 +37,18 @@
         <Item Value="ProductPrice"/>
       </AttrNames>
     </attributeValues>
+    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory" id="ProductCategory"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO11">
+      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO110">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="ProductDescription"/>
+          <Item Value="ProductCategory"/>
+          <Item Value="ProductPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
     <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
-    <action IterBinding="ProductsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
-    <listOfValues IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory"
-                  id="ProductCategory1"/>
   </bindings>
 </pageDefinition>
