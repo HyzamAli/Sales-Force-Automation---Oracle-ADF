@@ -109,6 +109,9 @@
   <ViewUsage
     Name="IndustryLovsVO1"
     ViewObjectName="model.VO.IndustryLovsVO"/>
+  <ViewUsage
+    Name="CustomerByIDVO1"
+    ViewObjectName="model.VO.CustomerByIDVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"

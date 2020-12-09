@@ -1,13 +1,98 @@
 <?xml version='1.0' encoding='UTF-8'?>
-<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:panelBox text="Detailed" id="pb1">
-      <f:facet name="toolbar">
-        <af:toolbar id="t1">
-          <af:button text="button 1" id="b1" action="goBack"/>
-        </af:toolbar>
-      </f:facet>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
+                xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout id="pgl1">
+    <af:panelBox text="PanelBox1" id="pb1">
+      <f:facet name="toolbar"/>
+      <af:panelFormLayout id="pfl1">
+        <af:inputText value="#{bindings.AccName.inputValue}" label="#{bindings.AccName.hints.label}"
+                      required="#{bindings.AccName.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.AccName.hints.displayWidth}"
+                      maximumLength="#{bindings.AccName.hints.precision}" shortDesc="#{bindings.AccName.hints.tooltip}"
+                      id="it1">
+          <f:validator binding="#{bindings.AccName.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AccUrl.inputValue}" label="#{bindings.AccUrl.hints.label}"
+                      required="#{bindings.AccUrl.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.AccUrl.hints.displayWidth}" maximumLength="#{bindings.AccUrl.hints.precision}"
+                      shortDesc="#{bindings.AccUrl.hints.tooltip}" id="it2">
+          <f:validator binding="#{bindings.AccUrl.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AddLine1.inputValue}" label="#{bindings.AddLine1.hints.label}"
+                      required="#{bindings.AddLine1.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.AddLine1.hints.displayWidth}"
+                      maximumLength="#{bindings.AddLine1.hints.precision}"
+                      shortDesc="#{bindings.AddLine1.hints.tooltip}" id="it3">
+          <f:validator binding="#{bindings.AddLine1.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.AddLine2.inputValue}" label="#{bindings.AddLine2.hints.label}"
+                      required="#{bindings.AddLine2.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.AddLine2.hints.displayWidth}"
+                      maximumLength="#{bindings.AddLine2.hints.precision}"
+                      shortDesc="#{bindings.AddLine2.hints.tooltip}" id="it4">
+          <f:validator binding="#{bindings.AddLine2.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Country.inputValue}" label="#{bindings.Country.hints.label}"
+                      required="#{bindings.Country.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.Country.hints.displayWidth}"
+                      maximumLength="#{bindings.Country.hints.precision}" shortDesc="#{bindings.Country.hints.tooltip}"
+                      id="it5">
+          <f:validator binding="#{bindings.Country.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.CustomerId.inputValue}" label="#{bindings.CustomerId.hints.label}"
+                      required="#{bindings.CustomerId.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.CustomerId.hints.displayWidth}"
+                      maximumLength="#{bindings.CustomerId.hints.precision}"
+                      shortDesc="#{bindings.CustomerId.hints.tooltip}" id="it6">
+          <f:validator binding="#{bindings.CustomerId.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerId.format}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
+                      required="#{bindings.Email.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.Email.hints.displayWidth}" maximumLength="#{bindings.Email.hints.precision}"
+                      shortDesc="#{bindings.Email.hints.tooltip}" id="it7">
+          <f:validator binding="#{bindings.Email.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.Industry.inputValue}" label="#{bindings.Industry.label}"
+                            required="#{bindings.Industry.hints.mandatory}"
+                            shortDesc="#{bindings.Industry.hints.tooltip}" readOnly="true" id="soc1">
+          <f:selectItems value="#{bindings.Industry.items}" id="si1"/>
+          <f:validator binding="#{bindings.Industry.validator}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.IsVisible.inputValue}" label="#{bindings.IsVisible.hints.label}"
+                      required="#{bindings.IsVisible.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.IsVisible.hints.displayWidth}"
+                      maximumLength="#{bindings.IsVisible.hints.precision}"
+                      shortDesc="#{bindings.IsVisible.hints.tooltip}" id="it8">
+          <f:validator binding="#{bindings.IsVisible.validator}"/>
+          <af:convertNumber groupingUsed="false" pattern="#{bindings.IsVisible.format}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.ParentAcc.inputValue}" label="#{bindings.ParentAcc.label}"
+                            required="#{bindings.ParentAcc.hints.mandatory}"
+                            shortDesc="#{bindings.ParentAcc.hints.tooltip}" readOnly="true" id="soc2">
+          <f:selectItems value="#{bindings.ParentAcc.items}" id="si2"/>
+          <f:validator binding="#{bindings.ParentAcc.validator}"/>
+        </af:selectOneChoice>
+        <af:inputText value="#{bindings.Phone.inputValue}" label="#{bindings.Phone.hints.label}"
+                      required="#{bindings.Phone.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.Phone.hints.displayWidth}" maximumLength="#{bindings.Phone.hints.precision}"
+                      shortDesc="#{bindings.Phone.hints.tooltip}" id="it9">
+          <f:validator binding="#{bindings.Phone.validator}"/>
+        </af:inputText>
+        <af:inputText value="#{bindings.Pincode.inputValue}" label="#{bindings.Pincode.hints.label}"
+                      required="#{bindings.Pincode.hints.mandatory}" readOnly="true"
+                      columns="#{bindings.Pincode.hints.displayWidth}"
+                      maximumLength="#{bindings.Pincode.hints.precision}" shortDesc="#{bindings.Pincode.hints.tooltip}"
+                      id="it10">
+          <f:validator binding="#{bindings.Pincode.validator}"/>
+        </af:inputText>
+        <af:selectOneChoice value="#{bindings.ReferencePt.inputValue}" label="#{bindings.ReferencePt.label}"
+                            required="#{bindings.ReferencePt.hints.mandatory}"
+                            shortDesc="#{bindings.ReferencePt.hints.tooltip}" readOnly="true" id="soc3">
+          <f:selectItems value="#{bindings.ReferencePt.items}" id="si3"/>
+          <f:validator binding="#{bindings.ReferencePt.validator}"/>
+        </af:selectOneChoice>
+      </af:panelFormLayout>
     </af:panelBox>
   </af:panelGroupLayout>
 </ui:composition>

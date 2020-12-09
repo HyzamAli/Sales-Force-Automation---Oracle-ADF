@@ -11,12 +11,16 @@
     <page path="/RolesPage.jspx" usageId="view_RolesPagePageDef"/>
     <page path="/UsersPage.jspx" usageId="view_UsersPagePageDef"/>
     <page path="/Sales.jsf" usageId="view_SalesPageDef"/>
+    <page path="/SalesCustomersList.jsff" usageId="view_SalesCustomersListPageDef"/>
+    <page path="/CustomersDetailed.jsff" usageId="view_CustomersDetailedPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
     <page id="view_RolesPagePageDef" path="view.pageDefs.RolesPagePageDef"/>
     <page id="view_UsersPagePageDef" path="view.pageDefs.UsersPagePageDef"/>
     <page id="view_SalesPageDef" path="view.pageDefs.SalesPageDef"/>
+    <page id="view_SalesCustomersListPageDef" path="view.pageDefs.SalesCustomersListPageDef"/>
+    <page id="view_CustomersDetailedPageDef" path="view.pageDefs.CustomersDetailedPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="CustomersDetailedPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomerByIDVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="CustomerByIDVO1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
+      <AttrNames>
+        <Item Value="AccName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccUrl">
+      <AttrNames>
+        <Item Value="AccUrl"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AddLine1">
+      <AttrNames>
+        <Item Value="AddLine1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AddLine2">
+      <AttrNames>
+        <Item Value="AddLine2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="Country">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_Industry" id="Industry"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="IsVisible">
+      <AttrNames>
+        <Item Value="IsVisible"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ParentAcc" id="ParentAcc"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="Phone">
+      <AttrNames>
+        <Item Value="Phone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="Pincode">
+      <AttrNames>
+        <Item Value="Pincode"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ReferencePt" id="ReferencePt"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+  </bindings>
+</pageDefinition>
