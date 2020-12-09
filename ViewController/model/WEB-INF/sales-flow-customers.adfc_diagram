@@ -1,0 +1,74 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">SalesCustomersList</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">289.0</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>SalesCustomersList&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">343.26953</property>
+      <property
+         name="page">/SalesCustomersList.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <MethodCall
+      id="MethodCall5">
+      <property
+         name="activityId">ExecuteWithParams</property>
+      <property
+         name="x">505.55176</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">290.4336</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="MethodCall5">
+      <property
+         name="fromOutcome">toDetailed</property>
+      <property
+         name="sdm:polyPoints">R50,330.0,343.20312,464.55176,290.3672,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View8">
+      <property
+         name="activityId">CustomersDetailed</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">673.3037</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>CustomersDetailed&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">213.23438</property>
+      <property
+         name="page">/CustomersDetailed.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase9"
+      from="MethodCall5"
+      to="View8">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">R50,546.55176,290.3672,632.3037,213.16797,L50</property>
+   </ControlFlowCase>
+</SDM>

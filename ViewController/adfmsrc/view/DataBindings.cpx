@@ -1,15 +1,26 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
              SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
   <pageMap>
     <page path="/ProductsPage.jspx" usageId="view_ProductsPagePageDef"/>
     <page path="/RolesPage.jspx" usageId="view_RolesPagePageDef"/>
     <page path="/UsersPage.jspx" usageId="view_UsersPagePageDef"/>
+    <page path="/Sales.jsf" usageId="view_SalesPageDef"/>
+    <page path="/SalesCustomersList.jsff" usageId="view_SalesCustomersListPageDef"/>
+    <page path="/CustomersDetailed.jsff" usageId="view_CustomersDetailedPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
     <page id="view_RolesPagePageDef" path="view.pageDefs.RolesPagePageDef"/>
     <page id="view_UsersPagePageDef" path="view.pageDefs.UsersPagePageDef"/>
+    <page id="view_SalesPageDef" path="view.pageDefs.SalesPageDef"/>
+    <page id="view_SalesCustomersListPageDef" path="view.pageDefs.SalesCustomersListPageDef"/>
+    <page id="view_CustomersDetailedPageDef" path="view.pageDefs.CustomersDetailedPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"

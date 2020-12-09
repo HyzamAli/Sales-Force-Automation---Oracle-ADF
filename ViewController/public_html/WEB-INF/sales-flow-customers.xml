@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="sales-flow-customers">
+    <default-activity>SalesCustomersList</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="SalesCustomersList">
+      <page>/SalesCustomersList.jsff</page>
+    </view>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="CustomersDetailed">
+      <page>/CustomersDetailed.jsff</page>
+    </view>
+    <control-flow-rule id="__1">
+      <from-activity-id>SalesCustomersList</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>toDetailed</from-outcome>
+        <to-activity-id>ExecuteWithParams</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>CustomersDetailed</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

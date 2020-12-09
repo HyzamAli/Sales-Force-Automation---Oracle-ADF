@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="SalesCustomersListPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="CustomersVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="CustomersVO1Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="CustomersVO1Iterator" id="CustomersVO1">
+      <nodeDefinition DefName="model.VO.CustomersVO" Name="CustomersVO10">
+        <AttrNames>
+          <Item Value="CustomerId"/>
+          <Item Value="AccName"/>
+          <Item Value="AddLine1"/>
+          <Item Value="AccUrl"/>
+          <Item Value="Industry"/>
+          <Item Value="Email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

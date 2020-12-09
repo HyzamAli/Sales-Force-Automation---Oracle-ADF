@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CustomerByIDVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.CustomerByIDVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <Variable
+    Name="custID"
+    Kind="where"
+    Type="oracle.jbo.domain.Number"/>
+  <ViewAccessor
+    Name="IndustryLovsVO1"
+    ViewObjectName="model.VO.IndustryLovsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UserProfilesVO1"
+    ViewObjectName="model.VO.UserProfilesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_Industry"
+    ListVOName="IndustryLovsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="Industry"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="IndustryName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="IndustryName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ParentAcc"
+    ListVOName="CustomersVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ParentAcc"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ReferencePt"
+    ListVOName="UserProfilesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ReferencePt"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="CustomerEO"
+    Entity="model.EO.CustomerEO"/>
+  <ViewAttribute
+    Name="AccName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AccName"
+    EntityUsage="CustomerEO"
+    AliasName="ACC_NAME"/>
+  <ViewAttribute
+    Name="AccUrl"
+    PrecisionRule="true"
+    EntityAttrName="AccUrl"
+    EntityUsage="CustomerEO"
+    AliasName="ACC_URL"/>
+  <ViewAttribute
+    Name="AddLine1"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="AddLine1"
+    EntityUsage="CustomerEO"
+    AliasName="ADD_LINE1"/>
+  <ViewAttribute
+    Name="AddLine2"
+    PrecisionRule="true"
+    EntityAttrName="AddLine2"
+    EntityUsage="CustomerEO"
+    AliasName="ADD_LINE2"/>
+  <ViewAttribute
+    Name="Country"
+    PrecisionRule="true"
+    EntityAttrName="Country"
+    EntityUsage="CustomerEO"
+    AliasName="COUNTRY"/>
+  <ViewAttribute
+    Name="CustomerId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="CustomerId"
+    EntityUsage="CustomerEO"
+    AliasName="CUSTOMER_ID"/>
+  <ViewAttribute
+    Name="Email"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="CustomerEO"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="Industry"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="Industry"
+    EntityUsage="CustomerEO"
+    AliasName="INDUSTRY"
+    LOVName="LOV_Industry">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="IsVisible"
+    PrecisionRule="true"
+    EntityAttrName="IsVisible"
+    EntityUsage="CustomerEO"
+    AliasName="IS_VISIBLE"/>
+  <ViewAttribute
+    Name="ParentAcc"
+    PrecisionRule="true"
+    EntityAttrName="ParentAcc"
+    EntityUsage="CustomerEO"
+    AliasName="PARENT_ACC"
+    LOVName="LOV_ParentAcc">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="Phone"
+    PrecisionRule="true"
+    EntityAttrName="Phone"
+    EntityUsage="CustomerEO"
+    AliasName="PHONE"/>
+  <ViewAttribute
+    Name="Pincode"
+    PrecisionRule="true"
+    EntityAttrName="Pincode"
+    EntityUsage="CustomerEO"
+    AliasName="PINCODE"/>
+  <ViewAttribute
+    Name="ReferencePt"
+    PrecisionRule="true"
+    EntityAttrName="ReferencePt"
+    EntityUsage="CustomerEO"
+    AliasName="REFERENCE_PT"
+    LOVName="LOV_ReferencePt">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="CustomerByIDVOWhereCriteria"
+      ViewObjectName="model.VO.CustomerByIDVO"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="CustomerByIDVOWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="CustomerId"
+          ViewAttribute="CustomerId"
+          Operator="="
+          Conjunction="AND"
+          Value=":custID"
+          GenerateIsNullClauseForBindVars="false"
+          IsBindVarValue="true"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
+</ViewObject>
