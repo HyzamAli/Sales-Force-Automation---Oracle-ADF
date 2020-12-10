@@ -8,6 +8,7 @@ public class UsersBean {
     private String start_date;
     private String end_date;
     private String supervisor;
+    private String role;
 
     public UsersBean() {
     }
@@ -66,5 +67,13 @@ public class UsersBean {
 
     public String getSupervisor() {
         return supervisor;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public String getRole() {
+        return role;
     }
 }

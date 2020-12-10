@@ -70,6 +70,6 @@
       <NamedData NDName="EndDate" NDValue="#{UsersBean.end_date}" NDType="java.lang.String"/>
       <NamedData NDName="SupervisorId" NDValue="#{UsersBean.supervisor}" NDType="java.lang.String"/>
     </action>
-    <action IterBinding="UserProfilesVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="UserProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
   </bindings>
 </pageDefinition>
