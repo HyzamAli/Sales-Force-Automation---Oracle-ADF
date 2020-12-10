@@ -44,7 +44,6 @@
     </attributeValues>
     <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_SupervisorId" id="SupervisorId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <action IterBinding="UserProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO1">
@@ -61,5 +60,16 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="UserProfilesVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="NameFirst" NDValue="#{UsersBean.fname}" NDType="java.lang.String"/>
+      <NamedData NDName="NameLast" NDValue="#{UsersBean.lname}" NDType="java.lang.String"/>
+      <NamedData NDName="NameMiddle" NDValue="#{UsersBean.mname}" NDType="java.lang.String"/>
+      <NamedData NDName="Password1" NDValue="#{UsersBean.password}" NDType="java.lang.String"/>
+      <NamedData NDName="StartDate" NDValue="#{UsersBean.start_date}" NDType="java.lang.String"/>
+      <NamedData NDName="EndDate" NDValue="#{UsersBean.end_date}" NDType="java.lang.String"/>
+      <NamedData NDName="SupervisorId" NDValue="#{UsersBean.supervisor}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="UserProfilesVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

@@ -202,7 +202,7 @@
             <value n="name" v="Default"/>
             <hash n="oracle.adfdt.controller.adfc.source.runner.AdfcRunnerLaunchSettings">
                <value n="unboundedTaskFlow" v="true"/>
-               <value n="viewActivityId" v="Sales"/>
+               <value n="viewActivityId" v="sales"/>
             </hash>
             <url n="targetURL" path="public_html/WEB-INF/adfc-sales.xml"/>
          </hash>

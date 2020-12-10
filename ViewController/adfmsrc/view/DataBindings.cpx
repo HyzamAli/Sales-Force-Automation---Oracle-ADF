@@ -13,6 +13,8 @@
     <page path="/Sales.jsf" usageId="view_SalesPageDef"/>
     <page path="/SalesCustomersList.jsff" usageId="view_SalesCustomersListPageDef"/>
     <page path="/CustomersDetailed.jsff" usageId="view_CustomersDetailedPageDef"/>
+    <page path="/WEB-INF/sales-flow-customers.xml#sales-flow-customers@ExecuteWithParams"
+          usageId="view_sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
@@ -21,6 +23,8 @@
     <page id="view_SalesPageDef" path="view.pageDefs.SalesPageDef"/>
     <page id="view_SalesCustomersListPageDef" path="view.pageDefs.SalesCustomersListPageDef"/>
     <page id="view_CustomersDetailedPageDef" path="view.pageDefs.CustomersDetailedPageDef"/>
+    <page id="view_sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef"
+          path="view.pageDefs.sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"

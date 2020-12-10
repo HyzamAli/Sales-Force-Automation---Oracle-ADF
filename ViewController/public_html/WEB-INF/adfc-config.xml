@@ -47,4 +47,14 @@
       <value>/WEB-INF/adminMenu.xml</value>
     </managed-property>
   </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name>ProductsBean</managed-bean-name>
+    <managed-bean-class>view.ProductsBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__10">
+    <managed-bean-name>UsersBean</managed-bean-name>
+    <managed-bean-class>view.UsersBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

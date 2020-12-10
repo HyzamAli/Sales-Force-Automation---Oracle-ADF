@@ -23,7 +23,7 @@
                                       selectedRowKeys="#{bindings.ProductsVO12.collectionModel.selectedRow}"
                                       selectionListener="#{bindings.ProductsVO12.collectionModel.makeCurrent}"
                                       rowSelection="single" fetchSize="#{bindings.ProductsVO12.rangeSize}" id="t3"
-                                      partialTriggers="::b3 ::b4 ::b1">
+                                      partialTriggers="::b1 ::b7 ::b4">
                                 <af:column headerText="#{bindings.ProductsVO12.hints.ProductName.label}" id="c1">
                                     <af:inputText value="#{row.bindings.ProductName.inputValue}"
                                                   label="#{bindings.ProductsVO12.hints.ProductName.label}"
@@ -76,7 +76,7 @@
                                     <f:facet name="buttonBar"/>
                                 </af:dialog>
                                 <af:panelFormLayout id="pfl1" inlineStyle="background-color:White;">
-                                    <af:inputText value="#{bindings.ProductName.inputValue}"
+                                    <af:inputText value="#{ProductsBean.productName}"
                                                   label="#{bindings.ProductName.hints.label}"
                                                   required="#{bindings.ProductName.hints.mandatory}"
                                                   columns="#{bindings.ProductName.hints.displayWidth}"
@@ -84,7 +84,7 @@
                                                   shortDesc="#{bindings.ProductName.hints.tooltip}" id="it1">
                                         <f:validator binding="#{bindings.ProductName.validator}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.ProductDescription.inputValue}"
+                                    <af:inputText value="#{ProductsBean.productDescription}"
                                                   label="#{bindings.ProductDescription.hints.label}"
                                                   required="#{bindings.ProductDescription.hints.mandatory}"
                                                   columns="#{bindings.ProductDescription.hints.displayWidth}"
@@ -100,7 +100,7 @@
                                                   shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="it3">
                                         <f:validator binding="#{bindings.ProductCategory.validator}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.ProductPrice.inputValue}"
+                                    <af:inputText value="#{ProductsBean.productPrice}"
                                                   label="#{bindings.ProductPrice.hints.label}"
                                                   required="#{bindings.ProductPrice.hints.mandatory}"
                                                   columns="#{bindings.ProductPrice.hints.displayWidth}"
@@ -111,10 +111,9 @@
                                                           pattern="#{bindings.ProductPrice.format}"/>
                                     </af:inputText>
                                     <af:toolbar id="t2">
-                                        <af:button actionListener="#{bindings.Create.execute}" text="Clear"
-                                                   disabled="#{!bindings.Create.enabled}" id="b3"/>
-                                        <af:button actionListener="#{bindings.Create.execute}" text="Add"
-                                                   disabled="#{!bindings.Create.enabled}" id="b4"/>
+                                        <af:button actionListener="#{bindings.CreateWithParams.execute}"
+                                                   text="CreateWithParams"
+                                                   disabled="#{!bindings.CreateWithParams.enabled}" id="b7"/>
                                     </af:toolbar>
                                 </af:panelFormLayout>
                             </af:popup>
@@ -130,7 +129,56 @@
                                            disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
                                     <af:resetActionListener/>
                                 </af:button>
+                                <af:button text="Edit" id="b3">
+                                    <af:showPopupBehavior popupId="p2"/>
+                                </af:button>
                             </af:toolbar>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+                                <af:dialog id="d3" type="none">
+                                    <f:facet name="buttonBar"/>
+                                    <af:panelFormLayout id="pfl2">
+                                        <af:inputText value="#{ProductsBean.productName}"
+                                                      label="#{bindings.ProductName.hints.label}"
+                                                      required="#{bindings.ProductName.hints.mandatory}"
+                                                      columns="#{bindings.ProductName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductName.hints.precision}"
+                                                      shortDesc="#{bindings.ProductName.hints.tooltip}" id="it9">
+                                            <f:validator binding="#{bindings.ProductName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{ProductsBean.productDescription}"
+                                                      label="#{bindings.ProductDescription.hints.label}"
+                                                      required="#{bindings.ProductDescription.hints.mandatory}"
+                                                      columns="#{bindings.ProductDescription.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductDescription.hints.precision}"
+                                                      shortDesc="#{bindings.ProductDescription.hints.tooltip}"
+                                                      id="it10">
+                                            <f:validator binding="#{bindings.ProductDescription.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.ProductCategory.inputValue}"
+                                                      label="#{bindings.ProductCategory.hints.label}"
+                                                      required="#{bindings.ProductCategory.hints.mandatory}"
+                                                      columns="#{bindings.ProductCategory.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductCategory.hints.precision}"
+                                                      shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="it11">
+                                            <f:validator binding="#{bindings.ProductCategory.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{ProductsBean.productPrice}"
+                                                      label="#{bindings.ProductPrice.hints.label}"
+                                                      required="#{bindings.ProductPrice.hints.mandatory}"
+                                                      columns="#{bindings.ProductPrice.hints.displayWidth}"
+                                                      maximumLength="#{bindings.ProductPrice.hints.precision}"
+                                                      shortDesc="#{bindings.ProductPrice.hints.tooltip}" id="it12">
+                                            <f:validator binding="#{bindings.ProductPrice.validator}"/>
+                                            <af:convertNumber groupingUsed="false"
+                                                              pattern="#{bindings.ProductPrice.format}"/>
+                                        </af:inputText>
+                                    </af:panelFormLayout>
+                                    <af:toolbar id="t4">
+                                        <af:button actionListener="#{bindings.Create.execute}" text="Create"
+                                                   disabled="#{!bindings.Create.enabled}" id="b4"/>
+                                    </af:toolbar>
+                                </af:dialog>
+                            </af:popup>
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>

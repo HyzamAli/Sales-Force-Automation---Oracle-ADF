@@ -22,7 +22,7 @@
                                       rows="#{bindings.UserProfilesVO1.rangeSize}"
                                       emptyText="#{bindings.UserProfilesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                                       rowBandingInterval="0" fetchSize="#{bindings.UserProfilesVO1.rangeSize}" id="t3"
-                                      partialTriggers="::b2 ::b3 ::b4">
+                                      partialTriggers="::b2 ::b7 ::b4">
                                 <af:column headerText="#{bindings.UserProfilesVO1.hints.RolesId.label}" id="c1">
                                     <af:selectOneChoice value="#{row.bindings.RolesId.inputValue}"
                                                         label="#{row.bindings.RolesId.label}"
@@ -122,13 +122,16 @@
                                            disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
                                     <af:resetActionListener/>
                                 </af:button>
+                                <af:button text="Edit" id="b3">
+                                    <af:showPopupBehavior popupId="p2"/>
+                                </af:button>
                             </af:toolbar>
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
                                 <af:dialog id="d2" type="none" inlineStyle="background-color:White;">
                                     <f:facet name="buttonBar"/>
                                 </af:dialog>
                                 <af:panelFormLayout id="pfl1" inlineStyle="background-color:White;">
-                                    <af:inputText value="#{bindings.NameFirst.inputValue}"
+                                    <af:inputText value="#{UsersBean.fname}"
                                                   label="#{bindings.NameFirst.hints.label}"
                                                   required="#{bindings.NameFirst.hints.mandatory}"
                                                   columns="#{bindings.NameFirst.hints.displayWidth}"
@@ -136,7 +139,7 @@
                                                   shortDesc="#{bindings.NameFirst.hints.tooltip}" id="it1">
                                         <f:validator binding="#{bindings.NameFirst.validator}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.NameLast.inputValue}"
+                                    <af:inputText value="#{UsersBean.lname}"
                                                   label="#{bindings.NameLast.hints.label}"
                                                   required="#{bindings.NameLast.hints.mandatory}"
                                                   columns="#{bindings.NameLast.hints.displayWidth}"
@@ -144,7 +147,7 @@
                                                   shortDesc="#{bindings.NameLast.hints.tooltip}" id="it2">
                                         <f:validator binding="#{bindings.NameLast.validator}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.NameMiddle.inputValue}"
+                                    <af:inputText value="#{UsersBean.mname}"
                                                   label="#{bindings.NameMiddle.hints.label}"
                                                   required="#{bindings.NameMiddle.hints.mandatory}"
                                                   columns="#{bindings.NameMiddle.hints.displayWidth}"
@@ -152,7 +155,7 @@
                                                   shortDesc="#{bindings.NameMiddle.hints.tooltip}" id="it3">
                                         <f:validator binding="#{bindings.NameMiddle.validator}"/>
                                     </af:inputText>
-                                    <af:inputText value="#{bindings.Password1.inputValue}"
+                                    <af:inputText value="#{UsersBean.password}"
                                                   label="#{bindings.Password1.hints.label}"
                                                   required="#{bindings.Password1.hints.mandatory}"
                                                   columns="#{bindings.Password1.hints.displayWidth}"
@@ -160,7 +163,7 @@
                                                   shortDesc="#{bindings.Password1.hints.tooltip}" id="it4">
                                         <f:validator binding="#{bindings.Password1.validator}"/>
                                     </af:inputText>
-                                    <af:inputDate value="#{bindings.StartDate.inputValue}"
+                                    <af:inputDate value="#{UsersBean.start_date}"
                                                   label="#{bindings.StartDate.hints.label}"
                                                   required="#{bindings.StartDate.hints.mandatory}"
                                                   columns="#{bindings.StartDate.hints.displayWidth}"
@@ -168,7 +171,7 @@
                                         <f:validator binding="#{bindings.StartDate.validator}"/>
                                         <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
                                     </af:inputDate>
-                                    <af:inputDate value="#{bindings.EndDate.inputValue}"
+                                    <af:inputDate value="#{UsersBean.end_date}"
                                                   label="#{bindings.EndDate.hints.label}"
                                                   required="#{bindings.EndDate.hints.mandatory}"
                                                   columns="#{bindings.EndDate.hints.displayWidth}"
@@ -176,7 +179,7 @@
                                         <f:validator binding="#{bindings.EndDate.validator}"/>
                                         <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
                                     </af:inputDate>
-                                    <af:selectOneChoice value="#{bindings.SupervisorId.inputValue}"
+                                    <af:selectOneChoice value="#{UsersBean.supervisor}"
                                                         label="#{bindings.SupervisorId.label}"
                                                         required="#{bindings.SupervisorId.hints.mandatory}"
                                                         shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc2">
@@ -185,11 +188,77 @@
                                     </af:selectOneChoice>
                                 </af:panelFormLayout>
                                 <af:toolbar id="t2" inlineStyle="background-color:White;">
-                                    <af:button actionListener="#{bindings.Create.execute}" text="Clear"
-                                               disabled="#{!bindings.Create.enabled}" id="b3"/>
-                                    <af:button actionListener="#{bindings.Create.execute}" text="Add"
-                                               disabled="#{!bindings.Create.enabled}" id="b4"/>
+                                    <af:button actionListener="#{bindings.CreateWithParams.execute}"
+                                               text="CreateWithParams" disabled="#{!bindings.CreateWithParams.enabled}"
+                                               id="b7"/>
                                 </af:toolbar>
+                            </af:popup>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+                                <af:dialog id="d3" type="none" inlineStyle="background-color:White;">
+                                    <f:facet name="buttonBar"/>
+                                    <af:panelFormLayout id="pfl2" inlineStyle="background-color:White;">
+                                        <af:inputText value="#{UsersBean.fname}"
+                                                      label="#{bindings.NameFirst.hints.label}"
+                                                      required="#{bindings.NameFirst.hints.mandatory}"
+                                                      columns="#{bindings.NameFirst.hints.displayWidth}"
+                                                      maximumLength="#{bindings.NameFirst.hints.precision}"
+                                                      shortDesc="#{bindings.NameFirst.hints.tooltip}" id="it9">
+                                            <f:validator binding="#{bindings.NameFirst.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{UsersBean.lname}"
+                                                      label="#{bindings.NameLast.hints.label}"
+                                                      required="#{bindings.NameLast.hints.mandatory}"
+                                                      columns="#{bindings.NameLast.hints.displayWidth}"
+                                                      maximumLength="#{bindings.NameLast.hints.precision}"
+                                                      shortDesc="#{bindings.NameLast.hints.tooltip}" id="it10">
+                                            <f:validator binding="#{bindings.NameLast.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{UsersBean.mname}"
+                                                      label="#{bindings.NameMiddle.hints.label}"
+                                                      required="#{bindings.NameMiddle.hints.mandatory}"
+                                                      columns="#{bindings.NameMiddle.hints.displayWidth}"
+                                                      maximumLength="#{bindings.NameMiddle.hints.precision}"
+                                                      shortDesc="#{bindings.NameMiddle.hints.tooltip}" id="it11">
+                                            <f:validator binding="#{bindings.NameMiddle.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{UsersBean.password}"
+                                                      label="#{bindings.Password1.hints.label}"
+                                                      required="#{bindings.Password1.hints.mandatory}"
+                                                      columns="#{bindings.Password1.hints.displayWidth}"
+                                                      maximumLength="#{bindings.Password1.hints.precision}"
+                                                      shortDesc="#{bindings.Password1.hints.tooltip}" id="it12">
+                                            <f:validator binding="#{bindings.Password1.validator}"/>
+                                        </af:inputText>
+                                        <af:inputDate value="#{UsersBean.start_date}"
+                                                      label="#{bindings.StartDate.hints.label}"
+                                                      required="#{bindings.StartDate.hints.mandatory}"
+                                                      columns="#{bindings.StartDate.hints.displayWidth}"
+                                                      shortDesc="#{bindings.StartDate.hints.tooltip}" id="id5">
+                                            <f:validator binding="#{bindings.StartDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                                        </af:inputDate>
+                                        <af:inputDate value="#{UsersBean.end_date}"
+                                                      label="#{bindings.EndDate.hints.label}"
+                                                      required="#{bindings.EndDate.hints.mandatory}"
+                                                      columns="#{bindings.EndDate.hints.displayWidth}"
+                                                      shortDesc="#{bindings.EndDate.hints.tooltip}" id="id6">
+                                            <f:validator binding="#{bindings.EndDate.validator}"/>
+                                            <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                                        </af:inputDate>
+                                        <af:selectOneChoice value="#{UsersBean.supervisor}"
+                                                            label="#{bindings.SupervisorId.label}"
+                                                            required="#{bindings.SupervisorId.hints.mandatory}"
+                                                            shortDesc="#{bindings.SupervisorId.hints.tooltip}"
+                                                            id="soc3">
+                                            <f:selectItems value="#{bindings.SupervisorId.items}" id="si3"/>
+                                            <f:validator binding="#{bindings.SupervisorId.validator}"/>
+                                        </af:selectOneChoice>
+                                        <af:toolbar id="t4" inlineStyle="background-color:White;">
+                                            <af:button actionListener="#{bindings.Execute.execute}" text="Execute"
+                                                       disabled="#{!bindings.Execute.enabled}" id="b4"/>
+                                        </af:toolbar>
+                                    </af:panelFormLayout>
+                                </af:dialog>
                             </af:popup>
                         </af:panelGroupLayout>
                     </f:facet>
