@@ -47,4 +47,9 @@
       <value>/WEB-INF/adminMenu.xml</value>
     </managed-property>
   </managed-bean>
+  <managed-bean id="__9">
+    <managed-bean-name>RolesBean</managed-bean-name>
+    <managed-bean-class>view.RolesBean</managed-bean-class>
+    <managed-bean-scope>view</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

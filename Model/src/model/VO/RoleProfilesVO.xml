@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="pRN"
     Kind="viewcriteria"
@@ -90,7 +91,7 @@
       <ViewCriteriaItem
         Name="RolesName"
         ViewAttribute="RolesName"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":pRN"
         IsBindVarValue="true"
