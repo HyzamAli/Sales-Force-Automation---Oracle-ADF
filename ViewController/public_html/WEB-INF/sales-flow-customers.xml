@@ -8,15 +8,15 @@
     <view id="SalesCustomersList">
       <page>/SalesCustomersList.jsff</page>
     </view>
+    <view id="CustomersDetailed">
+      <page>/CustomersDetailed.jsff</page>
+    </view>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
-    <view id="CustomersDetailed">
-      <page>/CustomersDetailed.jsff</page>
-    </view>
     <control-flow-rule id="__1">
       <from-activity-id>SalesCustomersList</from-activity-id>
       <control-flow-case id="__2">
