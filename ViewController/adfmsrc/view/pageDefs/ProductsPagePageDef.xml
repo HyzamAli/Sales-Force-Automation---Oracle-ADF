@@ -60,6 +60,6 @@
       <NamedData NDName="ProductDescription" NDValue="#{ProductsBean.productDescription}" NDType="java.lang.String"/>
       <NamedData NDName="ProductPrice" NDValue="#{ProductsBean.productPrice}" NDType="java.lang.String"/>
     </action>
-    <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action IterBinding="ProductsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>
