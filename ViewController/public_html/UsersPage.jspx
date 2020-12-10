@@ -95,14 +95,7 @@
                                 <af:dialog id="d2" type="none" inlineStyle="background-color:White;">
                                     <f:facet name="buttonBar"/>
                                 </af:dialog>
-                                <af:panelFormLayout id="pfl1">
-                                    <af:selectOneChoice value="#{bindings.RolesId.inputValue}"
-                                                        label="#{bindings.RolesId.label}"
-                                                        required="#{bindings.RolesId.hints.mandatory}"
-                                                        shortDesc="#{bindings.RolesId.hints.tooltip}" id="soc1">
-                                        <f:selectItems value="#{bindings.RolesId.items}" id="si1"/>
-                                        <f:validator binding="#{bindings.RolesId.validator}"/>
-                                    </af:selectOneChoice>
+                                <af:panelFormLayout id="pfl1" inlineStyle="background-color:White;">
                                     <af:inputText value="#{bindings.NameFirst.inputValue}"
                                                   label="#{bindings.NameFirst.hints.label}"
                                                   required="#{bindings.NameFirst.hints.mandatory}"

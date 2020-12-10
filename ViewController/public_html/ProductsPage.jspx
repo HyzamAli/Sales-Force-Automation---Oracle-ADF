@@ -7,7 +7,7 @@
             <af:messages id="m1"/>
              <af:form id="f1">
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
-                    <f:attribute name="PanelText" value="Manage Roles"/>
+                    <f:attribute name="PanelText" value="Manage Products"/>
                     <f:facet name="body">
                         <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:White;">
                             <af:query id="qryId1" headerText="Search" disclosed="true"
@@ -54,7 +54,7 @@
                                 <af:dialog id="d2" type="none" inlineStyle="background-color:White;">
                                     <f:facet name="buttonBar"/>
                                 </af:dialog>
-                                <af:panelFormLayout id="pfl1">
+                                <af:panelFormLayout id="pfl1" inlineStyle="background-color:White;">
                                     <af:inputText value="#{bindings.ProductName.inputValue}"
                                                   label="#{bindings.ProductName.hints.label}"
                                                   required="#{bindings.ProductName.hints.mandatory}"
