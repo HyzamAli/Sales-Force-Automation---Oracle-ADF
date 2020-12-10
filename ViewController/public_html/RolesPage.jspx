@@ -9,82 +9,87 @@
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:attribute name="PanelText" value="Manage Roles"/>
                     <f:facet name="body">
-                        <af:panelSplitter id="ps1" orientation="vertical" styleClass="AFStretchWidth">
-                            <f:facet name="first">
-                                <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:White;">
-                                   
-                                        <af:query id="qryId1" headerText="Search" disclosed="true"
-                                                  value="#{bindings.RoleProfilesVOCriteriaQuery.queryDescriptor}"
-                                                  model="#{bindings.RoleProfilesVOCriteriaQuery.queryModel}"
-                                                  queryListener="#{bindings.RoleProfilesVOCriteriaQuery.processQuery}"
-                                                  queryOperationListener="#{bindings.RoleProfilesVOCriteriaQuery.processQueryOperation}"/>
-                                    
-                                </af:panelGroupLayout>
-                            </f:facet>
-                            <f:facet name="second">
-                                <af:panelBox text="All Roles" id="pb3">
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t3">
-                                            <af:button text="Add" id="b1">
-                                                <af:showPopupBehavior popupId="p1"/>
-                                            </af:button>
-                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                        <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:White;">
+                            <af:query id="qryId1" headerText="Search" disclosed="true"
+                                      value="#{bindings.RoleProfilesVOCriteriaQuery.queryDescriptor}"
+                                      model="#{bindings.RoleProfilesVOCriteriaQuery.queryModel}"
+                                      queryListener="#{bindings.RoleProfilesVOCriteriaQuery.processQuery}"
+                                      queryOperationListener="#{bindings.RoleProfilesVOCriteriaQuery.processQueryOperation}"/>
+                            <af:table value="#{bindings.RoleProfilesVO1.collectionModel}" var="row"
+                                      rows="#{bindings.RoleProfilesVO1.rangeSize}"
+                                      emptyText="#{bindings.RoleProfilesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      rowBandingInterval="0"
+                                      selectedRowKeys="#{bindings.RoleProfilesVO1.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}" id="t1"
+                                      partialTriggers="::b3 ::b4 ::b2">
+                                <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}" id="c1">
+                                    <af:inputText value="#{row.bindings.RolesName.inputValue}"
+                                                  label="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
+                                                  required="#{bindings.RoleProfilesVO1.hints.RolesName.mandatory}"
+                                                  columns="#{bindings.RoleProfilesVO1.hints.RolesName.displayWidth}"
+                                                  maximumLength="#{bindings.RoleProfilesVO1.hints.RolesName.precision}"
+                                                  shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"
+                                                  id="it3">
+                                        <f:validator binding="#{row.bindings.RolesName.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                                <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
+                                           id="c2">
+                                    <af:inputText value="#{row.bindings.RolesDescription.inputValue}"
+                                                  label="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
+                                                  required="#{bindings.RoleProfilesVO1.hints.RolesDescription.mandatory}"
+                                                  columns="#{bindings.RoleProfilesVO1.hints.RolesDescription.displayWidth}"
+                                                  maximumLength="#{bindings.RoleProfilesVO1.hints.RolesDescription.precision}"
+                                                  shortDesc="#{bindings.RoleProfilesVO1.hints.RolesDescription.tooltip}"
+                                                  id="it4">
+                                        <f:validator binding="#{row.bindings.RolesDescription.validator}"/>
+                                    </af:inputText>
+                                </af:column>
+                            </af:table>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+                                <af:dialog id="d2" type="none">
+                                    <f:facet name="buttonBar"/>
+                                    <af:panelFormLayout id="pfl2">
+                                        <af:inputText value="#{bindings.RolesName.inputValue}"
+                                                      label="#{bindings.RolesName.hints.label}"
+                                                      required="#{bindings.RolesName.hints.mandatory}"
+                                                      columns="#{bindings.RolesName.hints.displayWidth}"
+                                                      maximumLength="#{bindings.RolesName.hints.precision}"
+                                                      shortDesc="#{bindings.RolesName.hints.tooltip}" id="it1">
+                                            <f:validator binding="#{bindings.RolesName.validator}"/>
+                                        </af:inputText>
+                                        <af:inputText value="#{bindings.RolesDescription.inputValue}"
+                                                      label="#{bindings.RolesDescription.hints.label}"
+                                                      required="#{bindings.RolesDescription.hints.mandatory}"
+                                                      columns="#{bindings.RolesDescription.hints.displayWidth}"
+                                                      maximumLength="#{bindings.RolesDescription.hints.precision}"
+                                                      shortDesc="#{bindings.RolesDescription.hints.tooltip}" id="it2">
+                                            <f:validator binding="#{bindings.RolesDescription.validator}"/>
+                                        </af:inputText>
+                                        <af:toolbar id="t4">
+                                            <af:button actionListener="#{bindings.Create.execute}" text="Clear"
+                                                       disabled="#{!bindings.Create.enabled}" id="b3"/>
+                                            <af:button actionListener="#{bindings.Create.execute}" text="Add"
+                                                       disabled="#{!bindings.Create.enabled}" id="b4"/>
                                         </af:toolbar>
-                                    </f:facet>
-                                    <af:table value="#{bindings.RoleProfilesVO1.collectionModel}" var="row"
-                                              rows="#{bindings.RoleProfilesVO1.rangeSize}"
-                                              emptyText="#{bindings.RoleProfilesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                              rowBandingInterval="0"
-                                              selectedRowKeys="#{bindings.RoleProfilesVO1.collectionModel.selectedRow}"
-                                              selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
-                                              rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
-                                              id="t1" partialTriggers="::b3 ::b4 ::b2"
-                                              columnStretching="last">
-                                        <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
-                                                   id="c1" rowHeader="true">
-                                            <af:outputText value="#{row.RolesName}"
-                                                           shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"/>
-                                        </af:column>
-                                        <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
-                                                   id="c2">
-                                            <af:outputText value="#{row.RolesDescription}"
-                                                           shortDesc="#{bindings.RoleProfilesVO1.hints.RolesDescription.tooltip}"/>
-                                        </af:column>
-                                    </af:table>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                                        <af:dialog id="d2" type="none">
-                                            <f:facet name="buttonBar"/>
-                                            <af:panelFormLayout id="pfl2">
-                                                <af:inputText value="#{bindings.RolesName.inputValue}"
-                                                              label="#{bindings.RolesName.hints.label}"
-                                                              required="#{bindings.RolesName.hints.mandatory}"
-                                                              columns="#{bindings.RolesName.hints.displayWidth}"
-                                                              maximumLength="#{bindings.RolesName.hints.precision}"
-                                                              shortDesc="#{bindings.RolesName.hints.tooltip}" id="it1">
-                                                    <f:validator binding="#{bindings.RolesName.validator}"/>
-                                                </af:inputText>
-                                                <af:inputText value="#{bindings.RolesDescription.inputValue}"
-                                                              label="#{bindings.RolesDescription.hints.label}"
-                                                              required="#{bindings.RolesDescription.hints.mandatory}"
-                                                              columns="#{bindings.RolesDescription.hints.displayWidth}"
-                                                              maximumLength="#{bindings.RolesDescription.hints.precision}"
-                                                              shortDesc="#{bindings.RolesDescription.hints.tooltip}"
-                                                              id="it2">
-                                                    <f:validator binding="#{bindings.RolesDescription.validator}"/>
-                                                </af:inputText>
-                                                <af:toolbar id="t4">
-                                                    <af:button actionListener="#{bindings.Create.execute}" text="Clear"
-                                                               disabled="#{!bindings.Create.enabled}" id="b3"/>
-                                                    <af:button actionListener="#{bindings.Create.execute}" text="Add"
-                                                               disabled="#{!bindings.Create.enabled}" id="b4"/>
-                                                </af:toolbar>
-                                            </af:panelFormLayout>
-                                        </af:dialog>
-                                    </af:popup>
-                                </af:panelBox>
-                            </f:facet>
-                        </af:panelSplitter>
+                                    </af:panelFormLayout>
+                                </af:dialog>
+                            </af:popup>
+                            <af:toolbar id="t3">
+                                <af:button text="Add" id="b1">
+                                    <af:showPopupBehavior popupId="p1"/>
+                                </af:button>
+                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                           disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                           disabled="#{!bindings.Commit.enabled}" id="b6"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                        </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>
             </af:form>

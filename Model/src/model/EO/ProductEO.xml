@@ -35,8 +35,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="PRODUCTS"
-    IsNotNull="true">
+    TableName="PRODUCTS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -71,8 +70,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="PRODUCTS"
-    IsNotNull="true"/>
+    TableName="PRODUCTS"/>
   <AccessorAttribute
     Name="ProductsPerOppurtunityEO"
     Association="model.EO.SysC0011006Assoc"
@@ -80,30 +78,6 @@
     AssociationOtherEnd="model.EO.SysC0011006Assoc.ProductEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <Key
-    Name="ProductsProductNameCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"PRODUCT_NAME" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="PRODUCTS_PRODUCT_NAME_CHECK"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EO.ProductEO.ProductName"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="ProductsProductPriceCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"PRODUCT_PRICE" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="PRODUCTS_PRODUCT_PRICE_CHECK"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EO.ProductEO.ProductPrice"/>
-    </AttrArray>
-  </Key>
   <Key
     Name="SysC0010990"
     PrimaryKey="true">

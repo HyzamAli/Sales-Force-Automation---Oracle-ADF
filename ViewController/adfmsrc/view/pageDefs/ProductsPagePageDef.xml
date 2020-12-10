@@ -20,8 +20,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action IterBinding="ProductsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductName">
       <AttrNames>
         <Item Value="ProductName"/>
@@ -32,15 +32,21 @@
         <Item Value="ProductDescription"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductCategory">
+      <AttrNames>
+        <Item Value="ProductCategory"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
       <AttrNames>
         <Item Value="ProductPrice"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory" id="ProductCategory"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO11">
-      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO110">
+    <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO12">
+      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO120">
         <AttrNames>
           <Item Value="ProductName"/>
           <Item Value="ProductDescription"/>
@@ -49,6 +55,5 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

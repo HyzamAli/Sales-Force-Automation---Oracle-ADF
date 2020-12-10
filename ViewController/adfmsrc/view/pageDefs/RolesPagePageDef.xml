@@ -9,14 +9,6 @@
                   Binds="RoleProfilesVO1Iterator" id="RoleProfilesVOCriteriaQuery"/>
   </executables>
   <bindings>
-    <tree IterBinding="RoleProfilesVO1Iterator" id="RoleProfilesVO1">
-      <nodeDefinition DefName="model.VO.RoleProfilesVO" Name="RoleProfilesVO10">
-        <AttrNames>
-          <Item Value="RolesName"/>
-          <Item Value="RolesDescription"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <attributeValues IterBinding="RoleProfilesVO1Iterator" id="RolesName">
       <AttrNames>
         <Item Value="RolesName"/>
@@ -29,5 +21,15 @@
     </attributeValues>
     <action IterBinding="RoleProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
     <action IterBinding="RoleProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <tree IterBinding="RoleProfilesVO1Iterator" id="RoleProfilesVO1">
+      <nodeDefinition DefName="model.VO.RoleProfilesVO" Name="RoleProfilesVO10">
+        <AttrNames>
+          <Item Value="RolesName"/>
+          <Item Value="RolesDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
