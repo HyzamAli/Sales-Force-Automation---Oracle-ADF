@@ -30,8 +30,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ROLE_PROFILES"
-    IsNotNull="true">
+    TableName="ROLE_PROFILES">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -78,18 +77,6 @@
     AssociationOtherEnd="model.EO.SysC0011015Assoc.RoleProfileEO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
-  <Key
-    Name="RoleProfilesRolesNameCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"ROLES_NAME" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="ROLE_PROFILES_ROLES_NAME_CHECK"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EO.RoleProfileEO.RolesName"/>
-    </AttrArray>
-  </Key>
   <Key
     Name="SysC0010984"
     PrimaryKey="true">

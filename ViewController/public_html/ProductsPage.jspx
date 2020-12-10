@@ -15,39 +15,60 @@
                                       model="#{bindings.ProductsVOCriteriaQuery1.queryModel}"
                                       queryListener="#{bindings.ProductsVOCriteriaQuery1.processQuery}"
                                       queryOperationListener="#{bindings.ProductsVOCriteriaQuery1.processQueryOperation}"
-                                      resultComponentId="::resId1"/>
-                            <af:table value="#{bindings.ProductsVO11.collectionModel}" var="row"
-                                      rows="#{bindings.ProductsVO11.rangeSize}"
-                                      emptyText="#{bindings.ProductsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                      />
+                            <af:table value="#{bindings.ProductsVO12.collectionModel}" var="row"
+                                      rows="#{bindings.ProductsVO12.rangeSize}"
+                                      emptyText="#{bindings.ProductsVO12.viewable ? 'No data to display.' : 'Access Denied.'}"
                                       rowBandingInterval="0"
-                                      selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
-                                      selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
-                                      rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}" id="resId1"
-                                      partialTriggers="::b1 ::b3 ::b4">
-                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}" id="resId1c1">
-                                    <af:outputText value="#{row.ProductName}"
-                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductName.tooltip}"
-                                                   id="ot1"/>
+                                      selectedRowKeys="#{bindings.ProductsVO12.collectionModel.selectedRow}"
+                                      selectionListener="#{bindings.ProductsVO12.collectionModel.makeCurrent}"
+                                      rowSelection="single" fetchSize="#{bindings.ProductsVO12.rangeSize}" id="t3"
+                                      partialTriggers="::b3 ::b4 ::b1">
+                                <af:column headerText="#{bindings.ProductsVO12.hints.ProductName.label}" id="c1">
+                                    <af:inputText value="#{row.bindings.ProductName.inputValue}"
+                                                  label="#{bindings.ProductsVO12.hints.ProductName.label}"
+                                                  required="#{bindings.ProductsVO12.hints.ProductName.mandatory}"
+                                                  columns="#{bindings.ProductsVO12.hints.ProductName.displayWidth}"
+                                                  maximumLength="#{bindings.ProductsVO12.hints.ProductName.precision}"
+                                                  shortDesc="#{bindings.ProductsVO12.hints.ProductName.tooltip}"
+                                                  id="it5">
+                                        <f:validator binding="#{row.bindings.ProductName.validator}"/>
+                                    </af:inputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductDescription.label}"
-                                           id="resId1c2">
-                                    <af:outputText value="#{row.ProductDescription}"
-                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductDescription.tooltip}"
-                                                   id="ot2"/>
+                                <af:column headerText="#{bindings.ProductsVO12.hints.ProductDescription.label}" id="c2">
+                                    <af:inputText value="#{row.bindings.ProductDescription.inputValue}"
+                                                  label="#{bindings.ProductsVO12.hints.ProductDescription.label}"
+                                                  required="#{bindings.ProductsVO12.hints.ProductDescription.mandatory}"
+                                                  columns="#{bindings.ProductsVO12.hints.ProductDescription.displayWidth}"
+                                                  maximumLength="#{bindings.ProductsVO12.hints.ProductDescription.precision}"
+                                                  shortDesc="#{bindings.ProductsVO12.hints.ProductDescription.tooltip}"
+                                                  id="it6">
+                                        <f:validator binding="#{row.bindings.ProductDescription.validator}"/>
+                                    </af:inputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductCategory.label}"
-                                           id="resId1c3">
-                                    <af:outputText value="#{row.ProductCategory}"
-                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductCategory.tooltip}"
-                                                   id="ot3"/>
+                                <af:column headerText="#{bindings.ProductsVO12.hints.ProductCategory.label}" id="c3">
+                                    <af:inputText value="#{row.bindings.ProductCategory.inputValue}"
+                                                  label="#{bindings.ProductsVO12.hints.ProductCategory.label}"
+                                                  required="#{bindings.ProductsVO12.hints.ProductCategory.mandatory}"
+                                                  columns="#{bindings.ProductsVO12.hints.ProductCategory.displayWidth}"
+                                                  maximumLength="#{bindings.ProductsVO12.hints.ProductCategory.precision}"
+                                                  shortDesc="#{bindings.ProductsVO12.hints.ProductCategory.tooltip}"
+                                                  id="it7">
+                                        <f:validator binding="#{row.bindings.ProductCategory.validator}"/>
+                                    </af:inputText>
                                 </af:column>
-                                <af:column headerText="#{bindings.ProductsVO11.hints.ProductPrice.label}" id="resId1c4">
-                                    <af:outputText value="#{row.ProductPrice}"
-                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductPrice.tooltip}"
-                                                   id="ot4">
+                                <af:column headerText="#{bindings.ProductsVO12.hints.ProductPrice.label}" id="c4">
+                                    <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
+                                                  label="#{bindings.ProductsVO12.hints.ProductPrice.label}"
+                                                  required="#{bindings.ProductsVO12.hints.ProductPrice.mandatory}"
+                                                  columns="#{bindings.ProductsVO12.hints.ProductPrice.displayWidth}"
+                                                  maximumLength="#{bindings.ProductsVO12.hints.ProductPrice.precision}"
+                                                  shortDesc="#{bindings.ProductsVO12.hints.ProductPrice.tooltip}"
+                                                  id="it8">
+                                        <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
                                         <af:convertNumber groupingUsed="false"
-                                                          pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"/>
-                                    </af:outputText>
+                                                          pattern="#{bindings.ProductsVO12.hints.ProductPrice.format}"/>
+                                    </af:inputText>
                                 </af:column>
                             </af:table>
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
@@ -103,6 +124,12 @@
                                 </af:button>
                                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                                            disabled="#{!bindings.Delete.enabled}" id="b1"/>
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                           disabled="#{!bindings.Commit.enabled}" id="b5"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b6">
+                                    <af:resetActionListener/>
+                                </af:button>
                             </af:toolbar>
                         </af:panelGroupLayout>
                     </f:facet>

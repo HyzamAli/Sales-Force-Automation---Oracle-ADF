@@ -9,20 +9,6 @@
                   Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery1"/>
   </executables>
   <bindings>
-    <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO11">
-      <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO110">
-        <AttrNames>
-          <Item Value="RolesId"/>
-          <Item Value="NameFirst"/>
-          <Item Value="NameLast"/>
-          <Item Value="NameMiddle"/>
-          <Item Value="Password1"/>
-          <Item Value="StartDate"/>
-          <Item Value="EndDate"/>
-          <Item Value="SupervisorId"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
@@ -59,5 +45,21 @@
     <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_SupervisorId" id="SupervisorId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="UserProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO1">
+      <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO10">
+        <AttrNames>
+          <Item Value="RolesId"/>
+          <Item Value="NameFirst"/>
+          <Item Value="NameLast"/>
+          <Item Value="NameMiddle"/>
+          <Item Value="Password1"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="SupervisorId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

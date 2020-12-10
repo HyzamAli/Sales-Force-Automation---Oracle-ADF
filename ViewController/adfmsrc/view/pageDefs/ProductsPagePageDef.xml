@@ -21,16 +21,6 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="ProductsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
-    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO11">
-      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO110">
-        <AttrNames>
-          <Item Value="ProductName"/>
-          <Item Value="ProductDescription"/>
-          <Item Value="ProductCategory"/>
-          <Item Value="ProductPrice"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductName">
       <AttrNames>
@@ -53,5 +43,17 @@
       </AttrNames>
     </attributeValues>
     <action IterBinding="ProductsVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO12">
+      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO120">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="ProductDescription"/>
+          <Item Value="ProductCategory"/>
+          <Item Value="ProductPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
