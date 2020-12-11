@@ -112,6 +112,9 @@
   <ViewUsage
     Name="CustomerByIDVO1"
     ViewObjectName="model.VO.CustomerByIDVO"/>
+  <ViewUsage
+    Name="CustomerNotesVO6"
+    ViewObjectName="model.VO.CustomerNotesVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -231,5 +234,11 @@
     ViewLinkObjectName="model.VO.SysC0011015Link"
     SrcViewUsageName="model.APP_MODULE.AppsModule.RoleProfilesVO1"
     DstViewUsageName="model.APP_MODULE.AppsModule.UserProfilesVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CustomerNotesByID1"
+    ViewLinkObjectName="model.VO.CustomerNotesByID"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerByIDVO1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.CustomerNotesVO6"
     Reversed="false"/>
 </AppModule>
