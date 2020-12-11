@@ -107,7 +107,7 @@
           <af:column headerText="#{bindings.CustomerNotesVO6.hints.Id.label}" id="c1">
             <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.CustomerNotesVO6.hints.Id.label}"
                           required="#{bindings.CustomerNotesVO6.hints.Id.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.Id.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.Id}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.Id.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.Id.tooltip}" id="it11">
               <f:validator binding="#{row.bindings.Id.validator}"/>
@@ -118,7 +118,7 @@
             <af:inputText value="#{row.bindings.CustomerId.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.CustomerId.label}"
                           required="#{bindings.CustomerNotesVO6.hints.CustomerId.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.CustomerId.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.CustomerId}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.CustomerId.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.CustomerId.tooltip}" id="it12">
               <f:validator binding="#{row.bindings.CustomerId.validator}"/>
@@ -129,7 +129,7 @@
             <af:inputText value="#{row.bindings.ContactId.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.ContactId.label}"
                           required="#{bindings.CustomerNotesVO6.hints.ContactId.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.ContactId.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.ContactId}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.ContactId.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.ContactId.tooltip}" id="it13">
               <f:validator binding="#{row.bindings.ContactId.validator}"/>
@@ -140,7 +140,7 @@
             <af:inputText value="#{row.bindings.RepId.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.RepId.label}"
                           required="#{bindings.CustomerNotesVO6.hints.RepId.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.RepId.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.RepId}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.RepId.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.RepId.tooltip}" id="it14">
               <f:validator binding="#{row.bindings.RepId.validator}"/>
@@ -151,7 +151,7 @@
             <af:inputText value="#{row.bindings.NotesTitle.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.NotesTitle.label}"
                           required="#{bindings.CustomerNotesVO6.hints.NotesTitle.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.NotesTitle.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.NotesTitle}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.NotesTitle.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.NotesTitle.tooltip}" id="it15">
               <f:validator binding="#{row.bindings.NotesTitle.validator}"/>
@@ -161,7 +161,7 @@
             <af:inputDate value="#{row.bindings.CreatedOn.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.CreatedOn.label}"
                           required="#{bindings.CustomerNotesVO6.hints.CreatedOn.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.CreatedOn.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.CreatedOn}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.CreatedOn.tooltip}" id="id1">
               <f:validator binding="#{row.bindings.CreatedOn.validator}"/>
               <af:convertDateTime pattern="#{bindings.CustomerNotesVO6.hints.CreatedOn.format}"/>
@@ -171,7 +171,7 @@
             <af:inputText value="#{row.bindings.OppurtunityId.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.OppurtunityId.label}"
                           required="#{bindings.CustomerNotesVO6.hints.OppurtunityId.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.OppurtunityId.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.OppurtunityId}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.OppurtunityId.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.OppurtunityId.tooltip}" id="it16">
               <f:validator binding="#{row.bindings.OppurtunityId.validator}"/>
@@ -182,10 +182,253 @@
             <af:inputText value="#{row.bindings.NotesDescription.inputValue}"
                           label="#{bindings.CustomerNotesVO6.hints.NotesDescription.label}"
                           required="#{bindings.CustomerNotesVO6.hints.NotesDescription.mandatory}"
-                          columns="#{bindings.CustomerNotesVO6.hints.NotesDescription.displayWidth}"
+                          columns="#{bindings.CustomerNotesVO6.hints.NotesDescription}"
                           maximumLength="#{bindings.CustomerNotesVO6.hints.NotesDescription.precision}"
                           shortDesc="#{bindings.CustomerNotesVO6.hints.NotesDescription.tooltip}" id="it17">
               <f:validator binding="#{row.bindings.NotesDescription.validator}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelBox>
+    <af:panelBox text="PanelBox3" id="pb3">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc2">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.CustomerAppointmentsVO3.collectionModel}" var="row"
+                  rows="#{bindings.CustomerAppointmentsVO3.rangeSize}"
+                  emptyText="#{bindings.CustomerAppointmentsVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0"
+                  selectedRowKeys="#{bindings.CustomerAppointmentsVO3.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CustomerAppointmentsVO3.collectionModel.makeCurrent}"
+                  rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO3.rangeSize}" id="t2">
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.AppId.label}" id="c9">
+            <af:inputText value="#{row.bindings.AppId.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.AppId.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.AppId.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.AppId}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.AppId.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.AppId.tooltip}" id="it18">
+              <f:validator binding="#{row.bindings.AppId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerAppointmentsVO3.hints.AppId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.CustomerId.label}" id="c10">
+            <af:inputText value="#{row.bindings.CustomerId.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.CustomerId.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.CustomerId.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.CustomerId}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.CustomerId.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.CustomerId.tooltip}" id="it19">
+              <f:validator binding="#{row.bindings.CustomerId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.CustomerAppointmentsVO3.hints.CustomerId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.AppName.label}" id="c11">
+            <af:inputText value="#{row.bindings.AppName.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.AppName.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.AppName.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.AppName}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.AppName.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.AppName.tooltip}" id="it20">
+              <f:validator binding="#{row.bindings.AppName.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.AppDescription.label}" id="c12">
+            <af:inputText value="#{row.bindings.AppDescription.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.AppDescription.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.AppDescription.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.AppDescription}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.AppDescription.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.AppDescription.tooltip}" id="it21">
+              <f:validator binding="#{row.bindings.AppDescription.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.StartTime.label}" id="c13">
+            <af:inputDate value="#{row.bindings.StartTime.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.StartTime.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.StartTime.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.StartTime}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.StartTime.tooltip}" id="id2">
+              <f:validator binding="#{row.bindings.StartTime.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.StartTime.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.AppointmentType.label}" id="c14">
+            <af:inputText value="#{row.bindings.AppointmentType.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.AppointmentType.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.AppointmentType.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.AppointmentType}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.AppointmentType.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.AppointmentType.tooltip}" id="it22">
+              <f:validator binding="#{row.bindings.AppointmentType.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.AppointmentDirection.label}" id="c15">
+            <af:inputText value="#{row.bindings.AppointmentDirection.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.AppointmentDirection.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.AppointmentDirection.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.AppointmentDirection}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.AppointmentDirection.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.AppointmentDirection.tooltip}" id="it23">
+              <f:validator binding="#{row.bindings.AppointmentDirection.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c16">
+            <af:inputDate value="#{row.bindings.EndDate.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.EndDate.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.EndDate}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="id3">
+              <f:validator binding="#{row.bindings.EndDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.EndDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.Location.label}" id="c17">
+            <af:inputText value="#{row.bindings.Location.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.Location.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.Location.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.Location}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.Location.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.Location.tooltip}" id="it24">
+              <f:validator binding="#{row.bindings.Location.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.Resolution.label}" id="c18">
+            <af:inputText value="#{row.bindings.Resolution.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.Resolution.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.Resolution.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.Resolution}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.Resolution.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.Resolution.tooltip}" id="it25">
+              <f:validator binding="#{row.bindings.Resolution.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.ContactId.label}" id="c19">
+            <af:inputText value="#{row.bindings.ContactId.inputValue}"
+                          label="#{bindings.CustomerAppointmentsVO3.hints.ContactId.label}"
+                          required="#{bindings.CustomerAppointmentsVO3.hints.ContactId.mandatory}"
+                          columns="#{bindings.CustomerAppointmentsVO3.hints.ContactId}"
+                          maximumLength="#{bindings.CustomerAppointmentsVO3.hints.ContactId.precision}"
+                          shortDesc="#{bindings.CustomerAppointmentsVO3.hints.ContactId.tooltip}" id="it26">
+              <f:validator binding="#{row.bindings.ContactId.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.CustomerAppointmentsVO3.hints.ContactId.format}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelBox>
+    <af:panelBox text="PanelBox4" id="pb4">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc3">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.CustomerTasksVO6.collectionModel}" var="row"
+                  rows="#{bindings.CustomerTasksVO6.rangeSize}"
+                  emptyText="#{bindings.CustomerTasksVO6.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerTasksVO6.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.CustomerTasksVO6.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.CustomerTasksVO6.rangeSize}" id="t3">
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.TaskId.label}" id="c20">
+            <af:inputText value="#{row.bindings.TaskId.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.TaskId.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.TaskId.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.TaskId}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.TaskId.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.TaskId.tooltip}" id="it27">
+              <f:validator binding="#{row.bindings.TaskId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerTasksVO6.hints.TaskId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.CustomerId.label}" id="c21">
+            <af:inputText value="#{row.bindings.CustomerId.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.CustomerId.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.CustomerId.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.CustomerId}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.CustomerId.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.CustomerId.tooltip}" id="it28">
+              <f:validator binding="#{row.bindings.CustomerId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerTasksVO6.hints.CustomerId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.ContactId.label}" id="c22">
+            <af:inputText value="#{row.bindings.ContactId.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.ContactId.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.ContactId.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.ContactId}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.ContactId.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.ContactId.tooltip}" id="it29">
+              <f:validator binding="#{row.bindings.ContactId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerTasksVO6.hints.ContactId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.RepId.label}" id="c23">
+            <af:inputText value="#{row.bindings.RepId.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.RepId.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.RepId.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.RepId}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.RepId.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.RepId.tooltip}" id="it30">
+              <f:validator binding="#{row.bindings.RepId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerTasksVO6.hints.RepId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.Priority1.label}" id="c24">
+            <af:inputText value="#{row.bindings.Priority1.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.Priority1.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.Priority1.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.Priority1}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.Priority1.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.Priority1.tooltip}" id="it31">
+              <f:validator binding="#{row.bindings.Priority1.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.DueDate.label}" id="c25">
+            <af:inputDate value="#{row.bindings.DueDate.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.DueDate.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.DueDate.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.DueDate}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.DueDate.tooltip}" id="id4">
+              <f:validator binding="#{row.bindings.DueDate.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CustomerTasksVO6.hints.DueDate.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.PercentageCompletion.label}" id="c26">
+            <af:inputText value="#{row.bindings.PercentageCompletion.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.PercentageCompletion.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.PercentageCompletion.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.PercentageCompletion}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.PercentageCompletion.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.PercentageCompletion.tooltip}" id="it32">
+              <f:validator binding="#{row.bindings.PercentageCompletion.validator}"/>
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.CustomerTasksVO6.hints.PercentageCompletion.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.TaskDetails.label}" id="c27">
+            <af:inputText value="#{row.bindings.TaskDetails.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.TaskDetails.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.TaskDetails.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.TaskDetails}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.TaskDetails.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.TaskDetails.tooltip}" id="it33">
+              <f:validator binding="#{row.bindings.TaskDetails.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerTasksVO6.hints.OppurtunityId.label}" id="c28">
+            <af:inputText value="#{row.bindings.OppurtunityId.inputValue}"
+                          label="#{bindings.CustomerTasksVO6.hints.OppurtunityId.label}"
+                          required="#{bindings.CustomerTasksVO6.hints.OppurtunityId.mandatory}"
+                          columns="#{bindings.CustomerTasksVO6.hints.OppurtunityId}"
+                          maximumLength="#{bindings.CustomerTasksVO6.hints.OppurtunityId.precision}"
+                          shortDesc="#{bindings.CustomerTasksVO6.hints.OppurtunityId.tooltip}" id="it34">
+              <f:validator binding="#{row.bindings.OppurtunityId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerTasksVO6.hints.OppurtunityId.format}"/>
             </af:inputText>
           </af:column>
         </af:table>
