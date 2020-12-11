@@ -94,5 +94,102 @@
         </af:selectOneChoice>
       </af:panelFormLayout>
     </af:panelBox>
+    <af:panelBox text="PanelBox2" id="pb2">
+      <f:facet name="toolbar"/>
+      <af:panelCollection id="pc1">
+        <f:facet name="menus"/>
+        <f:facet name="toolbar"/>
+        <f:facet name="statusbar"/>
+        <af:table value="#{bindings.CustomerNotesVO6.collectionModel}" var="row"
+                  rows="#{bindings.CustomerNotesVO6.rangeSize}"
+                  emptyText="#{bindings.CustomerNotesVO6.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" fetchSize="#{bindings.CustomerNotesVO6.rangeSize}" id="t1">
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.Id.label}" id="c1">
+            <af:inputText value="#{row.bindings.Id.inputValue}" label="#{bindings.CustomerNotesVO6.hints.Id.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.Id.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.Id.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.Id.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.Id.tooltip}" id="it11">
+              <f:validator binding="#{row.bindings.Id.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerNotesVO6.hints.Id.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.CustomerId.label}" id="c2">
+            <af:inputText value="#{row.bindings.CustomerId.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.CustomerId.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.CustomerId.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.CustomerId.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.CustomerId.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.CustomerId.tooltip}" id="it12">
+              <f:validator binding="#{row.bindings.CustomerId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerNotesVO6.hints.CustomerId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.ContactId.label}" id="c3">
+            <af:inputText value="#{row.bindings.ContactId.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.ContactId.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.ContactId.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.ContactId.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.ContactId.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.ContactId.tooltip}" id="it13">
+              <f:validator binding="#{row.bindings.ContactId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerNotesVO6.hints.ContactId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.RepId.label}" id="c4">
+            <af:inputText value="#{row.bindings.RepId.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.RepId.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.RepId.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.RepId.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.RepId.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.RepId.tooltip}" id="it14">
+              <f:validator binding="#{row.bindings.RepId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerNotesVO6.hints.RepId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.NotesTitle.label}" id="c5">
+            <af:inputText value="#{row.bindings.NotesTitle.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.NotesTitle.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.NotesTitle.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.NotesTitle.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.NotesTitle.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.NotesTitle.tooltip}" id="it15">
+              <f:validator binding="#{row.bindings.NotesTitle.validator}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.CreatedOn.label}" id="c6">
+            <af:inputDate value="#{row.bindings.CreatedOn.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.CreatedOn.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.CreatedOn.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.CreatedOn.displayWidth}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.CreatedOn.tooltip}" id="id1">
+              <f:validator binding="#{row.bindings.CreatedOn.validator}"/>
+              <af:convertDateTime pattern="#{bindings.CustomerNotesVO6.hints.CreatedOn.format}"/>
+            </af:inputDate>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.OppurtunityId.label}" id="c7">
+            <af:inputText value="#{row.bindings.OppurtunityId.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.OppurtunityId.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.OppurtunityId.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.OppurtunityId.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.OppurtunityId.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.OppurtunityId.tooltip}" id="it16">
+              <f:validator binding="#{row.bindings.OppurtunityId.validator}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.CustomerNotesVO6.hints.OppurtunityId.format}"/>
+            </af:inputText>
+          </af:column>
+          <af:column headerText="#{bindings.CustomerNotesVO6.hints.NotesDescription.label}" id="c8">
+            <af:inputText value="#{row.bindings.NotesDescription.inputValue}"
+                          label="#{bindings.CustomerNotesVO6.hints.NotesDescription.label}"
+                          required="#{bindings.CustomerNotesVO6.hints.NotesDescription.mandatory}"
+                          columns="#{bindings.CustomerNotesVO6.hints.NotesDescription.displayWidth}"
+                          maximumLength="#{bindings.CustomerNotesVO6.hints.NotesDescription.precision}"
+                          shortDesc="#{bindings.CustomerNotesVO6.hints.NotesDescription.tooltip}" id="it17">
+              <f:validator binding="#{row.bindings.NotesDescription.validator}"/>
+            </af:inputText>
+          </af:column>
+        </af:table>
+      </af:panelCollection>
+    </af:panelBox>
   </af:panelGroupLayout>
 </ui:composition>

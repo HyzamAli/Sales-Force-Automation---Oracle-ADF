@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="CustomerNoteEO"
     Entity="model.EO.CustomerNoteEO"/>
@@ -49,13 +50,6 @@
     EntityUsage="CustomerNoteEO"
     AliasName="NOTES_TITLE"/>
   <ViewAttribute
-    Name="NotesDescription"
-    IsQueriable="false"
-    PrecisionRule="true"
-    EntityAttrName="NotesDescription"
-    EntityUsage="CustomerNoteEO"
-    AliasName="NOTES_DESCRIPTION"/>
-  <ViewAttribute
     Name="CreatedOn"
     PrecisionRule="true"
     EntityAttrName="CreatedOn"
@@ -67,4 +61,10 @@
     EntityAttrName="OppurtunityId"
     EntityUsage="CustomerNoteEO"
     AliasName="OPPURTUNITY_ID"/>
+  <ViewAttribute
+    Name="NotesDescription"
+    PrecisionRule="true"
+    EntityAttrName="NotesDescription"
+    EntityUsage="CustomerNoteEO"
+    AliasName="NOTES_DESCRIPTION"/>
 </ViewObject>

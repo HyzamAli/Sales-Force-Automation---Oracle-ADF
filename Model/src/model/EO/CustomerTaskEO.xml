@@ -12,13 +12,16 @@
   BindingStyle="OracleName">
   <Attribute
     Name="TaskId"
-    IsNotNull="true"
     ColumnName="TASK_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="CUSTOMER_TASKS"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="false"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="CustomerId"
     ColumnName="CUSTOMER_ID"

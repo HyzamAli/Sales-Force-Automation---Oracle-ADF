@@ -57,14 +57,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="NotesDescription"
-    IsQueriable="false"
-    ColumnName="NOTES_DESCRIPTION"
-    SQLType="BLOB"
-    Type="oracle.jbo.domain.BlobDomain"
-    ColumnType="BLOB"
-    TableName="CUSTOMER_NOTES"/>
-  <Attribute
     Name="CreatedOn"
     ColumnName="CREATED_ON"
     SQLType="DATE"
@@ -78,6 +70,18 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="CUSTOMER_NOTES"/>
+  <Attribute
+    Name="NotesDescription"
+    Precision="500"
+    ColumnName="NOTES_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_NOTES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="500"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerEO"
     Association="model.EO.SysC0010999Assoc"

@@ -5,6 +5,8 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="CustomerByIDVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="CustomerByIDVO1Iterator"/>
+    <iterator Binds="CustomerNotesVO6" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerNotesVO6Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
@@ -63,5 +65,19 @@
     </attributeValues>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ReferencePt" id="ReferencePt"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="CustomerNotesVO6Iterator" id="CustomerNotesVO6">
+      <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO60">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="CustomerId"/>
+          <Item Value="ContactId"/>
+          <Item Value="RepId"/>
+          <Item Value="NotesTitle"/>
+          <Item Value="CreatedOn"/>
+          <Item Value="OppurtunityId"/>
+          <Item Value="NotesDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
