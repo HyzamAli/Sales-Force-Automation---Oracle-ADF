@@ -121,7 +121,8 @@
     Type="java.lang.String"
     ColumnType="NUMBER"
     TableName="USER_PROFILES"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="while_insert"/>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011012Assoc"

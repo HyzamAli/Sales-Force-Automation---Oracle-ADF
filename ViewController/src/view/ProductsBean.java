@@ -4,6 +4,7 @@ public class ProductsBean {
     private String productName;
     private String productPrice;
     private String productDescription;
+    private String productCategory;
 
     public ProductsBean() {
     }
@@ -30,5 +31,13 @@ public class ProductsBean {
 
     public String getProductDescription() {
         return productDescription;
+    }
+
+    public void setProductCategory(String productCategory) {
+        this.productCategory = productCategory;
+    }
+
+    public String getProductCategory() {
+        return productCategory;
     }
 }

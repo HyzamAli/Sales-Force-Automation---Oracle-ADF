@@ -27,6 +27,27 @@
     Name="pPC"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="ProductCategoriesVO1"
+    ViewObjectName="model.VO.ProductCategoriesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProductCategory"
+    ListVOName="ProductCategoriesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="Category"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Category"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ProductEO"
     Entity="model.EO.ProductEO"/>
@@ -86,7 +107,8 @@
     PrecisionRule="true"
     EntityAttrName="ProductCategory"
     EntityUsage="ProductEO"
-    AliasName="PRODUCT_CATEGORY">
+    AliasName="PRODUCT_CATEGORY"
+    LOVName="LOV_ProductCategory">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -95,6 +117,8 @@
           ResId="model.VO.ProductsVO.ProductCategory_LABEL_PLURAL"/>
         <DISPLAYWIDTH
           Value="100"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -142,7 +166,7 @@
       <ViewCriteriaItem
         Name="ProductName"
         ViewAttribute="ProductName"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":pPN"
         IsBindVarValue="true"
@@ -183,6 +207,14 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="ProductId"/>
+  </SortCriteria>
+  <SortCriteria>
+    <Sort
+      Attribute="ProductId"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="ProductId"/>

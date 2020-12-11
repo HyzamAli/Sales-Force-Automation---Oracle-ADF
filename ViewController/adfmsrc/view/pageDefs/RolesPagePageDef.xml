@@ -31,7 +31,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="RoleProfilesVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
     <action IterBinding="RoleProfilesVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="RolesName" NDValue="#{viewScope.RolesBean.rolesName}" NDType="java.lang.String"/>

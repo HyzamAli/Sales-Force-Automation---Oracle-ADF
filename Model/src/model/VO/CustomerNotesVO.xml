@@ -22,7 +22,8 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="CustomerNoteEO"
-    AliasName="ID"/>
+    AliasName="ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"

@@ -21,7 +21,16 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="ProductsVO1Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
-    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO11">
+      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO110">
+        <AttrNames>
+          <Item Value="ProductName"/>
+          <Item Value="ProductDescription"/>
+          <Item Value="ProductCategory"/>
+          <Item Value="ProductPrice"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductName">
       <AttrNames>
         <Item Value="ProductName"/>
@@ -32,34 +41,22 @@
         <Item Value="ProductDescription"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="ProductsVO1Iterator" id="ProductCategory">
-      <AttrNames>
-        <Item Value="ProductCategory"/>
-      </AttrNames>
-    </attributeValues>
+    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory" id="ProductCategory"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
       <AttrNames>
         <Item Value="ProductPrice"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
-    <tree IterBinding="ProductsVO1Iterator" id="ProductsVO12">
-      <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO120">
-        <AttrNames>
-          <Item Value="ProductName"/>
-          <Item Value="ProductDescription"/>
-          <Item Value="ProductCategory"/>
-          <Item Value="ProductPrice"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <action IterBinding="ProductsVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="ProductName" NDValue="#{ProductsBean.productName}" NDType="java.lang.String"/>
       <NamedData NDName="ProductDescription" NDValue="#{ProductsBean.productDescription}" NDType="java.lang.String"/>
+      <NamedData NDName="ProductCategory" NDValue="#{ProductsBean.productCategory}" NDType="java.lang.String"/>
       <NamedData NDName="ProductPrice" NDValue="#{ProductsBean.productPrice}" NDType="java.lang.String"/>
     </action>
-    <action IterBinding="ProductsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
