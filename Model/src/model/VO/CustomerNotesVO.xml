@@ -14,6 +14,14 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="pC"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pTitle"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="CustomerNoteEO"
     Entity="model.EO.CustomerNoteEO"/>
@@ -67,4 +75,48 @@
     EntityAttrName="NotesDescription"
     EntityUsage="CustomerNoteEO"
     AliasName="NOTES_DESCRIPTION"/>
+  <ViewCriteria
+    Name="CustomerNotesVOCriteria"
+    ViewObjectName="model.VO.CustomerNotesVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerNotesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="NotesTitle"
+        ViewAttribute="NotesTitle"
+        Operator="="
+        Conjunction="AND"
+        Value=":pTitle"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CreatedOn"
+        ViewAttribute="CreatedOn"
+        Operator="="
+        Conjunction="AND"
+        Value=":pC"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

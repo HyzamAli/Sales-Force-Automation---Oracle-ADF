@@ -121,6 +121,9 @@
   <ViewUsage
     Name="CustomerTasksVO6"
     ViewObjectName="model.VO.CustomerTasksVO"/>
+  <ViewUsage
+    Name="CustomerContactsVO3"
+    ViewObjectName="model.VO.CustomerContactsVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -258,5 +261,11 @@
     ViewLinkObjectName="model.VO.CustomerTaskByID"
     SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerByIDVO1"
     DstViewUsageName="model.APP_MODULE.AppsModule.CustomerTasksVO6"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="CustomerContactByID1"
+    ViewLinkObjectName="model.VO.CustomerContactByID"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerByIDVO1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.CustomerContactsVO3"
     Reversed="false"/>
 </AppModule>
