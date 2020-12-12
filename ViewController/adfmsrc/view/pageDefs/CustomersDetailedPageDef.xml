@@ -11,6 +11,12 @@
               id="CustomerAppointmentsVO3Iterator"/>
     <iterator Binds="CustomerTasksVO6" RangeSize="25" DataControl="AppsModuleDataControl"
               id="CustomerTasksVO6Iterator"/>
+    <iterator Binds="CustomerNotesVO1" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerNotesVO1Iterator"/>
+    <searchRegion Criteria="CustomerNotesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerNotesVO1Iterator" id="CustomerNotesVOCriteriaQuery"/>
+    <iterator Binds="CustomerContactsVO3" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerContactsVO3Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
@@ -38,11 +44,6 @@
         <Item Value="Country"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
-      <AttrNames>
-        <Item Value="CustomerId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="Email">
       <AttrNames>
         <Item Value="Email"/>
@@ -50,11 +51,6 @@
     </attributeValues>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_Industry" id="Industry"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="CustomerByIDVO1Iterator" id="IsVisible">
-      <AttrNames>
-        <Item Value="IsVisible"/>
-      </AttrNames>
-    </attributeValues>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ParentAcc" id="ParentAcc"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="Phone">
@@ -69,13 +65,20 @@
     </attributeValues>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ReferencePt" id="ReferencePt"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <tree IterBinding="CustomerNotesVO6Iterator" id="CustomerNotesVO6">
-      <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO60">
+    <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
+      <nodeDefinition DefName="model.VO.CustomerContactsVO" Name="CustomerContactsVO30">
         <AttrNames>
-          <Item Value="Id"/>
-          <Item Value="CustomerId"/>
-          <Item Value="ContactId"/>
-          <Item Value="RepId"/>
+          <Item Value="IsPrimary"/>
+          <Item Value="ContactName"/>
+          <Item Value="ContactPhone"/>
+          <Item Value="ContactEmail"/>
+          <Item Value="InfluenceLevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerNotesVO6Iterator" id="CustomerNotesVO61">
+      <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO610">
+        <AttrNames>
           <Item Value="NotesTitle"/>
           <Item Value="CreatedOn"/>
           <Item Value="OppurtunityId"/>
@@ -83,11 +86,19 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVO3">
-      <nodeDefinition DefName="model.VO.CustomerAppointmentsVO" Name="CustomerAppointmentsVO30">
+    <tree IterBinding="CustomerTasksVO6Iterator" id="CustomerTasksVO61">
+      <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO610">
         <AttrNames>
-          <Item Value="AppId"/>
-          <Item Value="CustomerId"/>
+          <Item Value="Priority1"/>
+          <Item Value="DueDate"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="TaskDetails"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVO31">
+      <nodeDefinition DefName="model.VO.CustomerAppointmentsVO" Name="CustomerAppointmentsVO310">
+        <AttrNames>
           <Item Value="AppName"/>
           <Item Value="AppDescription"/>
           <Item Value="StartTime"/>
@@ -96,22 +107,6 @@
           <Item Value="EndDate"/>
           <Item Value="Location"/>
           <Item Value="Resolution"/>
-          <Item Value="ContactId"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
-    <tree IterBinding="CustomerTasksVO6Iterator" id="CustomerTasksVO6">
-      <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO60">
-        <AttrNames>
-          <Item Value="TaskId"/>
-          <Item Value="CustomerId"/>
-          <Item Value="ContactId"/>
-          <Item Value="RepId"/>
-          <Item Value="Priority1"/>
-          <Item Value="DueDate"/>
-          <Item Value="PercentageCompletion"/>
-          <Item Value="TaskDetails"/>
-          <Item Value="OppurtunityId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

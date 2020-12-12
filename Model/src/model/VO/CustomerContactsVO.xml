@@ -22,7 +22,8 @@
     PrecisionRule="true"
     EntityAttrName="CcId"
     EntityUsage="CustomerContactEO"
-    AliasName="CC_ID"/>
+    AliasName="CC_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
