@@ -2,18 +2,29 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:panelBox text="Customers" id="pb1">
+    <af:panelBox text="Customers" id="pb1"
+                 inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
+                 showHeader="always" showDisclosure="false">
       <f:facet name="toolbar">
         <af:toolbar id="t1">
-          <af:button text="Detailed" id="b1" action="toDetailed"/>
+          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
+                     id="b1" partialTriggers="pc1:t3"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t3">
+            <af:resetActionListener/>
+          </af:button>
         </af:toolbar>
       </f:facet>
-      <af:panelCollection id="pc1">
+      <af:panelCollection id="pc1"
+                          inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t2">
-            <af:button text="Create Customer" id="b3"/>
-            <af:button text="Delete Selection" id="b2"/>
+            <af:button text="Create Customer" id="b3">
+              <af:showPopupBehavior popupId="::p1"/>
+            </af:button>
+            <af:button text="Delete Selection" id="b2" actionListener="#{bindings.Delete.execute}"
+                       disabled="#{!bindings.Delete.enabled}"/>
           </af:toolbar>
         </f:facet>
         <f:facet name="statusbar"/>
@@ -21,10 +32,11 @@
                   emptyText="#{bindings.CustomersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                   rowBandingInterval="0" selectedRowKeys="#{bindings.CustomersVO1.collectionModel.selectedRow}"
                   selectionListener="#{bindings.CustomersVO1.collectionModel.makeCurrent}" rowSelection="single"
-                  fetchSize="#{bindings.CustomersVO1.rangeSize}" id="t3" summary="Customers List">
+                  fetchSize="#{bindings.CustomersVO1.rangeSize}" id="t3" summary="Customers List"
+                  partialTriggers=":::b4 ::b2">
           <af:column headerText="#{bindings.CustomersVO1.hints.AccName.label}" id="c2" rowHeader="true">
             <af:link text="" id="l1" action="toDetailed">
-              <af:outputText value="#{row.CustomerId}" shortDesc="#{bindings.CustomersVO1.hints.AccName.tooltip}"
+              <af:outputText value="#{row.AccName}" shortDesc="#{bindings.CustomersVO1.hints.AccName.tooltip}"
                              id="ot2"/>
               <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.custID}"/>
             </af:link>
@@ -50,5 +62,83 @@
         </af:table>
       </af:panelCollection>
     </af:panelBox>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+      <af:dialog id="d1" title="Create Customer" type="cancel">
+        <f:facet name="buttonBar">
+          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="CreateWithParams"
+                     disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{CustomersBean.accName}" label="#{bindings.AccName.hints.label}"
+                        required="#{bindings.AccName.hints.mandatory}" columns="#{bindings.AccName.hints.displayWidth}"
+                        maximumLength="#{bindings.AccName.hints.precision}"
+                        shortDesc="#{bindings.AccName.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.AccName.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{CustomersBean.refID}" label="#{bindings.ReferencePt.label}"
+                              required="#{bindings.ReferencePt.hints.mandatory}"
+                              shortDesc="#{bindings.ReferencePt.hints.tooltip}" id="soc2">
+            <f:selectItems value="#{bindings.ReferencePt.items}" id="si2"/>
+            <f:validator binding="#{bindings.ReferencePt.validator}"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{CustomersBean.addLine1}" label="#{bindings.AddLine1.hints.label}"
+                        required="#{bindings.AddLine1.hints.mandatory}"
+                        columns="#{bindings.AddLine1.hints.displayWidth}"
+                        maximumLength="#{bindings.AddLine1.hints.precision}"
+                        shortDesc="#{bindings.AddLine1.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.AddLine1.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{CustomersBean.addLine2}" label="#{bindings.AddLine2.hints.label}"
+                        required="#{bindings.AddLine2.hints.mandatory}"
+                        columns="#{bindings.AddLine2.hints.displayWidth}"
+                        maximumLength="#{bindings.AddLine2.hints.precision}"
+                        shortDesc="#{bindings.AddLine2.hints.tooltip}" id="it3">
+            <f:validator binding="#{bindings.AddLine2.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{CustomersBean.country}" label="#{bindings.Country.hints.label}"
+                        required="#{bindings.Country.hints.mandatory}" columns="#{bindings.Country.hints.displayWidth}"
+                        maximumLength="#{bindings.Country.hints.precision}"
+                        shortDesc="#{bindings.Country.hints.tooltip}" id="it4">
+            <f:validator binding="#{bindings.Country.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{CustomersBean.pin}" label="#{bindings.Pincode.hints.label}"
+                        required="#{bindings.Pincode.hints.mandatory}" columns="#{bindings.Pincode.hints.displayWidth}"
+                        maximumLength="#{bindings.Pincode.hints.precision}"
+                        shortDesc="#{bindings.Pincode.hints.tooltip}" id="it5">
+            <f:validator binding="#{bindings.Pincode.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{CustomersBean.parentAccount}" label="#{bindings.ParentAcc.label}"
+                              required="#{bindings.ParentAcc.hints.mandatory}"
+                              shortDesc="#{bindings.ParentAcc.hints.tooltip}" id="soc3">
+            <f:selectItems value="#{bindings.ParentAcc.items}" id="si3"/>
+            <f:validator binding="#{bindings.ParentAcc.validator}"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{CustomersBean.accURL}" label="#{bindings.AccUrl.hints.label}"
+                        required="#{bindings.AccUrl.hints.mandatory}" columns="#{bindings.AccUrl.hints.displayWidth}"
+                        maximumLength="#{bindings.AccUrl.hints.precision}" shortDesc="#{bindings.AccUrl.hints.tooltip}"
+                        id="it6">
+            <f:validator binding="#{bindings.AccUrl.validator}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{CustomersBean.industry}" label="#{bindings.Industry.label}"
+                              required="#{bindings.Industry.hints.mandatory}"
+                              shortDesc="#{bindings.Industry.hints.tooltip}" id="soc4">
+            <f:selectItems value="#{bindings.Industry.items}" id="si4"/>
+            <f:validator binding="#{bindings.Industry.validator}"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{CustomersBean.email}" label="#{bindings.Email.hints.label}"
+                        required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
+                        maximumLength="#{bindings.Email.hints.precision}" shortDesc="#{bindings.Email.hints.tooltip}"
+                        id="it7">
+            <f:validator binding="#{bindings.Email.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{CustomersBean.phone}" label="#{bindings.Phone.hints.label}"
+                        required="#{bindings.Phone.hints.mandatory}" columns="#{bindings.Phone.hints.displayWidth}"
+                        maximumLength="#{bindings.Phone.hints.precision}" shortDesc="#{bindings.Phone.hints.tooltip}"
+                        id="it8">
+            <f:validator binding="#{bindings.Phone.validator}"/>
+          </af:inputText>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
   </af:panelGroupLayout>
 </ui:composition>

@@ -19,5 +19,69 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="AccName">
+      <AttrNames>
+        <Item Value="AccName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomersVO1Iterator" StaticList="false" Uses="LOV_ReferencePt" id="ReferencePt"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="AddLine1">
+      <AttrNames>
+        <Item Value="AddLine1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="AddLine2">
+      <AttrNames>
+        <Item Value="AddLine2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="Country">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="Pincode">
+      <AttrNames>
+        <Item Value="Pincode"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomersVO1Iterator" StaticList="false" Uses="LOV_ParentAcc" id="ParentAcc"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="AccUrl">
+      <AttrNames>
+        <Item Value="AccUrl"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomersVO1Iterator" StaticList="false" Uses="LOV_Industry" id="Industry"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomersVO1Iterator" id="Phone">
+      <AttrNames>
+        <Item Value="Phone"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CustomersVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="AccName" NDValue="#{CustomersBean.accName}" NDType="java.lang.String"/>
+      <NamedData NDName="ReferencePt" NDValue="#{CustomersBean.refID}" NDType="java.lang.String"/>
+      <NamedData NDName="AddLine1" NDValue="#{CustomersBean.addLine1}" NDType="java.lang.String"/>
+      <NamedData NDName="AddLine2" NDValue="#{CustomersBean.addLine2}" NDType="java.lang.String"/>
+      <NamedData NDName="Country" NDValue="#{CustomersBean.country}" NDType="java.lang.String"/>
+      <NamedData NDName="Pincode" NDValue="#{CustomersBean.pin}" NDType="java.lang.String"/>
+      <NamedData NDName="Industry" NDValue="#{CustomersBean.industry}" NDType="java.lang.String"/>
+      <NamedData NDName="AccUrl" NDValue="#{CustomersBean.accURL}" NDType="java.lang.String"/>
+      <NamedData NDName="ParentAcc" NDValue="#{CustomersBean.parentAccount}" NDType="java.lang.String"/>
+      <NamedData NDName="Email" NDValue="#{CustomersBean.email}" NDType="java.lang.String"/>
+      <NamedData NDName="Phone" NDValue="#{CustomersBean.phone}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CustomersVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>
