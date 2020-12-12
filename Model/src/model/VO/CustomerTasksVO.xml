@@ -13,6 +13,18 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="pDue"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pP"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pPC"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
   <EntityUsage
     Name="CustomerTaskEO"
     Entity="model.EO.CustomerTaskEO"/>
@@ -22,7 +34,8 @@
     PrecisionRule="true"
     EntityAttrName="TaskId"
     EntityUsage="CustomerTaskEO"
-    AliasName="TASK_ID"/>
+    AliasName="TASK_ID"
+    IsUpdateable="false"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -71,4 +84,56 @@
     EntityAttrName="OppurtunityId"
     EntityUsage="CustomerTaskEO"
     AliasName="OPPURTUNITY_ID"/>
+  <ViewCriteria
+    Name="CustomerTasksVOCriteria"
+    ViewObjectName="model.VO.CustomerTasksVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerTasksVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Priority1"
+        ViewAttribute="Priority1"
+        Operator="="
+        Conjunction="AND"
+        Value=":pP"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DueDate"
+        ViewAttribute="DueDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":pDue"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PercentageCompletion"
+        ViewAttribute="PercentageCompletion"
+        Operator="="
+        Conjunction="AND"
+        Value=":pPC"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

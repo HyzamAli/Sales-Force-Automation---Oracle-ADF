@@ -1,7 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout id="pgl1"/>
   <af:panelDrawer position="start" id="pd1">
     <af:showDetailItem id="dr1" shortDesc="Overview">
       <af:panelBox text="PanelBox1" id="pb1">
@@ -121,13 +120,13 @@
     </af:showDetailItem>
     <af:showDetailItem id="dr3" shortDesc="Notes">
       <af:panelGroupLayout layout="vertical" id="pgl2">
-        <af:panelHeader text="CustomerNoteEO" id="ph1">
+        
           <af:query id="qryId1" headerText="Search" disclosed="true"
                     value="#{bindings.CustomerNotesVOCriteriaQuery.queryDescriptor}"
                     model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                     queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"/>
-        </af:panelHeader>
+        
       </af:panelGroupLayout>
       <af:panelBox text="PanelBox2" id="pb2">
         <f:facet name="toolbar"/>
@@ -162,6 +161,15 @@
       </af:panelBox>
     </af:showDetailItem>
     <af:showDetailItem id="dr4" shortDesc="Task">
+      <af:panelGroupLayout layout="vertical" id="pgl3">
+        
+          <af:query id="qryId2" headerText="Search" disclosed="true"
+                    value="#{bindings.CustomerTasksVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.CustomerTasksVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.CustomerTasksVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.CustomerTasksVOCriteriaQuery.processQueryOperation}"/>
+       
+      </af:panelGroupLayout>
       <af:panelBox text="PanelBox4" id="pb4">
         <f:facet name="toolbar"/>
         <af:table value="#{bindings.CustomerTasksVO61.collectionModel}" var="row"
@@ -174,7 +182,7 @@
             <af:inputText value="#{row.bindings.Priority1.inputValue}"
                           label="#{bindings.CustomerTasksVO61.hints.Priority1.label}"
                           required="#{bindings.CustomerTasksVO61.hints.Priority1.mandatory}"
-                          columns="#{bindings.CustomerTasksVO61.hints.Priority1.displayWidth}"
+                          columns="#{bindings.CustomerTasksVO61.hints.Priority1}"
                           maximumLength="#{bindings.CustomerTasksVO61.hints.Priority1.precision}"
                           shortDesc="#{bindings.CustomerTasksVO61.hints.Priority1.tooltip}" id="it6">
               <f:validator binding="#{row.bindings.Priority1.validator}"/>
@@ -184,7 +192,7 @@
             <af:inputDate value="#{row.bindings.DueDate.inputValue}"
                           label="#{bindings.CustomerTasksVO61.hints.DueDate.label}"
                           required="#{bindings.CustomerTasksVO61.hints.DueDate.mandatory}"
-                          columns="#{bindings.CustomerTasksVO61.hints.DueDate.displayWidth}"
+                          columns="#{bindings.CustomerTasksVO61.hints.DueDate}"
                           shortDesc="#{bindings.CustomerTasksVO61.hints.DueDate.tooltip}" id="id1">
               <f:validator binding="#{row.bindings.DueDate.validator}"/>
               <af:convertDateTime pattern="#{bindings.CustomerTasksVO61.hints.DueDate.format}"/>
@@ -194,7 +202,7 @@
             <af:inputText value="#{row.bindings.PercentageCompletion.inputValue}"
                           label="#{bindings.CustomerTasksVO61.hints.PercentageCompletion.label}"
                           required="#{bindings.CustomerTasksVO61.hints.PercentageCompletion.mandatory}"
-                          columns="#{bindings.CustomerTasksVO61.hints.PercentageCompletion.displayWidth}"
+                          columns="#{bindings.CustomerTasksVO61.hints.PercentageCompletion}"
                           maximumLength="#{bindings.CustomerTasksVO61.hints.PercentageCompletion.precision}"
                           shortDesc="#{bindings.CustomerTasksVO61.hints.PercentageCompletion.tooltip}" id="it8">
               <f:validator binding="#{row.bindings.PercentageCompletion.validator}"/>
@@ -206,7 +214,7 @@
             <af:inputText value="#{row.bindings.TaskDetails.inputValue}"
                           label="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}"
                           required="#{bindings.CustomerTasksVO61.hints.TaskDetails.mandatory}"
-                          columns="#{bindings.CustomerTasksVO61.hints.TaskDetails.displayWidth}"
+                          columns="#{bindings.CustomerTasksVO61.hints.TaskDetails}"
                           maximumLength="#{bindings.CustomerTasksVO61.hints.TaskDetails.precision}"
                           shortDesc="#{bindings.CustomerTasksVO61.hints.TaskDetails.tooltip}" id="it11">
               <f:validator binding="#{row.bindings.TaskDetails.validator}"/>
@@ -216,6 +224,15 @@
       </af:panelBox>
     </af:showDetailItem>
     <af:showDetailItem id="dr5" shortDesc="Appointments">
+      <af:panelGroupLayout layout="vertical" id="pgl4">
+        
+          <af:query id="qryId3" headerText="Search" disclosed="true"
+                    value="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"/>
+        
+      </af:panelGroupLayout>
       <af:panelBox text="PanelBox3" id="pb3">
         <f:facet name="toolbar"/>
         <af:table value="#{bindings.CustomerAppointmentsVO31.collectionModel}" var="row"

@@ -13,6 +13,34 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="pAName"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pAType"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pADesc"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pET"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pST"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pL"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="pR"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="CustomerAppointmentEO"
     Entity="model.EO.CustomerAppointmentEO"/>
@@ -22,7 +50,8 @@
     PrecisionRule="true"
     EntityAttrName="AppId"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="APP_ID"/>
+    AliasName="APP_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -83,6 +112,82 @@
     EntityAttrName="ContactId"
     EntityUsage="CustomerAppointmentEO"
     AliasName="CONTACT_ID"/>
+  <ViewCriteria
+    Name="CustomerAppointmentsVOCriteria"
+    ViewObjectName="model.VO.CustomerAppointmentsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerAppointmentsVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="AppName"
+        ViewAttribute="AppName"
+        Operator="="
+        Conjunction="AND"
+        Value=":pAName"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="StartTime"
+        ViewAttribute="StartTime"
+        Operator="="
+        Conjunction="AND"
+        Value=":pST"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AppointmentDirection"
+        ViewAttribute="AppointmentDirection"
+        Operator="="
+        Conjunction="AND"
+        Value=":pADesc"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="EndDate"
+        ViewAttribute="EndDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":pET"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Location"
+        ViewAttribute="Location"
+        Operator="="
+        Conjunction="AND"
+        Value=":pL"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Resolution"
+        ViewAttribute="Resolution"
+        Operator="="
+        Conjunction="AND"
+        Value=":pR"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="AppointmentAttendeesVO"
     ViewLink="model.VO.SysC0011004Link"
