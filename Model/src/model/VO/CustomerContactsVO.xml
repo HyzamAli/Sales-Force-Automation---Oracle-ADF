@@ -13,6 +13,22 @@
   CustomQuery="false"
   SelectAllAttributes="false"
   PageIterMode="Full">
+  <Variable
+    Name="a"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="b"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="c"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="d"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
   <EntityUsage
     Name="CustomerContactEO"
     Entity="model.EO.CustomerContactEO"/>
@@ -41,19 +57,40 @@
     PrecisionRule="true"
     EntityAttrName="ContactName"
     EntityUsage="CustomerContactEO"
-    AliasName="CONTACT_NAME"/>
+    AliasName="CONTACT_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="200"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactPhone"
     PrecisionRule="true"
     EntityAttrName="ContactPhone"
     EntityUsage="CustomerContactEO"
-    AliasName="CONTACT_PHONE"/>
+    AliasName="CONTACT_PHONE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="200"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactEmail"
     PrecisionRule="true"
     EntityAttrName="ContactEmail"
     EntityUsage="CustomerContactEO"
-    AliasName="CONTACT_EMAIL"/>
+    AliasName="CONTACT_EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="200"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="InfluenceLevel"
     PrecisionRule="true"
@@ -66,6 +103,66 @@
     EntityAttrName="IsVisible"
     EntityUsage="CustomerContactEO"
     AliasName="IS_VISIBLE"/>
+  <ViewCriteria
+    Name="CustomerContactsVOCriteria"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerContactsVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ContactName"
+        ViewAttribute="ContactName"
+        Operator="="
+        Conjunction="AND"
+        Value=":b"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ContactPhone"
+        ViewAttribute="ContactPhone"
+        Operator="="
+        Conjunction="AND"
+        Value=":c"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ContactEmail"
+        ViewAttribute="ContactEmail"
+        Operator="="
+        Conjunction="AND"
+        Value=":a"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InfluenceLevel"
+        ViewAttribute="InfluenceLevel"
+        Operator="="
+        Conjunction="AND"
+        Value=":d"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.SysC0011000Link"

@@ -56,7 +56,14 @@
     PrecisionRule="true"
     EntityAttrName="NotesTitle"
     EntityUsage="CustomerNoteEO"
-    AliasName="NOTES_TITLE"/>
+    AliasName="NOTES_TITLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="215"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CreatedOn"
     PrecisionRule="true"
@@ -74,7 +81,14 @@
     PrecisionRule="true"
     EntityAttrName="NotesDescription"
     EntityUsage="CustomerNoteEO"
-    AliasName="NOTES_DESCRIPTION"/>
+    AliasName="NOTES_DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="215"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerNotesVOCriteria"
     ViewObjectName="model.VO.CustomerNotesVO"

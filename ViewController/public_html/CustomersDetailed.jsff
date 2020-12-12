@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:h="http://java.sun.com/jsf/html"
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelDrawer position="start" id="pd1">
+  <af:panelDrawer position="start" id="pd1" maximumWidth="100%">
     <af:showDetailItem id="dr1" shortDesc="Overview">
       <af:panelBox text="PanelBox1" id="pb1">
         <f:facet name="toolbar"/>
