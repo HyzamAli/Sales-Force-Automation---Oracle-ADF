@@ -59,7 +59,14 @@
     PrecisionRule="true"
     EntityAttrName="Priority1"
     EntityUsage="CustomerTaskEO"
-    AliasName="PRIORITY1"/>
+    AliasName="PRIORITY1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="200"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DueDate"
     PrecisionRule="true"
@@ -77,7 +84,14 @@
     PrecisionRule="true"
     EntityAttrName="TaskDetails"
     EntityUsage="CustomerTaskEO"
-    AliasName="TASK_DETAILS"/>
+    AliasName="TASK_DETAILS">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="200"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OppurtunityId"
     PrecisionRule="true"
