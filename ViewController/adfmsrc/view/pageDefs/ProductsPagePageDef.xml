@@ -8,6 +8,8 @@
                   Binds="ProductsVO1Iterator" id="ProductsVOCriteriaQuery"/>
     <searchRegion Criteria="ProductsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="ProductsVO1Iterator" id="ProductsVOCriteriaQuery1"/>
+    <iterator Binds="ProductCategoriesVO1" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="ProductCategoriesVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="ProductsVO1Iterator" id="ProductsVO1">
@@ -58,5 +60,21 @@
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <tree IterBinding="ProductCategoriesVO1Iterator" id="ProductCategoriesVO1">
+      <nodeDefinition DefName="model.VO.ProductCategoriesVO" Name="ProductCategoriesVO10">
+        <AttrNames>
+          <Item Value="Category"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="ProductCategoriesVO1Iterator" id="Category">
+      <AttrNames>
+        <Item Value="Category"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="ProductCategoriesVO1Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="Category" NDValue="#{ProductCategoriesBean.productCategory}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

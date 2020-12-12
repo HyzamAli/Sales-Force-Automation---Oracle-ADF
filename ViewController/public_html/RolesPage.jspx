@@ -9,15 +9,15 @@
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:attribute name="PanelText" value="Manage Roles"/>
                     <f:facet name="body">
-                        <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:White;">
+                        <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:transparent;">
                             <af:query id="qryId1" headerText="Search" disclosed="true"
                                       value="#{bindings.RoleProfilesVOCriteriaQuery.queryDescriptor}"
                                       model="#{bindings.RoleProfilesVOCriteriaQuery.queryModel}"
                                       queryListener="#{bindings.RoleProfilesVOCriteriaQuery.processQuery}"
                                       queryOperationListener="#{bindings.RoleProfilesVOCriteriaQuery.processQueryOperation}"
-                                      inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px;"/>
+                                      inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"/>
                             <af:panelBox text="Roles" id="pb1"
-                                         inlineStyle="padding-right:20px; padding-left:20px; padding-top:20px; padding-bottom:20px; margin-top:0px; font-size:large;">
+                                         inlineStyle="margin-top:20px; font-size:large; margin-bottom:20px; margin-left:20px; margin-right:20px;">
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t2">
                                         <af:button actionListener="#{bindings.Commit.execute}" text="Save"
@@ -30,7 +30,8 @@
                                         </af:button>
                                     </af:toolbar>
                                 </f:facet>
-                                <af:panelCollection id="pc1">
+                                <af:panelCollection id="pc1"
+                                                    inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
