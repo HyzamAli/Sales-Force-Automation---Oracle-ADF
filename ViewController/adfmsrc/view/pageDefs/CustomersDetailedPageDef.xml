@@ -22,6 +22,8 @@
     <searchRegion Criteria="CustomerAppointmentsVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVOCriteriaQuery"/>
+    <searchRegion Criteria="CustomerContactsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerContactsVO3Iterator" id="CustomerContactsVOCriteriaQuery"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
