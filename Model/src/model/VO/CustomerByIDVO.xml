@@ -64,7 +64,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="AccName"/>
+      <Item Value="CustomerId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="AccName"/>
