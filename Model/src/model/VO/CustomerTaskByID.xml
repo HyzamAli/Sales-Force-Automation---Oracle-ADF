@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="CustomerTaskByID"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.CustomerTaskByID_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="CustomerByIDVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.VO.CustomerByIDVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="CustomerByIDVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.CustomerByIDVO.CustomerId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="CustomerTasksVO"
+    Cardinality="-1"
+    Owner="model.VO.CustomerTasksVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="CustomerTasksVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.CustomerTasksVO.CustomerId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

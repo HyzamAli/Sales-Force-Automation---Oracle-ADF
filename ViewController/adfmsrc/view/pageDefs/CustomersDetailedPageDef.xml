@@ -7,6 +7,10 @@
     <iterator Binds="CustomerByIDVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="CustomerByIDVO1Iterator"/>
     <iterator Binds="CustomerNotesVO6" RangeSize="25" DataControl="AppsModuleDataControl"
               id="CustomerNotesVO6Iterator"/>
+    <iterator Binds="CustomerAppointmentsVO3" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerAppointmentsVO3Iterator"/>
+    <iterator Binds="CustomerTasksVO6" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerTasksVO6Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
@@ -76,6 +80,38 @@
           <Item Value="CreatedOn"/>
           <Item Value="OppurtunityId"/>
           <Item Value="NotesDescription"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVO3">
+      <nodeDefinition DefName="model.VO.CustomerAppointmentsVO" Name="CustomerAppointmentsVO30">
+        <AttrNames>
+          <Item Value="AppId"/>
+          <Item Value="CustomerId"/>
+          <Item Value="AppName"/>
+          <Item Value="AppDescription"/>
+          <Item Value="StartTime"/>
+          <Item Value="AppointmentType"/>
+          <Item Value="AppointmentDirection"/>
+          <Item Value="EndDate"/>
+          <Item Value="Location"/>
+          <Item Value="Resolution"/>
+          <Item Value="ContactId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerTasksVO6Iterator" id="CustomerTasksVO6">
+      <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO60">
+        <AttrNames>
+          <Item Value="TaskId"/>
+          <Item Value="CustomerId"/>
+          <Item Value="ContactId"/>
+          <Item Value="RepId"/>
+          <Item Value="Priority1"/>
+          <Item Value="DueDate"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="TaskDetails"/>
+          <Item Value="OppurtunityId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
