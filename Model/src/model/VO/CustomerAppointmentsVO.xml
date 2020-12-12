@@ -63,49 +63,113 @@
     PrecisionRule="true"
     EntityAttrName="AppName"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="APP_NAME"/>
+    AliasName="APP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="205"/>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.AppName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AppDescription"
     PrecisionRule="true"
     EntityAttrName="AppDescription"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="APP_DESCRIPTION"/>
+    AliasName="APP_DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="205"/>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.AppDescription_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="StartTime"
     PrecisionRule="true"
     EntityAttrName="StartTime"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="START_TIME"/>
+    AliasName="START_TIME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.StartTime_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AppointmentType"
     PrecisionRule="true"
     EntityAttrName="AppointmentType"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="APPOINTMENT_TYPE"/>
+    AliasName="APPOINTMENT_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="205"/>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.AppointmentType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AppointmentDirection"
     PrecisionRule="true"
     EntityAttrName="AppointmentDirection"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="APPOINTMENT_DIRECTION"/>
+    AliasName="APPOINTMENT_DIRECTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="205"/>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.AppointmentDirection_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EndDate"
     PrecisionRule="true"
     EntityAttrName="EndDate"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="END_DATE"/>
+    AliasName="END_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.EndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Location"
     PrecisionRule="true"
     EntityAttrName="Location"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="LOCATION"/>
+    AliasName="LOCATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="205"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Resolution"
     PrecisionRule="true"
     EntityAttrName="Resolution"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="RESOLUTION"/>
+    AliasName="RESOLUTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="205"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactId"
     PrecisionRule="true"
@@ -193,4 +257,8 @@
     ViewLink="model.VO.SysC0011004Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
