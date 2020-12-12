@@ -19,23 +19,20 @@
         </attribute>
       </component>
     </af:xmlContent>
-    <af:panelStretchLayout id="pt_psl1">
+    <af:panelStretchLayout id="pt_psl1" topHeight="50px">
       <f:facet name="start"/>
       <f:facet name="end"/>
       <f:facet name="top">
-        <af:panelHeader text="#{attrs.PanelText}" id="pt_ph1">
-          <f:facet name="context"/>
-          <f:facet name="toolbar"/>
-          <f:facet name="menuBar">
+        <af:panelBox text="#{attrs.PanelText}" id="pt_pb1" showHeader="always" showDisclosure="false" background="dark"
+                     titleHalign="center" inlineStyle="color:Blue;">
+          <f:facet name="toolbar">
             <af:navigationPane hint="tabs" id="pt_np1" value="#{adminMenu}" var="n">
               <f:facet name="nodeStamp">
                 <af:commandNavigationItem text="#{n.label}" id="pt_cni1" action="#{n.doAction}"/>
               </f:facet>
             </af:navigationPane>
           </f:facet>
-          <f:facet name="legend"/>
-          <f:facet name="info"/>
-        </af:panelHeader>
+        </af:panelBox>
       </f:facet>
       <f:facet name="bottom"/>
       <f:facet name="center">

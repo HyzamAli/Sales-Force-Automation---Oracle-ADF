@@ -15,9 +15,9 @@
                                       model="#{bindings.ProductsVOCriteriaQuery1.queryModel}"
                                       queryListener="#{bindings.ProductsVOCriteriaQuery1.processQuery}"
                                       queryOperationListener="#{bindings.ProductsVOCriteriaQuery1.processQueryOperation}"
-                                      inlineStyle="background-color:White; padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px;"/>
+                                      inlineStyle="background-color:White; padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"/>
                             <af:panelBox text="Products" id="pb1"
-                                         inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
+                                         inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t3">
                                         <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
@@ -30,7 +30,8 @@
                                         </af:button>
                                     </af:toolbar>
                                 </f:facet>
-                                <af:panelCollection id="pc1">
+                                <af:panelCollection id="pc1"
+                                                    inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t2">
@@ -82,6 +83,44 @@
                                                 <af:convertNumber groupingUsed="false"
                                                                   pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"/>
                                             </af:outputText>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:panelBox>
+                            <af:panelBox text="Product Categories" id="pb2"
+                                         inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t6">
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                                                   disabled="#{!bindings.Commit.enabled}" id="b8"/>
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b9">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:panelCollection id="pc2">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t5">
+                                            <af:button text="Add" id="b7">
+                                                <af:showPopupBehavior popupId=":::p4"/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.ProductCategoriesVO1.collectionModel}" var="row"
+                                              rows="#{bindings.ProductCategoriesVO1.rangeSize}"
+                                              emptyText="#{bindings.ProductCategoriesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              fetchSize="#{bindings.ProductCategoriesVO1.rangeSize}" id="t4"
+                                              columnStretching="last" summary="product ategories List"
+                                              partialTriggers="::::b6">
+                                        <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
+                                                   id="c5" rowHeader="true">
+                                            <af:outputText value="#{row.Category}"
+                                                           shortDesc="#{bindings.ProductCategoriesVO1.hints.Category.tooltip}"
+                                                           id="ot4"/>
                                         </af:column>
                                     </af:table>
                                 </af:panelCollection>
@@ -169,6 +208,24 @@
                                           shortDesc="#{bindings.ProductPrice.hints.tooltip}" id="it6">
                                 <f:validator binding="#{bindings.ProductPrice.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductPrice.format}"/>
+                            </af:inputText>
+                        </af:panelFormLayout>
+                    </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
+                    <af:dialog id="d4" title="Create Product Category">
+                        <f:facet name="buttonBar">
+                            <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Category"
+                                       disabled="#{!bindings.CreateWithParams1.enabled}" id="b6"/>
+                        </f:facet>
+                        <af:panelFormLayout id="pfl3">
+                            <af:inputText value="#{ProductCategoriesBean.productCategory}"
+                                          label="#{bindings.Category.hints.label}"
+                                          required="#{bindings.Category.hints.mandatory}"
+                                          columns="#{bindings.Category.hints.displayWidth}"
+                                          maximumLength="#{bindings.Category.hints.precision}"
+                                          shortDesc="#{bindings.Category.hints.tooltip}" id="it7">
+                                <f:validator binding="#{bindings.Category.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>

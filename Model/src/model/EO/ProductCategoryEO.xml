@@ -12,14 +12,16 @@
   BindingStyle="OracleName">
   <Attribute
     Name="Id"
-    IsNotNull="true"
     ColumnName="ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="PRODUCT_CATEGORIES"
     PrimaryKey="true"
-    IsUpdateable="false"/>
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="Category"
     IsNotNull="true"
@@ -29,7 +31,7 @@
     Type="java.lang.String"
     ColumnType="VARCHAR2"
     TableName="PRODUCT_CATEGORIES"
-    IsUpdateable="false">
+    IsUpdateable="while_insert">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>

@@ -62,4 +62,9 @@
     <managed-bean-class>view.UsersBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__12">
+    <managed-bean-name>ProductCategoriesBean</managed-bean-name>
+    <managed-bean-class>view.ProductCategoriesBean</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>
