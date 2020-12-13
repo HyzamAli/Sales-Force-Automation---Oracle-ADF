@@ -2,6 +2,15 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="background-color:White;">
+      
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.CustomersVOCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.CustomersVOCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.CustomersVOCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"/>
+      
+    </af:panelGroupLayout>
     <af:panelBox text="Customers" id="pb1"
                  inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
                  showHeader="always" showDisclosure="false">
