@@ -178,4 +178,24 @@
     ViewLink="model.VO.SysC0011009Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <DeclarativeWhereClause
+    Name="DeclarativeWhereClause">
+    <ViewCriteria
+      Name="CustomerContactsVOWhereCriteria"
+      ViewObjectName="model.VO.CustomerContactsVO"
+      Conjunction="AND"
+      Mode="3">
+      <ViewCriteriaRow
+        Name="CustomerContactsVOWhereCriteria_row_0"
+        UpperColumns="1">
+        <ViewCriteriaItem
+          Name="IsVisible"
+          ViewAttribute="IsVisible"
+          Operator="="
+          Conjunction="AND"
+          Value="1"
+          Required="Optional"/>
+      </ViewCriteriaRow>
+    </ViewCriteria>
+  </DeclarativeWhereClause>
 </ViewObject>

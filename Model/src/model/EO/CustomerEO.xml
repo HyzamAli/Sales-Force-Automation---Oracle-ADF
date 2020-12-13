@@ -52,6 +52,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.AccName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -71,6 +73,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.AddLine1_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -89,6 +93,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.AddLine2_LABEL"/>
+        <DISPLAYWIDTH
+          Value="40"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -103,6 +109,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="20"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Pincode"
@@ -119,6 +131,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.Pincode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="15"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -133,6 +147,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.ParentAcc_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -151,6 +167,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.AccUrl_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -170,6 +188,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerEO.Industry_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -184,6 +204,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="Phone"
@@ -196,6 +222,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="15"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="IsVisible"
