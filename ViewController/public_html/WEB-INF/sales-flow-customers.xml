@@ -5,6 +5,16 @@
     <data-control-scope>
       <shared/>
     </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>CustomersBean</managed-bean-name>
+      <managed-bean-class>view.CustomersBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__2">
+      <managed-bean-name>NotesBean</managed-bean-name>
+      <managed-bean-class>view.NotesBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="SalesCustomersList">
       <page>/SalesCustomersList.jsff</page>
     </view>
