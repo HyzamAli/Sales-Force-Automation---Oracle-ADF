@@ -85,7 +85,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_CONTACTS"/>
+    TableName="CUSTOMER_CONTACTS"
+    DefaultValue="1"/>
   <AccessorAttribute
     Name="CustomerEO"
     Association="model.EO.SysC0011002Assoc"

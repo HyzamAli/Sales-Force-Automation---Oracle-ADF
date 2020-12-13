@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="pDue"
     Kind="viewcriteria"
@@ -25,6 +26,51 @@
     Name="pPC"
     Kind="viewcriteria"
     Type="java.math.BigDecimal"/>
+  <ViewAccessor
+    Name="AppsModule_CustomerContactsVO3_1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    AMUsageName="AppsModule"
+    ViewInstanceName="CustomerContactsVO3"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UserProfilesVO1"
+    ViewObjectName="model.VO.UserProfilesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContactId"
+    ListVOName="AppsModule_CustomerContactsVO3_1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RepId"
+    ListVOName="UserProfilesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RepId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="RolesId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerTaskEO"
     Entity="model.EO.CustomerTaskEO"/>
@@ -47,13 +93,29 @@
     PrecisionRule="true"
     EntityAttrName="ContactId"
     EntityUsage="CustomerTaskEO"
-    AliasName="CONTACT_ID"/>
+    AliasName="CONTACT_ID"
+    LOVName="LOV_ContactId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RepId"
     PrecisionRule="true"
     EntityAttrName="RepId"
     EntityUsage="CustomerTaskEO"
-    AliasName="REP_ID"/>
+    AliasName="REP_ID"
+    LOVName="LOV_RepId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Priority1"
     PrecisionRule="true"
