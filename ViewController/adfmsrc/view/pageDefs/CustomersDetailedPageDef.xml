@@ -26,6 +26,11 @@
                   Binds="CustomerContactsVO3Iterator" id="CustomerContactsVOCriteriaQuery"/>
   </executables>
   <bindings>
+      <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
       <AttrNames>
         <Item Value="AccName"/>
@@ -117,5 +122,46 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="NotesTitle">
+      <AttrNames>
+        <Item Value="NotesTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="NotesDescription">
+      <AttrNames>
+        <Item Value="NotesDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="RepId">
+      <AttrNames>
+        <Item Value="RepId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="ContactId">
+      <AttrNames>
+        <Item Value="ContactId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="OppurtunityId">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="CreatedOn">
+      <AttrNames>
+        <Item Value="CreatedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CustomerNotesVO6Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="NotesTitle" NDValue="#{NotesBean.title}" NDType="java.lang.String"/>
+      <NamedData NDName="NotesDescription" NDValue="#{NotesBean.description}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDValue="#{bindings.ContactId}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactId" NDValue="#{NotesBean.contactID}" NDType="java.lang.String"/>
+      <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
+      <NamedData NDName="OppurtunityId" NDValue="#{NotesBean.oppurtunityID}" NDType="java.lang.String"/>
+    </action>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>

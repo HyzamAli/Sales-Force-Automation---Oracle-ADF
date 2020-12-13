@@ -26,14 +26,9 @@
     Name="RolesId"
     ColumnName="ROLES_ID"
     SQLType="NUMERIC"
-    Type="oracle.jbo.domain.DBSequence"
+    Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="USER_PROFILES"
-    IsUpdateable="while_insert"
-    DefaultValue="@0"
-    Domain="oracle.jbo.domain.DBSequence"
-    PrimaryKey="true"
-    RetrievedOnInsert="true"/>
+    TableName="USER_PROFILES"/>
   <Attribute
     Name="NameFirst"
     Precision="1000"
@@ -121,7 +116,6 @@
     Type="java.lang.String"
     ColumnType="NUMBER"
     TableName="USER_PROFILES"
-    PrimaryKey="true"
     IsUpdateable="while_insert"/>
   <AccessorAttribute
     Name="CustomerNoteEO"
@@ -173,8 +167,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.UserProfileEO.UserId"/>
-      <Item Value="model.EO.UserProfileEO.RolesId"/>
-      <Item Value="model.EO.UserProfileEO.SupervisorId"/>
     </AttrArray>
   </Key>
   <Key
