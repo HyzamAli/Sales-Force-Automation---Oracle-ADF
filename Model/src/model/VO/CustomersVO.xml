@@ -14,6 +14,26 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="pAN"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p2"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p3"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="p4"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="IndustryLovsVO1"
     ViewObjectName="model.VO.IndustryLovsVO"
@@ -248,6 +268,74 @@
     EntityAttrName="IsVisible"
     EntityUsage="CustomerEO"
     AliasName="IS_VISIBLE"/>
+  <ViewCriteria
+    Name="CustomersVOCriteria"
+    ViewObjectName="model.VO.CustomersVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="CustomersVOCriteria_CustomersVOCriteria_row_0_AccName"
+        ViewAttribute="AccName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pAN"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AddLine1"
+        ViewAttribute="AddLine1"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":p1"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="AddLine2"
+        ViewAttribute="AddLine2"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":p2"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Country"
+        ViewAttribute="Country"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":p3"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="CustomersVOCriteria_CustomersVOCriteria_row_0_AccUrl"
+        ViewAttribute="AccUrl"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":p4"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="CustomerAppointmentsVO"
     ViewLink="model.VO.SysC0011003Link"
