@@ -36,9 +36,13 @@
     Name="UserProfilesVO1"
     ViewObjectName="model.VO.UserProfilesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContactId"
-    ListVOName="AppsModule_CustomerContactsVO3_1"
+    ListVOName="CustomerContactsVO1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -46,7 +50,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="ContactName"/>
+      <Item Value="CcId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContactName"/>
@@ -63,7 +67,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="RolesId"/>
+      <Item Value="UserId"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="NameFirst"/>
@@ -99,6 +103,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.ContactId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -113,6 +119,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.RepId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -126,6 +134,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="200"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.Priority1_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -134,7 +144,14 @@
     PrecisionRule="true"
     EntityAttrName="DueDate"
     EntityUsage="CustomerTaskEO"
-    AliasName="DUE_DATE"/>
+    AliasName="DUE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.DueDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="PercentageCompletion"
     PrecisionRule="true"
@@ -151,6 +168,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="200"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.TaskDetails_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -159,7 +178,14 @@
     PrecisionRule="true"
     EntityAttrName="OppurtunityId"
     EntityUsage="CustomerTaskEO"
-    AliasName="OPPURTUNITY_ID"/>
+    AliasName="OPPURTUNITY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.OppurtunityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerTasksVOCriteria"
     ViewObjectName="model.VO.CustomerTasksVO"
@@ -212,4 +238,8 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -12,13 +12,16 @@
   BindingStyle="OracleName">
   <Attribute
     Name="AaId"
-    IsNotNull="true"
     ColumnName="AA_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="oracle.jbo.domain.DBSequence"
     ColumnType="NUMBER"
     TableName="APPOINTMENT_ATTENDEES"
-    PrimaryKey="true"/>
+    PrimaryKey="true"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    RetrievedOnInsert="true"/>
   <Attribute
     Name="AppointmentId"
     ColumnName="APPOINTMENT_ID"

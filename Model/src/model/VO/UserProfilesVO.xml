@@ -193,7 +193,8 @@
     EntityAttrName="SupervisorId"
     EntityUsage="UserProfileEO"
     AliasName="SUPERVISOR_ID"
-    LOVName="LOV_SupervisorId">
+    LOVName="LOV_SupervisorId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <LABEL

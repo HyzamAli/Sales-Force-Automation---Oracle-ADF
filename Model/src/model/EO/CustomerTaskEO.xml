@@ -33,16 +33,18 @@
     Name="ContactId"
     ColumnName="CONTACT_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.String"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_TASKS"/>
+    TableName="CUSTOMER_TASKS"
+    IsUpdateable="while_insert"/>
   <Attribute
     Name="RepId"
     ColumnName="REP_ID"
     SQLType="NUMERIC"
-    Type="java.math.BigDecimal"
+    Type="java.lang.String"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_TASKS"/>
+    TableName="CUSTOMER_TASKS"
+    IsUpdateable="while_insert"/>
   <Attribute
     Name="Priority1"
     Precision="1000"

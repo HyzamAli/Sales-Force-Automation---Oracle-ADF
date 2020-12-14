@@ -12,7 +12,31 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="UserProfilesVO1"
+    ViewObjectName="model.VO.UserProfilesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_EmployeeId"
+    ListVOName="UserProfilesVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="EmployeeId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="AppointmentAttendeeEO"
     Entity="model.EO.AppointmentAttendeeEO"/>
@@ -34,5 +58,13 @@
     PrecisionRule="true"
     EntityAttrName="EmployeeId"
     EntityUsage="AppointmentAttendeeEO"
-    AliasName="EMPLOYEE_ID"/>
+    AliasName="EMPLOYEE_ID"
+    LOVName="LOV_EmployeeId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
 </ViewObject>

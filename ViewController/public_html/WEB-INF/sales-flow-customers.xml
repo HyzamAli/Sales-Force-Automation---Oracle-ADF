@@ -25,6 +25,16 @@
       <managed-bean-class>view.TasksBean</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__9">
+      <managed-bean-name>AppointmentsBean</managed-bean-name>
+      <managed-bean-class>view.AppointmentsBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name>AttendeeBean</managed-bean-name>
+      <managed-bean-class>view.AttendeeBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="SalesCustomersList">
       <page>/SalesCustomersList.jsff</page>
     </view>

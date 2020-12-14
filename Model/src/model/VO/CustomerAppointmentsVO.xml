@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="pAName"
     Kind="viewcriteria"
@@ -41,6 +42,28 @@
     Name="pR"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContactId"
+    ListVOName="CustomerContactsVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CcId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerAppointmentEO"
     Entity="model.EO.CustomerAppointmentEO"/>
@@ -175,7 +198,15 @@
     PrecisionRule="true"
     EntityAttrName="ContactId"
     EntityUsage="CustomerAppointmentEO"
-    AliasName="CONTACT_ID"/>
+    AliasName="CONTACT_ID"
+    LOVName="LOV_ContactId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerAppointmentsVOCriteria"
     ViewObjectName="model.VO.CustomerAppointmentsVO"
@@ -255,6 +286,11 @@
   <ViewLinkAccessor
     Name="AppointmentAttendeesVO"
     ViewLink="model.VO.SysC0011004Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentAttendeesVO1"
+    ViewLink="model.APP_MODULE.AttendeesByAppointment"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

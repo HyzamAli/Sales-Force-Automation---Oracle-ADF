@@ -20,6 +20,7 @@
     ObjectType="JboPackage">
     <DesignTime>
       <Attr Name="_AM" Value="true"/>
+      <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee
