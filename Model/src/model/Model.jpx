@@ -40,4 +40,9 @@
       <Attr Name="_VL" Value="true"/>
     </DesignTime>
   </Containee>
+  <AppModuleUsage
+    Name="AppsModule"
+    FullName="model.APP_MODULE.AppsModule"
+    ConfigurationName="model.APP_MODULE.AppsModuleShared"
+    SharedScope="2"/>
 </JboProject>
