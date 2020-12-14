@@ -121,7 +121,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_APPOINTMENTS"/>
+    TableName="CUSTOMER_APPOINTMENTS"
+    IsUpdateable="while_insert"/>
   <AccessorAttribute
     Name="AppointmentAttendeeEO"
     Association="model.EO.SysC0011004Assoc"

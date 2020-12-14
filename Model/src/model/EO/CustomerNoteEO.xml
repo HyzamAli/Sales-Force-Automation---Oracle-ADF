@@ -36,14 +36,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_NOTES"/>
+    TableName="CUSTOMER_NOTES"
+    IsUpdateable="while_insert"/>
   <Attribute
     Name="RepId"
     ColumnName="REP_ID"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_NOTES"/>
+    TableName="CUSTOMER_NOTES"
+    IsUpdateable="while_insert"/>
   <Attribute
     Name="NotesTitle"
     Precision="1000"

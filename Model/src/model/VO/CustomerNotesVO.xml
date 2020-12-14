@@ -22,6 +22,51 @@
     Name="pTitle"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="UserProfilesVO1"
+    ViewObjectName="model.VO.UserProfilesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContactId"
+    ListVOName="CustomerContactsVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CcId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RepId"
+    ListVOName="UserProfilesVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RepId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerNoteEO"
     Entity="model.EO.CustomerNoteEO"/>
@@ -44,13 +89,29 @@
     PrecisionRule="true"
     EntityAttrName="ContactId"
     EntityUsage="CustomerNoteEO"
-    AliasName="CONTACT_ID"/>
+    AliasName="CONTACT_ID"
+    LOVName="LOV_ContactId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RepId"
     PrecisionRule="true"
     EntityAttrName="RepId"
     EntityUsage="CustomerNoteEO"
-    AliasName="REP_ID"/>
+    AliasName="REP_ID"
+    LOVName="LOV_RepId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NotesTitle"
     PrecisionRule="true"

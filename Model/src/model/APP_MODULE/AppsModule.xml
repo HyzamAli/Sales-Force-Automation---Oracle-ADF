@@ -124,6 +124,15 @@
   <ViewUsage
     Name="CustomerContactsVO3"
     ViewObjectName="model.VO.CustomerContactsVO"/>
+  <ViewUsage
+    Name="CustomerAppointmentsVO4"
+    ViewObjectName="model.VO.CustomerAppointmentsVO"/>
+  <ViewUsage
+    Name="AppointmentAttendeesVO4"
+    ViewObjectName="model.VO.AppointmentAttendeesVO"/>
+  <ViewUsage
+    Name="AppointmentAttendeesVO5"
+    ViewObjectName="model.VO.AppointmentAttendeesVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -267,5 +276,17 @@
     ViewLinkObjectName="model.VO.CustomerContactByID"
     SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerByIDVO1"
     DstViewUsageName="model.APP_MODULE.AppsModule.CustomerContactsVO3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AttendeesByAppointment"
+    ViewLinkObjectName="model.APP_MODULE.AttendeesByAppointment"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO4"
+    DstViewUsageName="model.APP_MODULE.AppsModule.AppointmentAttendeesVO4"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AttendeesByAppointment1"
+    ViewLinkObjectName="model.APP_MODULE.AttendeesByAppointment"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO3"
+    DstViewUsageName="model.APP_MODULE.AppsModule.AppointmentAttendeesVO5"
     Reversed="false"/>
 </AppModule>
