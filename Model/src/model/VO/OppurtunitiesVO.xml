@@ -12,7 +12,84 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <Variable
+    Name="myRisk"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="quantity"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="decision"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ManagerEmployeesVO1"
+    ViewObjectName="model.VO.ManagerEmployeesVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CustomerId"
+    ListVOName="CustomersVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RefContact"
+    ListVOName="CustomerContactsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RefContact"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CcId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_ManagerId"
+    ListVOName="ManagerEmployeesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ManagerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="OppurtunitieEO"
     Entity="model.EO.OppurtunitieEO"/>
@@ -22,19 +99,38 @@
     PrecisionRule="true"
     EntityAttrName="OppurtunityId"
     EntityUsage="OppurtunitieEO"
-    AliasName="OPPURTUNITY_ID"/>
+    AliasName="OPPURTUNITY_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
     EntityAttrName="CustomerId"
     EntityUsage="OppurtunitieEO"
-    AliasName="CUSTOMER_ID"/>
+    AliasName="CUSTOMER_ID"
+    LOVName="LOV_CustomerId"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RefContact"
     PrecisionRule="true"
     EntityAttrName="RefContact"
     EntityUsage="OppurtunitieEO"
-    AliasName="REF_CONTACT"/>
+    AliasName="REF_CONTACT"
+    LOVName="LOV_RefContact"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WinProbability"
     PrecisionRule="true"
@@ -100,7 +196,16 @@
     PrecisionRule="true"
     EntityAttrName="ManagerId"
     EntityUsage="OppurtunitieEO"
-    AliasName="MANAGER_ID"/>
+    AliasName="MANAGER_ID"
+    LOVName="LOV_ManagerId"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductQuantity"
     PrecisionRule="true"
@@ -125,6 +230,58 @@
     EntityAttrName="IsVisible"
     EntityUsage="OppurtunitieEO"
     AliasName="IS_VISIBLE"/>
+  <ViewCriteria
+    Name="OppurtunitiesVOCriteria"
+    ViewObjectName="model.VO.OppurtunitiesVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="OppurtunitiesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ProductQuantity"
+        ViewAttribute="ProductQuantity"
+        Operator="="
+        Conjunction="AND"
+        Value=":quantity"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="RiskLevel"
+        ViewAttribute="RiskLevel"
+        Operator="="
+        Conjunction="AND"
+        Value=":myRisk"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DecisionLevel"
+        ViewAttribute="DecisionLevel"
+        Operator="="
+        Conjunction="AND"
+        Value=":decision"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.SysC0011001Link"

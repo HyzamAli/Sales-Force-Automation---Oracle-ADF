@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="OppurtunitiesPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OppurtunitiesVO1" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="OppurtunitiesVO1Iterator"/>
+    <searchRegion Criteria="OppurtunitiesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="OppurtunitiesVO1Iterator" id="OppurtunitiesVOCriteriaQuery"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="OppurtunitiesVO1Iterator" id="OppurtunitiesVO1">
+      <nodeDefinition DefName="model.VO.OppurtunitiesVO" Name="OppurtunitiesVO10">
+        <AttrNames>
+          <Item Value="OppurtunityId"/>
+          <Item Value="CustomerId"/>
+          <Item Value="WinProbability"/>
+          <Item Value="SaleStage"/>
+          <Item Value="Revenue"/>
+          <Item Value="RiskLevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" Uses="LOV_RefContact" id="RefContact"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" Uses="LOV_ManagerId" id="ManagerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="CloseDate">
+      <AttrNames>
+        <Item Value="CloseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="Revenue">
+      <AttrNames>
+        <Item Value="Revenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="WinProbability">
+      <AttrNames>
+        <Item Value="WinProbability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SaleStage">
+      <AttrNames>
+        <Item Value="SaleStage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SaleMethod">
+      <AttrNames>
+        <Item Value="SaleMethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SalesChannel">
+      <AttrNames>
+        <Item Value="SalesChannel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="BestCaseRevenue">
+      <AttrNames>
+        <Item Value="BestCaseRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="WorstCaseRevenue">
+      <AttrNames>
+        <Item Value="WorstCaseRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="EstimatedDuration">
+      <AttrNames>
+        <Item Value="EstimatedDuration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="BudgetedAmount">
+      <AttrNames>
+        <Item Value="BudgetedAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="ProductQuantity">
+      <AttrNames>
+        <Item Value="ProductQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="RiskLevel">
+      <AttrNames>
+        <Item Value="RiskLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="DecisionLevel">
+      <AttrNames>
+        <Item Value="DecisionLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="OppurtunitiesVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CustomerId" NDValue="#{OppurtunityBean.customerId}" NDType="java.lang.String"/>
+      <NamedData NDName="RefContact" NDValue="#{OppurtunityBean.refId}" NDType="java.lang.String"/>
+      <NamedData NDName="ManagerId" NDValue="#{OppurtunityBean.managerId}" NDType="java.lang.String"/>
+      <NamedData NDName="Revenue" NDValue="#{OppurtunityBean.salesRevenue}" NDType="java.lang.String"/>
+      <NamedData NDName="SaleStage" NDValue="#{OppurtunityBean.salesStage}" NDType="java.lang.String"/>
+      <NamedData NDName="SaleMethod" NDValue="#{OppurtunityBean.salesMethod}" NDType="java.lang.String"/>
+      <NamedData NDName="SalesChannel" NDValue="#{OppurtunityBean.salesChannel}" NDType="java.lang.String"/>
+      <NamedData NDName="BestCaseRevenue" NDValue="#{OppurtunityBean.bestCase}" NDType="java.lang.String"/>
+      <NamedData NDName="WorstCaseRevenue" NDValue="#{OppurtunityBean.worstCase}" NDType="java.lang.String"/>
+      <NamedData NDName="RiskLevel" NDValue="#{OppurtunityBean.riskLevel}" NDType="java.lang.String"/>
+      <NamedData NDName="DecisionLevel" NDValue="#{OppurtunityBean.decisionLevel}" NDType="java.lang.String"/>
+      <NamedData NDName="ProductQuantity" NDValue="#{OppurtunityBean.quantity}" NDType="java.lang.String"/>
+      <NamedData NDName="BudgetedAmount" NDValue="#{OppurtunityBean.budgetedAmount}" NDType="java.lang.String"/>
+      <NamedData NDName="EstimatedDuration" NDValue="#{OppurtunityBean.duration}" NDType="java.lang.String"/>
+      <NamedData NDName="CloseDate" NDValue="#{OppurtunityBean.close_Date}" NDType="java.lang.String"/>
+      <NamedData NDName="WinProbability" NDValue="#{OppurtunityBean.win_prob}" NDType="java.lang.String"/>
+      <NamedData NDName="OppurtunityId" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="OppurtunitiesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+  </bindings>
+</pageDefinition>
