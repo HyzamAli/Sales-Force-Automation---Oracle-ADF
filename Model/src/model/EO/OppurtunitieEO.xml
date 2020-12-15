@@ -48,7 +48,7 @@
     Precision="255"
     ColumnName="CLOSE_DATE"
     SQLType="VARCHAR"
-    Type="java.lang.String"
+    Type="oracle.jbo.domain.Date"
     ColumnType="VARCHAR2"
     TableName="OPPURTUNITIES">
     <DesignTime>

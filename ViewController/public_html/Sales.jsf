@@ -4,25 +4,29 @@
     <af:document title="Sales.jsf" id="d1">
         <af:form id="f1">
             <af:panelGridLayout id="pgl1">
-                <af:gridRow height="120px" id="gr2">
+                <af:gridRow height="70px" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" columnSpan="2" id="gc3">
                         <!-- Header -->
-                        <af:panelHeader text="panelHeader 1" id="ph1">
-                            <f:facet name="menuBar">
+                        <af:panelBox text="Sales Assist" id="pb1" showDisclosure="false" background="dark"
+                                     inlineStyle="margin-bottom:20px;">
+                            <f:facet name="toolbar">
                                 <af:menuBar id="mb1">
                                     <af:commandMenuItem text="Dashboard" id="cmi1"
                                                         action="#{viewScope.SalesDynamicRegionBean.salesflowdashboard}"/>
                                     <af:commandMenuItem text="Customers" id="cmi2"
                                                         action="#{viewScope.SalesDynamicRegionBean.salesflowcustomers}"/>
+                                    <af:commandMenuItem text="Oppurtunities" id="cmi3"
+                                                        action="#{viewScope.SalesDynamicRegionBean.salesflowoppurtunities}"/>                                                        
                                 </af:menuBar>
                             </f:facet>
-                        </af:panelHeader>
+                        </af:panelBox>
                     </af:gridCell>
                 </af:gridRow>
                 <af:gridRow height="100%" id="gr1">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
                         <!-- Content -->
-                        <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1" partialTriggers="::cmi1 ::cmi2"/>
+                        <af:region value="#{bindings.dynamicRegion1.regionModel}" id="r1"
+                                   partialTriggers="::cmi1 ::cmi2 ::cmi3"/>
                     </af:gridCell>
                 </af:gridRow>
             </af:panelGridLayout>

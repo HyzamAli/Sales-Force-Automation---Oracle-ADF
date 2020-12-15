@@ -2,79 +2,83 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="background-color:White;">
-      
+    <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="background-color:transparent;">
+      <af:panelBox text="PanelBox1" id="pb2"
+                   inlineStyle="margin-bottom:20px; margin-left:020px; margin-right:020px; margin-top:020px;"
+                   showHeader="never" showDisclosure="false">
+        <f:facet name="toolbar"/>
         <af:query id="qryId1" headerText="Search" disclosed="true"
                   value="#{bindings.CustomersVOCriteriaQuery.queryDescriptor}"
                   model="#{bindings.CustomersVOCriteriaQuery.queryModel}"
                   queryListener="#{bindings.CustomersVOCriteriaQuery.processQuery}"
-                  queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"/>
-      
-    </af:panelGroupLayout>
-    <af:panelBox text="Customers" id="pb1"
-                 inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
-                 showHeader="always" showDisclosure="false">
-      <f:facet name="toolbar">
-        <af:toolbar id="t1">
-          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
-                     id="b1" partialTriggers="pc1:t3"/>
-          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t3">
-            <af:resetActionListener/>
-          </af:button>
-        </af:toolbar>
-      </f:facet>
-      <af:panelCollection id="pc1"
-                          inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
-        <f:facet name="menus"/>
+                  queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"
+                  inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"/>
+      </af:panelBox>
+      <af:panelBox text="Customers" id="pb1"
+                   inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
+                   showHeader="always" showDisclosure="false">
         <f:facet name="toolbar">
-          <af:toolbar id="t2">
-            <af:button text="Create Customer" id="b3">
-              <af:showPopupBehavior popupId="::p1"/>
+          <af:toolbar id="t1">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                       disabled="#{!bindings.Commit.enabled}" id="b1" partialTriggers="pc1:t3"/>
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t3">
+              <af:resetActionListener/>
             </af:button>
-            <af:button text="Delete Selection" id="b2" actionListener="#{bindings.Delete.execute}"
-                       disabled="#{!bindings.Delete.enabled}"/>
           </af:toolbar>
         </f:facet>
-        <f:facet name="statusbar"/>
-        <af:table value="#{bindings.CustomersVO1.collectionModel}" var="row" rows="#{bindings.CustomersVO1.rangeSize}"
-                  emptyText="#{bindings.CustomersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                  rowBandingInterval="0" selectedRowKeys="#{bindings.CustomersVO1.collectionModel.selectedRow}"
-                  selectionListener="#{bindings.CustomersVO1.collectionModel.makeCurrent}" rowSelection="single"
-                  fetchSize="#{bindings.CustomersVO1.rangeSize}" id="t3" summary="Customers List"
-                  partialTriggers=":::b4 ::b2">
-          <af:column headerText="#{bindings.CustomersVO1.hints.AccName.label}" id="c2" rowHeader="true">
-            <af:link text="" id="l1" action="toDetailed">
-              <af:outputText value="#{row.AccName}" shortDesc="#{bindings.CustomersVO1.hints.AccName.tooltip}"
-                             id="ot2"/>
-              <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.custID}"/>
-            </af:link>
-          </af:column>
-          <af:column headerText="#{bindings.CustomersVO1.hints.AddLine1.label}" id="c3">
-            <af:outputText value="#{row.AddLine1}" shortDesc="#{bindings.CustomersVO1.hints.AddLine1.tooltip}"
-                           id="ot3"/>
-          </af:column>
-          <af:column headerText="#{bindings.CustomersVO1.hints.AccUrl.label}" id="c4">
-            <af:outputText value="#{row.AccUrl}" shortDesc="#{bindings.CustomersVO1.hints.AccUrl.tooltip}" id="ot4"/>
-          </af:column>
-          <af:column headerText="#{bindings.CustomersVO1.hints.Industry.label}" id="c5">
-            <af:selectOneChoice value="#{row.bindings.Industry.inputValue}" label="#{row.bindings.Industry.label}"
-                                required="#{bindings.CustomersVO1.hints.Industry.mandatory}"
-                                shortDesc="#{bindings.CustomersVO1.hints.Industry.tooltip}" readOnly="true" id="soc1">
-              <f:selectItems value="#{row.bindings.Industry.items}" id="si1"/>
-              <f:validator binding="#{row.bindings.Industry.validator}"/>
-            </af:selectOneChoice>
-          </af:column>
-          <af:column headerText="#{bindings.CustomersVO1.hints.Email.label}" id="c6">
-            <af:outputText value="#{row.Email}" shortDesc="#{bindings.CustomersVO1.hints.Email.tooltip}" id="ot5"/>
-          </af:column>
-        </af:table>
-      </af:panelCollection>
-    </af:panelBox>
+        <af:panelCollection id="pc1"
+                            inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
+          <f:facet name="menus"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:button text="Create Customer" id="b3">
+                <af:showPopupBehavior popupId="::p1"/>
+              </af:button>
+              <af:button text="Delete Selection" id="b2" actionListener="#{bindings.Delete.execute}"
+                         disabled="#{!bindings.Delete.enabled}"/>
+            </af:toolbar>
+          </f:facet>
+          <f:facet name="statusbar"/>
+          <af:table value="#{bindings.CustomersVO1.collectionModel}" var="row" rows="#{bindings.CustomersVO1.rangeSize}"
+                    emptyText="#{bindings.CustomersVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                    rowBandingInterval="0" selectedRowKeys="#{bindings.CustomersVO1.collectionModel.selectedRow}"
+                    selectionListener="#{bindings.CustomersVO1.collectionModel.makeCurrent}" rowSelection="single"
+                    fetchSize="#{bindings.CustomersVO1.rangeSize}" id="t3" summary="Customers List"
+                    partialTriggers=":::b4 ::b2">
+            <af:column headerText="#{bindings.CustomersVO1.hints.AccName.label}" id="c2" rowHeader="true">
+              <af:link text="" id="l1" action="toDetailed">
+                <af:outputText value="#{row.AccName}" shortDesc="#{bindings.CustomersVO1.hints.AccName.tooltip}"
+                               id="ot2"/>
+                <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.custID}"/>
+              </af:link>
+            </af:column>
+            <af:column headerText="#{bindings.CustomersVO1.hints.AddLine1.label}" id="c3">
+              <af:outputText value="#{row.AddLine1}" shortDesc="#{bindings.CustomersVO1.hints.AddLine1.tooltip}"
+                             id="ot3"/>
+            </af:column>
+            <af:column headerText="#{bindings.CustomersVO1.hints.AccUrl.label}" id="c4">
+              <af:outputText value="#{row.AccUrl}" shortDesc="#{bindings.CustomersVO1.hints.AccUrl.tooltip}" id="ot4"/>
+            </af:column>
+            <af:column headerText="#{bindings.CustomersVO1.hints.Industry.label}" id="c5">
+              <af:selectOneChoice value="#{row.bindings.Industry.inputValue}" label="#{row.bindings.Industry.label}"
+                                  required="#{bindings.CustomersVO1.hints.Industry.mandatory}"
+                                  shortDesc="#{bindings.CustomersVO1.hints.Industry.tooltip}" readOnly="true" id="soc1">
+                <f:selectItems value="#{row.bindings.Industry.items}" id="si1"/>
+                <f:validator binding="#{row.bindings.Industry.validator}"/>
+              </af:selectOneChoice>
+            </af:column>
+            <af:column headerText="#{bindings.CustomersVO1.hints.Email.label}" id="c6">
+              <af:outputText value="#{row.Email}" shortDesc="#{bindings.CustomersVO1.hints.Email.tooltip}" id="ot5"/>
+            </af:column>
+          </af:table>
+        </af:panelCollection>
+      </af:panelBox>
+    </af:panelGroupLayout>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
       <af:dialog id="d1" title="Create Customer" type="cancel">
         <f:facet name="buttonBar">
-          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="CreateWithParams"
+          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
         </f:facet>
         <af:panelFormLayout id="pfl1">

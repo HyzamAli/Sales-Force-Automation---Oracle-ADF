@@ -133,6 +133,12 @@
   <ViewUsage
     Name="AppointmentAttendeesVO5"
     ViewObjectName="model.VO.AppointmentAttendeesVO"/>
+  <ViewUsage
+    Name="ManagerEmployeesVO1"
+    ViewObjectName="model.VO.ManagerEmployeesVO"/>
+  <ViewUsage
+    Name="OppurtunityByID1"
+    ViewObjectName="model.VO.OppurtunityByID"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
