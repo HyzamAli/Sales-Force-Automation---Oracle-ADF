@@ -26,6 +26,42 @@
     Name="decision"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="a"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="b"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="c"
+    Kind="viewcriteria"
+    Type="oracle.jbo.domain.Date"/>
+  <Variable
+    Name="d"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="e"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="f"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="g"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="h"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="i"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
   <ViewAccessor
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -256,6 +292,78 @@
     <ViewCriteriaRow
       Name="OppurtunitiesVOCriteria_row_0"
       UpperColumns="1">
+      <ViewCriteriaItem
+        Name="WinProbability"
+        ViewAttribute="WinProbability"
+        Operator="="
+        Conjunction="AND"
+        Value=":h"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SaleStage"
+        ViewAttribute="SaleStage"
+        Operator="="
+        Conjunction="AND"
+        Value=":f"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SaleMethod"
+        ViewAttribute="SaleMethod"
+        Operator="="
+        Conjunction="AND"
+        Value=":e"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="SalesChannel"
+        ViewAttribute="SalesChannel"
+        Operator="="
+        Conjunction="AND"
+        Value=":g"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Revenue"
+        ViewAttribute="Revenue"
+        Operator="="
+        Conjunction="AND"
+        Value=":d"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="OppurtunitiesVOCriteria_OppurtunitiesVOCriteria_row_0_BestCaseRevenue"
+        ViewAttribute="BestCaseRevenue"
+        Operator="="
+        Conjunction="AND"
+        Value=":b"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="WorstCaseRevenue"
+        ViewAttribute="WorstCaseRevenue"
+        Operator="="
+        Conjunction="AND"
+        Value=":i"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="EstimatedDuration"
+        ViewAttribute="EstimatedDuration"
+        Operator="="
+        Conjunction="AND"
+        Value=":c"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="BudgetedAmount"
+        ViewAttribute="BudgetedAmount"
+        Operator="="
+        Conjunction="AND"
+        Value=":a"
+        IsBindVarValue="true"
+        Required="Optional"/>
       <ViewCriteriaItem
         Name="ProductQuantity"
         ViewAttribute="ProductQuantity"
