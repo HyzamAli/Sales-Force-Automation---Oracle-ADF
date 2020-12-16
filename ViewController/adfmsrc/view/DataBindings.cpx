@@ -20,6 +20,7 @@
     <page path="/Oppurtunities.jsff" usageId="view_OppurtunitiesPageDef"/>
     <page path="/WEB-INF/sales-flow-oppurtunities.xml#sales-flow-oppurtunities@ExecuteWithParams"
           usageId="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"/>
+    <page path="/oppurtunityDetailed.jsff" usageId="view_oppurtunityDetailedPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
@@ -33,6 +34,7 @@
     <page id="view_OppurtunitiesPageDef" path="view.pageDefs.OppurtunitiesPageDef"/>
     <page id="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"
           path="view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"/>
+    <page id="view_oppurtunityDetailedPageDef" path="view.pageDefs.oppurtunityDetailedPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"

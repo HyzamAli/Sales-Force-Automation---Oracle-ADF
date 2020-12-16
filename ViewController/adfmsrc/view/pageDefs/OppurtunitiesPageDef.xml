@@ -43,21 +43,6 @@
         <Item Value="WinProbability"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SaleStage">
-      <AttrNames>
-        <Item Value="SaleStage"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SaleMethod">
-      <AttrNames>
-        <Item Value="SaleMethod"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SalesChannel">
-      <AttrNames>
-        <Item Value="SalesChannel"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="BestCaseRevenue">
       <AttrNames>
         <Item Value="BestCaseRevenue"/>
@@ -71,6 +56,21 @@
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="EstimatedDuration">
       <AttrNames>
         <Item Value="EstimatedDuration"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SaleStage">
+      <AttrNames>
+        <Item Value="SaleStage"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SaleMethod">
+      <AttrNames>
+        <Item Value="SaleMethod"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SalesChannel">
+      <AttrNames>
+        <Item Value="SalesChannel"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="BudgetedAmount">

@@ -5,7 +5,8 @@
   <af:panelDrawer position="start" id="pd1" width="100%">
     <af:showDetailItem id="dr1" shortDesc="Overview" icon="#{resource['images:document.png']}">
       <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"
-                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
+                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                   icon="#{resource['images:document.png']}">
         <f:facet name="toolbar">
           <af:toolbar id="t2">
             <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
