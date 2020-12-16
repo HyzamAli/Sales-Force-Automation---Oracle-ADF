@@ -10,6 +10,21 @@
       <managed-bean-class>view.OppurtunityBean</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__6">
+      <managed-bean-name>NotesBean</managed-bean-name>
+      <managed-bean-class>view.NotesBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__7">
+      <managed-bean-name>TasksBean</managed-bean-name>
+      <managed-bean-class>view.TasksBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+      <managed-bean-name>ProductsOpBean</managed-bean-name>
+      <managed-bean-class>view.ProductsOpBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="oppurtunities">
       <page>/Oppurtunities.jsff</page>
     </view>

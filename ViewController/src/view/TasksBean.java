@@ -10,6 +10,7 @@ public class TasksBean {
     private String percentageDone;
     private String details;
     private String oppurtunityID;
+    private String customerId;
 
     public TasksBean() {
     }
@@ -68,5 +69,13 @@ public class TasksBean {
 
     public String getOppurtunityID() {
         return oppurtunityID;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
     }
 }

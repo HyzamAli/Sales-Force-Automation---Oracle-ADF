@@ -6,6 +6,7 @@ public class ContactsBean {
     private String email;
     private String isPrimary;
     private String influenceLevel;
+    private String customerId;
 
     public ContactsBean() {
     }
@@ -48,5 +49,13 @@ public class ContactsBean {
 
     public String getInfluenceLevel() {
         return influenceLevel;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
     }
 }

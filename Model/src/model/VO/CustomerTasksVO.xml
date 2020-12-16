@@ -40,6 +40,10 @@
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContactId"
     ListVOName="CustomerContactsVO1"
@@ -75,6 +79,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_CustomerId"
+    ListVOName="CustomersVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerTaskEO"
     Entity="model.EO.CustomerTaskEO"/>
@@ -91,7 +112,16 @@
     PrecisionRule="true"
     EntityAttrName="CustomerId"
     EntityUsage="CustomerTaskEO"
-    AliasName="CUSTOMER_ID"/>
+    AliasName="CUSTOMER_ID"
+    LOVName="LOV_CustomerId"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactId"
     PrecisionRule="true"
@@ -180,7 +210,8 @@
     PrecisionRule="true"
     EntityAttrName="OppurtunityId"
     EntityUsage="CustomerTaskEO"
-    AliasName="OPPURTUNITY_ID">
+    AliasName="OPPURTUNITY_ID"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
