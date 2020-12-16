@@ -125,6 +125,8 @@
                 <af:button text="Add Contact" id="b9">
                   <af:showPopupBehavior popupId="::p3"/>
                 </af:button>
+                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                           disabled="#{!bindings.Delete.enabled}" id="b16"/>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
@@ -135,7 +137,7 @@
                       selectedRowKeys="#{bindings.CustomerContactsVO3.collectionModel.selectedRow}"
                       selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
-                      columnStretching="last" summary="Customer Notes List" partialTriggers=":::b8 :::b16">
+                      columnStretching="last" summary="Customer Notes List" partialTriggers=":::b8 ::b16">
               <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30" rowHeader="true">
                 <af:link id="l1">
                   <af:outputText value="#{row.ContactName}"
@@ -202,10 +204,7 @@
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p5" partialTriggers="pc2:t4">
             <af:dialog id="d4" title="Edit Contact">
-              <f:facet name="buttonBar">
-                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                           disabled="#{!bindings.Delete.enabled}" id="b16"/>
-              </f:facet>
+              <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl5">
                 <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
                               required="#{bindings.ContactName.hints.mandatory}"
@@ -278,6 +277,8 @@
                 <af:button text="Add" id="b7">
                   <af:showPopupBehavior popupId="::p2"/>
                 </af:button>
+                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                           disabled="#{!bindings.Delete1.enabled}" id="b17"/>
               </af:toolbar>
             </f:facet>
             <f:facet name="statusbar"/>
@@ -287,7 +288,7 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerNotesVO61.collectionModel.selectedRow}"
                       selectionListener="#{bindings.CustomerNotesVO61.collectionModel.makeCurrent}"
                       rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
-                      partialTriggers=":::b4 :::b17" summary="Notes List">
+                      partialTriggers=":::b4 ::b17" summary="Notes List">
               <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true">
                 <af:link id="l2">
                   <af:outputText value="#{row.NotesTitle}"
@@ -369,10 +370,7 @@
         </af:popup>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t5">
           <af:dialog id="d5" title="Edit Notes">
-            <f:facet name="buttonBar">
-              <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
-                         disabled="#{!bindings.Delete1.enabled}" id="b17"/>
-            </f:facet>
+            <f:facet name="buttonBar"/>
             <af:panelFormLayout id="pfl6">
               <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
                             required="#{bindings.NotesTitle.hints.mandatory}"
@@ -800,7 +798,7 @@
         <af:popup childCreation="deferred" autoCancel="disabled" id="p8">
           <af:dialog id="d8" title="Add Attendees">
             <f:facet name="buttonBar">
-              <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="CreateWithParams4"
+              <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="Add"
                          disabled="#{!bindings.CreateWithParams4.enabled}" id="b23"/>
             </f:facet>
             <af:panelFormLayout id="pfl9">
