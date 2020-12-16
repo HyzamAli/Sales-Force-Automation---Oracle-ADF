@@ -12,6 +12,13 @@
               id="CustomerTasksVO7Iterator"/>
     <iterator Binds="ProductsPerOppurtunitiesVO4" RangeSize="25" DataControl="AppsModuleDataControl"
               id="ProductsPerOppurtunitiesVO4Iterator"/>
+    <searchRegion Criteria="CustomerNotesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerNotesVO7Iterator" id="CustomerNotesVOCriteriaQuery"/>
+    <searchRegion Criteria="CustomerTasksVOCriteria1" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerTasksVO7Iterator" id="CustomerTasksVOCriteria1Query"/>
+    <searchRegion Criteria="ProductsPerOppurtunitiesVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVOCriteriaQuery"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
