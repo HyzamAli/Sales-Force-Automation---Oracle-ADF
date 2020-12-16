@@ -9,6 +9,7 @@ public class NotesBean {
     private String repID;
     private String oppurtunityID;
     private Date createdOn;
+    private String customerId;
 
     public NotesBean() {
     }
@@ -59,5 +60,13 @@ public class NotesBean {
 
     public Date getCreatedOn() {
         return createdOn;
+    }
+
+    public void setCustomerId(String customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomerId() {
+        return customerId;
     }
 }

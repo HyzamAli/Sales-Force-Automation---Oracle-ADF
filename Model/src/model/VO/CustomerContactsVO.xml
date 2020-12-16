@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Variable
     Name="a"
     Kind="viewcriteria"
@@ -41,6 +42,27 @@
     Name="c1"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CustomerId"
+    ListVOName="CustomersVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerContactEO"
     Entity="model.EO.CustomerContactEO"/>
@@ -57,7 +79,15 @@
     PrecisionRule="true"
     EntityAttrName="CustomerId"
     EntityUsage="CustomerContactEO"
-    AliasName="CUSTOMER_ID"/>
+    AliasName="CUSTOMER_ID"
+    LOVName="LOV_CustomerId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsPrimary"
     PrecisionRule="true"
