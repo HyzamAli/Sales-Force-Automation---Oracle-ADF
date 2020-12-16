@@ -29,6 +29,18 @@
     Name="d"
     Kind="viewcriteria"
     Type="java.math.BigDecimal"/>
+  <Variable
+    Name="a1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="b1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="c1"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <EntityUsage
     Name="CustomerContactEO"
     Entity="model.EO.CustomerContactEO"/>
@@ -159,6 +171,58 @@
         Operator="="
         Conjunction="AND"
         Value=":d"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="ContactsListVOCriteria"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerContactsVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ContactName"
+        ViewAttribute="ContactName"
+        Operator="="
+        Conjunction="AND"
+        Value=":a1"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ContactPhone"
+        ViewAttribute="ContactPhone"
+        Operator="="
+        Conjunction="AND"
+        Value=":b1"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ContactEmail"
+        ViewAttribute="ContactEmail"
+        Operator="="
+        Conjunction="AND"
+        Value=":c1"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
