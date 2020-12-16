@@ -339,14 +339,6 @@
                             shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13">
                 <f:validator binding="#{bindings.NotesDescription.validator}"/>
               </af:inputText>
-              <af:inputText value="#{NotesBean.oppurtunityID}" label="#{bindings.OppurtunityId.hints.label}"
-                            required="#{bindings.OppurtunityId.hints.mandatory}"
-                            columns="#{bindings.OppurtunityId.hints.displayWidth}"
-                            maximumLength="#{bindings.OppurtunityId.hints.precision}"
-                            shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it16">
-                <f:validator binding="#{bindings.OppurtunityId.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
-              </af:inputText>
               <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
                             required="#{bindings.CreatedOn.hints.mandatory}"
                             columns="#{bindings.CreatedOn.hints.displayWidth}"
@@ -400,14 +392,6 @@
                 <f:selectItems value="#{bindings.RepId2.items}" id="si21"/>
                 <f:validator binding="#{bindings.RepId2.validator}"/>
               </af:selectOneChoice>
-              <af:inputText value="#{bindings.OppurtunityId.inputValue}" label="#{bindings.OppurtunityId.hints.label}"
-                            required="#{bindings.OppurtunityId.hints.mandatory}"
-                            columns="#{bindings.OppurtunityId.hints.displayWidth}"
-                            maximumLength="#{bindings.OppurtunityId.hints.precision}"
-                            shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="it25">
-                <f:validator binding="#{bindings.OppurtunityId.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId.format}"/>
-              </af:inputText>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -461,7 +445,7 @@
                       rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
                       partialTriggers=":::b12 ::b18" summary="Tasks List">
               <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true">
-                <af:link text="link 1" id="l3">
+                <af:link id="l3">
                   <af:outputText id="ot44" value="#{row.TaskDetails}"
                                  shortDesc="#{bindings.CustomerTasksVO61.hints.TaskDetails.tooltip}"/>
                   <af:showPopupBehavior popupId=":::p6"/>
@@ -536,14 +520,6 @@
                             shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22">
                 <f:validator binding="#{bindings.TaskDetails.validator}"/>
               </af:inputText>
-              <af:inputText value="#{TasksBean.oppurtunityID}" label="#{bindings.OppurtunityId1.hints.label}"
-                            required="#{bindings.OppurtunityId1.hints.mandatory}"
-                            columns="#{bindings.OppurtunityId1.hints.displayWidth}"
-                            maximumLength="#{bindings.OppurtunityId1.hints.precision}"
-                            shortDesc="#{bindings.OppurtunityId1.hints.tooltip}" id="it23">
-                <f:validator binding="#{bindings.OppurtunityId1.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId1.format}"/>
-              </af:inputText>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -599,14 +575,6 @@
                 <f:selectItems value="#{bindings.RepId.items}" id="si27"/>
                 <f:validator binding="#{bindings.RepId.validator}"/>
               </af:selectOneChoice>
-              <af:inputText value="#{bindings.OppurtunityId1.inputValue}" label="#{bindings.OppurtunityId1.hints.label}"
-                            required="#{bindings.OppurtunityId1.hints.mandatory}"
-                            columns="#{bindings.OppurtunityId1.hints.displayWidth}"
-                            maximumLength="#{bindings.OppurtunityId1.hints.precision}"
-                            shortDesc="#{bindings.OppurtunityId1.hints.tooltip}" id="it27">
-                <f:validator binding="#{bindings.OppurtunityId1.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunityId1.format}"/>
-              </af:inputText>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -886,6 +854,5 @@
         </af:popup>
       </af:panelGroupLayout>
     </af:showDetailItem>
-    <af:showDetailItem id="dr6" shortDesc="Oppurtunity" icon="#{resource['images:thumbs-up-2.png']}"/>
   </af:panelDrawer>
 </ui:composition>
