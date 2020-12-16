@@ -1,9 +1,25 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:panelBox text="Dashboard" id="pb1">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:panelDashboard id="pd1" columns="2" rowHeight="400px">
+    <af:panelBox text="" id="pb2" showHeader="never"
+                 inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; margin-bottom:15px; margin-left:15px; margin-right:15px; margin-top:15px; padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                    showDisclosure="false" >
       <f:facet name="toolbar"/>
+      <af:panelGroupLayout id="pgl1" layout="vertical"
+                           inlineStyle="padding-bottom:30px; padding-left:30px; padding-right:30px; padding-top:30px;">
+        <af:outputText value="Welcome to" id="of1" inlineStyle="font-size:large;"/>
+        <af:activeOutputText value="Sales Assist" id="aot1" inlineStyle="font-size:x-large; font-weight:bold;"/>
+      </af:panelGroupLayout>
     </af:panelBox>
-  </af:panelGroupLayout>
+    <af:panelBox text="Quarterly Revenues" id="pb1" showDisclosure="false"
+                 inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; margin-bottom:15px; margin-left:15px; margin-right:15px; margin-top:15px; padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                 background="dark">
+      <f:facet name="toolbar"/>
+      <dvt:pieChart id="pieChart1" var="row" value="#{bindings.RevenueChartVO1.collectionModel}" innerRadius="0">
+        <dvt:chartLegend id="cl1"/>
+        <dvt:pieDataItem id="di1" label="#{row.Quarter}" value="#{row.RevenueInQtr}"/>
+      </dvt:pieChart>
+    </af:panelBox>
+  </af:panelDashboard>
 </ui:composition>
