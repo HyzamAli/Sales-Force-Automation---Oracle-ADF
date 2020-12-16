@@ -53,18 +53,6 @@
     ColumnType="NUMBER"
     TableName="OPPURTUNITIES"/>
   <Attribute
-    Name="CloseDate"
-    Precision="255"
-    ColumnName="CLOSE_DATE"
-    SQLType="VARCHAR"
-    Type="oracle.jbo.domain.Date"
-    ColumnType="VARCHAR2"
-    TableName="OPPURTUNITIES">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="255"/>
-    </DesignTime>
-  </Attribute>
-  <Attribute
     Name="SaleStage"
     Precision="1000"
     ColumnName="SALE_STAGE"
@@ -221,6 +209,25 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
+    TableName="OPPURTUNITIES"/>
+  <Attribute
+    Name="Quarter"
+    Precision="20"
+    ColumnName="QUARTER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPURTUNITIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="CloseDate"
+    ColumnName="CLOSE_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
     TableName="OPPURTUNITIES"/>
   <AccessorAttribute
     Name="CustomerNoteEO"

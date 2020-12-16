@@ -93,6 +93,11 @@
         <Item Value="DecisionLevel"/>
       </AttrNames>
     </attributeValues>
+        <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="Quarter">
+      <AttrNames>
+        <Item Value="Quarter"/>
+      </AttrNames>
+    </attributeValues>
     <action IterBinding="OppurtunitiesVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="CustomerId" NDValue="#{OppurtunityBean.customerId}" NDType="java.lang.String"/>
@@ -111,6 +116,7 @@
       <NamedData NDName="EstimatedDuration" NDValue="#{OppurtunityBean.duration}" NDType="java.lang.String"/>
       <NamedData NDName="CloseDate" NDValue="#{OppurtunityBean.close_Date}" NDType="java.lang.String"/>
       <NamedData NDName="WinProbability" NDValue="#{OppurtunityBean.win_prob}" NDType="java.lang.String"/>
+    <NamedData NDName="Quarter" NDValue="#{OppurtunityBean.revenueQuarter}" NDType="java.lang.String"/>
       <NamedData NDName="OppurtunityId" NDType="java.lang.String"/>
     </action>
     <action IterBinding="OppurtunitiesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>

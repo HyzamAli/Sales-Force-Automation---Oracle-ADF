@@ -174,12 +174,6 @@
     EntityUsage="OppurtunitieEO"
     AliasName="WIN_PROBABILITY"/>
   <ViewAttribute
-    Name="CloseDate"
-    PrecisionRule="true"
-    EntityAttrName="CloseDate"
-    EntityUsage="OppurtunitieEO"
-    AliasName="CLOSE_DATE"/>
-  <ViewAttribute
     Name="SaleStage"
     PrecisionRule="true"
     EntityAttrName="SaleStage"
@@ -266,6 +260,18 @@
     EntityAttrName="IsVisible"
     EntityUsage="OppurtunitieEO"
     AliasName="IS_VISIBLE"/>
+  <ViewAttribute
+    Name="Quarter"
+    PrecisionRule="true"
+    EntityAttrName="Quarter"
+    EntityUsage="OppurtunitieEO"
+    AliasName="QUARTER"/>
+  <ViewAttribute
+    Name="CloseDate"
+    PrecisionRule="true"
+    EntityAttrName="CloseDate"
+    EntityUsage="OppurtunitieEO"
+    AliasName="CLOSE_DATE"/>
   <ViewCriteria
     Name="OppurtunitiesVOCriteria"
     ViewObjectName="model.VO.OppurtunitiesVO"

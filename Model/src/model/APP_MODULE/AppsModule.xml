@@ -148,6 +148,9 @@
   <ViewUsage
     Name="ProductsPerOppurtunitiesVO4"
     ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"/>
+  <ViewUsage
+    Name="RevenueChartVO1"
+    ViewObjectName="model.VO.RevenueChartVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
