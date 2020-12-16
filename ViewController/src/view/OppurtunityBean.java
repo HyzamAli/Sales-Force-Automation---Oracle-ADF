@@ -1,10 +1,14 @@
 package view;
 
+import java.sql.Date;
+
+import java.util.Calendar;
+
 public class OppurtunityBean {
     private String customerId;
     private String refId;
     private String win_prob;
-    private String close_Date;
+    private Date close_Date;
     private String salesStage;
     private String salesMethod;
     private String salesChannel;
@@ -17,6 +21,8 @@ public class OppurtunityBean {
     private String decisionLevel;
     private String quantity;
     private String managerId;
+    private String revenueQuarter;
+    
 
     public OppurtunityBean() {
     }
@@ -45,11 +51,12 @@ public class OppurtunityBean {
         return win_prob;
     }
 
-    public void setClose_Date(String close_Date) {
+    public void setClose_Date(Date close_Date) {
+        setRevenueQuarter(close_Date);
         this.close_Date = close_Date;
     }
 
-    public String getClose_Date() {
+    public Date getClose_Date() {
         return close_Date;
     }
 
@@ -147,5 +154,25 @@ public class OppurtunityBean {
 
     public String getManagerId() {
         return managerId;
+    }
+
+    private void setRevenueQuarter(Date closeDate) {
+        Calendar cal = Calendar.getInstance();
+        cal.setTime(closeDate);
+        int month = cal.get(Calendar.MONTH);
+        
+        if (month >= 0 && month<=2) {
+            this.revenueQuarter = "Q1";
+        } else if (month <= 5) {
+            this.revenueQuarter = "Q2";
+        } else if (month <=8) {
+            this.revenueQuarter = "Q3";
+        } else {
+            this.revenueQuarter = "Q4";
+        }
+    }
+
+    public String getRevenueQuarter() {
+        return revenueQuarter;
     }
 }

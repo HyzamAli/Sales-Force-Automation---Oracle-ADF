@@ -112,19 +112,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="CloseDate"
-    PrecisionRule="true"
-    EntityAttrName="CloseDate"
-    EntityUsage="OppurtunitieEO"
-    AliasName="CLOSE_DATE">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="30"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
     EntityAttrName="CustomerId"
@@ -307,6 +294,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CloseDate"
+    PrecisionRule="true"
+    EntityAttrName="CloseDate"
+    EntityUsage="OppurtunitieEO"
+    AliasName="CLOSE_DATE"/>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.NotesByOppurtunity"
