@@ -4,6 +4,16 @@
   <parameters/>
   <executables>
     <variableIterator id="variables"/>
+    <iterator Binds="RevenueChartVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="RevenueChartVO1Iterator"/>
   </executables>
-  <bindings/>
+  <bindings>
+    <tree IterBinding="RevenueChartVO1Iterator" id="RevenueChartVO1" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.VO.RevenueChartVO" Name="RevenueChartVO1">
+        <AttrNames>
+          <Item Value="RevenueInQtr"/>
+          <Item Value="Quarter"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
 </pageDefinition>
