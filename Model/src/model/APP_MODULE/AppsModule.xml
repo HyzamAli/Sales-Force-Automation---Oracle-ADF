@@ -139,6 +139,15 @@
   <ViewUsage
     Name="OppurtunityByID1"
     ViewObjectName="model.VO.OppurtunityByID"/>
+  <ViewUsage
+    Name="CustomerNotesVO7"
+    ViewObjectName="model.VO.CustomerNotesVO"/>
+  <ViewUsage
+    Name="CustomerTasksVO7"
+    ViewObjectName="model.VO.CustomerTasksVO"/>
+  <ViewUsage
+    Name="ProductsPerOppurtunitiesVO4"
+    ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -294,5 +303,23 @@
     ViewLinkObjectName="model.APP_MODULE.AttendeesByAppointment"
     SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO3"
     DstViewUsageName="model.APP_MODULE.AppsModule.AppointmentAttendeesVO5"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="NotesByOppurtunity1"
+    ViewLinkObjectName="model.VO.NotesByOppurtunity"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.CustomerNotesVO7"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="TasksByOppurtunity1"
+    ViewLinkObjectName="model.VO.TasksByOppurtunity"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.CustomerTasksVO7"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ProductsByOppurtunity1"
+    ViewLinkObjectName="model.VO.ProductsByOppurtunity"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.ProductsPerOppurtunitiesVO4"
     Reversed="false"/>
 </AppModule>

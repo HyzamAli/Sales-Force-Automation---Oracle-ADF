@@ -1,227 +1,226 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelBox text="PanelBox1" id="pb1" showHeader="never" showDisclosure="false"
-               inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
-    <f:facet name="toolbar"/>
-    <af:panelGroupLayout id="pgl1" layout="vertical">
+  <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelBox text="PanelBox2" id="pb3"
+                 inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:020px; margin-top:0020px;"
+                 showHeader="never" showDisclosure="false">
+      <f:facet name="toolbar"/>
       <af:query id="qryId1" headerText="Search" disclosed="true"
                 value="#{bindings.OppurtunitiesVOCriteriaQuery.queryDescriptor}"
                 model="#{bindings.OppurtunitiesVOCriteriaQuery.queryModel}"
                 queryListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQuery}"
-                queryOperationListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQueryOperation}"/>
-      <af:panelBox text="Oppurtunities" id="pb2"
-                   inlineStyle="padding-bottom:0010px; padding-left:0010px; padding-right:0010px; padding-top:0010px;"
-                   showDisclosure="false">
+                queryOperationListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQueryOperation}"
+                inlineStyle="margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:0px; padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:0010px;"/>
+    </af:panelBox>
+    <af:panelBox text="Oppurtunities" id="pb2"
+                 inlineStyle="padding-bottom:0010px; padding-left:0010px; padding-right:0010px; padding-top:0010px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
+                 showDisclosure="false">
+      <f:facet name="toolbar">
+        <af:toolbar id="t3">
+          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                     disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t2"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t2">
+            <af:resetActionListener/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
+      <af:panelCollection id="pc1"
+                          inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:0010px; padding-top:0010px;">
+        <f:facet name="menus"/>
         <f:facet name="toolbar">
-          <af:toolbar id="t3">
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
-                       id="b4" partialTriggers="pc1:t2"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t2">
-              <af:resetActionListener/>
+          <af:toolbar id="t1">
+            <af:button text="Add Oppurtunity" id="b1">
+              <af:showPopupBehavior popupId="::p1"/>
             </af:button>
+            <af:button text="Delete" id="b2" actionListener="#{bindings.Delete.execute}"
+                       disabled="#{!bindings.Delete.enabled}"/>
           </af:toolbar>
         </f:facet>
-        <af:panelCollection id="pc1"
-                            inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:0010px; padding-top:0010px;">
-          <f:facet name="menus"/>
-          <f:facet name="toolbar">
-            <af:toolbar id="t1">
-              <af:button text="Add Oppurtunity" id="b1">
-                <af:showPopupBehavior popupId="::p1"/>
-              </af:button>
-              <af:button text="Delete" id="b2" actionListener="#{bindings.Delete.execute}"
-                         disabled="#{!bindings.Delete.enabled}"/>
-            </af:toolbar>
-          </f:facet>
-          <af:table value="#{bindings.OppurtunitiesVO1.collectionModel}" var="row"
-                    rows="#{bindings.OppurtunitiesVO1.rangeSize}"
-                    emptyText="#{bindings.OppurtunitiesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                    rowBandingInterval="0" selectedRowKeys="#{bindings.OppurtunitiesVO1.collectionModel.selectedRow}"
-                    selectionListener="#{bindings.OppurtunitiesVO1.collectionModel.makeCurrent}" rowSelection="single"
-                    fetchSize="#{bindings.OppurtunitiesVO1.rangeSize}" id="t2" columnStretching="last"
-                    summary="Oppurtunity List" partialTriggers=":::b3 ::b2">
-            <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.label}" id="c1" rowHeader="true">
-              <af:link id="l1" action="toDetailed">
-                <af:outputText value="#{row.OppurtunityId}"
-                               shortDesc="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.tooltip}" id="ot1">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.format}"/>
-                </af:outputText>
-                <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.oppurtunityId}"/>
-              </af:link>
-            </af:column>
-            <af:column headerText="#{bindings.OppurtunitiesVO1.hints.CustomerId.label}" id="c2">
-              <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}" label="#{row.bindings.CustomerId.label}"
-                                  required="#{bindings.OppurtunitiesVO1.hints.CustomerId.mandatory}"
-                                  shortDesc="#{bindings.OppurtunitiesVO1.hints.CustomerId.tooltip}" readOnly="true"
-                                  id="soc1">
-                <f:selectItems value="#{row.bindings.CustomerId.items}" id="si1"/>
-                <f:validator binding="#{row.bindings.CustomerId.validator}"/>
-              </af:selectOneChoice>
-            </af:column>
-            <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3">
-              <af:outputText value="#{row.WinProbability}"
-                             shortDesc="#{bindings.OppurtunitiesVO1.hints.WinProbability.tooltip}" id="ot2">
+        <af:table value="#{bindings.OppurtunitiesVO1.collectionModel}" var="row"
+                  rows="#{bindings.OppurtunitiesVO1.rangeSize}"
+                  emptyText="#{bindings.OppurtunitiesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                  rowBandingInterval="0" selectedRowKeys="#{bindings.OppurtunitiesVO1.collectionModel.selectedRow}"
+                  selectionListener="#{bindings.OppurtunitiesVO1.collectionModel.makeCurrent}" rowSelection="single"
+                  fetchSize="#{bindings.OppurtunitiesVO1.rangeSize}" id="t2" columnStretching="last"
+                  summary="Oppurtunity List" partialTriggers=":::b3 ::b2">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.label}" id="c1" rowHeader="true">
+            <af:link id="l1" action="toDetailed">
+              <af:outputText value="#{row.OppurtunityId}"
+                             shortDesc="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.tooltip}" id="ot1">
                 <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.OppurtunitiesVO1.hints.WinProbability.format}"/>
+                                  pattern="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.format}"/>
               </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.OppurtunitiesVO1.hints.SaleStage.label}" id="c4">
-              <af:outputText value="#{row.SaleStage}" shortDesc="#{bindings.OppurtunitiesVO1.hints.SaleStage.tooltip}"
-                             id="ot3"/>
-            </af:column>
-            <af:column headerText="#{bindings.OppurtunitiesVO1.hints.Revenue.label}" id="c5">
-              <af:outputText value="#{row.Revenue}" shortDesc="#{bindings.OppurtunitiesVO1.hints.Revenue.tooltip}"
-                             id="ot4">
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunitiesVO1.hints.Revenue.format}"/>
-              </af:outputText>
-            </af:column>
-            <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6">
-              <af:outputText value="#{row.RiskLevel}" shortDesc="#{bindings.OppurtunitiesVO1.hints.RiskLevel.tooltip}"
-                             id="ot5"/>
-            </af:column>
-          </af:table>
-          <f:facet name="statusbar"/>
-        </af:panelCollection>
-      </af:panelBox>
-      <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-        <af:dialog id="d1" title="Create Oppurtunity">
-          <f:facet name="buttonBar">
-            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
-                       disabled="#{!bindings.CreateWithParams.enabled}" id="b3"/>
-          </f:facet>
-          <af:panelFormLayout id="pfl1">
-            <af:selectOneChoice value="#{OppurtunityBean.customerId}" label="#{bindings.CustomerId.label}"
-                                required="#{bindings.CustomerId.hints.mandatory}"
-                                shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc2">
-              <f:selectItems value="#{bindings.CustomerId.items}" id="si2"/>
-              <f:validator binding="#{bindings.CustomerId.validator}"/>
+              <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.oppurtunityId}"/>
+            </af:link>
+          </af:column>
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.CustomerId.label}" id="c2">
+            <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}" label="#{row.bindings.CustomerId.label}"
+                                required="#{bindings.OppurtunitiesVO1.hints.CustomerId.mandatory}"
+                                shortDesc="#{bindings.OppurtunitiesVO1.hints.CustomerId.tooltip}" readOnly="true"
+                                id="soc1">
+              <f:selectItems value="#{row.bindings.CustomerId.items}" id="si1"/>
+              <f:validator binding="#{row.bindings.CustomerId.validator}"/>
             </af:selectOneChoice>
-            <af:selectOneChoice value="#{OppurtunityBean.refId}" label="#{bindings.RefContact.label}"
-                                required="#{bindings.RefContact.hints.mandatory}"
-                                shortDesc="#{bindings.RefContact.hints.tooltip}" id="soc3">
-              <f:selectItems value="#{bindings.RefContact.items}" id="si3"/>
-              <f:validator binding="#{bindings.RefContact.validator}"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{OppurtunityBean.managerId}" label="#{bindings.ManagerId.label}"
-                                required="#{bindings.ManagerId.hints.mandatory}"
-                                shortDesc="#{bindings.ManagerId.hints.tooltip}" id="soc4">
-              <f:selectItems value="#{bindings.ManagerId.items}" id="si4"/>
-              <f:validator binding="#{bindings.ManagerId.validator}"/>
-            </af:selectOneChoice>
-            <af:inputDate value="#{OppurtunityBean.close_Date}" label="#{bindings.CloseDate.hints.label}"
-                          required="#{bindings.CloseDate.hints.mandatory}"
-                          columns="#{bindings.CloseDate.hints.displayWidth}"
-                          shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id1">
-              <f:validator binding="#{bindings.CloseDate.validator}"/>
-              <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
-            </af:inputDate>
-            <af:inputText value="#{OppurtunityBean.salesRevenue}" label="#{bindings.Revenue.hints.label}"
-                          required="#{bindings.Revenue.hints.mandatory}"
-                          columns="#{bindings.Revenue.hints.displayWidth}"
-                          maximumLength="#{bindings.Revenue.hints.precision}"
-                          shortDesc="#{bindings.Revenue.hints.tooltip}" id="it1">
-              <f:validator binding="#{bindings.Revenue.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
-            </af:inputText>
-            <af:inputText value="#{OppurtunityBean.win_prob}" label="#{bindings.WinProbability.hints.label}"
-                          required="#{bindings.WinProbability.hints.mandatory}"
-                          columns="#{bindings.WinProbability.hints.displayWidth}"
-                          maximumLength="#{bindings.WinProbability.hints.precision}"
-                          shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it2">
-              <f:validator binding="#{bindings.WinProbability.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
-            </af:inputText>
-            <af:selectOneChoice value="#{OppurtunityBean.salesStage}" label="#{bindings.SaleStage.hints.label}"
-                          required="#{bindings.SaleStage.hints.mandatory}"
-                          shortDesc="#{bindings.SaleStage.hints.tooltip}" id="soc5">
-              <f:validator binding="#{bindings.SaleStage.validator}"/>
-              <af:selectItem label="Qualification" value="Qualification" id="si5"/>
-              <af:selectItem label="Oppurtunity" value="Oppurtunity" id="si6"/>
-              <af:selectItem label="Building" value="Building" id="si7"/>
-              <af:selectItem label="Vision" value="Vision" id="si8"/>
-              <af:selectItem label="Presentation" value="Presentation" id="si9"/>
-              <af:selectItem label="Agreement" value="Agreement" id="si10"/>
-              <af:selectItem label="Negotiation" value="Negotiation" id="si11"/>
-              <af:selectItem label="Closed" value="Closed" id="si12"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{OppurtunityBean.salesMethod}" label="#{bindings.SaleMethod.hints.label}"
-                          required="#{bindings.SaleMethod.hints.mandatory}"
-                          shortDesc="#{bindings.SaleMethod.hints.tooltip}" id="soc6">
+          </af:column>
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3">
+            <af:outputText value="#{row.WinProbability}"
+                           shortDesc="#{bindings.OppurtunitiesVO1.hints.WinProbability.tooltip}" id="ot2">
+              <af:convertNumber groupingUsed="false"
+                                pattern="#{bindings.OppurtunitiesVO1.hints.WinProbability.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.SaleStage.label}" id="c4">
+            <af:outputText value="#{row.SaleStage}" shortDesc="#{bindings.OppurtunitiesVO1.hints.SaleStage.tooltip}"
+                           id="ot3"/>
+          </af:column>
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.Revenue.label}" id="c5">
+            <af:outputText value="#{row.Revenue}" shortDesc="#{bindings.OppurtunitiesVO1.hints.Revenue.tooltip}"
+                           id="ot4">
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunitiesVO1.hints.Revenue.format}"/>
+            </af:outputText>
+          </af:column>
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6">
+            <af:outputText value="#{row.RiskLevel}" shortDesc="#{bindings.OppurtunitiesVO1.hints.RiskLevel.tooltip}"
+                           id="ot5"/>
+          </af:column>
+        </af:table>
+        <f:facet name="statusbar"/>
+      </af:panelCollection>
+    </af:panelBox>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+      <af:dialog id="d1" title="Create Oppurtunity">
+        <f:facet name="buttonBar">
+          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
+                     disabled="#{!bindings.CreateWithParams.enabled}" id="b3"/>
+        </f:facet>
+        <af:panelFormLayout id="pfl1">
+          <af:selectOneChoice value="#{OppurtunityBean.customerId}" label="#{bindings.CustomerId.label}"
+                              required="#{bindings.CustomerId.hints.mandatory}"
+                              shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc2">
+            <f:selectItems value="#{bindings.CustomerId.items}" id="si2"/>
+            <f:validator binding="#{bindings.CustomerId.validator}"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{OppurtunityBean.refId}" label="#{bindings.RefContact.label}"
+                              required="#{bindings.RefContact.hints.mandatory}"
+                              shortDesc="#{bindings.RefContact.hints.tooltip}" id="soc3">
+            <f:selectItems value="#{bindings.RefContact.items}" id="si3"/>
+            <f:validator binding="#{bindings.RefContact.validator}"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{OppurtunityBean.managerId}" label="#{bindings.ManagerId.label}"
+                              required="#{bindings.ManagerId.hints.mandatory}"
+                              shortDesc="#{bindings.ManagerId.hints.tooltip}" id="soc4">
+            <f:selectItems value="#{bindings.ManagerId.items}" id="si4"/>
+            <f:validator binding="#{bindings.ManagerId.validator}"/>
+          </af:selectOneChoice>
+          <af:inputDate value="#{OppurtunityBean.close_Date}" label="#{bindings.CloseDate.hints.label}"
+                        required="#{bindings.CloseDate.hints.mandatory}"
+                        columns="#{bindings.CloseDate.hints.displayWidth}"
+                        shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id1">
+            <f:validator binding="#{bindings.CloseDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+          </af:inputDate>
+          <af:inputText value="#{OppurtunityBean.salesRevenue}" label="#{bindings.Revenue.hints.label}"
+                        required="#{bindings.Revenue.hints.mandatory}" columns="#{bindings.Revenue.hints.displayWidth}"
+                        maximumLength="#{bindings.Revenue.hints.precision}"
+                        shortDesc="#{bindings.Revenue.hints.tooltip}" id="it1">
+            <f:validator binding="#{bindings.Revenue.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
+          </af:inputText>
+          <af:inputText value="#{OppurtunityBean.win_prob}" label="#{bindings.WinProbability.hints.label}"
+                        required="#{bindings.WinProbability.hints.mandatory}"
+                        columns="#{bindings.WinProbability.hints.displayWidth}"
+                        maximumLength="#{bindings.WinProbability.hints.precision}"
+                        shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it2">
+            <f:validator binding="#{bindings.WinProbability.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{OppurtunityBean.salesStage}" label="#{bindings.SaleStage.hints.label}"
+                              required="#{bindings.SaleStage.hints.mandatory}"
+                              shortDesc="#{bindings.SaleStage.hints.tooltip}" id="soc5">
+            <f:validator binding="#{bindings.SaleStage.validator}"/>
+            <af:selectItem label="Qualification" value="Qualification" id="si5"/>
+            <af:selectItem label="Oppurtunity" value="Oppurtunity" id="si6"/>
+            <af:selectItem label="Building" value="Building" id="si7"/>
+            <af:selectItem label="Vision" value="Vision" id="si8"/>
+            <af:selectItem label="Presentation" value="Presentation" id="si9"/>
+            <af:selectItem label="Agreement" value="Agreement" id="si10"/>
+            <af:selectItem label="Negotiation" value="Negotiation" id="si11"/>
+            <af:selectItem label="Closed" value="Closed" id="si12"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{OppurtunityBean.salesMethod}" label="#{bindings.SaleMethod.hints.label}"
+                              required="#{bindings.SaleMethod.hints.mandatory}"
+                              shortDesc="#{bindings.SaleMethod.hints.tooltip}" id="soc6">
             <f:validator binding="#{bindings.SaleMethod.validator}"/>
-              <af:selectItem label="Standard Process" value="Standard Process" id="si13"/>
-              <af:selectItem label="Custom" value="Custom" id="si14"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{OppurtunityBean.salesChannel}" label="#{bindings.SalesChannel.hints.label}"
-                          required="#{bindings.SalesChannel.hints.mandatory}"
-                          shortDesc="#{bindings.SalesChannel.hints.tooltip}" id="soc7">
-              <f:validator binding="#{bindings.SalesChannel.validator}"/>            
-              <af:selectItem label="Direct" value="Direct" id="si15"/>
-              <af:selectItem label="Indirect" value="Indirect" id="si16"/>
-            </af:selectOneChoice>
-            <af:inputText value="#{OppurtunityBean.bestCase}" label="#{bindings.BestCaseRevenue.hints.label}"
-                          required="#{bindings.BestCaseRevenue.hints.mandatory}"
-                          columns="#{bindings.BestCaseRevenue.hints.displayWidth}"
-                          maximumLength="#{bindings.BestCaseRevenue.hints.precision}"
-                          shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it6">
-              <f:validator binding="#{bindings.BestCaseRevenue.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.BestCaseRevenue.format}"/>
-            </af:inputText>
-            <af:inputText value="#{OppurtunityBean.worstCase}"
-                          label="#{bindings.WorstCaseRevenue.hints.label}"
-                          required="#{bindings.WorstCaseRevenue.hints.mandatory}"
-                          columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
-                          maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
-                          shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it7">
-              <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
-            </af:inputText>
-            <af:inputText value="#{OppurtunityBean.duration}"
-                          label="#{bindings.EstimatedDuration.hints.label}"
-                          required="#{bindings.EstimatedDuration.hints.mandatory}"
-                          columns="#{bindings.EstimatedDuration.hints.displayWidth}"
-                          maximumLength="#{bindings.EstimatedDuration.hints.precision}"
-                          shortDesc="#{bindings.EstimatedDuration.hints.tooltip}" id="it8">
-              <f:validator binding="#{bindings.EstimatedDuration.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.EstimatedDuration.format}"/>
-            </af:inputText>
-            <af:inputText value="#{OppurtunityBean.budgetedAmount}" label="#{bindings.BudgetedAmount.hints.label}"
-                          required="#{bindings.BudgetedAmount.hints.mandatory}"
-                          columns="#{bindings.BudgetedAmount.hints.displayWidth}"
-                          maximumLength="#{bindings.BudgetedAmount.hints.precision}"
-                          shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it9">
-              <f:validator binding="#{bindings.BudgetedAmount.validator}"/>
-            </af:inputText>
-            <af:inputText value="#{OppurtunityBean.quantity}" label="#{bindings.ProductQuantity.hints.label}"
-                          required="#{bindings.ProductQuantity.hints.mandatory}"
-                          columns="#{bindings.ProductQuantity.hints.displayWidth}"
-                          maximumLength="#{bindings.ProductQuantity.hints.precision}"
-                          shortDesc="#{bindings.ProductQuantity.hints.tooltip}" id="it10">
-              <f:validator binding="#{bindings.ProductQuantity.validator}"/>
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity.format}"/>
-            </af:inputText>
-            <af:selectOneChoice value="#{OppurtunityBean.riskLevel}" label="#{bindings.RiskLevel.hints.label}"
-                          required="#{bindings.RiskLevel.hints.mandatory}"
-                          shortDesc="#{bindings.RiskLevel.hints.tooltip}" id="soc8">
-              <f:validator binding="#{bindings.RiskLevel.validator}"/>
-              <af:selectItem label="High" value="High" id="si17"/>
-              <af:selectItem label="Medium" value="Medium" id="si18"/>
-              <af:selectItem label="Low" value="Low" id="si19"/>
-            </af:selectOneChoice>
-            <af:selectOneChoice value="#{OppurtunityBean.decisionLevel}" label="#{bindings.DecisionLevel.hints.label}"
-                          required="#{bindings.DecisionLevel.hints.mandatory}"
-                          shortDesc="#{bindings.DecisionLevel.hints.tooltip}" id="soc9">
-              <f:validator binding="#{bindings.DecisionLevel.validator}"/>
-              <af:selectItem label="CEO" value="CEO" id="si20"/>
-              <af:selectItem label="VP" value="VP" id="si21"/>
-              <af:selectItem label="Manager" value="Manager" id="si22"/>
-              <af:selectItem label="Buyer" value="Buyer" id="si23"/>
-            </af:selectOneChoice>
-          </af:panelFormLayout>
-        </af:dialog>
-      </af:popup>
-    </af:panelGroupLayout>
-  </af:panelBox>
+            <af:selectItem label="Standard Process" value="Standard Process" id="si13"/>
+            <af:selectItem label="Custom" value="Custom" id="si14"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{OppurtunityBean.salesChannel}" label="#{bindings.SalesChannel.hints.label}"
+                              required="#{bindings.SalesChannel.hints.mandatory}"
+                              shortDesc="#{bindings.SalesChannel.hints.tooltip}" id="soc7">
+            <f:validator binding="#{bindings.SalesChannel.validator}"/>
+            <af:selectItem label="Direct" value="Direct" id="si15"/>
+            <af:selectItem label="Indirect" value="Indirect" id="si16"/>
+          </af:selectOneChoice>
+          <af:inputText value="#{OppurtunityBean.bestCase}" label="#{bindings.BestCaseRevenue.hints.label}"
+                        required="#{bindings.BestCaseRevenue.hints.mandatory}"
+                        columns="#{bindings.BestCaseRevenue.hints.displayWidth}"
+                        maximumLength="#{bindings.BestCaseRevenue.hints.precision}"
+                        shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.BestCaseRevenue.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.BestCaseRevenue.format}"/>
+          </af:inputText>
+          <af:inputText value="#{OppurtunityBean.worstCase}" label="#{bindings.WorstCaseRevenue.hints.label}"
+                        required="#{bindings.WorstCaseRevenue.hints.mandatory}"
+                        columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
+                        maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
+                        shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it7">
+            <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
+          </af:inputText>
+          <af:inputText value="#{OppurtunityBean.duration}" label="#{bindings.EstimatedDuration.hints.label}"
+                        required="#{bindings.EstimatedDuration.hints.mandatory}"
+                        columns="#{bindings.EstimatedDuration.hints.displayWidth}"
+                        maximumLength="#{bindings.EstimatedDuration.hints.precision}"
+                        shortDesc="#{bindings.EstimatedDuration.hints.tooltip}" id="it8">
+            <f:validator binding="#{bindings.EstimatedDuration.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.EstimatedDuration.format}"/>
+          </af:inputText>
+          <af:inputText value="#{OppurtunityBean.budgetedAmount}" label="#{bindings.BudgetedAmount.hints.label}"
+                        required="#{bindings.BudgetedAmount.hints.mandatory}"
+                        columns="#{bindings.BudgetedAmount.hints.displayWidth}"
+                        maximumLength="#{bindings.BudgetedAmount.hints.precision}"
+                        shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it9">
+            <f:validator binding="#{bindings.BudgetedAmount.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{OppurtunityBean.quantity}" label="#{bindings.ProductQuantity.hints.label}"
+                        required="#{bindings.ProductQuantity.hints.mandatory}"
+                        columns="#{bindings.ProductQuantity.hints.displayWidth}"
+                        maximumLength="#{bindings.ProductQuantity.hints.precision}"
+                        shortDesc="#{bindings.ProductQuantity.hints.tooltip}" id="it10">
+            <f:validator binding="#{bindings.ProductQuantity.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity.format}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{OppurtunityBean.riskLevel}" label="#{bindings.RiskLevel.hints.label}"
+                              required="#{bindings.RiskLevel.hints.mandatory}"
+                              shortDesc="#{bindings.RiskLevel.hints.tooltip}" id="soc8">
+            <f:validator binding="#{bindings.RiskLevel.validator}"/>
+            <af:selectItem label="High" value="High" id="si17"/>
+            <af:selectItem label="Medium" value="Medium" id="si18"/>
+            <af:selectItem label="Low" value="Low" id="si19"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{OppurtunityBean.decisionLevel}" label="#{bindings.DecisionLevel.hints.label}"
+                              required="#{bindings.DecisionLevel.hints.mandatory}"
+                              shortDesc="#{bindings.DecisionLevel.hints.tooltip}" id="soc9">
+            <f:validator binding="#{bindings.DecisionLevel.validator}"/>
+            <af:selectItem label="CEO" value="CEO" id="si20"/>
+            <af:selectItem label="VP" value="VP" id="si21"/>
+            <af:selectItem label="Manager" value="Manager" id="si22"/>
+            <af:selectItem label="Buyer" value="Buyer" id="si23"/>
+          </af:selectOneChoice>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
+  </af:panelGroupLayout>
 </ui:composition>

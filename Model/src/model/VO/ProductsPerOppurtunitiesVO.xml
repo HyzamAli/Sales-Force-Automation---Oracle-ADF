@@ -12,7 +12,29 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="ProductsVO1"
+    ViewObjectName="model.VO.ProductsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ProductId12"
+    ListVOName="ProductsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProductId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ProductsPerOppurtunityEO"
     Entity="model.EO.ProductsPerOppurtunityEO"/>
@@ -34,7 +56,15 @@
     PrecisionRule="true"
     EntityAttrName="ProductId"
     EntityUsage="ProductsPerOppurtunityEO"
-    AliasName="PRODUCT_ID"/>
+    AliasName="PRODUCT_ID"
+    LOVName="LOV_ProductId12">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductQuantity"
     PrecisionRule="true"

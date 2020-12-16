@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="oppurtunityDetailedPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="OppurtunityByID1" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="OppurtunityByID1Iterator"/>
+    <iterator Binds="CustomerNotesVO7" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerNotesVO7Iterator"/>
+    <iterator Binds="CustomerTasksVO7" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerTasksVO7Iterator"/>
+    <iterator Binds="ProductsPerOppurtunitiesVO4" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="ProductsPerOppurtunitiesVO4Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="Revenue">
+      <AttrNames>
+        <Item Value="Revenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="BestCaseRevenue">
+      <AttrNames>
+        <Item Value="BestCaseRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="WorstCaseRevenue">
+      <AttrNames>
+        <Item Value="WorstCaseRevenue"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="BudgetedAmount">
+      <AttrNames>
+        <Item Value="BudgetedAmount"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="CloseDate">
+      <AttrNames>
+        <Item Value="CloseDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="WinProbability">
+      <AttrNames>
+        <Item Value="WinProbability"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="EstimatedDuration">
+      <AttrNames>
+        <Item Value="EstimatedDuration"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="ProductQuantity">
+      <AttrNames>
+        <Item Value="ProductQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="DecisionLevel">
+      <AttrNames>
+        <Item Value="DecisionLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="RiskLevel">
+      <AttrNames>
+        <Item Value="RiskLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="SaleStage">
+      <AttrNames>
+        <Item Value="SaleStage"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="SaleMethod">
+      <AttrNames>
+        <Item Value="SaleMethod"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="SalesChannel">
+      <AttrNames>
+        <Item Value="SalesChannel"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_ManagerId" id="ManagerId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_RefContact" id="RefContact1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="CustomerNotesVO7Iterator" id="CustomerNotesVO7">
+      <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO70">
+        <AttrNames>
+          <Item Value="NotesTitle"/>
+          <Item Value="NotesDescription"/>
+          <Item Value="ContactId"/>
+          <Item Value="RepId"/>
+          <Item Value="CreatedOn"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerTasksVO7Iterator" id="CustomerTasksVO7">
+      <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO70">
+        <AttrNames>
+          <Item Value="TaskDetails"/>
+          <Item Value="ContactId"/>
+          <Item Value="RepId"/>
+          <Item Value="Priority1"/>
+          <Item Value="PercentageCompletion"/>
+          <Item Value="DueDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVO4">
+      <nodeDefinition DefName="model.VO.ProductsPerOppurtunitiesVO" Name="ProductsPerOppurtunitiesVO40">
+        <AttrNames>
+          <Item Value="PooId"/>
+          <Item Value="ProductId"/>
+          <Item Value="ProductQuantity"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

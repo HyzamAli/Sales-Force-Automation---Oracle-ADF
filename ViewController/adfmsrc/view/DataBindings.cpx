@@ -20,6 +20,7 @@
     <page path="/Oppurtunities.jsff" usageId="view_OppurtunitiesPageDef"/>
     <page path="/WEB-INF/sales-flow-oppurtunities.xml#sales-flow-oppurtunities@ExecuteWithParams"
           usageId="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"/>
+    <page path="/oppurtunityDetailed.jsff" usageId="view_oppurtunityDetailedPageDef"/>
     <page path="/SalesDashboard.jsff" usageId="view_SalesDashboardPageDef"/>
     <page path="/ContactsList.jsff" usageId="view_ContactsListPageDef"/>
   </pageMap>
@@ -35,6 +36,7 @@
     <page id="view_OppurtunitiesPageDef" path="view.pageDefs.OppurtunitiesPageDef"/>
     <page id="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"
           path="view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"/>
+    <page id="view_oppurtunityDetailedPageDef" path="view.pageDefs.oppurtunityDetailedPageDef"/>
     <page id="view_SalesDashboardPageDef" path="view.pageDefs.SalesDashboardPageDef"/>
     <page id="view_ContactsListPageDef" path="view.pageDefs.ContactsListPageDef"/>
   </pageDefinitionUsages>

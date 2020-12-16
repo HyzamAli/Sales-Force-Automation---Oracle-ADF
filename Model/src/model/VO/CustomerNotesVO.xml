@@ -90,7 +90,8 @@
     EntityAttrName="ContactId"
     EntityUsage="CustomerNoteEO"
     AliasName="CONTACT_ID"
-    LOVName="LOV_ContactId">
+    LOVName="LOV_ContactId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -104,7 +105,8 @@
     EntityAttrName="RepId"
     EntityUsage="CustomerNoteEO"
     AliasName="REP_ID"
-    LOVName="LOV_RepId">
+    LOVName="LOV_RepId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

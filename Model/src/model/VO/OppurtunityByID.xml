@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <Properties>
     <SchemaBasedProperties>
       <LABEL
@@ -23,6 +24,71 @@
     Name="opId"
     Kind="where"
     Type="oracle.jbo.domain.Number"/>
+  <ViewAccessor
+    Name="ManagerEmployeesVO1"
+    ViewObjectName="model.VO.ManagerEmployeesVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ManagerId"
+    ListVOName="ManagerEmployeesVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ManagerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="UserId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+      <Item Value="NameLast"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CustomerId"
+    ListVOName="CustomersVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_RefContact"
+    ListVOName="CustomerContactsVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="RefContact"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CcId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="OppurtunitieEO"
     Entity="model.EO.OppurtunitieEO"/>
@@ -37,25 +103,55 @@
     PrecisionRule="true"
     EntityAttrName="BudgetedAmount"
     EntityUsage="OppurtunitieEO"
-    AliasName="BUDGETED_AMOUNT"/>
+    AliasName="BUDGETED_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CloseDate"
     PrecisionRule="true"
     EntityAttrName="CloseDate"
     EntityUsage="OppurtunitieEO"
-    AliasName="CLOSE_DATE"/>
+    AliasName="CLOSE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="30"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
     EntityAttrName="CustomerId"
     EntityUsage="OppurtunitieEO"
-    AliasName="CUSTOMER_ID"/>
+    AliasName="CUSTOMER_ID"
+    LOVName="LOV_CustomerId"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DecisionLevel"
     PrecisionRule="true"
     EntityAttrName="DecisionLevel"
     EntityUsage="OppurtunitieEO"
-    AliasName="DECISION_LEVEL"/>
+    AliasName="DECISION_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EstimatedDuration"
     PrecisionRule="true"
@@ -73,7 +169,16 @@
     PrecisionRule="true"
     EntityAttrName="ManagerId"
     EntityUsage="OppurtunitieEO"
-    AliasName="MANAGER_ID"/>
+    AliasName="MANAGER_ID"
+    LOVName="LOV_ManagerId"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OppurtunityId"
     IsUpdateable="while_insert"
@@ -86,55 +191,137 @@
     PrecisionRule="true"
     EntityAttrName="ProductQuantity"
     EntityUsage="OppurtunitieEO"
-    AliasName="PRODUCT_QUANTITY"/>
+    AliasName="PRODUCT_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RefContact"
     PrecisionRule="true"
     EntityAttrName="RefContact"
     EntityUsage="OppurtunitieEO"
-    AliasName="REF_CONTACT"/>
+    AliasName="REF_CONTACT"
+    LOVName="LOV_RefContact"
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Revenue"
     PrecisionRule="true"
     EntityAttrName="Revenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="REVENUE"/>
+    AliasName="REVENUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RiskLevel"
     PrecisionRule="true"
     EntityAttrName="RiskLevel"
     EntityUsage="OppurtunitieEO"
-    AliasName="RISK_LEVEL"/>
+    AliasName="RISK_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SaleMethod"
     PrecisionRule="true"
     EntityAttrName="SaleMethod"
     EntityUsage="OppurtunitieEO"
-    AliasName="SALE_METHOD"/>
+    AliasName="SALE_METHOD">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SaleStage"
     PrecisionRule="true"
     EntityAttrName="SaleStage"
     EntityUsage="OppurtunitieEO"
-    AliasName="SALE_STAGE"/>
+    AliasName="SALE_STAGE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SalesChannel"
     PrecisionRule="true"
     EntityAttrName="SalesChannel"
     EntityUsage="OppurtunitieEO"
-    AliasName="SALES_CHANNEL"/>
+    AliasName="SALES_CHANNEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WinProbability"
     PrecisionRule="true"
     EntityAttrName="WinProbability"
     EntityUsage="OppurtunitieEO"
-    AliasName="WIN_PROBABILITY"/>
+    AliasName="WIN_PROBABILITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WorstCaseRevenue"
     PrecisionRule="true"
     EntityAttrName="WorstCaseRevenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="WORST_CASE_REVENUE"/>
+    AliasName="WORST_CASE_REVENUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="50"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="CustomerNotesVO"
+    ViewLink="model.VO.NotesByOppurtunity"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="CustomerTasksVO"
+    ViewLink="model.VO.TasksByOppurtunity"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ProductsPerOppurtunitiesVO"
+    ViewLink="model.VO.ProductsByOppurtunity"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
