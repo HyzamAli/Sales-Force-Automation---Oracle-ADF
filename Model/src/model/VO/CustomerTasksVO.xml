@@ -26,6 +26,22 @@
     Name="pPC"
     Kind="viewcriteria"
     Type="java.math.BigDecimal"/>
+  <Variable
+    Name="q"
+    Kind="viewcriteria"
+    Type="java.sql.Timestamp"/>
+  <Variable
+    Name="w"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="e"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="t"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AppsModule_CustomerContactsVO3_1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -267,6 +283,66 @@
         Operator="="
         Conjunction="AND"
         Value=":pPC"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
+  <ViewCriteria
+    Name="CustomerTasksVOCriteria1"
+    ViewObjectName="model.VO.CustomerTasksVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="CustomerTasksVOCriteria1_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Priority1"
+        ViewAttribute="Priority1"
+        Operator="="
+        Conjunction="AND"
+        Value=":e"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="DueDate"
+        ViewAttribute="DueDate"
+        Operator="="
+        Conjunction="AND"
+        Value=":q"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PercentageCompletion"
+        ViewAttribute="PercentageCompletion"
+        Operator="="
+        Conjunction="AND"
+        Value=":w"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="TaskDetails"
+        ViewAttribute="TaskDetails"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":t"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

@@ -14,6 +14,18 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="p"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="o"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="i"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="ProductsVO1"
     ViewObjectName="model.VO.ProductsVO"
@@ -103,4 +115,56 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="ProductsPerOppurtunitiesVOCriteria"
+    ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ProductsPerOppurtunitiesVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="ProductId"
+        ViewAttribute="ProductId"
+        Operator="="
+        Conjunction="AND"
+        Value=":p"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductQuantity"
+        ViewAttribute="ProductQuantity"
+        Operator="="
+        Conjunction="AND"
+        Value=":o"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductCategory"
+        ViewAttribute="ProductCategory"
+        Operator="="
+        Conjunction="AND"
+        Value=":i"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
 </ViewObject>

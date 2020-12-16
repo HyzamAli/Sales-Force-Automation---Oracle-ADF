@@ -146,6 +146,13 @@
       </af:panelBox>
     </af:showDetailItem>
     <af:showDetailItem id="Notes" shortDesc="Drawer 2" icon="#{resource['images:attachment.png']}" text="Notes">
+      <af:panelGroupLayout layout="vertical" id="pgl4">
+        <af:query id="qryId1" headerText="Search" disclosed="true"
+                  value="#{bindings.CustomerNotesVOCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"/>
+      </af:panelGroupLayout>
       <af:panelGroupLayout id="pgl1">
         <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
           <f:facet name="toolbar">
@@ -312,6 +319,13 @@
     </af:showDetailItem>
     <af:showDetailItem id="Tasks" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}"
                        text="Tasks">
+      <af:panelGroupLayout layout="vertical" id="pgl5">
+        <af:query id="qryId2" headerText="Search" disclosed="true"
+                  value="#{bindings.CustomerTasksVOCriteria1Query.queryDescriptor}"
+                  model="#{bindings.CustomerTasksVOCriteria1Query.queryModel}"
+                  queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
+                  queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"/>
+      </af:panelGroupLayout>
       <af:panelGroupLayout id="pgl2">
         <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
           <f:facet name="toolbar">
@@ -505,6 +519,13 @@
       </af:panelGroupLayout>
     </af:showDetailItem>
     <af:showDetailItem id="Products" shortDesc="Drawer 4" icon="#{resource['images:calendar.png']}" text="Products">
+      <af:panelGroupLayout layout="vertical" id="pgl6">
+        <af:query id="qryId3" headerText="Search" disclosed="true"
+                  value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
+                  model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
+                  queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
+                  queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"/>
+      </af:panelGroupLayout>
       <af:panelGroupLayout id="pgl3">
         <af:panelBox text="Products" id="pb4" showDisclosure="false">
           <f:facet name="toolbar">
