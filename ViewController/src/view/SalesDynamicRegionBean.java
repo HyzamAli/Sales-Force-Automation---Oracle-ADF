@@ -34,4 +34,9 @@ public class SalesDynamicRegionBean implements Serializable {
         setDynamicTaskFlowId("/WEB-INF/sales-flow-oppurtunities.xml#sales-flow-oppurtunities");
         return null;
     }
+
+    public String salesflowcontact() {
+        setDynamicTaskFlowId("/WEB-INF/sales-flow-contact.xml#sales-flow-contact");
+        return null;
+    }
 }

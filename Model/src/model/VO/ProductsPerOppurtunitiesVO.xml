@@ -35,6 +35,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_ProductCategory"
+    ListVOName="ProductsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ProductCategory"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ProductCategory"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ProductCategory"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="ProductsPerOppurtunityEO"
     Entity="model.EO.ProductsPerOppurtunityEO"/>
@@ -44,7 +61,8 @@
     PrecisionRule="true"
     EntityAttrName="PooId"
     EntityUsage="ProductsPerOppurtunityEO"
-    AliasName="POO_ID"/>
+    AliasName="POO_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="OppurtunityId"
     PrecisionRule="true"
@@ -71,4 +89,18 @@
     EntityAttrName="ProductQuantity"
     EntityUsage="ProductsPerOppurtunityEO"
     AliasName="PRODUCT_QUANTITY"/>
+  <ViewAttribute
+    Name="ProductCategory"
+    PrecisionRule="true"
+    EntityAttrName="ProductCategory"
+    EntityUsage="ProductsPerOppurtunityEO"
+    AliasName="PRODUCT_CATEGORY"
+    LOVName="LOV_ProductCategory">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
 </ViewObject>

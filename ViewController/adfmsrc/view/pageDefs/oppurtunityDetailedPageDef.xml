@@ -14,6 +14,11 @@
               id="ProductsPerOppurtunitiesVO4Iterator"/>
   </executables>
   <bindings>
+      <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+      </attributeValues>
     <attributeValues IterBinding="OppurtunityByID1Iterator" id="Revenue">
       <AttrNames>
         <Item Value="Revenue"/>
@@ -113,11 +118,99 @@
     <tree IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVO4">
       <nodeDefinition DefName="model.VO.ProductsPerOppurtunitiesVO" Name="ProductsPerOppurtunitiesVO40">
         <AttrNames>
-          <Item Value="PooId"/>
           <Item Value="ProductId"/>
           <Item Value="ProductQuantity"/>
+          <Item Value="ProductCategory"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <attributeValues IterBinding="CustomerNotesVO7Iterator" id="NotesTitle">
+      <AttrNames>
+        <Item Value="NotesTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO7Iterator" id="NotesDescription">
+      <AttrNames>
+        <Item Value="NotesDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" Uses="LOV_RepId" id="RepId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerNotesVO7Iterator" id="CreatedOn">
+      <AttrNames>
+        <Item Value="CreatedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CustomerNotesVO7Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="NotesTitle" NDValue="#{NotesBean.title}" NDType="java.lang.String"/>
+      <NamedData NDName="NotesDescription" NDValue="#{NotesBean.description}" NDType="java.lang.String"/>
+      <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDValue="#{NotesBean.customerId}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactId" NDValue="#{NotesBean.contactID}" NDType="java.lang.String"/>
+      <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CustomerNotesVO7Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="CustomerTasksVO7Iterator" id="TaskDetails">
+      <AttrNames>
+        <Item Value="TaskDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerTasksVO7Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerTasksVO7Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerTasksVO7Iterator" StaticList="false" Uses="LOV_RepId" id="RepId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerTasksVO7Iterator" id="Priority1">
+      <AttrNames>
+        <Item Value="Priority1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO7Iterator" id="PercentageCompletion">
+      <AttrNames>
+        <Item Value="PercentageCompletion"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO7Iterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CustomerTasksVO7Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactId" NDValue="#{TasksBean.contactID}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDValue="#{TasksBean.customerId}" NDType="java.lang.String"/>
+      <NamedData NDName="RepId" NDValue="#{TasksBean.repID}" NDType="java.lang.String"/>
+      <NamedData NDName="DueDate" NDValue="#{TasksBean.dueDate}" NDType="java.lang.String"/>
+      <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
+      <NamedData NDName="Priority1" NDValue="#{TasksBean.priority}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CustomerTasksVO7Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="ProductsPerOppurtunitiesVO4Iterator" StaticList="false" Uses="LOV_ProductId12" id="ProductId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="ProductQuantity1">
+      <AttrNames>
+        <Item Value="ProductQuantity"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ProductsPerOppurtunitiesVO4Iterator" StaticList="false" Uses="LOV_ProductCategory"
+          id="ProductCategory" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="CreateWithParams2" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="ProductId" NDValue="#{ProductsOpBean.prodId}" NDType="java.lang.String"/>
+      <NamedData NDName="ProductQuantity" NDValue="#{ProductsOpBean.quantity}" NDType="java.lang.String"/>
+      <NamedData NDName="ProductCategory" NDValue="#{ProductsOpBean.category}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="Delete2" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

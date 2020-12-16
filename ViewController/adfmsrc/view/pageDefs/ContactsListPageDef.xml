@@ -19,5 +19,45 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="CustomerContactsVO1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="ContactPhone">
+      <AttrNames>
+        <Item Value="ContactPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="ContactEmail">
+      <AttrNames>
+        <Item Value="ContactEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="InfluenceLevel">
+      <AttrNames>
+        <Item Value="InfluenceLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="IsPrimary">
+      <AttrNames>
+        <Item Value="IsPrimary"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="CustomerContactsVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CustomerId" NDValue="#{ContactsBean.customerId}" NDType="java.lang.String"/>
+      <NamedData NDName="IsPrimary" NDValue="#{ContactsBean.isPrimary}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactName" NDValue="#{ContactsBean.name}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactPhone" NDValue="#{ContactsBean.phone}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactEmail" NDValue="#{ContactsBean.email}" NDType="java.lang.String"/>
+      <NamedData NDName="InfluenceLevel" NDValue="#{ContactsBean.influenceLevel}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="CustomerContactsVO1Iterator" id="Delete" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>
