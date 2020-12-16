@@ -91,11 +91,6 @@
         <Item Value="NotesDescription"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="CustomerNotesVO6Iterator" id="OppurtunityId">
-      <AttrNames>
-        <Item Value="OppurtunityId"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="CustomerNotesVO6Iterator" id="CreatedOn">
       <AttrNames>
         <Item Value="CreatedOn"/>
@@ -110,7 +105,6 @@
       <NamedData NDName="NotesDescription" NDValue="#{NotesBean.description}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{NotesBean.contactID}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
-      <NamedData NDName="OppurtunityId" NDValue="#{NotesBean.oppurtunityID}" NDType="java.lang.String"/>
       <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
     </action>
     <attributeValues IterBinding="CustomerContactsVO3Iterator" id="ContactName">
@@ -159,11 +153,6 @@
         <Item Value="TaskDetails"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="CustomerTasksVO6Iterator" id="OppurtunityId1">
-      <AttrNames>
-        <Item Value="OppurtunityId"/>
-      </AttrNames>
-    </attributeValues>
     <action IterBinding="CustomerTasksVO6Iterator" id="CreateWithParams2" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
@@ -173,7 +162,6 @@
       <NamedData NDName="DueDate" NDValue="#{TasksBean.dueDate}" NDType="java.lang.String"/>
       <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
-      <NamedData NDName="OppurtunityId" NDValue="#{TasksBean.oppurtunityID}" NDType="java.lang.String"/>
     </action>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
       <AttrNames>
