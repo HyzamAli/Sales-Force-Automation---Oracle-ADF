@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+          xmlns:f="http://java.sun.com/jsf/core">
+  <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:query id="qryId1" headerText="Search" disclosed="true"
+              value="#{bindings.ContactsListVOCriteriaQuery.queryDescriptor}"
+              model="#{bindings.ContactsListVOCriteriaQuery.queryModel}"
+              queryListener="#{bindings.ContactsListVOCriteriaQuery.processQuery}"
+              queryOperationListener="#{bindings.ContactsListVOCriteriaQuery.processQueryOperation}"/>
+  </af:panelGroupLayout>
+  <af:panelBox id="pb1" text="Contacts">
+    <f:facet name="toolbar"/>
+    <af:table value="#{bindings.CustomerContactsVO1.collectionModel}" var="row"
+              rows="#{bindings.CustomerContactsVO1.rangeSize}"
+              emptyText="#{bindings.CustomerContactsVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+              rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerContactsVO1.collectionModel.selectedRow}"
+              selectionListener="#{bindings.CustomerContactsVO1.collectionModel.makeCurrent}" rowSelection="single"
+              fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1">
+      <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1">
+        <af:outputText value="#{row.ContactName}" shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}"
+                       id="ot1"/>
+      </af:column>
+      <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2">
+        <af:outputText value="#{row.ContactPhone}"
+                       shortDesc="#{bindings.CustomerContactsVO1.hints.ContactPhone.tooltip}" id="ot2"/>
+      </af:column>
+      <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactEmail.label}" id="c3">
+        <af:outputText value="#{row.ContactEmail}"
+                       shortDesc="#{bindings.CustomerContactsVO1.hints.ContactEmail.tooltip}" id="ot3"/>
+      </af:column>
+    </af:table>
+  </af:panelBox>
+</jsp:root>
