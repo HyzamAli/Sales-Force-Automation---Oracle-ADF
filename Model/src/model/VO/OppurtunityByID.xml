@@ -97,7 +97,14 @@
     PrecisionRule="true"
     EntityAttrName="BestCaseRevenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="BEST_CASE_REVENUE"/>
+    AliasName="BEST_CASE_REVENUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.BestCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BudgetedAmount"
     PrecisionRule="true"
@@ -108,6 +115,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="30"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.BudgetedAmount_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -123,6 +132,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.CustomerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -136,6 +147,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.DecisionLevel_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -144,7 +157,14 @@
     PrecisionRule="true"
     EntityAttrName="EstimatedDuration"
     EntityUsage="OppurtunitieEO"
-    AliasName="ESTIMATED_DURATION"/>
+    AliasName="ESTIMATED_DURATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.EstimatedDuration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsVisible"
     PrecisionRule="true"
@@ -163,6 +183,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.ManagerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -183,6 +205,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.ProductQuantity_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -200,6 +224,8 @@
           Value="50"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.RefContact_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -213,6 +239,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.Revenue_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -226,6 +254,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.RiskLevel_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -239,6 +269,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.SaleMethod_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -252,6 +284,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.SaleStage_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -265,6 +299,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.SalesChannel_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -278,6 +314,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.WinProbability_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -291,6 +329,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="50"/>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.WorstCaseRevenue_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -299,7 +339,14 @@
     PrecisionRule="true"
     EntityAttrName="CloseDate"
     EntityUsage="OppurtunitieEO"
-    AliasName="CLOSE_DATE"/>
+    AliasName="CLOSE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.CloseDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.NotesByOppurtunity"

@@ -109,14 +109,22 @@
     EntityAttrName="CustomerId"
     EntityUsage="CustomerEO"
     AliasName="CUSTOMER_ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomersVO.CustomerId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ReferencePt"
     PrecisionRule="true"
     EntityAttrName="ReferencePt"
     EntityUsage="CustomerEO"
     AliasName="REFERENCE_PT"
-    LOVName="LOV_ReferencePt">
+    LOVName="LOV_ReferencePt"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -276,7 +284,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -300,38 +308,6 @@
         Operator="STARTSWITH"
         Conjunction="AND"
         Value=":pAN"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="AddLine1"
-        ViewAttribute="AddLine1"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p1"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="AddLine2"
-        ViewAttribute="AddLine2"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p2"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Country"
-        ViewAttribute="Country"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p3"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="CustomersVOCriteria_CustomersVOCriteria_row_0_AccUrl"
-        ViewAttribute="AccUrl"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p4"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
@@ -381,4 +357,8 @@
       </ViewCriteriaRow>
     </ViewCriteria>
   </DeclarativeWhereClause>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

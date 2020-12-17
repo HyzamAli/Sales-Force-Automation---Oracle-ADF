@@ -80,11 +80,16 @@
     EntityAttrName="CustomerId"
     EntityUsage="CustomerContactEO"
     AliasName="CUSTOMER_ID"
-    LOVName="LOV_CustomerId">
+    LOVName="LOV_CustomerId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.CustomerId_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerContactsVO.CustomerId_LABEL_PLURAL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -104,6 +109,10 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="200"/>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.ContactName_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerContactsVO.ContactName_LABEL_PLURAL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -117,6 +126,10 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="200"/>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.ContactPhone_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerContactsVO.ContactPhone_LABEL_PLURAL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -130,6 +143,10 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="200"/>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.ContactEmail_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerContactsVO.ContactEmail_LABEL_PLURAL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -138,7 +155,16 @@
     PrecisionRule="true"
     EntityAttrName="InfluenceLevel"
     EntityUsage="CustomerContactEO"
-    AliasName="INFLUENCE_LEVEL"/>
+    AliasName="INFLUENCE_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.InfluenceLevel_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerContactsVO.InfluenceLevel_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsVisible"
     PrecisionRule="true"
@@ -153,7 +179,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -195,14 +221,6 @@
         Value=":a"
         IsBindVarValue="true"
         Required="Optional"/>
-      <ViewCriteriaItem
-        Name="InfluenceLevel"
-        ViewAttribute="InfluenceLevel"
-        Operator="="
-        Conjunction="AND"
-        Value=":d"
-        IsBindVarValue="true"
-        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria
@@ -213,7 +231,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -292,4 +310,8 @@
       </ViewCriteriaRow>
     </ViewCriteria>
   </DeclarativeWhereClause>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

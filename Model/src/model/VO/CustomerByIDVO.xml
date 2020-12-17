@@ -98,13 +98,27 @@
     PrecisionRule="true"
     EntityAttrName="AccName"
     EntityUsage="CustomerEO"
-    AliasName="ACC_NAME"/>
+    AliasName="ACC_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerByIDVO.AccName_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AccUrl"
     PrecisionRule="true"
     EntityAttrName="AccUrl"
     EntityUsage="CustomerEO"
-    AliasName="ACC_URL"/>
+    AliasName="ACC_URL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL_PLURAL
+          ResId="model.VO.CustomerByIDVO.AccUrl_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AddLine1"
     IsNotNull="true"
@@ -123,20 +137,41 @@
     PrecisionRule="true"
     EntityAttrName="Country"
     EntityUsage="CustomerEO"
-    AliasName="COUNTRY"/>
+    AliasName="COUNTRY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerByIDVO.Country_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     IsUpdateable="false"
     PrecisionRule="true"
     EntityAttrName="CustomerId"
     EntityUsage="CustomerEO"
-    AliasName="CUSTOMER_ID"/>
+    AliasName="CUSTOMER_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerByIDVO.CustomerId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Email"
     PrecisionRule="true"
     EntityAttrName="Email"
     EntityUsage="CustomerEO"
-    AliasName="EMAIL"/>
+    AliasName="EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerByIDVO.Email_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Industry"
     IsNotNull="true"
@@ -190,7 +225,8 @@
     EntityAttrName="ReferencePt"
     EntityUsage="CustomerEO"
     AliasName="REFERENCE_PT"
-    LOVName="LOV_ReferencePt">
+    LOVName="LOV_ReferencePt"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE

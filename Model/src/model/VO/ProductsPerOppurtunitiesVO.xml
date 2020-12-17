@@ -80,7 +80,14 @@
     PrecisionRule="true"
     EntityAttrName="OppurtunityId"
     EntityUsage="ProductsPerOppurtunityEO"
-    AliasName="OPPURTUNITY_ID"/>
+    AliasName="OPPURTUNITY_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsPerOppurtunitiesVO.OppurtunityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductId"
     PrecisionRule="true"
@@ -92,6 +99,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.ProductsPerOppurtunitiesVO.ProductId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -100,7 +109,14 @@
     PrecisionRule="true"
     EntityAttrName="ProductQuantity"
     EntityUsage="ProductsPerOppurtunityEO"
-    AliasName="PRODUCT_QUANTITY"/>
+    AliasName="PRODUCT_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsPerOppurtunitiesVO.ProductQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductCategory"
     PrecisionRule="true"
@@ -112,6 +128,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.ProductsPerOppurtunitiesVO.ProductCategory_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -123,7 +141,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -150,14 +168,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ProductQuantity"
-        ViewAttribute="ProductQuantity"
-        Operator="="
-        Conjunction="AND"
-        Value=":o"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ProductCategory"
         ViewAttribute="ProductCategory"
         Operator="="
@@ -167,4 +177,8 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
