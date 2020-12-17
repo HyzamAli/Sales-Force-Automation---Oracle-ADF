@@ -221,6 +221,14 @@
         Value=":a"
         IsBindVarValue="true"
         Required="Optional"/>
+      <ViewCriteriaItem
+        Name="InfluenceLevel"
+        ViewAttribute="InfluenceLevel"
+        Operator="="
+        Conjunction="AND"
+        Value=":d"
+        IsBindVarValue="true"
+        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewCriteria

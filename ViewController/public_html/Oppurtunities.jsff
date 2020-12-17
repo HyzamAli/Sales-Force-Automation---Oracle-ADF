@@ -45,13 +45,10 @@
                   selectionListener="#{bindings.OppurtunitiesVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.OppurtunitiesVO1.rangeSize}" id="t2" columnStretching="last"
                   summary="Oppurtunity List" partialTriggers=":::b3 ::b2">
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.label}" id="c1" rowHeader="true">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true">
             <af:link id="l1" action="toDetailed">
-              <af:outputText value="#{row.OppurtunityId}"
-                             shortDesc="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.tooltip}" id="ot1">
-                <af:convertNumber groupingUsed="false"
-                                  pattern="#{bindings.OppurtunitiesVO1.hints.OppurtunityId.format}"/>
-              </af:outputText>
+              <af:outputText value="#{row.OpName}" shortDesc="#{bindings.OppurtunitiesVO1.hints.OpName.tooltip}"
+                             id="ot1"/>
               <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.oppurtunityId}"/>
             </af:link>
           </af:column>

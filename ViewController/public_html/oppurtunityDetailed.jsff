@@ -2,7 +2,8 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:panelDrawer position="left" id="pd1" width="100%">
-    <af:showDetailItem id="Overview" shortDesc="Drawer 1" icon="#{resource['images:document.png']}" text="Overview">
+    <af:showDetailItem id="Overview" shortDesc="Drawer 1" icon="#{resource['images:document.png']}" text="Overview"
+                       disclosed="true">
       <af:panelBox text="Overview" id="pb1" showDisclosure="false" icon="#{resource['images:document.png']}">
         <f:facet name="toolbar">
           <af:toolbar id="t1">
@@ -15,6 +16,12 @@
           </af:toolbar>
         </f:facet>
         <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{bindings.OpName.inputValue}" label="#{bindings.OpName.hints.label}"
+                        required="#{bindings.OpName.hints.mandatory}" columns="#{bindings.OpName.hints.displayWidth}"
+                        maximumLength="#{bindings.OpName.hints.precision}" shortDesc="#{bindings.OpName.hints.tooltip}"
+                        id="it16">
+            <f:validator binding="#{bindings.OpName.validator}"/>
+          </af:inputText>
           <af:selectOneChoice value="#{bindings.CustomerId1.inputValue}" label="#{bindings.CustomerId1.label}"
                               required="#{bindings.CustomerId1.hints.mandatory}"
                               shortDesc="#{bindings.CustomerId1.hints.tooltip}" id="soc4">
@@ -147,14 +154,19 @@
     </af:showDetailItem>
     <af:showDetailItem id="Notes" shortDesc="Drawer 2" icon="#{resource['images:attachment.png']}" text="Notes">
       <af:panelGroupLayout layout="vertical" id="pgl4">
+        <af:outputText value="Notes" id="ot19"
+                       inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+        <af:spacer id="s3" height="20px"/>
         <af:panelBox text="PanelBox1" id="pb5" showHeader="never" showDisclosure="false">
           <f:facet name="toolbar"/>
           <af:query id="qryId1" headerText="Search" disclosed="true"
                     value="#{bindings.CustomerNotesVOCriteriaQuery.queryDescriptor}"
                     model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
-                    queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"/>
+                    queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
+                    inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
         </af:panelBox>
+        <af:spacer id="s1" height="35px"/>
         <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
           <f:facet name="toolbar">
             <af:toolbar id="t6">
@@ -166,7 +178,8 @@
               </af:button>
             </af:toolbar>
           </f:facet>
-          <af:panelCollection id="pc1">
+          <af:panelCollection id="pc1"
+                              inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t5">
@@ -251,12 +264,6 @@
                               shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it2">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{NotesBean.customerId}" label="#{bindings.CustomerId.label}"
-                                    required="#{bindings.CustomerId.hints.mandatory}"
-                                    shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc14">
-                  <f:selectItems value="#{bindings.CustomerId.items}" id="si28"/>
-                  <f:validator binding="#{bindings.CustomerId.validator}"/>
-                </af:selectOneChoice>
                 <af:selectOneChoice value="#{NotesBean.contactID}" label="#{bindings.ContactId.label}"
                                     required="#{bindings.ContactId.hints.mandatory}"
                                     shortDesc="#{bindings.ContactId.hints.tooltip}" id="soc15">
@@ -298,12 +305,6 @@
                               shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it14">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.CustomerId.inputValue}" label="#{bindings.CustomerId.label}"
-                                    required="#{bindings.CustomerId.hints.mandatory}"
-                                    shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc22">
-                  <f:selectItems value="#{bindings.CustomerId.items}" id="si36"/>
-                  <f:validator binding="#{bindings.CustomerId.validator}"/>
-                </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.ContactId.inputValue}" label="#{bindings.ContactId.label}"
                                     required="#{bindings.ContactId.hints.mandatory}"
                                     shortDesc="#{bindings.ContactId.hints.tooltip}" id="soc23">
@@ -332,14 +333,19 @@
     <af:showDetailItem id="Tasks" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}"
                        text="Tasks">
       <af:panelGroupLayout layout="vertical" id="pgl5">
+        <af:outputText value="Tasks" id="ot4"
+                       inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+        <af:spacer id="s2" height="20px"/>
         <af:panelBox text="PanelBox2" id="pb6" showHeader="never" showDisclosure="false">
           <f:facet name="toolbar"/>
           <af:query id="qryId2" headerText="Search" disclosed="true"
                     value="#{bindings.CustomerTasksVOCriteria1Query.queryDescriptor}"
                     model="#{bindings.CustomerTasksVOCriteria1Query.queryModel}"
                     queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
-                    queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"/>
+                    queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"
+                    inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
         </af:panelBox>
+        <af:spacer id="s5" height="35px"/>
         <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
           <f:facet name="toolbar">
             <af:toolbar id="t8">
@@ -351,7 +357,8 @@
               </af:button>
             </af:toolbar>
           </f:facet>
-          <af:panelCollection id="pc2">
+          <af:panelCollection id="pc2"
+                              inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t7">
@@ -441,12 +448,6 @@
                               shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it3">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{TasksBean.customerId}" label="#{bindings.CustomerId2.label}"
-                                    required="#{bindings.CustomerId2.hints.mandatory}"
-                                    shortDesc="#{bindings.CustomerId2.hints.tooltip}" id="soc17">
-                  <f:selectItems value="#{bindings.CustomerId2.items}" id="si31"/>
-                  <f:validator binding="#{bindings.CustomerId2.validator}"/>
-                </af:selectOneChoice>
                 <af:selectOneChoice value="#{TasksBean.contactID}" label="#{bindings.ContactId1.label}"
                                     required="#{bindings.ContactId1.hints.mandatory}"
                                     shortDesc="#{bindings.ContactId1.hints.tooltip}" id="soc18">
@@ -494,12 +495,6 @@
                               shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it15">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.CustomerId2.inputValue}" label="#{bindings.CustomerId2.label}"
-                                    required="#{bindings.CustomerId2.hints.mandatory}"
-                                    shortDesc="#{bindings.CustomerId2.hints.tooltip}" id="soc25">
-                  <f:selectItems value="#{bindings.CustomerId2.items}" id="si39"/>
-                  <f:validator binding="#{bindings.CustomerId2.validator}"/>
-                </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.ContactId1.inputValue}" label="#{bindings.ContactId1.label}"
                                     required="#{bindings.ContactId1.hints.mandatory}"
                                     shortDesc="#{bindings.ContactId1.hints.tooltip}" id="soc26">
@@ -543,14 +538,19 @@
     </af:showDetailItem>
     <af:showDetailItem id="Products" shortDesc="Drawer 4" icon="#{resource['images:calendar.png']}" text="Products">
       <af:panelGroupLayout layout="vertical" id="pgl6">
+        <af:outputText value="Products" id="ot6"
+                       inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+        <af:spacer id="s4" height="20px"/>
         <af:panelBox text="PanelBox3" id="pb7" showHeader="never" showDisclosure="false">
           <f:facet name="toolbar"/>
           <af:query id="qryId3" headerText="Search" disclosed="true"
                     value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
                     model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
                     queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
-                    queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"/>
+                    queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
+                    inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
         </af:panelBox>
+        <af:spacer id="s6" height="35px"/>
         <af:panelBox text="Products" id="pb4" showDisclosure="false">
           <f:facet name="toolbar">
             <af:toolbar id="t10">
@@ -562,7 +562,8 @@
               </af:button>
             </af:toolbar>
           </f:facet>
-          <af:panelCollection id="pc3">
+          <af:panelCollection id="pc3"
+                              inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t9">

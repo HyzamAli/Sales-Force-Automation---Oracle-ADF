@@ -362,6 +362,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="OpName"
+    PrecisionRule="true"
+    EntityAttrName="OpName"
+    EntityUsage="OppurtunitieEO"
+    AliasName="OP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.OpName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="OppurtunitiesVOCriteria"
     ViewObjectName="model.VO.OppurtunitiesVO"

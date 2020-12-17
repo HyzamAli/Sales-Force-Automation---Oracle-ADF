@@ -141,7 +141,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -165,6 +165,14 @@
         Operator="="
         Conjunction="AND"
         Value=":p"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="ProductQuantity"
+        ViewAttribute="ProductQuantity"
+        Operator="="
+        Conjunction="AND"
+        Value=":o"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

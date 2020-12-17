@@ -320,6 +320,11 @@
     ViewLink="model.APP_MODULE.AttendeesByAppointment"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentCustomersVO"
+    ViewLink="model.VO.AppointmentCustomersLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

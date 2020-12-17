@@ -13,6 +13,7 @@
     <tree IterBinding="OppurtunitiesVO1Iterator" id="OppurtunitiesVO1">
       <nodeDefinition DefName="model.VO.OppurtunitiesVO" Name="OppurtunitiesVO10">
         <AttrNames>
+          <Item Value="OpName"/>
           <Item Value="OppurtunityId"/>
           <Item Value="CustomerId"/>
           <Item Value="WinProbability"/>

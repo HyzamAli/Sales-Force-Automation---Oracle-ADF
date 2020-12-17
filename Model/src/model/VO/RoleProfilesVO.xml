@@ -70,7 +70,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="true"/>
+          Value="false"/>
         <Property
           Name="mode"
           Value="Basic"/>

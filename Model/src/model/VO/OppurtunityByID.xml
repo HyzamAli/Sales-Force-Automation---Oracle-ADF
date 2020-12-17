@@ -347,6 +347,19 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="OpName"
+    PrecisionRule="true"
+    EntityAttrName="OpName"
+    EntityUsage="OppurtunitieEO"
+    AliasName="OP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunityByID.OpName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.NotesByOppurtunity"

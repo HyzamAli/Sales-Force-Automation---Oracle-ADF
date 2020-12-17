@@ -13,7 +13,8 @@
                 inlineStyle="padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:010px;"/>
     </af:panelBox>
     <af:panelBox id="pb1" text="Contacts"
-                 inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;">
+                 inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"
+                 showDisclosure="false">
       <f:facet name="toolbar">
         <af:toolbar id="t3">
           <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
@@ -45,8 +46,11 @@
                   fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1" columnStretching="last"
                   summary="Contacts list" partialTriggers="::b2 ::b3">
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true">
-            <af:outputText value="#{row.ContactName}"
-                           shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}" id="ot1"/>
+            <af:link id="l1">
+              <af:outputText value="#{row.ContactName}"
+                             shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}" id="ot1"/>
+              <af:showPopupBehavior popupId=":::p2"/>
+            </af:link>
           </af:column>
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2">
             <af:outputText value="#{row.ContactPhone}"
@@ -105,5 +109,47 @@
         </af:popup>
       </af:panelCollection>
     </af:panelBox>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pc1:t1">
+      <af:dialog id="d2" title="Edit Contact">
+        <f:facet name="buttonBar"/>
+        <af:panelFormLayout id="pfl2">
+          <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
+                        required="#{bindings.ContactName.hints.mandatory}"
+                        columns="#{bindings.ContactName.hints.displayWidth}"
+                        maximumLength="#{bindings.ContactName.hints.precision}"
+                        shortDesc="#{bindings.ContactName.hints.tooltip}" id="it4">
+            <f:validator binding="#{bindings.ContactName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ContactPhone.inputValue}" label="#{bindings.ContactPhone.hints.label}"
+                        required="#{bindings.ContactPhone.hints.mandatory}"
+                        columns="#{bindings.ContactPhone.hints.displayWidth}"
+                        maximumLength="#{bindings.ContactPhone.hints.precision}"
+                        shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it5">
+            <f:validator binding="#{bindings.ContactPhone.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ContactEmail.inputValue}" label="#{bindings.ContactEmail.hints.label}"
+                        required="#{bindings.ContactEmail.hints.mandatory}"
+                        columns="#{bindings.ContactEmail.hints.displayWidth}"
+                        maximumLength="#{bindings.ContactEmail.hints.precision}"
+                        shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it6">
+            <f:validator binding="#{bindings.ContactEmail.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.InfluenceLevel.inputValue}" label="#{bindings.InfluenceLevel.hints.label}"
+                        required="#{bindings.InfluenceLevel.hints.mandatory}"
+                        columns="#{bindings.InfluenceLevel.hints.displayWidth}"
+                        maximumLength="#{bindings.InfluenceLevel.hints.precision}"
+                        shortDesc="#{bindings.InfluenceLevel.hints.tooltip}" id="it7">
+            <f:validator binding="#{bindings.InfluenceLevel.validator}"/>
+            <af:convertNumber groupingUsed="false" pattern="#{bindings.InfluenceLevel.format}"/>
+          </af:inputText>
+          <af:selectOneChoice value="#{bindings.CustomerId.inputValue}" label="#{bindings.CustomerId.label}"
+                              required="#{bindings.CustomerId.hints.mandatory}"
+                              shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc2">
+            <f:selectItems value="#{bindings.CustomerId.items}" id="si2"/>
+            <f:validator binding="#{bindings.CustomerId.validator}"/>
+          </af:selectOneChoice>
+        </af:panelFormLayout>
+      </af:dialog>
+    </af:popup>
   </af:panelGroupLayout>
 </jsp:root>
