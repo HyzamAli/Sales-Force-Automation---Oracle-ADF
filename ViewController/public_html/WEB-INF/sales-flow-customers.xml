@@ -47,6 +47,15 @@
         <fixed-outcome>ExecuteWithParams</fixed-outcome>
       </outcome>
     </method-call>
+    <method-call id="ExecuteWithParams1">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="opDetailed">
+      <page>/oppurtunityDetailed.jsff</page>
+    </view>
     <control-flow-rule id="__5">
       <from-activity-id>SalesCustomersList</from-activity-id>
       <control-flow-case id="__6">
@@ -59,6 +68,20 @@
       <control-flow-case id="__8">
         <from-outcome>ExecuteWithParams</from-outcome>
         <to-activity-id>CustomersDetailed</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__11">
+      <from-activity-id>CustomersDetailed</from-activity-id>
+      <control-flow-case id="__12">
+        <from-outcome>toOpDetailed</from-outcome>
+        <to-activity-id>ExecuteWithParams1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__13">
+      <from-activity-id>ExecuteWithParams1</from-activity-id>
+      <control-flow-case id="__14">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>opDetailed</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
