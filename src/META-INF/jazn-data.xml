@@ -95,6 +95,46 @@
                                 <name>view.pageDefs.SalesPageDef</name>
                                 <actions>view</actions>
                             </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParams1PageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/sales-flow-contact.xml#sales-flow-contact</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/sales-flow-customers.xml#sales-flow-customers</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/sales-flow-dashboard.xml#sales-flow-dashboard</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.controller.security.TaskFlowPermission</class>
+                                <name>/WEB-INF/sales-flow-oppurtunities.xml#sales-flow-oppurtunities</name>
+                                <actions>view</actions>
+                            </permission>
                         </permissions>
                     </grant>
                 </jazn-policy>
