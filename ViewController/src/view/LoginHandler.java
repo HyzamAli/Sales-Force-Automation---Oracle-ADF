@@ -49,8 +49,11 @@ public class LoginHandler {
     Subject mySubject = Authentication.login(handler);
     ServletAuthentication.runAs(mySubject, request);
     ServletAuthentication.generateNewSessionID(request);
-    String loginUrl = "/adfAuthentication?success_url=/faces" + 
-    ctx.getViewRoot().getViewId();
+        String loginUrl="";
+    if(_username.equals("admin"))
+    {loginUrl = "/adfAuthentication?success_url=/faces/RolesView";}
+    else if(_username.equals("user"))
+        {loginUrl = "/adfAuthentication?success_url=/faces/sales";}  
         System.out.println();
     HttpServletResponse response = 
                (HttpServletResponse)ctx.getExternalContext().getResponse();

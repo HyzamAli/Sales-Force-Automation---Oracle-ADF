@@ -11,12 +11,95 @@
                     <display-name>Admin</display-name>
                 </user>
                 <user>
-                    <name>user1</name>
-                    <credentials>{903}U3OODoKE+yjH3X53W/o1zfeFCWCPHluU</credentials>
-                    <display-name>User1</display-name>
+                    <name>user</name>
+                    <credentials>{903}J4D2VwnYlUucAOzDXJCWAILbO58Q9A7O</credentials>
+                    <display-name>User</display-name>
                 </user>
             </users>
         </realm>
     </jazn-realm>
+    <policy-store>
+        <applications>
+            <application>
+                <name>Sales_Force_Automation_ADF</name>
+                <jazn-policy>
+                    <grant>
+                        <grantee>
+                            <principals>
+                                <principal>
+                                    <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                                    <name>admin</name>
+                                </principal>
+                            </principals>
+                        </grantee>
+                        <permissions>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.UsersPagePageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.RolesPagePageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.ProductsPagePageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                        </permissions>
+                    </grant>
+                    <grant>
+                        <grantee>
+                            <principals>
+                                <principal>
+                                    <class>oracle.security.jps.internal.core.principals.JpsXmlUserImpl</class>
+                                    <name>user</name>
+                                </principal>
+                            </principals>
+                        </grantee>
+                        <permissions>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.ContactsListPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.OppurtunitiesPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.CustomersDetailedPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.oppurtunityDetailedPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.SalesCustomersListPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.SalesDashboardPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                            <permission>
+                                <class>oracle.adf.share.security.authorization.RegionPermission</class>
+                                <name>view.pageDefs.SalesPageDef</name>
+                                <actions>view</actions>
+                            </permission>
+                        </permissions>
+                    </grant>
+                </jazn-policy>
+            </application>
+        </applications>
+    </policy-store>
     <system-policy/>
 </jazn-data>
