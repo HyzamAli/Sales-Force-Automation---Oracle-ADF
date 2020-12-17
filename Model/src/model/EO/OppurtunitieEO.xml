@@ -315,4 +315,8 @@
       <Item Value="model.EO.OppurtunitieEO.RefContact"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

@@ -166,4 +166,8 @@
       <Item Value="model.EO.CustomerNoteEO.RepId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

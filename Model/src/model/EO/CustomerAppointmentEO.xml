@@ -29,14 +29,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_APPOINTMENTS">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.CustomerId_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
+    TableName="CUSTOMER_APPOINTMENTS"/>
   <Attribute
     Name="AppName"
     Precision="1000"
@@ -48,12 +41,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.AppName_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
   </Attribute>
   <Attribute
     Name="AppDescription"
@@ -66,12 +53,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.AppDescription_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
   </Attribute>
   <Attribute
     Name="StartTime"
@@ -79,14 +60,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="CUSTOMER_APPOINTMENTS">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.StartTime_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </Attribute>
+    TableName="CUSTOMER_APPOINTMENTS"/>
   <Attribute
     Name="AppointmentType"
     Precision="1000"
@@ -98,12 +72,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.AppointmentType_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
   </Attribute>
   <Attribute
     Name="AppointmentDirection"
@@ -116,12 +84,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.AppointmentDirection_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
   </Attribute>
   <Attribute
     Name="EndDate"
@@ -138,12 +100,6 @@
       Inverse="false"
       CompareType="GREATERTHAN"
       CompareValue="model.VO.CustomerAppointmentsVO.StartTime"/>
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.EO.CustomerAppointmentEO.EndDate_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
   </Attribute>
   <Attribute
     Name="Location"
