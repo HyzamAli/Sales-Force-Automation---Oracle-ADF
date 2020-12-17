@@ -149,6 +149,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.CustomerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -164,6 +166,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.RefContact_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -172,25 +176,53 @@
     PrecisionRule="true"
     EntityAttrName="WinProbability"
     EntityUsage="OppurtunitieEO"
-    AliasName="WIN_PROBABILITY"/>
+    AliasName="WIN_PROBABILITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.WinProbability_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SaleStage"
     PrecisionRule="true"
     EntityAttrName="SaleStage"
     EntityUsage="OppurtunitieEO"
-    AliasName="SALE_STAGE"/>
+    AliasName="SALE_STAGE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.SaleStage_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SaleMethod"
     PrecisionRule="true"
     EntityAttrName="SaleMethod"
     EntityUsage="OppurtunitieEO"
-    AliasName="SALE_METHOD"/>
+    AliasName="SALE_METHOD">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.SaleMethod_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="SalesChannel"
     PrecisionRule="true"
     EntityAttrName="SalesChannel"
     EntityUsage="OppurtunitieEO"
-    AliasName="SALES_CHANNEL"/>
+    AliasName="SALES_CHANNEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.SalesChannel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Revenue"
     PrecisionRule="true"
@@ -202,25 +234,53 @@
     PrecisionRule="true"
     EntityAttrName="BestCaseRevenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="BEST_CASE_REVENUE"/>
+    AliasName="BEST_CASE_REVENUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.BestCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="WorstCaseRevenue"
     PrecisionRule="true"
     EntityAttrName="WorstCaseRevenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="WORST_CASE_REVENUE"/>
+    AliasName="WORST_CASE_REVENUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.WorstCaseRevenue_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EstimatedDuration"
     PrecisionRule="true"
     EntityAttrName="EstimatedDuration"
     EntityUsage="OppurtunitieEO"
-    AliasName="ESTIMATED_DURATION"/>
+    AliasName="ESTIMATED_DURATION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.EstimatedDuration_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BudgetedAmount"
     PrecisionRule="true"
     EntityAttrName="BudgetedAmount"
     EntityUsage="OppurtunitieEO"
-    AliasName="BUDGETED_AMOUNT"/>
+    AliasName="BUDGETED_AMOUNT">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.BudgetedAmount_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ManagerId"
     PrecisionRule="true"
@@ -233,6 +293,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.ManagerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -241,19 +303,40 @@
     PrecisionRule="true"
     EntityAttrName="ProductQuantity"
     EntityUsage="OppurtunitieEO"
-    AliasName="PRODUCT_QUANTITY"/>
+    AliasName="PRODUCT_QUANTITY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.ProductQuantity_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RiskLevel"
     PrecisionRule="true"
     EntityAttrName="RiskLevel"
     EntityUsage="OppurtunitieEO"
-    AliasName="RISK_LEVEL"/>
+    AliasName="RISK_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.RiskLevel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="DecisionLevel"
     PrecisionRule="true"
     EntityAttrName="DecisionLevel"
     EntityUsage="OppurtunitieEO"
-    AliasName="DECISION_LEVEL"/>
+    AliasName="DECISION_LEVEL">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.DecisionLevel_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="IsVisible"
     PrecisionRule="true"
@@ -271,7 +354,27 @@
     PrecisionRule="true"
     EntityAttrName="CloseDate"
     EntityUsage="OppurtunitieEO"
-    AliasName="CLOSE_DATE"/>
+    AliasName="CLOSE_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.CloseDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OpName"
+    PrecisionRule="true"
+    EntityAttrName="OpName"
+    EntityUsage="OppurtunitieEO"
+    AliasName="OP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.OppurtunitiesVO.OpName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="OppurtunitiesVOCriteria"
     ViewObjectName="model.VO.OppurtunitiesVO"
@@ -280,7 +383,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -298,14 +401,6 @@
     <ViewCriteriaRow
       Name="OppurtunitiesVOCriteria_row_0"
       UpperColumns="1">
-      <ViewCriteriaItem
-        Name="WinProbability"
-        ViewAttribute="WinProbability"
-        Operator="="
-        Conjunction="AND"
-        Value=":h"
-        IsBindVarValue="true"
-        Required="Optional"/>
       <ViewCriteriaItem
         Name="SaleStage"
         ViewAttribute="SaleStage"
@@ -328,54 +423,6 @@
         Operator="="
         Conjunction="AND"
         Value=":g"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Revenue"
-        ViewAttribute="Revenue"
-        Operator="="
-        Conjunction="AND"
-        Value=":d"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="OppurtunitiesVOCriteria_OppurtunitiesVOCriteria_row_0_BestCaseRevenue"
-        ViewAttribute="BestCaseRevenue"
-        Operator="="
-        Conjunction="AND"
-        Value=":b"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="WorstCaseRevenue"
-        ViewAttribute="WorstCaseRevenue"
-        Operator="="
-        Conjunction="AND"
-        Value=":i"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="EstimatedDuration"
-        ViewAttribute="EstimatedDuration"
-        Operator="="
-        Conjunction="AND"
-        Value=":c"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="BudgetedAmount"
-        ViewAttribute="BudgetedAmount"
-        Operator="="
-        Conjunction="AND"
-        Value=":a"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ProductQuantity"
-        ViewAttribute="ProductQuantity"
-        Operator="="
-        Conjunction="AND"
-        Value=":quantity"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
@@ -416,4 +463,8 @@
     ViewLink="model.VO.SysC0011007Link"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

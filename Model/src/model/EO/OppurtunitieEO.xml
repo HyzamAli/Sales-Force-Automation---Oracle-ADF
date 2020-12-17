@@ -229,6 +229,18 @@
     Type="java.sql.Timestamp"
     ColumnType="DATE"
     TableName="OPPURTUNITIES"/>
+  <Attribute
+    Name="OpName"
+    Precision="20"
+    ColumnName="OP_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPURTUNITIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011001Assoc"

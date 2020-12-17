@@ -34,7 +34,13 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="25"/>
+        <LABEL
+          ResId="model.VO.IndustryLovsVO.IndustryName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

@@ -34,7 +34,14 @@ GROUP BY OPPURTUNITIES.QUARTER]]></SQLQuery>
     ColumnType="NUMBER"
     AliasName="REVENUE_IN_QTR"
     Expression="REVENUE_IN_QTR"
-    SQLType="NUMERIC"/>
+    SQLType="NUMERIC">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.RevenueChartVO.RevenueInQtr_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Quarter"
     IsUpdateable="false"
