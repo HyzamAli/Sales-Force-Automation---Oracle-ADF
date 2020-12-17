@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="home.jsf" id="d1">
+        <af:form id="f1">
+        
+                <af:panelGroupLayout id="ptpgl3">
+
+<af:spacer width="7" height="10" id="pts2"/>
+
+<af:outputText value="Welcome #{securityContext.userName}!"
+
+inlineStyle="font-weight:bold; width:100px" id="ptot2"
+
+rendered="#{securityContext.authenticated}"/>
+
+<af:goLink text="LogOut"
+
+destination="adfAuthentication?logout=true&amp;end_url=/faces/Login.jsf"
+
+inlineStyle="color:Red; font-size:14px; font-weight:bold;"/>
+
+<f:facet name="separator">
+
+<af:spacer width="5" height="10" id="pts1"/>
+
+</f:facet>
+
+</af:panelGroupLayout>       
+        
+        </af:form>
+    </af:document>
+</f:view>
