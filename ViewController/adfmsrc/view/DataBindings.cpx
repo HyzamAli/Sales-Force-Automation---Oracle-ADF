@@ -27,6 +27,7 @@
           usageId="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParams1PageDef"/>
     <page path="/WEB-INF/sales-flow-customers.xml#sales-flow-customers@ExecuteWithParams1"
           usageId="view_sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef"/>
+    <page path="/home.jsf" usageId="view_homePageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
@@ -47,6 +48,7 @@
           path="view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParams1PageDef"/>
     <page id="view_sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef"
           path="view.pageDefs.sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef"/>
+    <page id="view_homePageDef" path="view.pageDefs.homePageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"

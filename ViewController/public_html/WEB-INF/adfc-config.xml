@@ -67,4 +67,9 @@
     <managed-bean-class>view.ProductCategoriesBean</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__14">
+    <managed-bean-name>loginBean</managed-bean-name>
+    <managed-bean-class>view.LoginHandler</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>
