@@ -107,6 +107,7 @@
           <Item Value="ContactId"/>
           <Item Value="RepId"/>
           <Item Value="CreatedOn"/>
+          <Item Value="CustomerId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -119,6 +120,7 @@
           <Item Value="Priority1"/>
           <Item Value="PercentageCompletion"/>
           <Item Value="DueDate"/>
+          <Item Value="CustomerId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

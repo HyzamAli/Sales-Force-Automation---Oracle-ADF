@@ -147,13 +147,14 @@
     </af:showDetailItem>
     <af:showDetailItem id="Notes" shortDesc="Drawer 2" icon="#{resource['images:attachment.png']}" text="Notes">
       <af:panelGroupLayout layout="vertical" id="pgl4">
-        <af:query id="qryId1" headerText="Search" disclosed="true"
-                  value="#{bindings.CustomerNotesVOCriteriaQuery.queryDescriptor}"
-                  model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
-                  queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
-                  queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"/>
-      </af:panelGroupLayout>
-      <af:panelGroupLayout id="pgl1">
+        <af:panelBox text="PanelBox1" id="pb5" showHeader="never" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:query id="qryId1" headerText="Search" disclosed="true"
+                    value="#{bindings.CustomerNotesVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"/>
+        </af:panelBox>
         <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
           <f:facet name="toolbar">
             <af:toolbar id="t6">
@@ -215,6 +216,18 @@
                   <af:convertDateTime pattern="#{bindings.CustomerNotesVO7.hints.CreatedOn.format}"/>
                 </af:outputText>
               </af:column>
+              <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustomerId.label}" id="c15">
+                <af:selectOneChoice id="sc11" value="#{row.bindings.CustomerId.inputValue}"
+                                    label="#{row.bindings.CustomerId.label}"
+                                    required="#{bindings.CustomerNotesVO7.hints.CustomerId.mandatory}"
+                                    shortDesc="#{bindings.CustomerNotesVO7.hints.CustomerId.tooltip}">
+                  <f:selectItems id="st11" value="#{row.bindings.CustomerId.items}"/>
+                  <f:validator binding="#{row.bindings.CustomerId.validator}"/>
+                </af:selectOneChoice>
+                <af:link text="View" id="l3" action="toCustomerDetailed">
+                  <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
+                </af:link>
+              </af:column>
             </af:table>
           </af:panelCollection>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
@@ -231,8 +244,7 @@
                               shortDesc="#{bindings.NotesTitle.hints.tooltip}" id="it1">
                   <f:validator binding="#{bindings.NotesTitle.validator}"/>
                 </af:inputText>
-                <af:inputText value="#{NotesBean.description}"
-                              label="#{bindings.NotesDescription.hints.label}"
+                <af:inputText value="#{NotesBean.description}" label="#{bindings.NotesDescription.hints.label}"
                               required="#{bindings.NotesDescription.hints.mandatory}"
                               columns="#{bindings.NotesDescription.hints.displayWidth}"
                               maximumLength="#{bindings.NotesDescription.hints.precision}"
@@ -320,13 +332,14 @@
     <af:showDetailItem id="Tasks" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}"
                        text="Tasks">
       <af:panelGroupLayout layout="vertical" id="pgl5">
-        <af:query id="qryId2" headerText="Search" disclosed="true"
-                  value="#{bindings.CustomerTasksVOCriteria1Query.queryDescriptor}"
-                  model="#{bindings.CustomerTasksVOCriteria1Query.queryModel}"
-                  queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
-                  queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"/>
-      </af:panelGroupLayout>
-      <af:panelGroupLayout id="pgl2">
+        <af:panelBox text="PanelBox2" id="pb6" showHeader="never" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:query id="qryId2" headerText="Search" disclosed="true"
+                    value="#{bindings.CustomerTasksVOCriteria1Query.queryDescriptor}"
+                    model="#{bindings.CustomerTasksVOCriteria1Query.queryModel}"
+                    queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
+                    queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"/>
+        </af:panelBox>
         <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
           <f:facet name="toolbar">
             <af:toolbar id="t8">
@@ -400,6 +413,18 @@
                   <af:convertDateTime pattern="#{bindings.CustomerTasksVO7.hints.DueDate.format}"/>
                 </af:outputText>
               </af:column>
+              <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustomerId.label}" id="c16">
+                <af:selectOneChoice id="sc12" value="#{row.bindings.CustomerId.inputValue}"
+                                    label="#{row.bindings.CustomerId.label}"
+                                    required="#{bindings.CustomerTasksVO7.hints.CustomerId.mandatory}"
+                                    shortDesc="#{bindings.CustomerTasksVO7.hints.CustomerId.tooltip}">
+                  <f:selectItems id="st12" value="#{row.bindings.CustomerId.items}"/>
+                  <f:validator binding="#{row.bindings.CustomerId.validator}"/>
+                </af:selectOneChoice>
+                <af:link text="View" id="l4" action="toCustomerDetailed">
+                  <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
+                </af:link>
+              </af:column>
             </af:table>
           </af:panelCollection>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
@@ -435,13 +460,12 @@
                   <f:validator binding="#{bindings.RepId1.validator}"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{TasksBean.priority}" label="Priority" id="soc315">
-                <f:validator binding="#{bindings.Priority1.validator}"/>
-                <af:selectItem label="Low" value="Low" id="si323"/>
-                <af:selectItem label="Medium" value="Medium" id="si324"/>
-                <af:selectItem label="High" value="High" id="si325"/>
-              </af:selectOneChoice>
-                <af:inputText value="#{TasksBean.percentageDone}"
-                              label="#{bindings.PercentageCompletion.hints.label}"
+                  <f:validator binding="#{bindings.Priority1.validator}"/>
+                  <af:selectItem label="Low" value="Low" id="si323"/>
+                  <af:selectItem label="Medium" value="Medium" id="si324"/>
+                  <af:selectItem label="High" value="High" id="si325"/>
+                </af:selectOneChoice>
+                <af:inputText value="#{TasksBean.percentageDone}" label="#{bindings.PercentageCompletion.hints.label}"
                               required="#{bindings.PercentageCompletion.hints.mandatory}"
                               columns="#{bindings.PercentageCompletion.hints.displayWidth}"
                               maximumLength="#{bindings.PercentageCompletion.hints.precision}"
@@ -489,13 +513,12 @@
                   <f:validator binding="#{bindings.RepId1.validator}"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{bindings.Priority1.inputValue}" label="#{bindings.Priority1.hints.label}"
-                              required="#{bindings.Priority1.hints.mandatory}"
-                             id="soc316">
-                <f:validator binding="#{bindings.Priority1.validator}"/>
-                <af:selectItem label="Low" value="Low" id="si326"/>
-                <af:selectItem label="Medium" value="Medium" id="si327"/>
-                <af:selectItem label="High" value="High" id="si328"/>
-              </af:selectOneChoice>
+                                    required="#{bindings.Priority1.hints.mandatory}" id="soc316">
+                  <f:validator binding="#{bindings.Priority1.validator}"/>
+                  <af:selectItem label="Low" value="Low" id="si326"/>
+                  <af:selectItem label="Medium" value="Medium" id="si327"/>
+                  <af:selectItem label="High" value="High" id="si328"/>
+                </af:selectOneChoice>
                 <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
                               required="#{bindings.DueDate.hints.mandatory}"
                               columns="#{bindings.DueDate.hints.displayWidth}"
@@ -520,13 +543,14 @@
     </af:showDetailItem>
     <af:showDetailItem id="Products" shortDesc="Drawer 4" icon="#{resource['images:calendar.png']}" text="Products">
       <af:panelGroupLayout layout="vertical" id="pgl6">
-        <af:query id="qryId3" headerText="Search" disclosed="true"
-                  value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
-                  model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
-                  queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
-                  queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"/>
-      </af:panelGroupLayout>
-      <af:panelGroupLayout id="pgl3">
+        <af:panelBox text="PanelBox3" id="pb7" showHeader="never" showDisclosure="false">
+          <f:facet name="toolbar"/>
+          <af:query id="qryId3" headerText="Search" disclosed="true"
+                    value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
+                    model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
+                    queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
+                    queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"/>
+        </af:panelBox>
         <af:panelBox text="Products" id="pb4" showDisclosure="false">
           <f:facet name="toolbar">
             <af:toolbar id="t10">
@@ -578,11 +602,11 @@
                 </af:outputText>
               </af:column>
               <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductCategory.label}" id="c12">
-                <af:selectOneChoice id ="sc411" value="#{row.bindings.ProductCategory.inputValue}"
+                <af:selectOneChoice id="sc411" value="#{row.bindings.ProductCategory.inputValue}"
                                     label="#{row.bindings.ProductCategory.label}" readOnly="true"
                                     required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductCategory.mandatory}"
                                     shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductCategory.tooltip}">
-                  <f:selectItems  id ="sc412" value="#{row.bindings.ProductCategory.items}"/>
+                  <f:selectItems id="sc412" value="#{row.bindings.ProductCategory.items}"/>
                   <f:validator binding="#{row.bindings.ProductCategory.validator}"/>
                 </af:selectOneChoice>
               </af:column>
@@ -601,8 +625,7 @@
                   <f:selectItems value="#{bindings.ProductId.items}" id="si34"/>
                   <f:validator binding="#{bindings.ProductId.validator}"/>
                 </af:selectOneChoice>
-                <af:inputText value="#{ProductsOpBean.quantity}"
-                              label="#{bindings.ProductQuantity1.hints.label}"
+                <af:inputText value="#{ProductsOpBean.quantity}" label="#{bindings.ProductQuantity1.hints.label}"
                               required="#{bindings.ProductQuantity1.hints.mandatory}"
                               columns="#{bindings.ProductQuantity1.hints.displayWidth}"
                               maximumLength="#{bindings.ProductQuantity1.hints.precision}"
@@ -610,8 +633,7 @@
                   <f:validator binding="#{bindings.ProductQuantity1.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity1.format}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{ProductsOpBean.category}"
-                                    label="#{bindings.ProductCategory.label}"
+                <af:selectOneChoice value="#{ProductsOpBean.category}" label="#{bindings.ProductCategory.label}"
                                     required="#{bindings.ProductCategory.hints.mandatory}"
                                     shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="soc21">
                   <f:selectItems value="#{bindings.ProductCategory.items}" id="si35"/>

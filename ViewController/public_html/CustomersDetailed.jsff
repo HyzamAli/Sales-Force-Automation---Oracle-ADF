@@ -297,17 +297,20 @@
                   <af:showPopupBehavior popupId=":::p1"/>
                 </af:link>
               </af:column>
+              <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36">
+                <af:link text="View Oppurtunity" id="l5" action="toOpDetailed">
+                  <af:outputText value=""
+                                 shortDesc="#{bindings.CustomerNotesVO61.hints.OppurtunityId.tooltip}" id="ot8">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CustomerNotesVO61.hints.OppurtunityId.format}"/>
+                  </af:outputText>
+                  <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
+                </af:link>
+              </af:column>
               <af:column headerText="#{bindings.CustomerNotesVO61.hints.CreatedOn.label}" id="c35">
                 <af:outputText value="#{row.CreatedOn}"
                                shortDesc="#{bindings.CustomerNotesVO61.hints.CreatedOn.tooltip}" id="ot7">
                   <af:convertDateTime pattern="#{bindings.CustomerNotesVO61.hints.CreatedOn.format}"/>
-                </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36">
-                <af:outputText value="#{row.OppurtunityId}"
-                               shortDesc="#{bindings.CustomerNotesVO61.hints.OppurtunityId.tooltip}" id="ot8">
-                  <af:convertNumber groupingUsed="false"
-                                    pattern="#{bindings.CustomerNotesVO61.hints.OppurtunityId.format}"/>
                 </af:outputText>
               </af:column>
               <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesDescription.label}" id="c37">
@@ -468,6 +471,16 @@
                                shortDesc="#{bindings.CustomerTasksVO61.hints.DueDate.tooltip}">
                   <af:convertDateTime pattern="#{bindings.CustomerTasksVO61.hints.DueDate.format}"/>
                 </af:outputText>
+              </af:column>
+              <af:column headerText="#{bindings.CustomerTasksVO61.hints.OppurtunityId.label}" id="c9">
+                <af:link text="View Oppurtunity" id="l6" action="toOpDetailed">
+                  <af:outputText id="ot434" value=""
+                                 shortDesc="#{bindings.CustomerTasksVO61.hints.OppurtunityId.tooltip}">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CustomerTasksVO61.hints.OppurtunityId.format}"/>
+                  </af:outputText>
+                  <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
+                </af:link>
               </af:column>
             </af:table>
           </af:panelCollection>

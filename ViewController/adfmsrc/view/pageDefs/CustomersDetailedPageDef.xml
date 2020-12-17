@@ -59,10 +59,11 @@
     <tree IterBinding="CustomerTasksVO6Iterator" id="CustomerTasksVO61">
       <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO610">
         <AttrNames>
-          <Item Value="Priority1"/>
           <Item Value="TaskDetails"/>
-          <Item Value="DueDate"/>
+          <Item Value="Priority1"/>
           <Item Value="PercentageCompletion"/>
+          <Item Value="DueDate"/>
+          <Item Value="OppurtunityId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

@@ -181,7 +181,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="200"/>
+          Value="50"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.Priority1_LABEL"/>
       </SchemaBasedProperties>
@@ -197,6 +197,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.CustomerTasksVO.DueDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -205,7 +207,14 @@
     PrecisionRule="true"
     EntityAttrName="PercentageCompletion"
     EntityUsage="CustomerTaskEO"
-    AliasName="PERCENTAGE_COMPLETION"/>
+    AliasName="PERCENTAGE_COMPLETION">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="10"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="TaskDetails"
     PrecisionRule="true"
@@ -215,7 +224,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="200"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.TaskDetails_LABEL"/>
       </SchemaBasedProperties>
@@ -232,6 +241,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.CustomerTasksVO.OppurtunityId_LABEL"/>
+        <DISPLAYWIDTH
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

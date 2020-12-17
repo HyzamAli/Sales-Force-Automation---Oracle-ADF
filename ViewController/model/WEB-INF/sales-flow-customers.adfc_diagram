@@ -71,4 +71,54 @@
       <property
          name="sdm:polyPoints">T50,521.55176,279.3672,632.3037,213.16797,L50</property>
    </ControlFlowCase>
+   <MethodCall
+      id="MethodCall7">
+      <property
+         name="activityId">ExecuteWithParams1</property>
+      <property
+         name="x">805.3457</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
+      <property
+         name="y">129.30078</property>
+      <property
+         name="exceptionHandler">false</property>
+   </MethodCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View8"
+      to="MethodCall7">
+      <property
+         name="fromOutcome">toOpDetailed</property>
+      <property
+         name="sdm:polyPoints">R50,714.3037,213.16797,764.3457,129.23438,L50</property>
+   </ControlFlowCase>
+   <View
+      id="View9">
+      <property
+         name="activityId">opDetailed</property>
+      <property
+         name="pageFragment">true</property>
+      <property
+         name="x">898.0</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>opDetailed&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">312.66797</property>
+      <property
+         name="page">/oppurtunityDetailed.jsff</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase11"
+      from="MethodCall7"
+      to="View9">
+      <property
+         name="fromOutcome">ExecuteWithParams</property>
+      <property
+         name="sdm:polyPoints">B50,805.3457,183.23438,898.0,258.66797,T50</property>
+   </ControlFlowCase>
 </SDM>
