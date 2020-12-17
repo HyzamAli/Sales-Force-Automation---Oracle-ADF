@@ -160,7 +160,7 @@
       <NamedData NDName="NotesTitle" NDValue="#{NotesBean.title}" NDType="java.lang.String"/>
       <NamedData NDName="NotesDescription" NDValue="#{NotesBean.description}" NDType="java.lang.String"/>
       <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
-      <NamedData NDName="CustomerId" NDValue="#{NotesBean.customerId}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId1.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{NotesBean.contactID}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
     </action>
@@ -170,8 +170,6 @@
         <Item Value="TaskDetails"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="CustomerTasksVO7Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId2"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerTasksVO7Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId1"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerTasksVO7Iterator" StaticList="false" Uses="LOV_RepId" id="RepId1" DTSupportsMRU="false"
@@ -196,7 +194,7 @@
       <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{TasksBean.contactID}" NDType="java.lang.String"/>
-      <NamedData NDName="CustomerId" NDValue="#{TasksBean.customerId}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId1.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{TasksBean.repID}" NDType="java.lang.String"/>
       <NamedData NDName="DueDate" NDValue="#{TasksBean.dueDate}" NDType="java.lang.String"/>
       <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
@@ -221,5 +219,10 @@
     </action>
     <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="OpName">
+      <AttrNames>
+        <Item Value="OpName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

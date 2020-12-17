@@ -122,7 +122,14 @@
     EntityAttrName="TaskId"
     EntityUsage="CustomerTaskEO"
     AliasName="TASK_ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.TaskId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -135,6 +142,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.CustomerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -212,6 +221,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="10"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.PercentageCompletion_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -254,7 +265,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -306,7 +317,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>

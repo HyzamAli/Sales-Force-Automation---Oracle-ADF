@@ -109,14 +109,22 @@
     EntityAttrName="CustomerId"
     EntityUsage="CustomerEO"
     AliasName="CUSTOMER_ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomersVO.CustomerId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ReferencePt"
     PrecisionRule="true"
     EntityAttrName="ReferencePt"
     EntityUsage="CustomerEO"
     AliasName="REFERENCE_PT"
-    LOVName="LOV_ReferencePt">
+    LOVName="LOV_ReferencePt"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
@@ -276,7 +284,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -381,4 +389,8 @@
       </ViewCriteriaRow>
     </ViewCriteria>
   </DeclarativeWhereClause>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

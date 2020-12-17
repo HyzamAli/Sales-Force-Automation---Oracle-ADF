@@ -46,7 +46,8 @@
     PrecisionRule="true"
     EntityAttrName="AaId"
     EntityUsage="AppointmentAttendeeEO"
-    AliasName="AA_ID"/>
+    AliasName="AA_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="AppointmentId"
     PrecisionRule="true"
@@ -64,7 +65,15 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.AppointmentAttendeesVO.EmployeeId_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.VO.AppointmentAttendeesVO.EmployeeId_LABEL_PLURAL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

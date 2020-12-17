@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="AppointmentCustomersVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="AppsModule_CustomerContactsVO3_1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    AMUsageName="AppsModule"
+    ViewInstanceName="CustomerContactsVO3"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_CustId"
+    ListVOName="CustomerContactsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CcId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="AppointmentCustomersEO"
+    Entity="model.EO.AppointmentCustomersEO"/>
+  <ViewAttribute
+    Name="AcId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="AcId"
+    EntityUsage="AppointmentCustomersEO"
+    AliasName="AC_ID"/>
+  <ViewAttribute
+    Name="AppId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="AppId"
+    EntityUsage="AppointmentCustomersEO"
+    AliasName="APP_ID"/>
+  <ViewAttribute
+    Name="CustId"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="CustId"
+    EntityUsage="AppointmentCustomersEO"
+    AliasName="CUST_ID"
+    LOVName="LOV_CustId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+</ViewObject>

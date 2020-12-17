@@ -28,6 +28,8 @@
                   Binds="CustomerContactsVO3Iterator" id="CustomerContactsVOCriteriaQuery1"/>
     <iterator Binds="AppointmentAttendeesVO5" RangeSize="25" DataControl="AppsModuleDataControl"
               id="AppointmentAttendeesVO5Iterator"/>
+    <iterator Binds="AppointmentCustomersVO2" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="AppointmentCustomersVO2Iterator"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
@@ -325,6 +327,22 @@
     <action IterBinding="AppointmentAttendeesVO5Iterator" id="Delete3" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action IterBinding="CustomerAppointmentsVO3Iterator" id="Delete4" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <tree IterBinding="AppointmentCustomersVO2Iterator" id="AppointmentCustomersVO2">
+      <nodeDefinition DefName="model.VO.AppointmentCustomersVO" Name="AppointmentCustomersVO20">
+        <AttrNames>
+          <Item Value="CustId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="AppointmentCustomersVO2Iterator" StaticList="false" Uses="LOV_CustId" id="CustId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="AppointmentCustomersVO2Iterator" id="CreateWithParams5" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="AppId" NDValue="#{bindings.AppId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="CustId" NDValue="#{AttendeeCustomerBean.contactId}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="AppointmentCustomersVO2Iterator" id="Delete5" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

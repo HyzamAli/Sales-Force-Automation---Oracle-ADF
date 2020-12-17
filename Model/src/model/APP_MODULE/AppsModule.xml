@@ -151,6 +151,12 @@
   <ViewUsage
     Name="RevenueChartVO1"
     ViewObjectName="model.VO.RevenueChartVO"/>
+  <ViewUsage
+    Name="AppointmentCustomersVO1"
+    ViewObjectName="model.VO.AppointmentCustomersVO"/>
+  <ViewUsage
+    Name="AppointmentCustomersVO2"
+    ViewObjectName="model.VO.AppointmentCustomersVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -324,5 +330,11 @@
     ViewLinkObjectName="model.VO.ProductsByOppurtunity"
     SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
     DstViewUsageName="model.APP_MODULE.AppsModule.ProductsPerOppurtunitiesVO4"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AppointmentCustomersLink1"
+    ViewLinkObjectName="model.VO.AppointmentCustomersLink"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO3"
+    DstViewUsageName="model.APP_MODULE.AppsModule.AppointmentCustomersVO2"
     Reversed="false"/>
 </AppModule>

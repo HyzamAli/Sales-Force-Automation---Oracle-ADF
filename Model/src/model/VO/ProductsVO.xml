@@ -145,7 +145,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -207,6 +207,10 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="ProductId"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="ProductId"/>

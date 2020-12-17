@@ -112,6 +112,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.CustomerId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -127,6 +129,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.ContactId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -142,6 +146,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.RepId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -155,6 +161,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="215"/>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.NotesTitle_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -163,14 +171,28 @@
     PrecisionRule="true"
     EntityAttrName="CreatedOn"
     EntityUsage="CustomerNoteEO"
-    AliasName="CREATED_ON"/>
+    AliasName="CREATED_ON">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.CreatedOn_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OppurtunityId"
     PrecisionRule="true"
     EntityAttrName="OppurtunityId"
     EntityUsage="CustomerNoteEO"
     AliasName="OPPURTUNITY_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.OppurtunityId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="NotesDescription"
     PrecisionRule="true"
@@ -181,6 +203,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="215"/>
+        <LABEL
+          ResId="model.VO.CustomerNotesVO.NotesDescription_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -192,7 +216,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>
@@ -228,4 +252,8 @@
         Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
