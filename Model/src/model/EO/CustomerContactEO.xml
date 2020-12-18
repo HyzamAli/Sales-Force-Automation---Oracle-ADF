@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="CUSTOMER_CONTACTS"
   AliasName="CustomerContactEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="CcId"
     ColumnName="CC_ID"
@@ -59,6 +60,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="ContactPhoneRule0"
+      ResId="model.EO.CustomerContactEO.ContactPhone_Rule_0"
+      OnAttribute="ContactPhone"
+      Pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="ContactEmail"
@@ -71,6 +78,12 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
+    <validation:RegExpValidationBean
+      Name="ContactEmailRule0"
+      ResId="model.EO.CustomerContactEO.ContactEmail_Rule_0"
+      OnAttribute="ContactEmail"
+      Pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="InfluenceLevel"
@@ -136,4 +149,8 @@
       <Item Value="model.EO.CustomerContactEO.CustomerId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>
