@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="CUSTOMER_TASKS"
   AliasName="CustomerTaskEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="TaskId"
     ColumnName="TASK_ID"
@@ -70,7 +71,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_TASKS"/>
+    TableName="CUSTOMER_TASKS">
+    <validation:RangeValidationBean
+      Name="PercentageCompletionRule0"
+      ResId="model.EO.CustomerTaskEO.PercentageCompletion_Rule_0"
+      OnAttribute="PercentageCompletion"
+      OperandType="LITERAL"
+      Inverse="false"
+      MinValue="0"
+      MaxValue="100"/>
+  </Attribute>
   <Attribute
     Name="TaskDetails"
     Precision="1000"
@@ -172,4 +182,8 @@
       <Item Value="model.EO.CustomerTaskEO.RepId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

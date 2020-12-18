@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="USER_PROFILES"
   AliasName="UserProfileEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="UserId"
     ColumnName="USER_ID"
@@ -108,7 +109,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="USER_PROFILES"/>
+    TableName="USER_PROFILES">
+    <validation:CompareValidationBean
+      Name="EndDateRule0"
+      ResId="model.EO.UserProfileEO.EndDate_Rule_0"
+      OnAttribute="EndDate"
+      OperandType="JBO"
+      Inverse="false"
+      CompareType="GREATERTHAN"
+      CompareValue="model.VO.UserProfilesVO.StartDate"/>
+  </Attribute>
   <Attribute
     Name="SupervisorId"
     ColumnName="SUPERVISOR_ID"
@@ -180,4 +190,8 @@
       <Item Value="model.EO.UserProfileEO.RolesId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

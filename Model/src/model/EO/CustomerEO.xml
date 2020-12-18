@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="CUSTOMERS"
   AliasName="CustomerEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="CustomerId"
     ColumnName="CUSTOMER_ID"
@@ -210,6 +211,12 @@
           Value="30"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="EmailRule0"
+      ResId="model.EO.CustomerEO.Email_Rule_0"
+      OnAttribute="Email"
+      Pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="Phone"
@@ -228,6 +235,12 @@
           Value="15"/>
       </SchemaBasedProperties>
     </Properties>
+    <validation:RegExpValidationBean
+      Name="PhoneRule0"
+      ResId="model.EO.CustomerEO.Phone_Rule_0"
+      OnAttribute="Phone"
+      Pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+      Inverse="false"/>
   </Attribute>
   <Attribute
     Name="IsVisible"

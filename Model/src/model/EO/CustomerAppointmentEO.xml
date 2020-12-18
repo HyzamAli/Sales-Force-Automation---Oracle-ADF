@@ -9,7 +9,8 @@
   DBObjectType="table"
   DBObjectName="CUSTOMER_APPOINTMENTS"
   AliasName="CustomerAppointmentEO"
-  BindingStyle="OracleName">
+  BindingStyle="OracleName"
+  xmlns:validation="http://xmlns.oracle.com/adfm/validation">
   <Attribute
     Name="AppId"
     ColumnName="APP_ID"
@@ -90,7 +91,16 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="CUSTOMER_APPOINTMENTS"/>
+    TableName="CUSTOMER_APPOINTMENTS">
+    <validation:CompareValidationBean
+      Name="EndDateRule0"
+      ResId="model.EO.CustomerAppointmentEO.EndDate_Rule_0"
+      OnAttribute="EndDate"
+      OperandType="JBO"
+      Inverse="false"
+      CompareType="GREATERTHAN"
+      CompareValue="model.VO.CustomerAppointmentsVO.StartTime"/>
+  </Attribute>
   <Attribute
     Name="Location"
     Precision="1000"
@@ -122,7 +132,14 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="CUSTOMER_APPOINTMENTS"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.CustomerAppointmentEO.ContactId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="AppointmentAttendeeEO"
     Association="model.EO.SysC0011004Assoc"
@@ -158,4 +175,8 @@
       <Item Value="model.EO.CustomerAppointmentEO.CustomerId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>
