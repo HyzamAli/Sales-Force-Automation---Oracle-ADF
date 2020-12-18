@@ -18,7 +18,9 @@
                                     <af:commandMenuItem text="Oppurtunities" id="cmi3"
                                                         action="#{viewScope.SalesDynamicRegionBean.salesflowoppurtunities}"/>   
                                     <af:commandMenuItem text="Contacts" id="cmi4"
-                                                        action="#{viewScope.SalesDynamicRegionBean.salesflowcontact}"/>  
+                                                        action="#{viewScope.SalesDynamicRegionBean.salesflowcontact}"/>
+                                    <af:goMenuItem text="Logout" id="gmi1"
+                                                   destination="adfAuthentication?logout=true&amp;amp;end_url=/faces/Login.jsf"/>
                                 </af:menuBar>
                             </f:facet>
                         </af:panelBox>

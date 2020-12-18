@@ -19,7 +19,7 @@
         </attribute>
       </component>
     </af:xmlContent>
-    <af:panelStretchLayout id="pt_psl1" topHeight="50px">
+    <af:panelStretchLayout id="pt_psl1" topHeight="80px">
       <f:facet name="start"/>
       <f:facet name="end"/>
       <f:facet name="top">
@@ -32,6 +32,9 @@
               </f:facet>
             </af:navigationPane>
           </f:facet>
+          <af:menuBar id="pt_mb1" inlineStyle="flex-item-align:end;">
+            <af:goMenuItem text="Logout" id="pt_gmi1" destination="adfAuthentication?logout=true&amp;end_url=/faces/Login.jsf"/>
+          </af:menuBar>
         </af:panelBox>
       </f:facet>
       <f:facet name="bottom"/>
