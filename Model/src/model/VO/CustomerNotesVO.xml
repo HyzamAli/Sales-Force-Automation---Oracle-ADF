@@ -34,6 +34,10 @@
     Name="CustomersVO1"
     ViewObjectName="model.VO.CustomersVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OppurtunitiesVO1"
+    ViewObjectName="model.VO.OppurtunitiesVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContactId"
     ListVOName="CustomerContactsVO1"
@@ -86,6 +90,24 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="AccName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_OppurtunityId"
+    ListVOName="OppurtunitiesVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OpName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -160,7 +182,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="215"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerNotesVO.NotesTitle_LABEL"/>
       </SchemaBasedProperties>
@@ -185,11 +207,14 @@
     EntityAttrName="OppurtunityId"
     EntityUsage="CustomerNoteEO"
     AliasName="OPPURTUNITY_ID"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    LOVName="LOV_OppurtunityId">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.CustomerNotesVO.OppurtunityId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

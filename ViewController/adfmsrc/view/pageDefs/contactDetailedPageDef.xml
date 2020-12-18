@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48" id="contactDetailedPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="ContactByIdVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="ContactByIdVO1Iterator"/>
+    <iterator Binds="CustomerNotesVO8" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerNotesVO8Iterator"/>
+    <searchRegion Criteria="CustomerNotesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerNotesVO8Iterator" id="CustomerNotesVOCriteriaQuery"/>
+    <iterator Binds="CustomerTasksVO8" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerTasksVO8Iterator"/>
+    <searchRegion Criteria="CustomerTasksVOCriteria1" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerTasksVO8Iterator" id="CustomerTasksVOCriteria1Query"/>
+  </executables>
+  <bindings>
+      <attributeValues IterBinding="ContactByIdVO1Iterator" id="CcId">
+      <AttrNames>
+        <Item Value="CcId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactByIdVO1Iterator" id="ContactName">
+      <AttrNames>
+        <Item Value="ContactName"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="ContactByIdVO1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="ContactByIdVO1Iterator" id="ContactPhone">
+      <AttrNames>
+        <Item Value="ContactPhone"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactByIdVO1Iterator" id="ContactEmail">
+      <AttrNames>
+        <Item Value="ContactEmail"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactByIdVO1Iterator" id="InfluenceLevel">
+      <AttrNames>
+        <Item Value="InfluenceLevel"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ContactByIdVO1Iterator" id="IsPrimary">
+      <AttrNames>
+        <Item Value="IsPrimary"/>
+      </AttrNames>
+    </attributeValues>
+    <tree IterBinding="CustomerNotesVO8Iterator" id="CustomerNotesVO8">
+      <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO80">
+        <AttrNames>
+          <Item Value="NotesTitle"/>
+          <Item Value="NotesDescription"/>
+          <Item Value="CustomerId"/>
+          <Item Value="RepId"/>
+          <Item Value="CreatedOn"/>
+          <Item Value="OppurtunityId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="CustomerTasksVO8Iterator" id="CustomerTasksVO8">
+      <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO80">
+        <AttrNames>
+          <Item Value="TaskDetails"/>
+          <Item Value="CustomerId"/>
+          <Item Value="OppurtunityId"/>
+          <Item Value="Priority1"/>
+          <Item Value="PercentageCompletion"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="CustomerTasksVO8Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="CustomerNotesVO8Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <attributeValues IterBinding="CustomerNotesVO8Iterator" id="NotesTitle">
+      <AttrNames>
+        <Item Value="NotesTitle"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO8Iterator" id="NotesDescription">
+      <AttrNames>
+        <Item Value="NotesDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerNotesVO8Iterator" id="CreatedOn">
+      <AttrNames>
+        <Item Value="CreatedOn"/>
+      </AttrNames>
+    </attributeValues>
+    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerTasksVO8Iterator" id="TaskDetails">
+      <AttrNames>
+        <Item Value="TaskDetails"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO8Iterator" id="DueDate">
+      <AttrNames>
+        <Item Value="DueDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO8Iterator" id="Priority1">
+      <AttrNames>
+        <Item Value="Priority1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO8Iterator" id="PercentageCompletion">
+      <AttrNames>
+        <Item Value="PercentageCompletion"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_RepId" id="RepId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action IterBinding="CustomerNotesVO8Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactId" NDValue="#{bindings.CcId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="NotesTitle" NDValue="#{NotesBean.title}" NDType="java.lang.String"/>
+      <NamedData NDName="NotesDescription" NDValue="#{NotesBean.description}" NDType="java.lang.String"/>
+      <NamedData NDName="OppurtunityId" NDValue="#{NotesBean.oppurtunityID}" NDType="java.lang.String"/>
+      <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
+      <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
+    </action>
+    <list IterBinding="CustomerTasksVO8Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId1"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerTasksVO8Iterator" StaticList="false" Uses="LOV_RepId" id="RepId1" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject"/>
+    <action IterBinding="CustomerTasksVO8Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="ContactId" NDValue="#{bindings.CcId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
+      <NamedData NDName="Priority1" NDValue="#{TasksBean.priority}" NDType="java.lang.String"/>
+      <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
+      <NamedData NDName="DueDate" NDValue="#{TasksBean.dueDate}" NDType="java.lang.String"/>
+      <NamedData NDName="RepId" NDValue="#{TasksBean.repID}" NDType="java.lang.String"/>
+      <NamedData NDName="OppurtunityId" NDValue="#{TasksBean.oppurtunityID}" NDType="java.lang.String"/>
+    </action>
+  </bindings>
+</pageDefinition>

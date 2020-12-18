@@ -18,6 +18,10 @@
     Name="UserProfilesVO1"
     ViewObjectName="model.VO.UserProfilesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerAppointmentsVO1"
+    ViewObjectName="model.VO.CustomerAppointmentsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_EmployeeId"
     ListVOName="UserProfilesVO1"
@@ -37,6 +41,23 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_AppointmentId"
+    ListVOName="CustomerAppointmentsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AppointmentId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AppId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AppName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="AppointmentAttendeeEO"
     Entity="model.EO.AppointmentAttendeeEO"/>
@@ -53,7 +74,15 @@
     PrecisionRule="true"
     EntityAttrName="AppointmentId"
     EntityUsage="AppointmentAttendeeEO"
-    AliasName="APPOINTMENT_ID"/>
+    AliasName="APPOINTMENT_ID"
+    LOVName="LOV_AppointmentId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EmployeeId"
     PrecisionRule="true"

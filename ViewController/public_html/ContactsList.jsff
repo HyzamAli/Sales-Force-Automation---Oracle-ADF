@@ -46,10 +46,10 @@
                   fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1" columnStretching="last"
                   summary="Contacts list" partialTriggers="::b2 ::b3">
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true">
-            <af:link id="l1">
+            <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.ContactName}"
                              shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}" id="ot1"/>
-              <af:showPopupBehavior popupId=":::p2"/>
+              <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
             </af:link>
           </af:column>
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2">

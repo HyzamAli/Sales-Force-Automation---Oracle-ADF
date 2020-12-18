@@ -16,6 +16,7 @@
           <Item Value="ContactName"/>
           <Item Value="ContactPhone"/>
           <Item Value="ContactEmail"/>
+          <Item Value="CcId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
