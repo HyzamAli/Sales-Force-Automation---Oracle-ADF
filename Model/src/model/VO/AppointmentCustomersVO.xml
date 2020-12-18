@@ -24,6 +24,10 @@
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomerAppointmentsVO1"
+    ViewObjectName="model.VO.CustomerAppointmentsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CustId"
     ListVOName="CustomerContactsVO1"
@@ -38,6 +42,23 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_AppId"
+    ListVOName="CustomerAppointmentsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="AppId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="AppId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AppName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -57,7 +78,15 @@
     PrecisionRule="true"
     EntityAttrName="AppId"
     EntityUsage="AppointmentCustomersEO"
-    AliasName="APP_ID"/>
+    AliasName="APP_ID"
+    LOVName="LOV_AppId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustId"
     IsUpdateable="while_insert"

@@ -46,6 +46,10 @@
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="CustomersVO1"
+    ViewObjectName="model.VO.CustomersVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContactId"
     ListVOName="CustomerContactsVO1"
@@ -61,6 +65,23 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <ListBinding
+    Name="LOV_CustomerId"
+    ListVOName="CustomersVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CustomerId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="AccName"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -81,13 +102,16 @@
     EntityAttrName="CustomerId"
     EntityUsage="CustomerAppointmentEO"
     AliasName="CUSTOMER_ID"
-    IsUpdateable="while_insert">
+    IsUpdateable="while_insert"
+    LOVName="LOV_CustomerId">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.CustomerId_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.CustomerId_LABEL_PLURAL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

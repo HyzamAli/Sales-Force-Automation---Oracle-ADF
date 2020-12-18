@@ -3,4 +3,5 @@
   <itemNode id="itemNode_RolesView" label="Manage Roles" action="toRoles" focusViewId="/RolesView"/>
   <itemNode id="itemNode_UsersView" label="Manage Users" action="toUsers" focusViewId="/UsersView"/>
   <itemNode id="itemNode_ProductsView" label="Manage Products" action="toProducts" focusViewId="/ProductsView"/>
+
 </menu>
