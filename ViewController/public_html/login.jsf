@@ -3,31 +3,13 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="login.jsf" id="d1">
         <af:form id="f1">
-            <af:panelStretchLayout id="psl1" inlineStyle="background-color:White;">
-                <f:facet name="start"/>
-                <f:facet name="end"/>
-                <f:facet name="top"/>
-                <f:facet name="bottom"/>
-                <f:facet name="center">
-                    <af:decorativeBox id="db1" topHeight="0" inlineStyle="background-color:White;">
-                        <f:facet name="top"/>
-                        <f:facet name="center">
-                            <af:panelBox text="Login Information" id="pb1" inlineStyle="width:300px;height:200px;">
-                                <f:facet name="toolbar"/>
-                                <af:panelFormLayout id="pfl1">
-                                    <af:inputText label="Username" id="it1" required="true"
-                                                  value="#{loginBean.username}"/>
-                                    <af:inputText label="Password" id="it2" required="true" secret="true"
-                                                  value="#{loginBean.password}"/>
-                                    <f:facet name="footer">
-                                        <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"/>
-                                    </f:facet>
-                                </af:panelFormLayout>
-                            </af:panelBox>
-                        </f:facet>
-                    </af:decorativeBox>
+            <af:panelFormLayout id="pfl1" inlineStyle="padding-left:600px; padding-top:250px;">
+                <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
+                <af:inputText label="Password" id="it2" required="true" secret="true" value="#{loginBean.password}"/>
+                <f:facet name="footer">
+                    <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"/>
                 </f:facet>
-            </af:panelStretchLayout>
+            </af:panelFormLayout>
         </af:form>
     </af:document>
 </f:view>
