@@ -41,6 +41,8 @@
                                             <af:button text="Add" id="b1">
                                                 <af:showPopupBehavior popupId=":::p1"/>
                                             </af:button>
+                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b3"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -51,7 +53,7 @@
                                               selectedRowKeys="#{bindings.UserProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.UserProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.UserProfilesVO1.rangeSize}"
-                                              id="t1" summary="Users List" partialTriggers="::::b2 ::::b3">
+                                              id="t1" summary="Users List" partialTriggers="::::b2 ::b3">
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameFirst.label}"
                                                    id="c1" rowHeader="true">
                                             <af:link text="" id="l1">
@@ -95,9 +97,9 @@
                     </f:facet>
                 </af:pageTemplate>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                    <af:dialog id="d4" title="Create User">
+                    <af:dialog id="d4" title="Create User" type="cancel">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="CreateWithParams"
+                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create User"
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl1">
@@ -160,10 +162,7 @@
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pt1:pc1:t1">
                     <af:dialog id="d2" title="Edit Users">
-                        <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                       disabled="#{!bindings.Delete.enabled}" id="b3"/>
-                        </f:facet>
+                        <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.NameFirst.inputValue}"
                                           label="#{bindings.NameFirst.hints.label}"
@@ -217,14 +216,6 @@
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si4"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
-                            <af:inputText value="#{bindings.Password1.inputValue}"
-                                          label="#{bindings.Password1.hints.label}"
-                                          required="#{bindings.Password1.hints.mandatory}"
-                                          columns="#{bindings.Password1.hints.displayWidth}"
-                                          maximumLength="#{bindings.Password1.hints.precision}"
-                                          shortDesc="#{bindings.Password1.hints.tooltip}" id="it8">
-                                <f:validator binding="#{bindings.Password1.validator}"/>
-                            </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>

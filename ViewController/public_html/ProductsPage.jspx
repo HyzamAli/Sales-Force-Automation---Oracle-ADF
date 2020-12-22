@@ -38,6 +38,8 @@
                                             <af:button text="Add Product" id="b1">
                                                 <af:showPopupBehavior popupId=":::p2"/>
                                             </af:button>
+                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b5"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -48,7 +50,7 @@
                                               selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
-                                              id="t1" columnStretching="last" partialTriggers="::::b2 ::::b5">
+                                              id="t1" columnStretching="last" partialTriggers="::::b2 ::b5">
                                         <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}"
                                                    id="c1" rowHeader="true">
                                             <af:link text="" id="l1">
@@ -129,7 +131,7 @@
                     </f:facet>
                 </af:pageTemplate>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
-                    <af:dialog title="Create Product" id="d2">
+                    <af:dialog title="Create Product" id="d2" type="cancel">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Product"
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
@@ -172,10 +174,7 @@
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pt1:pc1:t1">
                     <af:dialog id="d3" title="Edit Product">
-                        <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                       disabled="#{!bindings.Delete.enabled}" id="b5"/>
-                        </f:facet>
+                        <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.ProductName.inputValue}"
                                           label="#{bindings.ProductName.hints.label}"
@@ -213,7 +212,7 @@
                     </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
-                    <af:dialog id="d4" title="Create Product Category">
+                    <af:dialog id="d4" title="Create Product Category" type="cancel">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Category"
                                        disabled="#{!bindings.CreateWithParams1.enabled}" id="b6"/>

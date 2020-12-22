@@ -536,7 +536,7 @@
         </af:panelBox>
       </af:panelGroupLayout>
     </af:showDetailItem>
-    <af:showDetailItem id="Products" shortDesc="Drawer 4" icon="#{resource['images:calendar.png']}" text="Products">
+    <af:showDetailItem id="Products" shortDesc="Drawer 4" text="Products" icon="#{resource['images:coffee-cup.png']}">
       <af:panelGroupLayout layout="vertical" id="pgl6">
         <af:outputText value="Products" id="ot6"
                        inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
@@ -584,7 +584,7 @@
                       rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
                       summary="products by oppurtunity list" columnStretching="last" partialTriggers=":::b14 ::b16">
               <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
-                         rowHeader="true">
+                         rowHeader="true" width="150">
                 <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                 <af:selectOneChoice value="#{row.bindings.ProductId.inputValue}" label="#{row.bindings.ProductId.label}"
                                     required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.mandatory}"
@@ -601,15 +601,6 @@
                   <af:convertNumber groupingUsed="false"
                                     pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.format}"/>
                 </af:outputText>
-              </af:column>
-              <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductCategory.label}" id="c12">
-                <af:selectOneChoice id="sc411" value="#{row.bindings.ProductCategory.inputValue}"
-                                    label="#{row.bindings.ProductCategory.label}" readOnly="true"
-                                    required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductCategory.mandatory}"
-                                    shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductCategory.tooltip}">
-                  <f:selectItems id="sc412" value="#{row.bindings.ProductCategory.items}"/>
-                  <f:validator binding="#{row.bindings.ProductCategory.validator}"/>
-                </af:selectOneChoice>
               </af:column>
             </af:table>
           </af:panelCollection>
@@ -634,12 +625,6 @@
                   <f:validator binding="#{bindings.ProductQuantity1.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity1.format}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{ProductsOpBean.category}" label="#{bindings.ProductCategory.label}"
-                                    required="#{bindings.ProductCategory.hints.mandatory}"
-                                    shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="soc21">
-                  <f:selectItems value="#{bindings.ProductCategory.items}" id="si35"/>
-                  <f:validator binding="#{bindings.ProductCategory.validator}"/>
-                </af:selectOneChoice>
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
