@@ -110,7 +110,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="94"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameFirst_LABEL"/>
       </SchemaBasedProperties>
@@ -125,7 +125,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="94"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameLast_LABEL"/>
       </SchemaBasedProperties>
@@ -171,6 +171,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.UserProfilesVO.StartDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="90"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -184,6 +186,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.UserProfilesVO.EndDate_LABEL"/>
+        <DISPLAYWIDTH
+          Value="90"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
