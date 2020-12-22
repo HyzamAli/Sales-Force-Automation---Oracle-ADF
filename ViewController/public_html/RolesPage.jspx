@@ -10,6 +10,15 @@
                     <f:attribute name="PanelText" value="Manage Roles"/>
                     <f:facet name="body">
                         <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:transparent;">
+                            <af:toolbar id="t2" inlineStyle="margin-left:1300px;">
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save"
+                                           disabled="#{!bindings.Commit.enabled}" id="b6" partialTriggers="pc1:t1"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
+                                           partialTriggers="pc1:t1">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
                             <af:query id="qryId1" headerText="Search" disclosed="true"
                                       value="#{bindings.RoleProfilesVOCriteriaQuery.queryDescriptor}"
                                       model="#{bindings.RoleProfilesVOCriteriaQuery.queryModel}"
@@ -18,20 +27,9 @@
                                       inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"/>
                             <af:panelBox text="Roles" id="pb1"
                                          inlineStyle="margin-top:20px; font-size:large; margin-bottom:20px; margin-left:20px; margin-right:20px;">
-                                <f:facet name="toolbar">
-                                    <af:toolbar id="t2">
-                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                                                   disabled="#{!bindings.Commit.enabled}" id="b6"
-                                                   partialTriggers="pc1:t1"/>
-                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
-                                                   partialTriggers="pc1:t1">
-                                            <af:resetActionListener/>
-                                        </af:button>
-                                    </af:toolbar>
-                                </f:facet>
+                                <f:facet name="toolbar"/>
                                 <af:panelCollection id="pc1"
-                                                    inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
+                                                    inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
@@ -52,9 +50,10 @@
                                               rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
                                               id="t1"
                                               partialTriggers=":::b6 :::b5 ::b2 ::b1 ::b4"
-                                              columnStretching="last">
+                                              columnStretching="last" inlineStyle="margin-left:0px; min-width:100%;"
+                                              width="1000">
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
-                                                   id="c1" rowHeader="true">
+                                                   id="c1" rowHeader="true" width="300">
                                             <af:link text="" id="l1">
                                                 <af:outputText value="#{row.RolesName}"
                                                                shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"
@@ -63,7 +62,7 @@
                                             </af:link>
                                         </af:column>
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
-                                                   id="c2">
+                                                   id="c2" width="700">
                                             <af:outputText value="#{row.RolesDescription}"
                                                            shortDesc="#{bindings.RoleProfilesVO1.hints.RolesDescription.tooltip}"
                                                            id="ot2"/>

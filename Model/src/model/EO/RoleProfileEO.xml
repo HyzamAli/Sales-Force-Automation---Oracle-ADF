@@ -40,6 +40,8 @@
           ResId="model.EO.RoleProfileEO.RolesName_LABEL"/>
         <LABEL_PLURAL
           ResId="model.EO.RoleProfileEO.RolesName_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="50"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>

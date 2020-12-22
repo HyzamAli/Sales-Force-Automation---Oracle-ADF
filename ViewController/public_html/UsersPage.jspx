@@ -10,8 +10,16 @@
                     <f:attribute name="PanelText" value="Manage Users"/>
                     <f:facet name="body">
                         <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:transparent;">
-                            
-                                <af:query id="qryId2" headerText="Search" disclosed="true"
+                            <af:toolbar id="t5" inlineStyle="padding-left:1300px;">
+                                <af:button actionListener="#{bindings.Commit.execute}" text="Save "
+                                           disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t1"/>
+                                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
+                                           partialTriggers="pc1:t1">
+                                    <af:resetActionListener/>
+                                </af:button>
+                            </af:toolbar>
+                            <af:query id="qryId2" headerText="Search" disclosed="true"
                                           value="#{bindings.UserProfilesVOCriteriaQuery1.queryDescriptor}"
                                           model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
                                           queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
@@ -20,21 +28,9 @@
                                           inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"/>
                             <af:panelBox text="Users" id="pb1"
                                          inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
-                                <f:facet name="toolbar">
-                                    <af:toolbar id="t5">
-                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                                                   disabled="#{!bindings.Commit.enabled}" id="b4"
-                                                   partialTriggers="pc1:t1"/>
-                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
-                                                   partialTriggers="pc1:t1">
-                                                   
-                                            <af:resetActionListener/>
-                                        </af:button>
-                                    </af:toolbar>
-                                </f:facet>
+                                <f:facet name="toolbar"/>
                                 <af:panelCollection id="pc1"
-                                                    inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
+                                                    inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t6">
@@ -53,9 +49,10 @@
                                               selectedRowKeys="#{bindings.UserProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.UserProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.UserProfilesVO1.rangeSize}"
-                                              id="t1" summary="Users List" partialTriggers="::::b2 ::b3">
+                                              id="t1" summary="Users List" partialTriggers="::::b2 ::b3"
+                                              inlineStyle="min-width:100%;" styleClass="AFStretchWidth" width="800pt">
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameFirst.label}"
-                                                   id="c1" rowHeader="true">
+                                                   id="c1" rowHeader="true" width="210">
                                             <af:link text="" id="l1">
                                                 <af:outputText value="#{row.NameFirst}"
                                                                shortDesc="#{bindings.UserProfilesVO1.hints.NameFirst.tooltip}"
@@ -64,26 +61,27 @@
                                             </af:link>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameMiddle.label}"
-                                                   id="c2">
+                                                   id="c2" width="200">
                                             <af:outputText value="#{row.NameMiddle}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.NameMiddle.tooltip}"
                                                            id="ot2"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameLast.label}"
-                                                   id="c3">
+                                                   id="c3" width="200">
                                             <af:outputText value="#{row.NameLast}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.NameLast.tooltip}"
                                                            id="ot3"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.StartDate.label}"
-                                                   id="c4">
+                                                   id="c4" width="200">
                                             <af:outputText value="#{row.StartDate}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.StartDate.tooltip}"
                                                            id="ot4">
                                                 <af:convertDateTime pattern="#{bindings.UserProfilesVO1.hints.StartDate.format}"/>
                                             </af:outputText>
                                         </af:column>
-                                        <af:column headerText="#{bindings.UserProfilesVO1.hints.EndDate.label}" id="c5">
+                                        <af:column headerText="#{bindings.UserProfilesVO1.hints.EndDate.label}" id="c5"
+                                                   width="200">
                                             <af:outputText value="#{row.EndDate}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.EndDate.tooltip}"
                                                            id="ot5">
