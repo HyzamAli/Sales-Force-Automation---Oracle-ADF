@@ -38,6 +38,8 @@
                                             <af:button text="Add" id="b1">
                                                 <af:showPopupBehavior popupId="p1" triggerType="action"/>
                                             </af:button>
+                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -99,10 +101,7 @@
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
                                               partialTriggers="t1">
                                         <af:dialog title="Update Role" id="d3">
-                                            <f:facet name="buttonBar">
-                                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                           disabled="#{!bindings.Delete.enabled}" id="b2"/>
-                                            </f:facet>
+                                            <f:facet name="buttonBar"/>
                                             <af:panelFormLayout id="pfl1">
                                                 <af:inputText value="#{bindings.RolesName.inputValue}"
                                                               label="#{bindings.RolesName.hints.label}"
