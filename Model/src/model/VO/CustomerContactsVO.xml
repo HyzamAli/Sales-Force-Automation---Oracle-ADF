@@ -108,7 +108,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="200"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerContactsVO.ContactName_LABEL"/>
         <LABEL_PLURAL
@@ -125,7 +125,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="200"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerContactsVO.ContactPhone_LABEL"/>
         <LABEL_PLURAL
@@ -142,7 +142,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="200"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerContactsVO.ContactEmail_LABEL"/>
         <LABEL_PLURAL
@@ -196,7 +196,8 @@
     </Properties>
     <ViewCriteriaRow
       Name="CustomerContactsVOCriteria_row_0"
-      UpperColumns="1">
+      UpperColumns="1"
+      Conjunction="AND">
       <ViewCriteriaItem
         Name="ContactName"
         ViewAttribute="ContactName"
@@ -219,14 +220,6 @@
         Operator="="
         Conjunction="AND"
         Value=":a"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="InfluenceLevel"
-        ViewAttribute="InfluenceLevel"
-        Operator="="
-        Conjunction="AND"
-        Value=":d"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

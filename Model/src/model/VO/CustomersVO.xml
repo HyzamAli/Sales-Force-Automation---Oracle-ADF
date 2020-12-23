@@ -34,6 +34,10 @@
     Name="p4"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="p5"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="IndustryLovsVO1"
     ViewObjectName="model.VO.IndustryLovsVO"
@@ -143,7 +147,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -182,7 +186,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="15"/>
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -224,7 +228,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -253,7 +257,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="100"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -311,22 +315,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="AddLine1"
-        ViewAttribute="AddLine1"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p1"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="AddLine2"
-        ViewAttribute="AddLine2"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p2"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="Country"
         ViewAttribute="Country"
         Operator="STARTSWITH"
@@ -340,6 +328,14 @@
         Operator="STARTSWITH"
         Conjunction="AND"
         Value=":p4"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":p5"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
