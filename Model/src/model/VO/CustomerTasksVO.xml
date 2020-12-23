@@ -212,7 +212,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.Priority1_LABEL"/>
       </SchemaBasedProperties>
@@ -229,7 +229,7 @@
         <LABEL
           ResId="model.VO.CustomerTasksVO.DueDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="146"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -242,7 +242,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="10"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.PercentageCompletion_LABEL"/>
       </SchemaBasedProperties>
