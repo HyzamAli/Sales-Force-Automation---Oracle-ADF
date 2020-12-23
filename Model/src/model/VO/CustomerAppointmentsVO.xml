@@ -124,7 +124,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="205"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppName_LABEL"/>
         <LABEL_PLURAL
@@ -309,27 +309,11 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="AppointmentDirection"
-        ViewAttribute="AppointmentDirection"
-        Operator="="
-        Conjunction="AND"
-        Value=":pADesc"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="EndDate"
         ViewAttribute="EndDate"
         Operator="="
         Conjunction="AND"
         Value=":pET"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Location"
-        ViewAttribute="Location"
-        Operator="="
-        Conjunction="AND"
-        Value=":pL"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

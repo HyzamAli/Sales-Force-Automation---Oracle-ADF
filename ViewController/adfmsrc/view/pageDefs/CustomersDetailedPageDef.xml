@@ -326,8 +326,6 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="AppointmentAttendeesVO5Iterator" id="Delete3" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
-    <action IterBinding="CustomerAppointmentsVO3Iterator" id="Delete4" RequiresUpdateModel="false"
-            Action="removeCurrentRow"/>
     <tree IterBinding="AppointmentCustomersVO2Iterator" id="AppointmentCustomersVO2">
       <nodeDefinition DefName="model.VO.AppointmentCustomersVO" Name="AppointmentCustomersVO20">
         <AttrNames>
@@ -344,5 +342,19 @@
     </action>
     <action IterBinding="AppointmentCustomersVO2Iterator" id="Delete5" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <tree IterBinding="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVO3">
+      <nodeDefinition DefName="model.VO.CustomerAppointmentsVO" Name="CustomerAppointmentsVO30">
+        <AttrNames>
+          <Item Value="AppName"/>
+          <Item Value="AppDescription"/>
+          <Item Value="StartTime"/>
+          <Item Value="AppointmentType"/>
+          <Item Value="AppointmentDirection"/>
+          <Item Value="EndDate"/>
+          <Item Value="Location"/>
+          <Item Value="Resolution"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
