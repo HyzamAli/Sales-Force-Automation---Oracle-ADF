@@ -2,6 +2,14 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
+    <af:toolbar id="t3" inlineStyle="padding-left:1250px;">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
+                 id="b4" partialTriggers="pc1:t1" inlineStyle="padding-left:0px;"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
+                 immediate="true" id="b5" partialTriggers="pc1:t1">
+        <af:resetActionListener/>
+      </af:button>
+    </af:toolbar>
     <af:panelBox text="PanelBox1" id="pb2" showHeader="never" showDisclosure="false"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;">
       <f:facet name="toolbar"/>
@@ -15,18 +23,9 @@
     <af:panelBox id="pb1" text="Contacts"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"
                  showDisclosure="false">
-      <f:facet name="toolbar">
-        <af:toolbar id="t3">
-          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
-                     id="b4" partialTriggers="pc1:t1"/>
-          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t1">
-            <af:resetActionListener/>
-          </af:button>
-        </af:toolbar>
-      </f:facet>
+      <f:facet name="toolbar"/>
       <af:panelCollection id="pc1"
-                          inlineStyle="padding-bottom:0010px; padding-right:010px; padding-left:0010px; padding-top:0010px;">
+                          inlineStyle="padding-bottom:0010px; padding-right:010px; padding-left:100px; padding-top:0010px;">
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t2">
@@ -44,19 +43,20 @@
                   rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerContactsVO1.collectionModel.selectedRow}"
                   selectionListener="#{bindings.CustomerContactsVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1" columnStretching="last"
-                  summary="Contacts list" partialTriggers="::b2 ::b3">
-          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true">
+                  summary="Contacts list" partialTriggers="::b2 ::b3" width="1000">
+          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true"
+                     width="300">
             <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.ContactName}"
                              shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}" id="ot1"/>
               <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
             </af:link>
           </af:column>
-          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2">
+          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2" width="300">
             <af:outputText value="#{row.ContactPhone}"
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactPhone.tooltip}" id="ot2"/>
           </af:column>
-          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactEmail.label}" id="c3">
+          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactEmail.label}" id="c3" width="400">
             <af:outputText value="#{row.ContactEmail}"
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactEmail.tooltip}" id="ot3"/>
           </af:column>

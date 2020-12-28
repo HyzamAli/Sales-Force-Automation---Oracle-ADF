@@ -30,6 +30,8 @@
               id="AppointmentAttendeesVO5Iterator"/>
     <iterator Binds="AppointmentCustomersVO2" RangeSize="25" DataControl="AppsModuleDataControl"
               id="AppointmentCustomersVO2Iterator"/>
+    <iterator Binds="CustomerAppointmentsVO1" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerAppointmentsVO1Iterator"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
@@ -356,5 +358,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <action IterBinding="CustomerAppointmentsVO1Iterator" id="Delete4" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
