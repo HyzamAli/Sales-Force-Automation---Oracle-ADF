@@ -1,7 +1,21 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
-  <af:panelDrawer position="start" id="pd1" width="100%">
+  <af:panelBox id="pb6" showDisclosure="false" inlineStyle="margin-left:20px; margin-right:57px;">
+    <f:facet name="toolbar"/>
+    <af:outputText value="#{bindings.ContactName.inputValue}" shortDesc="#{bindings.ContactName.hints.tooltip}"
+                   id="ot7" inlineStyle="font-size:large; padding-left:20px;"/>
+    <af:toolbar id="t6" inlineStyle="padding-left:1170px;">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
+                 id="b4" partialTriggers="pc1:t1"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
+                 immediate="true" id="b5" partialTriggers="pc1:t1">
+        <af:resetActionListener/>
+      </af:button>
+    </af:toolbar>
+  </af:panelBox>
+  <af:panelDrawer position="start" id="pd1" width="100%"
+                  inlineStyle="padding-top:70px; padding-left:20px; padding-right:10px;">
     <af:showDetailItem id="Overview" shortDesc="Drawer 1" disclosed="true" text="Overview"
                        icon="#{resource['images:document.png']}">
       <af:panelBox text="Overview" id="pb1" showDisclosure="false">
@@ -11,8 +25,23 @@
                         required="#{bindings.ContactName.hints.mandatory}"
                         columns="#{bindings.ContactName.hints.displayWidth}"
                         maximumLength="#{bindings.ContactName.hints.precision}"
-                        shortDesc="#{bindings.ContactName.hints.tooltip}" id="it1">
+                        shortDesc="#{bindings.ContactName.hints.tooltip}" id="it1" inlineStyle="width:60%;">
             <f:validator binding="#{bindings.ContactName.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ContactPhone.inputValue}" label="#{bindings.ContactPhone.hints.label}"
+                        required="#{bindings.ContactPhone.hints.mandatory}"
+                        columns="#{bindings.ContactPhone.hints.displayWidth}"
+                        maximumLength="#{bindings.ContactPhone.hints.precision}"
+                        shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it2"
+                        inlineStyle="width:60%; column-width:100px;">
+            <f:validator binding="#{bindings.ContactPhone.validator}"/>
+          </af:inputText>
+          <af:inputText value="#{bindings.ContactEmail.inputValue}" label="#{bindings.ContactEmail.hints.label}"
+                        required="#{bindings.ContactEmail.hints.mandatory}"
+                        columns="#{bindings.ContactEmail.hints.displayWidth}"
+                        maximumLength="#{bindings.ContactEmail.hints.precision}"
+                        shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3" inlineStyle="width:60%;">
+            <f:validator binding="#{bindings.ContactEmail.validator}"/>
           </af:inputText>
           <af:selectOneChoice value="#{bindings.CustomerId.inputValue}" label="#{bindings.CustomerId.label}"
                               required="#{bindings.CustomerId.hints.mandatory}"
@@ -20,20 +49,6 @@
             <f:selectItems value="#{bindings.CustomerId.items}" id="si1"/>
             <f:validator binding="#{bindings.CustomerId.validator}"/>
           </af:selectOneChoice>
-          <af:inputText value="#{bindings.ContactPhone.inputValue}" label="#{bindings.ContactPhone.hints.label}"
-                        required="#{bindings.ContactPhone.hints.mandatory}"
-                        columns="#{bindings.ContactPhone.hints.displayWidth}"
-                        maximumLength="#{bindings.ContactPhone.hints.precision}"
-                        shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it2">
-            <f:validator binding="#{bindings.ContactPhone.validator}"/>
-          </af:inputText>
-          <af:inputText value="#{bindings.ContactEmail.inputValue}" label="#{bindings.ContactEmail.hints.label}"
-                        required="#{bindings.ContactEmail.hints.mandatory}"
-                        columns="#{bindings.ContactEmail.hints.displayWidth}"
-                        maximumLength="#{bindings.ContactEmail.hints.precision}"
-                        shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3">
-            <f:validator binding="#{bindings.ContactEmail.validator}"/>
-          </af:inputText>
           <af:inputText value="#{bindings.InfluenceLevel.inputValue}" label="#{bindings.InfluenceLevel.hints.label}"
                         required="#{bindings.InfluenceLevel.hints.mandatory}"
                         columns="#{bindings.InfluenceLevel.hints.displayWidth}"
@@ -73,18 +88,9 @@
         <af:spacer id="s1" height="35px"/>
         <af:panelBox text="Notes" id="pb2" showDisclosure="false"
                      inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
-          <f:facet name="toolbar">
-            <af:toolbar id="t6">
-              <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                         disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t1"/>
-              <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t1">
-                <af:resetActionListener/>
-              </af:button>
-            </af:toolbar>
-          </f:facet>
+          <f:facet name="toolbar"/>
           <af:panelCollection id="pc1"
-                              inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
+                              inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:010px; padding-top:010px;">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t4">
@@ -102,19 +108,16 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerNotesVO8.collectionModel.selectedRow}"
                       selectionListener="#{bindings.CustomerNotesVO8.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.CustomerNotesVO8.rangeSize}" id="t1" columnStretching="last"
-                      summary="Notes by Contacts List" partialTriggers="::b3 :::b8">
-              <af:column headerText="#{bindings.CustomerNotesVO8.hints.NotesTitle.label}" id="c1" rowHeader="true">
+                      summary="Notes by Contacts List" partialTriggers="::b3 :::b8" width="1100">
+              <af:column headerText="#{bindings.CustomerNotesVO8.hints.NotesTitle.label}" id="c1" rowHeader="true"
+                         width="250">
                 <af:link id="l1">
                   <af:outputText value="#{row.NotesTitle}"
                                  shortDesc="#{bindings.CustomerNotesVO8.hints.NotesTitle.tooltip}" id="ot1"/>
                   <af:showPopupBehavior popupId=":::p1"/>
                 </af:link>
               </af:column>
-              <af:column headerText="#{bindings.CustomerNotesVO8.hints.NotesDescription.label}" id="c2">
-                <af:outputText value="#{row.NotesDescription}"
-                               shortDesc="#{bindings.CustomerNotesVO8.hints.NotesDescription.tooltip}" id="ot2"/>
-              </af:column>
-              <af:column headerText="#{bindings.CustomerNotesVO8.hints.CustomerId.label}" id="c3">
+              <af:column headerText="#{bindings.CustomerNotesVO8.hints.CustomerId.label}" id="c3" width="200">
                 <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}"
                                     label="#{row.bindings.CustomerId.label}"
                                     required="#{bindings.CustomerNotesVO8.hints.CustomerId.mandatory}"
@@ -127,7 +130,7 @@
                   <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                 </af:link>
               </af:column>
-              <af:column headerText="#{bindings.CustomerNotesVO8.hints.OppurtunityId.label}" id="c11">
+              <af:column headerText="#{bindings.CustomerNotesVO8.hints.OppurtunityId.label}" id="c11" width="200">
                 <af:selectOneChoice id="soc212" value="#{row.bindings.OppurtunityId.inputValue}"
                                     label="#{row.bindings.OppurtunityId.label}"
                                     required="#{bindings.CustomerNotesVO8.hints.OppurtunityId.mandatory}"
@@ -139,7 +142,7 @@
                   <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
                 </af:link>
               </af:column>
-              <af:column headerText="#{bindings.CustomerNotesVO8.hints.RepId.label}" id="c4">
+              <af:column headerText="#{bindings.CustomerNotesVO8.hints.RepId.label}" id="c4" width="200">
                 <af:selectOneChoice value="#{row.bindings.RepId.inputValue}" label="#{row.bindings.RepId.label}"
                                     required="#{bindings.CustomerNotesVO8.hints.RepId.mandatory}"
                                     shortDesc="#{bindings.CustomerNotesVO8.hints.RepId.tooltip}" readOnly="true"
@@ -148,7 +151,7 @@
                   <f:validator binding="#{row.bindings.RepId.validator}"/>
                 </af:selectOneChoice>
               </af:column>
-              <af:column headerText="#{bindings.CustomerNotesVO8.hints.CreatedOn.label}" id="c5">
+              <af:column headerText="#{bindings.CustomerNotesVO8.hints.CreatedOn.label}" id="c5" width="250">
                 <af:outputText value="#{row.CreatedOn}" shortDesc="#{bindings.CustomerNotesVO8.hints.CreatedOn.tooltip}"
                                id="ot3">
                   <af:convertDateTime pattern="#{bindings.CustomerNotesVO8.hints.CreatedOn.format}"/>
@@ -179,6 +182,13 @@
                             shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it12">
                 <f:validator binding="#{bindings.NotesDescription.validator}"/>
               </af:inputText>
+              <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
+                            required="#{bindings.CreatedOn.hints.mandatory}"
+                            columns="#{bindings.CreatedOn.hints.displayWidth}"
+                            shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id3">
+                <f:validator binding="#{bindings.CreatedOn.validator}"/>
+                <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
+              </af:inputDate>
               <af:selectOneChoice value="#{NotesBean.oppurtunityID}" label="#{bindings.OppurtunityId.label}"
                                   required="#{bindings.OppurtunityId.hints.mandatory}"
                                   shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc8">
@@ -191,13 +201,6 @@
                 <f:selectItems value="#{bindings.RepId.items}" id="si9"/>
                 <f:validator binding="#{bindings.RepId.validator}"/>
               </af:selectOneChoice>
-              <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
-                            required="#{bindings.CreatedOn.hints.mandatory}"
-                            columns="#{bindings.CreatedOn.hints.displayWidth}"
-                            shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id3">
-                <f:validator binding="#{bindings.CreatedOn.validator}"/>
-                <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
-              </af:inputDate>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>
@@ -272,7 +275,7 @@
             </af:toolbar>
           </f:facet>
           <af:panelCollection id="pc2"
-                              inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
+                              inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px; margin-left:100px;">
             <f:facet name="menus"/>
             <f:facet name="toolbar">
               <af:toolbar id="t3">
@@ -290,15 +293,16 @@
                       rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerTasksVO8.collectionModel.selectedRow}"
                       selectionListener="#{bindings.CustomerTasksVO8.collectionModel.makeCurrent}" rowSelection="single"
                       fetchSize="#{bindings.CustomerTasksVO8.rangeSize}" id="t2" columnStretching="last"
-                      summary="Tasks by contacts list" partialTriggers="::b2 :::b9">
-              <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="true">
+                      summary="Tasks by contacts list" partialTriggers="::b2 :::b9" width="1000">
+              <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="true"
+                         width="200">
                 <af:link id="l2">
                   <af:outputText value="#{row.TaskDetails}"
                                  shortDesc="#{bindings.CustomerTasksVO8.hints.TaskDetails.tooltip}" id="ot4"/>
                   <af:showPopupBehavior popupId=":::p2"/>
                 </af:link>
               </af:column>
-              <af:column headerText="#{bindings.CustomerTasksVO8.hints.CustomerId.label}" id="c7">
+              <af:column headerText="#{bindings.CustomerTasksVO8.hints.CustomerId.label}" id="c7" width="150">
                 <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}"
                                     label="#{row.bindings.CustomerId.label}"
                                     required="#{bindings.CustomerTasksVO8.hints.CustomerId.mandatory}"
@@ -311,7 +315,7 @@
                   <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                 </af:link>
               </af:column>
-              <af:column headerText="#{bindings.CustomerTasksVO8.hints.OppurtunityId.label}" id="c8">
+              <af:column headerText="#{bindings.CustomerTasksVO8.hints.OppurtunityId.label}" id="c8" width="150">
                 <af:selectOneChoice value="#{row.bindings.OppurtunityId.inputValue}"
                                     label="#{row.bindings.OppurtunityId.label}"
                                     required="#{bindings.CustomerTasksVO8.hints.OppurtunityId.mandatory}"
@@ -324,11 +328,12 @@
                   <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
                 </af:link>
               </af:column>
-              <af:column headerText="#{bindings.CustomerTasksVO8.hints.Priority1.label}" id="c9">
+              <af:column headerText="#{bindings.CustomerTasksVO8.hints.Priority1.label}" id="c9" width="200">
                 <af:outputText value="#{row.Priority1}" shortDesc="#{bindings.CustomerTasksVO8.hints.Priority1.tooltip}"
                                id="ot5"/>
               </af:column>
-              <af:column headerText="#{bindings.CustomerTasksVO8.hints.PercentageCompletion.label}" id="c10">
+              <af:column headerText="#{bindings.CustomerTasksVO8.hints.PercentageCompletion.label}" id="c10"
+                         width="300">
                 <dvt:statusMeterGauge id="statusMeterGauge1"
                                       shortDesc="#{bindings.CustomerTasksVO8.hints.PercentageCompletion.tooltip}"
                                       value="#{row.bindings.PercentageCompletion.inputValue}">
@@ -368,6 +373,13 @@
                 <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
               </af:inputText>
+              <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
+                            required="#{bindings.DueDate.hints.mandatory}"
+                            columns="#{bindings.DueDate.hints.displayWidth}"
+                            shortDesc="#{bindings.DueDate.hints.tooltip}" id="id4">
+                <f:validator binding="#{bindings.DueDate.validator}"/>
+                <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
+              </af:inputDate>
               <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="#{bindings.OppurtunityId1.label}"
                                   required="#{bindings.OppurtunityId1.hints.mandatory}"
                                   shortDesc="#{bindings.OppurtunityId1.hints.tooltip}" id="soc10">
@@ -380,13 +392,6 @@
                 <f:selectItems value="#{bindings.RepId1.items}" id="si11"/>
                 <f:validator binding="#{bindings.RepId1.validator}"/>
               </af:selectOneChoice>
-              <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
-                            required="#{bindings.DueDate.hints.mandatory}"
-                            columns="#{bindings.DueDate.hints.displayWidth}"
-                            shortDesc="#{bindings.DueDate.hints.tooltip}" id="id4">
-                <f:validator binding="#{bindings.DueDate.validator}"/>
-                <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
-              </af:inputDate>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>

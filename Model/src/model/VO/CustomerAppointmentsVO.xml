@@ -141,7 +141,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="205"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppDescription_LABEL"/>
         <LABEL_PLURAL
@@ -161,6 +161,8 @@
           ResId="model.VO.CustomerAppointmentsVO.StartTime_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.StartTime_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="147"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -173,7 +175,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="205"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppointmentType_LABEL"/>
         <LABEL_PLURAL
@@ -190,7 +192,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="205"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppointmentDirection_LABEL"/>
         <LABEL_PLURAL
@@ -210,6 +212,8 @@
           ResId="model.VO.CustomerAppointmentsVO.EndDate_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.EndDate_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="147"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -222,7 +226,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="205"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.Location_LABEL"/>
         <LABEL_PLURAL
@@ -239,7 +243,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="205"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.Resolution_LABEL"/>
         <LABEL_PLURAL
@@ -306,14 +310,6 @@
         Operator="="
         Conjunction="AND"
         Value=":pST"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="EndDate"
-        ViewAttribute="EndDate"
-        Operator="="
-        Conjunction="AND"
-        Value=":pET"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

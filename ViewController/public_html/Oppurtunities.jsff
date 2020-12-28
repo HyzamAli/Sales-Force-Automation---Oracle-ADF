@@ -2,6 +2,14 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:toolbar id="t3" inlineStyle="margin-left:1250px;">
+      <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
+                 id="b4" partialTriggers="pc1:t2"/>
+      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
+                 immediate="true" id="b5" partialTriggers="pc1:t2">
+        <af:resetActionListener/>
+      </af:button>
+    </af:toolbar>
     <af:panelBox text="PanelBox2" id="pb3"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:020px; margin-top:0020px;"
                  showHeader="never" showDisclosure="false">
@@ -16,18 +24,9 @@
     <af:panelBox text="Oppurtunities" id="pb2"
                  inlineStyle="padding-bottom:0010px; padding-left:0010px; padding-right:0010px; padding-top:0010px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
                  showDisclosure="false">
-      <f:facet name="toolbar">
-        <af:toolbar id="t3">
-          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                     disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t2"/>
-          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t2">
-            <af:resetActionListener/>
-          </af:button>
-        </af:toolbar>
-      </f:facet>
+      <f:facet name="toolbar"/>
       <af:panelCollection id="pc1"
-                          inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:0010px; padding-top:0010px;">
+                          inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:0010px; padding-top:0010px;">
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t1">
@@ -44,15 +43,15 @@
                   rowBandingInterval="0" selectedRowKeys="#{bindings.OppurtunitiesVO1.collectionModel.selectedRow}"
                   selectionListener="#{bindings.OppurtunitiesVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.OppurtunitiesVO1.rangeSize}" id="t2" columnStretching="last"
-                  summary="Oppurtunity List" partialTriggers=":::b3 ::b2">
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true">
+                  summary="Oppurtunity List" partialTriggers=":::b3 ::b2" width="1150">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true" width="150">
             <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.OpName}" shortDesc="#{bindings.OppurtunitiesVO1.hints.OpName.tooltip}"
                              id="ot1"/>
               <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.oppurtunityId}"/>
             </af:link>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.CustomerId.label}" id="c2">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.CustomerId.label}" id="c2" width="150">
             <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}" label="#{row.bindings.CustomerId.label}"
                                 required="#{bindings.OppurtunitiesVO1.hints.CustomerId.mandatory}"
                                 shortDesc="#{bindings.OppurtunitiesVO1.hints.CustomerId.tooltip}" readOnly="true"
@@ -61,24 +60,24 @@
               <f:validator binding="#{row.bindings.CustomerId.validator}"/>
             </af:selectOneChoice>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3" width="300">
             <af:outputText value="#{row.WinProbability}"
                            shortDesc="#{bindings.OppurtunitiesVO1.hints.WinProbability.tooltip}" id="ot2">
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.OppurtunitiesVO1.hints.WinProbability.format}"/>
             </af:outputText>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.SaleStage.label}" id="c4">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.SaleStage.label}" id="c4" width="150">
             <af:outputText value="#{row.SaleStage}" shortDesc="#{bindings.OppurtunitiesVO1.hints.SaleStage.tooltip}"
                            id="ot3"/>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.Revenue.label}" id="c5">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.Revenue.label}" id="c5" width="150">
             <af:outputText value="#{row.Revenue}" shortDesc="#{bindings.OppurtunitiesVO1.hints.Revenue.tooltip}"
                            id="ot4">
               <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunitiesVO1.hints.Revenue.format}"/>
             </af:outputText>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6" width="150">
             <af:outputText value="#{row.RiskLevel}" shortDesc="#{bindings.OppurtunitiesVO1.hints.RiskLevel.tooltip}"
                            id="ot5"/>
           </af:column>

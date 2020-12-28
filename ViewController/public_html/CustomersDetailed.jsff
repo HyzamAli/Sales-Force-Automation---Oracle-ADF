@@ -427,16 +427,7 @@
           <af:spacer id="s6" height="35px"/>
           <af:panelBox text="Tasks" id="pb4"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
-            <f:facet name="toolbar">
-              <af:toolbar id="t10">
-                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                           disabled="#{!bindings.Commit.enabled}" id="b13" partialTriggers="pc3:t1"/>
-                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14" partialTriggers="pc3:t1">
-                  <af:resetActionListener/>
-                </af:button>
-              </af:toolbar>
-            </f:facet>
+            <f:facet name="toolbar"/>
             <af:panelCollection id="pc3"
                                 inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
               <f:facet name="menus"/>
@@ -618,207 +609,212 @@
                       inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
           </af:panelBox>
           <af:spacer id="s8" height="35px"/>
-          <af:panelBox text="Appointments" id="pb3"
-                       inlineStyle="padding-bottom:010px; padding-left:010px; padding-top:010px; padding-right:010px;">
-            <f:facet name="toolbar">
-              <af:toolbar id="t14">
-                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                           disabled="#{!bindings.Commit.enabled}" id="b21" partialTriggers="pc4:t3 pc5:t12"/>
-                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b22"
-                           partialTriggers="pc4:t3 pc5:t12">
-                  <af:resetActionListener/>
-                </af:button>
-              </af:toolbar>
-            </f:facet>
-            <af:panelCollection id="pc4"
-                                inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
-              <f:facet name="menus"/>
+          <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
+            <af:panelBox text="Appointments" id="pb3"
+                         inlineStyle="padding-bottom:010px; padding-left:010px; padding-top:010px; padding-right:010px;">
               <f:facet name="toolbar"/>
-              <f:facet name="statusbar"/>
-              <af:table value="#{bindings.CustomerAppointmentsVO31.collectionModel}" var="row"
-                        rows="#{bindings.CustomerAppointmentsVO31.rangeSize}"
-                        emptyText="#{bindings.CustomerAppointmentsVO31.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        rowBandingInterval="0"
-                        selectedRowKeys="#{bindings.CustomerAppointmentsVO31.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.CustomerAppointmentsVO31.collectionModel.makeCurrent}"
-                        rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO31.rangeSize}" id="t3"
-                        partialTriggers=":::b19" summary="Appointments List">
-                <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppName.label}" id="c5"
-                           rowHeader="true">
-                  <af:link id="l4">
-                    <af:outputText value="#{row.AppName}"
-                                   shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppName.tooltip}" id="ot10"/>
-                    <af:showPopupBehavior popupId=":::p9"/>
-                  </af:link>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.label}" id="c6">
-                  <af:outputText value="#{row.AppDescription}"
-                                 shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.tooltip}"
-                                 id="ot11"/>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7">
-                  <af:outputText value="#{row.StartTime}"
-                                 shortDesc="#{bindings.CustomerAppointmentsVO31.hints.StartTime.tooltip}" id="ot12">
-                    <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17">
-                  <af:outputText value="#{row.EndDate}"
-                                 shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
-                    <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.EndDate.format}"/>
-                  </af:outputText>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.label}" id="c8">
-                  <af:outputText value="#{row.AppointmentType}"
-                                 shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.tooltip}"
-                                 id="ot13"/>
-                </af:column>
-              </af:table>
-            </af:panelCollection>
-            <af:spacer id="s9" height="35px"/>
-            <af:outputText value="Employees Attending" id="ot15"
-                           inlineStyle="font-size:small; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:panelCollection id="pc5"
-                                inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
-              <f:facet name="menus"/>
-              <f:facet name="toolbar">
-                <af:toolbar id="t15">
-                  <af:button text="Add Attendee" id="b24">
-                    <af:showPopupBehavior popupId="::p8"/>
-                  </af:button>
-                  <af:button actionListener="#{bindings.Delete3.execute}" text="Remove"
-                             disabled="#{!bindings.Delete3.enabled}" id="b25"/>
-                </af:toolbar>
-              </f:facet>
-              <f:facet name="statusbar"/>
-              <af:table value="#{bindings.AppointmentAttendeesVO5.collectionModel}" var="row"
-                        rows="#{bindings.AppointmentAttendeesVO5.rangeSize}"
-                        emptyText="#{bindings.AppointmentAttendeesVO5.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        rowBandingInterval="0"
-                        selectedRowKeys="#{bindings.AppointmentAttendeesVO5.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.AppointmentAttendeesVO5.collectionModel.makeCurrent}"
-                        rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO5.rangeSize}" id="t12"
-                        summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25">
-                <af:column headerText="Employees" id="c11" rowHeader="true">
-                  <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
-                  <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
-                                      label="#{row.bindings.EmployeeId.label}"
-                                      required="#{bindings.AppointmentAttendeesVO5.hints.EmployeeId.mandatory}"
-                                      shortDesc="#{bindings.AppointmentAttendeesVO5.hints.EmployeeId.tooltip}"
-                                      readOnly="true" id="soc21">
-                    <f:selectItems value="#{row.bindings.EmployeeId.items}" id="si36"/>
-                    <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
-              </af:table>
-            </af:panelCollection>
-            <af:spacer id="s10" height="35px"/>
-            <af:outputText value="Contacts Attending" id="ot16"
-                           inlineStyle="font-size:small; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:panelCollection id="pc6">
-              <f:facet name="menus"/>
-              <f:facet name="toolbar">
-                <af:toolbar id="t17">
-                  <af:button text="Add Contact" id="b28">
-                    <af:showPopupBehavior popupId="::p10"/>
-                  </af:button>
-                  <af:button actionListener="#{bindings.Delete5.execute}" text="Remove"
-                             disabled="#{!bindings.Delete5.enabled}" id="b29"/>
-                </af:toolbar>
-              </f:facet>
-              <f:facet name="statusbar"/>
-              <af:table value="#{bindings.AppointmentCustomersVO2.collectionModel}" var="row"
-                        rows="#{bindings.AppointmentCustomersVO2.rangeSize}"
-                        emptyText="#{bindings.AppointmentCustomersVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        rowBandingInterval="0"
-                        selectedRowKeys="#{bindings.AppointmentCustomersVO2.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.AppointmentCustomersVO2.collectionModel.makeCurrent}"
-                        rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO2.rangeSize}" id="t16"
-                        summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29">
-                <af:column headerText="Contacts" id="c10" rowHeader="true">
-                  <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
-                  <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
-                                      required="#{bindings.AppointmentCustomersVO2.hints.CustId.mandatory}"
-                                      shortDesc="#{bindings.AppointmentCustomersVO2.hints.CustId.tooltip}"
-                                      readOnly="true" id="soc22">
-                    <f:selectItems value="#{row.bindings.CustId.items}" id="si37"/>
-                    <f:validator binding="#{row.bindings.CustId.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
-              </af:table>
-            </af:panelCollection>
-          </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p7">
-            <af:dialog id="d7" type="cancel" title="Create Appointment">
-              <f:facet name="buttonBar">
-                <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create Appointment"
-                           disabled="#{!bindings.CreateWithParams3.enabled}" id="b19"/>
-              </f:facet>
-              <af:panelFormLayout id="pfl8">
-                <af:inputText value="#{AppointmentsBean.name}" label="#{bindings.AppName.hints.label}"
-                              required="#{bindings.AppName.hints.mandatory}"
-                              columns="#{bindings.AppName.hints.displayWidth}"
-                              maximumLength="#{bindings.AppName.hints.precision}"
-                              shortDesc="#{bindings.AppName.hints.tooltip}" id="it28">
-                  <f:validator binding="#{bindings.AppName.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{AppointmentsBean.description}" label="#{bindings.AppDescription.hints.label}"
-                              required="#{bindings.AppDescription.hints.mandatory}"
-                              columns="#{bindings.AppDescription.hints.displayWidth}"
-                              maximumLength="#{bindings.AppDescription.hints.precision}"
-                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29">
-                  <f:validator binding="#{bindings.AppDescription.validator}"/>
-                </af:inputText>
-                <af:selectOneChoice value="#{AppointmentsBean.type}" label="#{bindings.AppointmentType.hints.label}"
-                                    required="#{bindings.AppointmentType.hints.mandatory}" id="soc19">
-                  <af:selectItem label="Phone" value="Phone" id="si31"/>
-                  <af:selectItem label="Video " value="Video" id="si32"/>
-                  <af:selectItem label="Direct" value="Direct" id="si33"/>
-                </af:selectOneChoice>
-                <af:selectOneChoice value="#{AppointmentsBean.direction}"
-                                    label="#{bindings.AppointmentDirection.hints.label}"
-                                    required="#{bindings.AppointmentDirection.hints.mandatory}" id="soc20">
-                  <af:selectItem label="Inwards" value="Inwards" id="si34"/>
-                  <af:selectItem label="Outwards" value="Outwards" id="si35"/>
-                </af:selectOneChoice>
-                <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
-                              required="#{bindings.StartTime.hints.mandatory}"
-                              columns="#{bindings.StartTime.hints.displayWidth}"
-                              shortDesc="#{bindings.StartTime.hints.tooltip}" id="id4">
-                  <f:validator binding="#{bindings.StartTime.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.StartTime.format}"/>
-                </af:inputDate>
-                <af:inputDate value="#{AppointmentsBean.end}" label="#{bindings.EndDate.hints.label}"
-                              required="#{bindings.EndDate.hints.mandatory}"
-                              columns="#{bindings.EndDate.hints.displayWidth}"
-                              shortDesc="#{bindings.EndDate.hints.tooltip}" id="id5">
-                  <f:validator binding="#{bindings.EndDate.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
-                </af:inputDate>
-                <af:inputText value="#{AppointmentsBean.location}" label="#{bindings.Location.hints.label}"
-                              required="#{bindings.Location.hints.mandatory}"
-                              columns="#{bindings.Location.hints.displayWidth}"
-                              maximumLength="#{bindings.Location.hints.precision}"
-                              shortDesc="#{bindings.Location.hints.tooltip}" id="it32">
-                  <f:validator binding="#{bindings.Location.validator}"/>
-                </af:inputText>
-                <af:inputText value="#{AppointmentsBean.resolution}" label="#{bindings.Resolution.hints.label}"
-                              required="#{bindings.Resolution.hints.mandatory}"
-                              columns="#{bindings.Resolution.hints.displayWidth}"
-                              maximumLength="#{bindings.Resolution.hints.precision}"
-                              shortDesc="#{bindings.Resolution.hints.tooltip}" id="it33">
-                  <f:validator binding="#{bindings.Resolution.validator}"/>
-                </af:inputText>
-                <af:selectOneChoice value="#{AppointmentsBean.contactID}" label="Contact Associated"
-                                    required="#{bindings.CustomerId1.hints.mandatory}"
-                                    shortDesc="#{bindings.CustomerId1.hints.tooltip}" id="soc23">
-                  <f:selectItems value="#{bindings.CustomerId1.items}" id="si38"/>
-                  <f:validator binding="#{bindings.CustomerId1.validator}"/>
-                </af:selectOneChoice>
-              </af:panelFormLayout>
-            </af:dialog>
-          </af:popup>
+              <af:panelCollection id="pc4"
+                                  inlineStyle="padding-bottom:010px; padding-left:50px; padding-right:010px; padding-top:010px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t6">
+                    <af:button text="Add" id="b5">
+                      <af:showPopupBehavior popupId="p7"/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.Delete4.execute}" text="Delete"
+                               disabled="#{!bindings.Delete4.enabled}" id="b6"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.CustomerAppointmentsVO31.collectionModel}" var="row"
+                          rows="#{bindings.CustomerAppointmentsVO31.rangeSize}"
+                          emptyText="#{bindings.CustomerAppointmentsVO31.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.CustomerAppointmentsVO31.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.CustomerAppointmentsVO31.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO31.rangeSize}" id="t3"
+                          partialTriggers="" summary="Appointments List">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppName.label}" id="c5"
+                             rowHeader="true">
+                    <af:link id="l4">
+                      <af:outputText value="#{row.AppName}"
+                                     shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppName.tooltip}" id="ot10"/>
+                      <af:showPopupBehavior popupId=":::p9"/>
+                    </af:link>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.label}" id="c6">
+                    <af:outputText value="#{row.AppDescription}"
+                                   shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.tooltip}"
+                                   id="ot11"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7">
+                    <af:outputText value="#{row.StartTime}"
+                                   shortDesc="#{bindings.CustomerAppointmentsVO31.hints.StartTime.tooltip}" id="ot12">
+                      <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17">
+                    <af:outputText value="#{row.EndDate}"
+                                   shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
+                      <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.EndDate.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.label}" id="c8">
+                    <af:outputText value="#{row.AppointmentType}"
+                                   shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.tooltip}"
+                                   id="ot13"/>
+                  </af:column>
+                </af:table>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p7">
+                  <af:dialog id="d7" type="cancel" title="Create Appointment">
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create Appointment"
+                                 disabled="#{!bindings.CreateWithParams3.enabled}" id="b19"/>
+                    </f:facet>
+                    <af:panelFormLayout id="pfl8">
+                      <af:inputText value="#{AppointmentsBean.name}" label="#{bindings.AppName.hints.label}"
+                                    required="#{bindings.AppName.hints.mandatory}"
+                                    columns="#{bindings.AppName.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppName.hints.precision}"
+                                    shortDesc="#{bindings.AppName.hints.tooltip}" id="it28">
+                        <f:validator binding="#{bindings.AppName.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{AppointmentsBean.description}"
+                                    label="#{bindings.AppDescription.hints.label}"
+                                    required="#{bindings.AppDescription.hints.mandatory}"
+                                    columns="#{bindings.AppDescription.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppDescription.hints.precision}"
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29">
+                        <f:validator binding="#{bindings.AppDescription.validator}"/>
+                      </af:inputText>
+                      <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
+                                    required="#{bindings.StartTime.hints.mandatory}"
+                                    columns="#{bindings.StartTime.hints.displayWidth}"
+                                    shortDesc="#{bindings.StartTime.hints.tooltip}" id="id4">
+                        <f:validator binding="#{bindings.StartTime.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.StartTime.format}"/>
+                      </af:inputDate>
+                      <af:inputDate value="#{AppointmentsBean.end}" label="#{bindings.EndDate.hints.label}"
+                                    required="#{bindings.EndDate.hints.mandatory}"
+                                    columns="#{bindings.EndDate.hints.displayWidth}"
+                                    shortDesc="#{bindings.EndDate.hints.tooltip}" id="id5">
+                        <f:validator binding="#{bindings.EndDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                      </af:inputDate>
+                      <af:inputText value="#{AppointmentsBean.location}" label="#{bindings.Location.hints.label}"
+                                    required="#{bindings.Location.hints.mandatory}"
+                                    columns="#{bindings.Location.hints.displayWidth}"
+                                    maximumLength="#{bindings.Location.hints.precision}"
+                                    shortDesc="#{bindings.Location.hints.tooltip}" id="it32">
+                        <f:validator binding="#{bindings.Location.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{AppointmentsBean.resolution}" label="#{bindings.Resolution.hints.label}"
+                                    required="#{bindings.Resolution.hints.mandatory}"
+                                    columns="#{bindings.Resolution.hints.displayWidth}"
+                                    maximumLength="#{bindings.Resolution.hints.precision}"
+                                    shortDesc="#{bindings.Resolution.hints.tooltip}" id="it33">
+                        <f:validator binding="#{bindings.Resolution.validator}"/>
+                      </af:inputText>
+                      <af:selectOneChoice value="#{AppointmentsBean.type}"
+                                          label="#{bindings.AppointmentType.hints.label}"
+                                          required="#{bindings.AppointmentType.hints.mandatory}" id="soc19">
+                        <af:selectItem label="Phone" value="Phone" id="si31"/>
+                        <af:selectItem label="Video " value="Video" id="si32"/>
+                        <af:selectItem label="Direct" value="Direct" id="si33"/>
+                      </af:selectOneChoice>
+                      <af:selectOneChoice value="#{AppointmentsBean.direction}"
+                                          label="#{bindings.AppointmentDirection.hints.label}"
+                                          required="#{bindings.AppointmentDirection.hints.mandatory}" id="soc20">
+                        <af:selectItem label="Inwards" value="Inwards" id="si34"/>
+                        <af:selectItem label="Outwards" value="Outwards" id="si35"/>
+                      </af:selectOneChoice>
+                      <af:selectOneChoice value="#{AppointmentsBean.contactID}" label="Contact Associated"
+                                          required="#{bindings.CustomerId1.hints.mandatory}"
+                                          shortDesc="#{bindings.CustomerId1.hints.tooltip}" id="soc23">
+                        <f:selectItems value="#{bindings.CustomerId1.items}" id="si38"/>
+                        <f:validator binding="#{bindings.CustomerId1.validator}"/>
+                      </af:selectOneChoice>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+              </af:panelCollection>
+              <af:spacer id="s9" height="35px"/>
+              <af:spacer id="s10" height="35px"/>
+            </af:panelBox>
+            <af:panelBox text="Atendees" id="pb11">
+              <f:facet name="toolbar"/>
+              <af:outputText value="Employees Attending" id="ot15"
+                             inlineStyle="font-size:small; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+              <af:panelCollection id="pc5"
+                                  inlineStyle="padding-bottom:10px; padding-left:50px; padding-right:10px; padding-top:10px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t15">
+                    <af:button text="Add Attendee" id="b24">
+                      <af:showPopupBehavior popupId="::p8"/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.Delete3.execute}" text="Remove"
+                               disabled="#{!bindings.Delete3.enabled}" id="b25"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.AppointmentAttendeesVO5.collectionModel}" var="row"
+                          rows="#{bindings.AppointmentAttendeesVO5.rangeSize}"
+                          emptyText="#{bindings.AppointmentAttendeesVO5.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AppointmentAttendeesVO5.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AppointmentAttendeesVO5.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO5.rangeSize}" id="t12"
+                          summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25">
+                  <af:column headerText="Employees" id="c11" rowHeader="true">
+                    <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
+                    <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
+                                        label="#{row.bindings.EmployeeId.label}"
+                                        required="#{bindings.AppointmentAttendeesVO5.hints.EmployeeId.mandatory}"
+                                        shortDesc="#{bindings.AppointmentAttendeesVO5.hints.EmployeeId.tooltip}"
+                                        readOnly="true" id="soc21">
+                      <f:selectItems value="#{row.bindings.EmployeeId.items}" id="si36"/>
+                      <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+              <af:outputText value="Contacts Attending" id="ot16"
+                             inlineStyle="font-size:small; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+              <af:panelCollection id="pc6" inlineStyle="padding-left:50px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t17">
+                    <af:button text="Add Contact" id="b28">
+                      <af:showPopupBehavior popupId="::p10"/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.Delete5.execute}" text="Remove"
+                               disabled="#{!bindings.Delete5.enabled}" id="b29"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.AppointmentCustomersVO2.collectionModel}" var="row"
+                          rows="#{bindings.AppointmentCustomersVO2.rangeSize}"
+                          emptyText="#{bindings.AppointmentCustomersVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.AppointmentCustomersVO2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AppointmentCustomersVO2.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO2.rangeSize}" id="t16"
+                          summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29">
+                  <af:column headerText="Contacts" id="c10" rowHeader="true">
+                    <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
+                    <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
+                                        required="#{bindings.AppointmentCustomersVO2.hints.CustId.mandatory}"
+                                        shortDesc="#{bindings.AppointmentCustomersVO2.hints.CustId.tooltip}"
+                                        readOnly="true" id="soc22">
+                      <f:selectItems value="#{row.bindings.CustId.items}" id="si37"/>
+                      <f:validator binding="#{row.bindings.CustId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+            </af:panelBox>
+          </af:panelDashboard>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p8">
             <af:dialog id="d8" title="Add Attendees" type="cancel">
               <f:facet name="buttonBar">
