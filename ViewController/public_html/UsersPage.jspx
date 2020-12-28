@@ -10,15 +10,6 @@
                     <f:attribute name="PanelText" value="Manage Users"/>
                     <f:facet name="body">
                         <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:transparent;">
-                            <af:toolbar id="t5" inlineStyle="padding-left:1300px;">
-                                <af:button actionListener="#{bindings.Commit.execute}" text="Save "
-                                           disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t1"/>
-                                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
-                                           partialTriggers="pc1:t1">
-                                    <af:resetActionListener/>
-                                </af:button>
-                            </af:toolbar>
                             <af:query id="qryId2" headerText="Search" disclosed="true"
                                           value="#{bindings.UserProfilesVOCriteriaQuery1.queryDescriptor}"
                                           model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
@@ -28,7 +19,18 @@
                                           inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"/>
                             <af:panelBox text="Users" id="pb1"
                                          inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
-                                <f:facet name="toolbar"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t5" inlineStyle="padding-left:0px;">
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save "
+                                                   disabled="#{!bindings.Commit.enabled}" id="b4"
+                                                   partialTriggers="pc1:t1"/>
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
+                                                   partialTriggers="pc1:t1">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                    </af:toolbar>
+                                </f:facet>
                                 <af:panelCollection id="pc1"
                                                     inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
                                     <f:facet name="menus"/>
@@ -95,10 +97,11 @@
                     </f:facet>
                 </af:pageTemplate>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-                    <af:dialog id="d4" title="Create User" type="cancel">
+                    <af:dialog id="d4" title="Create User" type="cancel" binding="#{DialogHandler.dialogComponent}">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create User"
-                                       disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
+                                       disabled="#{!bindings.CreateWithParams.enabled}" id="b2"
+                                       action="#{DialogHandler.closeDialog}"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl1">
                             <af:inputText value="#{UsersBean.fname}" label="#{bindings.NameFirst.hints.label}"

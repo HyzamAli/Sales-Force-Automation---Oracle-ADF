@@ -2,14 +2,31 @@
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="login.jsf" id="d1">
-        <af:form id="f1">
-            <af:panelFormLayout id="pfl1" inlineStyle="padding-left:600px; padding-top:250px;">
-                <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
-                <af:inputText label="Password" id="it2" required="true" secret="true" value="#{loginBean.password}"/>
-                <f:facet name="footer">
-                    <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"/>
+        <af:form id="f2">
+            <af:panelStretchLayout id="psl1" startWidth="0" endWidth="0" bottomHeight="0">
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+                <f:facet name="top">
+                    <af:panelBox text="Sales Assist" id="pb1" showDisclosure="false" background="dark">
+                        <f:facet name="toolbar"/>
+                    </af:panelBox>
                 </f:facet>
-            </af:panelFormLayout>
+                <f:facet name="bottom"/>
+                <f:facet name="center">
+                    <af:panelFormLayout id="pfl1" inlineStyle="padding-left:600px; padding-top:250px;">
+                        <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
+                        <af:inputText label="Password" id="it2" required="true" secret="true"
+                                      value="#{loginBean.password}"/>
+                        <f:facet name="footer">
+                            <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"/>
+                        </f:facet>
+                    </af:panelFormLayout>
+                </f:facet>
+            </af:panelStretchLayout>
         </af:form>
     </af:document>
 </f:view>
+
+<!--
+
+-->

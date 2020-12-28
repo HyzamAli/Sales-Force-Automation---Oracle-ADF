@@ -31,10 +31,10 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="RoleProfilesVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
+    <action IterBinding="RoleProfilesVO1Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
             Action="createWithParams">
-      <NamedData NDName="RolesName" NDValue="#{viewScope.RolesBean.rolesName}" NDType="java.lang.String"/>
-      <NamedData NDName="RolesDescription" NDValue="#{viewScope.RolesBean.roleDescription}" NDType="java.lang.String"/>
+      <NamedData NDName="RolesName" NDValue="#{RolesBean.rolesName}" NDType="java.lang.String"/>
+      <NamedData NDName="RolesDescription" NDValue="#{RolesBean.roleDescription}" NDType="java.lang.String"/>
     </action>
   </bindings>
 </pageDefinition>

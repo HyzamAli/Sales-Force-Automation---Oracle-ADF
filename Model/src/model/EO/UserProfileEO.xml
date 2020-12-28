@@ -29,7 +29,8 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="USER_PROFILES"/>
+    TableName="USER_PROFILES"
+    IsNotNull="true"/>
   <Attribute
     Name="NameFirst"
     Precision="1000"
@@ -37,7 +38,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="USER_PROFILES">
+    TableName="USER_PROFILES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -55,7 +57,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="USER_PROFILES">
+    TableName="USER_PROFILES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -91,7 +94,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="USER_PROFILES">
+    TableName="USER_PROFILES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -102,7 +106,8 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="USER_PROFILES"/>
+    TableName="USER_PROFILES"
+    IsNotNull="true"/>
   <Attribute
     Name="EndDate"
     ColumnName="END_DATE"
@@ -177,6 +182,66 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.UserProfileEO.UserId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesNameFirstCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"NAME_FIRST" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_NAME_FIRST_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.NameFirst"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesNameLastCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"NAME_LAST" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_NAME_LAST_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.NameLast"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesPassword1Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"PASSWORD1" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_PASSWORD1CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.Password1"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesRolesIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ROLES_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_ROLES_ID_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.RolesId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesStartDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"START_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_START_DATE_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.StartDate"/>
     </AttrArray>
   </Key>
   <Key

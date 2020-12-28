@@ -50,7 +50,7 @@
   <managed-bean id="__9">
     <managed-bean-name>RolesBean</managed-bean-name>
     <managed-bean-class>view.RolesBean</managed-bean-class>
-    <managed-bean-scope>view</managed-bean-scope>
+    <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
   <managed-bean id="__13">
     <managed-bean-name>ProductsBean</managed-bean-name>
@@ -70,6 +70,11 @@
   <managed-bean id="__14">
     <managed-bean-name>loginBean</managed-bean-name>
     <managed-bean-class>view.LoginHandler</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__15">
+    <managed-bean-name>DialogHandler</managed-bean-name>
+    <managed-bean-class>view.DialogHandler</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
 </adfc-config>
