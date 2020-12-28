@@ -1,16 +1,18 @@
 package view;
 
+import javax.faces.component.UIComponent;
+
+import oracle.adf.view.rich.component.rich.RichDialog;
+import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichInputText;
+import oracle.adf.view.rich.event.PopupFetchEvent;
 
 public class RolesBean {
-    private String roleName;
     private String roleDescription;
     private String rolesName;
 
-    public RolesBean() {
-    }
 
-    public void setRoleName(String roleName) {
-        this.roleName = roleName;
+    public RolesBean() {
     }
 
     public void setRoleDescription(String roleDescription) {

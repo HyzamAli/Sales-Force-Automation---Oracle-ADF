@@ -38,6 +38,16 @@
     Name="UserProfilesVO1"
     ViewObjectName="model.VO.UserProfilesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="AppsModule_ManagerEmployeesVO1_1"
+    ViewObjectName="model.VO.ManagerEmployeesVO"
+    AMUsageName="AppsModule"
+    ViewInstanceName="ManagerEmployeesVO1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ManagerEmployeesVO1"
+    ViewObjectName="model.VO.ManagerEmployeesVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RolesId"
     ListVOName="RoleProfilesVO1"
@@ -57,9 +67,10 @@
   </ListBinding>
   <ListBinding
     Name="LOV_SupervisorId"
-    ListVOName="UserProfilesVO1"
-    NullValueFlag="none"
-    MRUCount="0">
+    ListVOName="ManagerEmployeesVO1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="SupervisorId"/>
     </AttrArray>
@@ -98,6 +109,8 @@
           Value="100"/>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.RolesId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
