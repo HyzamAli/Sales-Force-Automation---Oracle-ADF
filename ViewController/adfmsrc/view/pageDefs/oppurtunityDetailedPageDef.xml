@@ -129,7 +129,7 @@
         <AttrNames>
           <Item Value="ProductId"/>
           <Item Value="ProductQuantity"/>
-          <Item Value="ProductCategory"/>
+          <Item Value="ProductPrice"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

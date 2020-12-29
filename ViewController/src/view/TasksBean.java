@@ -2,6 +2,9 @@ package view;
 
 import java.sql.Date;
 
+import oracle.adf.view.rich.component.rich.RichDialog;
+import oracle.adf.view.rich.component.rich.RichPopup;
+
 public class TasksBean {
     private String contactID;
     private String repID;
@@ -11,6 +14,7 @@ public class TasksBean {
     private String details;
     private String oppurtunityID;
     private String customerId;
+    private RichDialog component;
 
     public TasksBean() {
     }
@@ -77,5 +81,18 @@ public class TasksBean {
 
     public String getCustomerId() {
         return customerId;
+    }
+    
+    public void setComponent(RichDialog component) {
+        this.component = component;
+    }
+
+    public RichDialog getComponent() {
+        return component;
+    }
+    
+    public void closeDialog() {
+        RichPopup rp = (RichPopup) component.getParent();
+        rp.hide();
     }
 }

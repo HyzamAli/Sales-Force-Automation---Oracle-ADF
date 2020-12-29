@@ -2,14 +2,6 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout layout="vertical" id="pgl1">
-    <af:toolbar id="t3" inlineStyle="padding-left:1250px;">
-      <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
-                 id="b4" partialTriggers="pc1:t1" inlineStyle="padding-left:0px;"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
-                 immediate="true" id="b5" partialTriggers="pc1:t1">
-        <af:resetActionListener/>
-      </af:button>
-    </af:toolbar>
     <af:panelBox text="PanelBox1" id="pb2" showHeader="never" showDisclosure="false"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;">
       <f:facet name="toolbar"/>
@@ -23,7 +15,17 @@
     <af:panelBox id="pb1" text="Contacts"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"
                  showDisclosure="false">
-      <f:facet name="toolbar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t3" inlineStyle="padding-left:1250px;">
+          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                     disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t1"
+                     inlineStyle="padding-left:0px;"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t1">
+            <af:resetActionListener/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
       <af:panelCollection id="pc1"
                           inlineStyle="padding-bottom:0010px; padding-right:010px; padding-left:100px; padding-top:0010px;">
         <f:facet name="menus"/>
@@ -62,9 +64,9 @@
           </af:column>
         </af:table>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-          <af:dialog id="d1" title="Create Contact" type="cancel">
+          <af:dialog id="d1" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
             <f:facet name="buttonBar">
-              <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
+              <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
                          disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
             </f:facet>
             <af:panelFormLayout id="pfl1">

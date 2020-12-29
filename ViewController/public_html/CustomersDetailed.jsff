@@ -3,29 +3,10 @@
                 xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:f="http://java.sun.com/jsf/core"
                 xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:panelGroupLayout id="pgl5">
-    <af:panelBox text="Hi" id="pb9" inlineStyle="padding-left:20px; padding-right:50px;" showDisclosure="false">
+    <af:panelBox text="#{bindings.AccName.inputValue}" id="pb9"
+                 inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:40px;" showDisclosure="false"
+                 background="dark">
       <f:facet name="toolbar"/>
-      <af:panelHeader text="" id="ph1">
-        <?audit suppress oracle.adf.faces.compreqtext?>
-        <?audit suppress oracle.adf.faces.invalidTypeForHeaderComponent?>
-        <f:facet name="context">
-          <af:outputText value="#{bindings.AccName.inputValue}" shortDesc="#{bindings.AccName.hints.tooltip}" id="ot17"
-                         inlineStyle="padding-left:20px;"/>
-        </f:facet>
-        <f:facet name="toolbar">
-          <af:toolbar id="t2" inlineStyle="margin-right:10px;">
-            <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                       disabled="#{!bindings.Commit.enabled}" id="b1" partialTriggers="pfl1"/>
-            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b2" partialTriggers="pfl1">
-              <af:resetActionListener/>
-            </af:button>
-          </af:toolbar>
-        </f:facet>
-        <f:facet name="menuBar"/>
-        <f:facet name="legend"/>
-        <f:facet name="info"/>
-      </af:panelHeader>
     </af:panelBox>
     <af:panelDrawer position="start" id="pd1" width="100%"
                     inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
@@ -34,7 +15,16 @@
         <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"
                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
                      icon="#{resource['images:document.png']}">
-          <f:facet name="toolbar"/>
+          <f:facet name="toolbar">
+            <af:toolbar id="t2">
+              <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                         disabled="#{!bindings.Commit.enabled}" id="b1"/>
+              <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b2">
+                <af:resetActionListener/>
+              </af:button>
+            </af:toolbar>
+          </f:facet>
           <af:panelFormLayout id="pfl1">
             <af:inputText value="#{bindings.AccName.inputValue}" label="#{bindings.AccName.hints.label}"
                           required="#{bindings.AccName.hints.mandatory}"
@@ -130,7 +120,16 @@
           </af:panelBox>
           <af:spacer id="s4" height="35px"/>
           <af:panelBox text="Contacts" id="pb5">
-            <f:facet name="toolbar"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t9">
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                           disabled="#{!bindings.Commit.enabled}" id="b10"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b11">
+                  <af:resetActionListener/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
             <af:panelCollection id="pc2"
                                 inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
               <f:facet name="menus"/>
@@ -181,9 +180,9 @@
               </af:table>
             </af:panelCollection>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
-              <af:dialog id="d2" title="Create Contact" type="cancel">
+              <af:dialog id="d2" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Contact"
+                  <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Contact" action="#{DialogHandler.closeDialog}"
                              disabled="#{!bindings.CreateWithParams1.enabled}" id="b8"/>
                 </f:facet>
                 <af:panelFormLayout id="pfl3">
@@ -279,7 +278,16 @@
           <af:spacer id="s1" height="35px"/>
           <af:panelBox text="Notes" id="pb2"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:010px; padding-top:010px;">
-            <f:facet name="toolbar"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t10">
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                           disabled="#{!bindings.Commit.enabled}" id="b13"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14">
+                  <af:resetActionListener/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
             <af:panelCollection id="pc1"
                                 inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:010px; padding-top:010px;">
               <f:facet name="menus"/>
@@ -331,9 +339,9 @@
             </af:panelCollection>
           </af:panelBox>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
-            <af:dialog id="d1" title="Create Note" type="cancel">
+            <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
               <f:facet name="buttonBar">
-                <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note"
+                <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note" action="#{NotesBean.closeDialog}"
                            disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
               </f:facet>
               <af:panelFormLayout id="pfl2">
@@ -416,7 +424,16 @@
                          inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
           <af:spacer id="s5" height="20px"/>
           <af:panelBox text="PanelBox8" id="pb8" showHeader="never" showDisclosure="false">
-            <f:facet name="toolbar"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t13">
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                           disabled="#{!bindings.Commit.enabled}" id="b20"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b21">
+                  <af:resetActionListener/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
             <af:query id="qryId2" headerText="Search" disclosed="true"
                       value="#{bindings.CustomerTasksVOCriteriaQuery.queryDescriptor}"
                       model="#{bindings.CustomerTasksVOCriteriaQuery.queryModel}"
@@ -495,9 +512,9 @@
             </af:panelCollection>
           </af:panelBox>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
-            <af:dialog id="d3" title="Create Task" type="cancel">
+            <af:dialog id="d3" title="Create Task" type="cancel" binding="#{TasksBean.component}">
               <f:facet name="buttonBar">
-                <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create Task"
+                <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create Task" action="#{TasksBean.closeDialog}"
                            disabled="#{!bindings.CreateWithParams2.enabled}" id="b12"/>
               </f:facet>
               <af:panelFormLayout id="pfl4">

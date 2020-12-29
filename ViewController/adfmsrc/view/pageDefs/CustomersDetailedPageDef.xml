@@ -101,8 +101,6 @@
         <Item Value="CreatedOn"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="CustomerNotesVO6Iterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
@@ -360,5 +358,7 @@
     </tree>
     <action IterBinding="CustomerAppointmentsVO1Iterator" id="Delete4" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>

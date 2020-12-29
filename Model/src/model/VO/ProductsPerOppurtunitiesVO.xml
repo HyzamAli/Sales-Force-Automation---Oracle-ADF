@@ -133,6 +133,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ProductPrice"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="255"
+    Type="java.math.BigDecimal"
+    ColumnType="VARCHAR2"
+    AliasName="VIEW_ATTR"
+    SQLType="VARCHAR">
+    <Dependencies>
+      <Item
+        Value="ProductQuantity"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewCriteria
     Name="ProductsPerOppurtunitiesVOCriteria"
     ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"
@@ -165,14 +181,6 @@
         Operator="="
         Conjunction="AND"
         Value=":p"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ProductQuantity"
-        ViewAttribute="ProductQuantity"
-        Operator="="
-        Conjunction="AND"
-        Value=":o"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

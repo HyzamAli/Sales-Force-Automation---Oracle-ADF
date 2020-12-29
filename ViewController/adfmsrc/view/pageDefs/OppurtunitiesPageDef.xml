@@ -101,6 +101,7 @@
     </attributeValues>
     <action IterBinding="OppurtunitiesVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
+      <NamedData NDName="OpName" NDValue="#{OppurtunityBean.opName}" NDType="java.lang.String"/>
       <NamedData NDName="CustomerId" NDValue="#{OppurtunityBean.customerId}" NDType="java.lang.String"/>
       <NamedData NDName="RefContact" NDValue="#{OppurtunityBean.refId}" NDType="java.lang.String"/>
       <NamedData NDName="ManagerId" NDValue="#{OppurtunityBean.managerId}" NDType="java.lang.String"/>
@@ -123,5 +124,10 @@
     <action IterBinding="OppurtunitiesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="OpName">
+      <AttrNames>
+        <Item Value="OpName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

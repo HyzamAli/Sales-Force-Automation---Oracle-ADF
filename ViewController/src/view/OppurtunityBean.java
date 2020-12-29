@@ -22,7 +22,8 @@ public class OppurtunityBean {
     private String quantity;
     private String managerId;
     private String revenueQuarter;
-    
+    private String opName;
+
 
     public OppurtunityBean() {
     }
@@ -174,5 +175,13 @@ public class OppurtunityBean {
 
     public String getRevenueQuarter() {
         return revenueQuarter;
+    }
+
+    public void setOpName(String opName) {
+        this.opName = opName;
+    }
+
+    public String getOpName() {
+        return opName;
     }
 }

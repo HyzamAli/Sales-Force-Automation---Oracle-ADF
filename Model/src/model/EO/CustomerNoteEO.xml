@@ -53,7 +53,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CUSTOMER_NOTES">
+    TableName="CUSTOMER_NOTES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -112,6 +113,18 @@
     AssociationOtherEnd="model.EO.SysC0011012Assoc.CustomerNoteEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="CustomerNotesNotesTitleCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"NOTES_TITLE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUSTOMER_NOTES_NOTES_TITLE_CHE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerNoteEO.NotesTitle"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="SysC0010988"
     PrimaryKey="true">

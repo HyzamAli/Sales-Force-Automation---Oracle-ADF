@@ -2,6 +2,10 @@ package view;
 
 import java.sql.Date;
 
+import oracle.adf.view.rich.component.rich.RichDialog;
+import oracle.adf.view.rich.component.rich.RichPopup;
+import oracle.adf.view.rich.component.rich.input.RichTextEditor;
+
 public class NotesBean {
     private String title;
     private String description;
@@ -9,7 +13,9 @@ public class NotesBean {
     private String repID;
     private String oppurtunityID;
     private Date createdOn;
-    private String customerId;
+    private String customerId;   
+    private RichDialog component;
+    
 
     public NotesBean() {
     }
@@ -68,5 +74,18 @@ public class NotesBean {
 
     public String getCustomerId() {
         return customerId;
+    }
+
+    public void setComponent(RichDialog component) {
+        this.component = component;
+    }
+
+    public RichDialog getComponent() {
+        return component;
+    }
+    
+    public void closeDialog() {
+        RichPopup rp = (RichPopup) component.getParent();
+        rp.hide();
     }
 }

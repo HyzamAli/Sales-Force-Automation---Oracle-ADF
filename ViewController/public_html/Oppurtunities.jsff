@@ -2,18 +2,19 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:toolbar id="t3" inlineStyle="margin-left:1250px;">
-      <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
-                 id="b4" partialTriggers="pc1:t2"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
-                 immediate="true" id="b5" partialTriggers="pc1:t2">
-        <af:resetActionListener/>
-      </af:button>
-    </af:toolbar>
     <af:panelBox text="PanelBox2" id="pb3"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:020px; margin-top:0020px;"
                  showHeader="never" showDisclosure="false">
-      <f:facet name="toolbar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t4" inlineStyle="margin-left:0px;">
+          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                     disabled="#{!bindings.Commit.enabled}" id="b6" partialTriggers="pc1:t2"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b7" partialTriggers="pc1:t2">
+            <af:resetActionListener/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
       <af:query id="qryId1" headerText="Search" disclosed="true"
                 value="#{bindings.OppurtunitiesVOCriteriaQuery.queryDescriptor}"
                 model="#{bindings.OppurtunitiesVOCriteriaQuery.queryModel}"
@@ -24,7 +25,16 @@
     <af:panelBox text="Oppurtunities" id="pb2"
                  inlineStyle="padding-bottom:0010px; padding-left:0010px; padding-right:0010px; padding-top:0010px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
                  showDisclosure="false">
-      <f:facet name="toolbar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t3" inlineStyle="margin-left:0px;">
+          <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                     disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t2"/>
+          <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                     disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t2">
+            <af:resetActionListener/>
+          </af:button>
+        </af:toolbar>
+      </f:facet>
       <af:panelCollection id="pc1"
                           inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:0010px; padding-top:0010px;">
         <f:facet name="menus"/>
@@ -86,12 +96,19 @@
       </af:panelCollection>
     </af:panelBox>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-      <af:dialog id="d1" title="Create Oppurtunity">
+      <af:dialog id="d1" title="Create Oppurtunity" binding="#{DialogHandler.dialogComponent}" type="cancel">
         <f:facet name="buttonBar">
           <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
+                     action="#{DialogHandler.closeDialog}"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b3"/>
         </f:facet>
         <af:panelFormLayout id="pfl1">
+          <af:inputText value="#{OppurtunityBean.opName}" label="#{bindings.OpName.hints.label}"
+                        required="#{bindings.OpName.hints.mandatory}" columns="#{bindings.OpName.hints.displayWidth}"
+                        maximumLength="#{bindings.OpName.hints.precision}" shortDesc="#{bindings.OpName.hints.tooltip}"
+                        id="it3">
+            <f:validator binding="#{bindings.OpName.validator}"/>
+          </af:inputText>
           <af:selectOneChoice value="#{OppurtunityBean.customerId}" label="#{bindings.CustomerId.label}"
                               required="#{bindings.CustomerId.hints.mandatory}"
                               shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc2">

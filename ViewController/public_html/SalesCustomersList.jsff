@@ -75,9 +75,9 @@
       </af:panelBox>
     </af:panelGroupLayout>
     <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
-      <af:dialog id="d1" title="Create Customer" type="cancel">
+      <af:dialog id="d1" title="Create Customer" type="cancel" binding="#{DialogHandler.dialogComponent}">
         <f:facet name="buttonBar">
-          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
+          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
         </f:facet>
         <af:panelFormLayout id="pfl1">
