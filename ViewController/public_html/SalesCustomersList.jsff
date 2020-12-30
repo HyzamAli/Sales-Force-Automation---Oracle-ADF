@@ -46,7 +46,8 @@
                     selectionListener="#{bindings.CustomersVO1.collectionModel.makeCurrent}" rowSelection="single"
                     fetchSize="#{bindings.CustomersVO1.rangeSize}" id="t3" summary="Customers List"
                     partialTriggers=":::b4 ::b2" inlineStyle="padding-left:0px;" width="1100">
-            <af:column headerText="#{bindings.CustomersVO1.hints.AccName.label}" id="c2" rowHeader="true" width="200">
+            <af:column headerText="#{bindings.CustomersVO1.hints.AccName.label}" id="c2" rowHeader="true" width="200"
+                       align="left">
               <af:link text="" id="l1" action="toDetailed">
                 <af:outputText value="#{row.AccName}" shortDesc="#{bindings.CustomersVO1.hints.AccName.tooltip}"
                                id="ot2"/>
@@ -75,7 +76,7 @@
         </af:panelCollection>
       </af:panelBox>
     </af:panelGroupLayout>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b4">
       <af:dialog id="d1" title="Create Customer" type="cancel" binding="#{DialogHandler.dialogComponent}">
         <f:facet name="buttonBar">
           <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"

@@ -273,7 +273,7 @@
               </af:toolbar>
             </f:facet>
             <af:panelCollection id="pc1"
-                                inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
+                                inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:010px; padding-top:010px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t5">
@@ -289,56 +289,25 @@
                         rows="#{bindings.CustomerNotesVO7.rangeSize}"
                         emptyText="#{bindings.CustomerNotesVO7.viewable ? 'No data to display.' : 'Access Denied.'}"
                         rowBandingInterval="0" fetchSize="#{bindings.CustomerNotesVO7.rangeSize}" id="t2"
-                        summary="oppurtunity nores list" columnStretching="last" partialTriggers=":::b4 ::b6">
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true">
+                        summary="oppurtunity nores list" columnStretching="last" partialTriggers=":::b4 ::b6"
+                        width="800">
+                <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
+                           align="left" width="400">
                   <af:link id="l1">
                     <af:outputText id="ot21" value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO7.hints.NotesTitle.tooltip}"/>
                     <af:showPopupBehavior popupId=":::p4"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesDescription.label}" id="c2">
-                  <af:outputText id="ot22" value="#{row.NotesDescription}"
-                                 shortDesc="#{bindings.CustomerNotesVO7.hints.NotesDescription.tooltip}"/>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.ContactId.label}" id="c3">
-                  <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
-                                      label="#{row.bindings.ContactId.label}"
-                                      required="#{bindings.CustomerNotesVO7.hints.ContactId.mandatory}"
-                                      shortDesc="#{bindings.CustomerNotesVO7.hints.ContactId.tooltip}" id="soc3">
-                    <f:selectItems value="#{row.bindings.ContactId.items}" id="si3"/>
-                    <f:validator binding="#{row.bindings.ContactId.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.RepId.label}" id="c4">
-                  <af:selectOneChoice value="#{row.bindings.RepId.inputValue}" label="#{row.bindings.RepId.label}"
-                                      required="#{bindings.CustomerNotesVO7.hints.RepId.mandatory}"
-                                      shortDesc="#{bindings.CustomerNotesVO7.hints.RepId.tooltip}" id="soc10">
-                    <f:selectItems value="#{row.bindings.RepId.items}" id="si24"/>
-                    <f:validator binding="#{row.bindings.RepId.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.CreatedOn.label}" id="c5">
+                <af:column headerText="#{bindings.CustomerNotesVO7.hints.CreatedOn.label}" id="c5" width="400">
                   <af:outputText id="ot23" value="#{row.CreatedOn}"
                                  shortDesc="#{bindings.CustomerNotesVO7.hints.CreatedOn.tooltip}">
                     <af:convertDateTime pattern="#{bindings.CustomerNotesVO7.hints.CreatedOn.format}"/>
                   </af:outputText>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustomerId.label}" id="c15">
-                  <af:selectOneChoice id="sc11" value="#{row.bindings.CustomerId.inputValue}"
-                                      label="#{row.bindings.CustomerId.label}"
-                                      required="#{bindings.CustomerNotesVO7.hints.CustomerId.mandatory}"
-                                      shortDesc="#{bindings.CustomerNotesVO7.hints.CustomerId.tooltip}">
-                    <f:selectItems id="st11" value="#{row.bindings.CustomerId.items}"/>
-                    <f:validator binding="#{row.bindings.CustomerId.validator}"/>
-                  </af:selectOneChoice>
-                  <af:link text="View" id="l3" action="toCustomerDetailed">
-                    <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
-                  </af:link>
-                </af:column>
               </af:table>
             </af:panelCollection>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b4">
               <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
@@ -427,7 +396,7 @@
         </af:panelGroupLayout>
       </af:showDetailItem>
       <af:showDetailItem id="Tasks" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}" text="Tasks">
-        <af:panelGroupLayout layout="vertical" id="pgl5">
+        <af:panelGroupLayout layout="vertical" id="pgl5" inlineStyle="padding-left:100px;">
           <af:outputText value="Tasks" id="ot4"
                          inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
           <af:spacer id="s2" height="20px"/>
@@ -453,7 +422,7 @@
               </af:toolbar>
             </f:facet>
             <af:panelCollection id="pc2"
-                                inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
+                                inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:010px; padding-top:010px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t7">
@@ -472,39 +441,21 @@
                         selectedRowKeys="#{bindings.CustomerTasksVO7.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerTasksVO7.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO7.rangeSize}" id="t3"
-                        summary="oppurtunity taks list" width="140%" partialTriggers=":::b10 ::b11">
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskDetails.label}" id="c6" rowHeader="true">
+                        summary="oppurtunity taks list" width="1000" partialTriggers=":::b10 ::b11">
+                <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskDetails.label}" id="c6" rowHeader="true"
+                           align="left" width="200">
                   <af:link id="l2">
                     <af:outputText value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO7.hints.TaskDetails.tooltip}" id="ot1"/>
                     <af:showPopupBehavior popupId=":::p5"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.ContactId.label}" id="c7">
-                  <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
-                                      label="#{row.bindings.ContactId.label}"
-                                      required="#{bindings.CustomerTasksVO7.hints.ContactId.mandatory}"
-                                      shortDesc="#{bindings.CustomerTasksVO7.hints.ContactId.tooltip}" readOnly="true"
-                                      id="soc11">
-                    <f:selectItems value="#{row.bindings.ContactId.items}" id="si25"/>
-                    <f:validator binding="#{row.bindings.ContactId.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.RepId.label}" id="c8">
-                  <af:selectOneChoice value="#{row.bindings.RepId.inputValue}" label="#{row.bindings.RepId.label}"
-                                      required="#{bindings.CustomerTasksVO7.hints.RepId.mandatory}"
-                                      shortDesc="#{bindings.CustomerTasksVO7.hints.RepId.tooltip}" readOnly="true"
-                                      id="soc12">
-                    <f:selectItems value="#{row.bindings.RepId.items}" id="si26"/>
-                    <f:validator binding="#{row.bindings.RepId.validator}"/>
-                  </af:selectOneChoice>
-                </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO7.hints.Priority1.label}" id="c9" width="100">
                   <af:outputText value="#{row.Priority1}"
                                  shortDesc="#{bindings.CustomerTasksVO7.hints.Priority1.tooltip}" id="ot2"/>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO7.hints.PercentageCompletion.label}" id="c10"
-                           width="220">
+                           width="300">
                   <dvt:statusMeterGauge id="statusMeterGauge1"
                                         shortDesc="#{bindings.CustomerTasksVO7.hints.PercentageCompletion.tooltip}"
                                         value="#{row.bindings.PercentageCompletion.inputValue}" minimum="0"
@@ -512,13 +463,13 @@
                     <dvt:gaugeMetricLabel rendered="true" id="gml1" textType="percent"/>
                   </dvt:statusMeterGauge>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.DueDate.label}" id="c11">
+                <af:column headerText="#{bindings.CustomerTasksVO7.hints.DueDate.label}" id="c11" width="200">
                   <af:outputText value="#{row.DueDate}" shortDesc="#{bindings.CustomerTasksVO7.hints.DueDate.tooltip}"
                                  id="ot3">
                     <af:convertDateTime pattern="#{bindings.CustomerTasksVO7.hints.DueDate.format}"/>
                   </af:outputText>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustomerId.label}" id="c16">
+                <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustomerId.label}" id="c16" width="200">
                   <af:selectOneChoice id="sc12" value="#{row.bindings.CustomerId.inputValue}"
                                       label="#{row.bindings.CustomerId.label}"
                                       required="#{bindings.CustomerTasksVO7.hints.CustomerId.mandatory}"
@@ -532,7 +483,7 @@
                 </af:column>
               </af:table>
             </af:panelCollection>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="b10">
               <af:dialog id="d2" title="Create Task" type="cancel" binding="#{TasksBean.component}">
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create"
@@ -648,7 +599,7 @@
                 </af:button>
               </af:toolbar>
             </f:facet>
-            <af:panelCollection id="pc4">
+            <af:panelCollection id="pc4" inlineStyle="padding-left:100px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t11">
@@ -662,8 +613,10 @@
                         rows="#{bindings.SalesTeamsVO4.rangeSize}"
                         emptyText="#{bindings.SalesTeamsVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
                         rowBandingInterval="0" fetchSize="#{bindings.SalesTeamsVO4.rangeSize}" id="t10"
-                        columnStretching="last" summary="summary" partialTriggers="::b18 :::b19">
-                <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true">
+                        columnStretching="last" summary="summary" partialTriggers="::b18 :::b19"
+                        inlineStyle="padding-left:0px;" width="500">
+                <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true"
+                           align="left" width="500">
                   <af:selectOneChoice id="sc1" value="#{row.bindings.EmployeeId.inputValue}"
                                       label="#{row.bindings.EmployeeId.label}"
                                       required="#{bindings.SalesTeamsVO4.hints.EmployeeId.mandatory}"
@@ -674,7 +627,7 @@
                 </af:column>
               </af:table>
             </af:panelCollection>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p6">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="b19">
               <af:dialog id="d6" title="Add Employee to Team" binding="#{SalesTeamBean.component}" type="cancel">
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Add" action="#{SalesTeamBean.closeDialog}"

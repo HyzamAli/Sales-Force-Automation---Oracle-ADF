@@ -47,7 +47,7 @@
                   fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1" columnStretching="last"
                   summary="Contacts list" partialTriggers="::b2 ::b3" width="1000">
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true"
-                     width="300">
+                     width="300" align="left">
             <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.ContactName}"
                              shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}" id="ot1"/>
@@ -63,7 +63,7 @@
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactEmail.tooltip}" id="ot3"/>
           </af:column>
         </af:table>
-        <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b2">
           <af:dialog id="d1" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
             <f:facet name="buttonBar">
               <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
