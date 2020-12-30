@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="RolesWithEmps"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.VO.RolesWithEmps_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="UserProfilesVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.VO.UserProfilesVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="UserProfilesVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.UserProfilesVO.UserId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="RolesPerEmployeeVO"
+    Cardinality="-1"
+    Owner="model.VO.RolesPerEmployeeVO">
+    <DesignTime>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_finderName" Value="RolesPerEmployeeVO"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.VO.RolesPerEmployeeVO.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>

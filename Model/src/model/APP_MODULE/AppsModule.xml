@@ -169,6 +169,12 @@
   <ViewUsage
     Name="SalesTeamsVO4"
     ViewObjectName="model.VO.SalesTeamsVO"/>
+  <ViewUsage
+    Name="RolesPerEmployeeVO1"
+    ViewObjectName="model.VO.RolesPerEmployeeVO"/>
+  <ViewUsage
+    Name="RolesPerEmployeeVO2"
+    ViewObjectName="model.VO.RolesPerEmployeeVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -366,5 +372,11 @@
     ViewLinkObjectName="model.VO.SalesTeamByOpID"
     SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
     DstViewUsageName="model.APP_MODULE.AppsModule.SalesTeamsVO4"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="RolesWithEmps1"
+    ViewLinkObjectName="model.VO.RolesWithEmps"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.UserProfilesVO1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.RolesPerEmployeeVO2"
     Reversed="false"/>
 </AppModule>
