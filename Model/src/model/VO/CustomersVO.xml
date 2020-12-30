@@ -315,14 +315,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="Country"
-        ViewAttribute="Country"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p3"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="CustomersVOCriteria_CustomersVOCriteria_row_0_AccUrl"
         ViewAttribute="AccUrl"
         Operator="STARTSWITH"

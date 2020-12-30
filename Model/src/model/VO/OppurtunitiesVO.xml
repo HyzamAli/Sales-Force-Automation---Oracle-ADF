@@ -62,6 +62,10 @@
     Name="i"
     Kind="viewcriteria"
     Type="java.math.BigDecimal"/>
+  <Variable
+    Name="opName2"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -402,43 +406,11 @@
       Name="OppurtunitiesVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="SaleStage"
-        ViewAttribute="SaleStage"
-        Operator="="
+        Name="OpName"
+        ViewAttribute="OpName"
+        Operator="STARTSWITH"
         Conjunction="AND"
-        Value=":f"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SaleMethod"
-        ViewAttribute="SaleMethod"
-        Operator="="
-        Conjunction="AND"
-        Value=":e"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="SalesChannel"
-        ViewAttribute="SalesChannel"
-        Operator="="
-        Conjunction="AND"
-        Value=":g"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="RiskLevel"
-        ViewAttribute="RiskLevel"
-        Operator="="
-        Conjunction="AND"
-        Value=":myRisk"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="DecisionLevel"
-        ViewAttribute="DecisionLevel"
-        Operator="="
-        Conjunction="AND"
-        Value=":decision"
+        Value=":opName2"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
