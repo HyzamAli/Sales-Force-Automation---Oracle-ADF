@@ -103,6 +103,8 @@
       <SchemaBasedProperties>
         <LABEL_PLURAL
           ResId="model.VO.CustomerByIDVO.AccName_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -116,6 +118,8 @@
       <SchemaBasedProperties>
         <LABEL_PLURAL
           ResId="model.VO.CustomerByIDVO.AccUrl_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -125,13 +129,27 @@
     PrecisionRule="true"
     EntityAttrName="AddLine1"
     EntityUsage="CustomerEO"
-    AliasName="ADD_LINE1"/>
+    AliasName="ADD_LINE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="80"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AddLine2"
     PrecisionRule="true"
     EntityAttrName="AddLine2"
     EntityUsage="CustomerEO"
-    AliasName="ADD_LINE2"/>
+    AliasName="ADD_LINE2">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="80"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Country"
     PrecisionRule="true"
@@ -142,6 +160,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.CustomerByIDVO.Country_LABEL"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -169,6 +189,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.CustomerByIDVO.Email_LABEL"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -184,6 +206,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -204,6 +228,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -212,13 +238,29 @@
     PrecisionRule="true"
     EntityAttrName="Phone"
     EntityUsage="CustomerEO"
-    AliasName="PHONE"/>
+    AliasName="PHONE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="80"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Pincode"
     PrecisionRule="true"
     EntityAttrName="Pincode"
     EntityUsage="CustomerEO"
-    AliasName="PINCODE"/>
+    AliasName="PINCODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerByIDVO.Pincode_LABEL"/>
+        <DISPLAYWIDTH
+          Value="80"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ReferencePt"
     PrecisionRule="true"
@@ -231,6 +273,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <DISPLAYWIDTH
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

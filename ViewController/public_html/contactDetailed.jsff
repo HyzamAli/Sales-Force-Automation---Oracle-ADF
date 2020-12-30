@@ -116,7 +116,7 @@
                         columnStretching="last" summary="Notes by Contacts List" partialTriggers="::b3 :::b8"
                         width="1100">
                 <af:column headerText="#{bindings.CustomerNotesVO8.hints.NotesTitle.label}" id="c1" rowHeader="true"
-                           width="250">
+                           width="250" align="left">
                   <af:link id="l1">
                     <af:outputText value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO8.hints.NotesTitle.tooltip}" id="ot1"/>
@@ -166,7 +166,7 @@
               </af:table>
             </af:panelCollection>
           </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b8">
             <af:dialog id="d3" title="New Note" type="cancel" binding="#{NotesBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note"
@@ -302,7 +302,7 @@
                         columnStretching="last" summary="Tasks by contacts list" partialTriggers="::b2 :::b9"
                         width="1000">
                 <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="true"
-                           width="200">
+                           width="200" align="left">
                   <af:link id="l2">
                     <af:outputText value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO8.hints.TaskDetails.tooltip}" id="ot4"/>
@@ -350,7 +350,7 @@
               </af:table>
             </af:panelCollection>
           </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p4" partialTriggers="b9">
             <af:dialog id="d4" title="Create Task" type="cancel" binding="#{TasksBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Task"

@@ -54,7 +54,8 @@
                   selectionListener="#{bindings.OppurtunitiesVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.OppurtunitiesVO1.rangeSize}" id="t2" columnStretching="last"
                   summary="Oppurtunity List" partialTriggers=":::b3 ::b2" width="1150">
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true" width="150">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true" width="150"
+                     align="left">
             <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.OpName}" shortDesc="#{bindings.OppurtunitiesVO1.hints.OpName.tooltip}"
                              id="ot1"/>
@@ -95,7 +96,7 @@
         <f:facet name="statusbar"/>
       </af:panelCollection>
     </af:panelBox>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p1">
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b3">
       <af:dialog id="d1" title="Create Oppurtunity" binding="#{DialogHandler.dialogComponent}" type="cancel">
         <f:facet name="buttonBar">
           <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"

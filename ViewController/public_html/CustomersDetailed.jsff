@@ -25,13 +25,13 @@
               </af:button>
             </af:toolbar>
           </f:facet>
-          <af:panelFormLayout id="pfl1">
+          <af:panelFormLayout id="pfl1" maxColumns="2" rows="6" inlineStyle="padding-top:50px; padding-bottom:50px;">
             <af:inputText value="#{bindings.AccName.inputValue}" label="#{bindings.AccName.hints.label}"
                           required="#{bindings.AccName.hints.mandatory}"
                           columns="#{bindings.AccName.hints.displayWidth}"
                           maximumLength="#{bindings.AccName.hints.precision}"
                           shortDesc="#{bindings.AccName.hints.tooltip}" id="it1"
-                          inlineStyle="width:200pt; min-width:200pt;">
+                          inlineStyle="width:100pt; min-width:100pt;">
               <f:validator binding="#{bindings.AccName.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.AddLine1.inputValue}" label="#{bindings.AddLine1.hints.label}"
@@ -101,6 +101,8 @@
             <f:facet name="footer">
               <af:button text="Submit" id="b3" inlineStyle="padding-left:0px;"/>
             </f:facet>
+            <af:column id="c12"/>
+            <af:column id="c13"/>
           </af:panelFormLayout>
         </af:panelBox>
       </af:showDetailItem>
@@ -135,7 +137,7 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t8">
-                  <af:button text="Add Contact" id="b9">
+                  <af:button text="Create Contact" id="b9">
                     <af:showPopupBehavior popupId="::p3"/>
                   </af:button>
                   <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
@@ -153,7 +155,8 @@
                         columnStretching="last" summary="Customer Notes List" partialTriggers=":::b8 ::b16"
                         width="1000">
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
-                           rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200">
+                           rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200"
+                           align="left">
                   <af:link id="l1">
                     <af:outputText value="#{row.ContactName}"
                                    shortDesc="#{bindings.CustomerContactsVO3.hints.ContactName.tooltip}" id="ot2"/>
@@ -179,7 +182,7 @@
                 </af:column>
               </af:table>
             </af:panelCollection>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b8">
               <af:dialog id="d2" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Contact" action="#{DialogHandler.closeDialog}"
@@ -293,7 +296,7 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t7">
-                  <af:button text="Add" id="b7">
+                  <af:button text="Create" id="b7">
                     <af:showPopupBehavior popupId="::p2"/>
                   </af:button>
                   <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
@@ -310,7 +313,7 @@
                         rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
                         partialTriggers=":::b4 ::b17" summary="Notes List" width="900">
                 <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true"
-                           width="300" minimumWidth="300">
+                           width="300" minimumWidth="300" align="left">
                   <af:link id="l2">
                     <af:outputText value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO61.hints.NotesTitle.tooltip}" id="ot6"/>
@@ -338,7 +341,7 @@
               </af:table>
             </af:panelCollection>
           </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="b4">
             <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note" action="#{NotesBean.closeDialog}"
@@ -459,7 +462,7 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t11">
-                  <af:button text="Add" id="b15">
+                  <af:button text="Create" id="b15">
                     <af:showPopupBehavior popupId="::p4"/>
                   </af:button>
                   <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
@@ -477,7 +480,7 @@
                         partialTriggers=":::b12 ::b18" summary="Tasks List"
                         inlineStyle="min-width:800pt; width:800pt;">
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
-                           inlineStyle="min-width:200pt; width:200pt;" width="200" minimumWidth="200">
+                           inlineStyle="min-width:200pt; width:200pt;" width="200" minimumWidth="200" align="left">
                   <af:link id="l3">
                     <af:outputText id="ot44" value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO61.hints.TaskDetails.tooltip}"/>
@@ -520,7 +523,7 @@
               </af:table>
             </af:panelCollection>
           </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p4" partialTriggers="b12">
             <af:dialog id="d3" title="Create Task" type="cancel" binding="#{TasksBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create Task" action="#{TasksBean.closeDialog}"
@@ -653,7 +656,7 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t6">
-                    <af:button text="Add" id="b5">
+                    <af:button text="Create" id="b5">
                       <af:showPopupBehavior popupId="p7"/>
                     </af:button>
                     <af:button actionListener="#{bindings.Delete4.execute}" text="Delete"
@@ -670,7 +673,7 @@
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO31.rangeSize}" id="t3"
                           partialTriggers="" summary="Appointments List">
                   <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppName.label}" id="c5"
-                             rowHeader="true">
+                             rowHeader="true" align="left">
                     <af:link id="l4">
                       <af:outputText value="#{row.AppName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppName.tooltip}" id="ot10"/>
@@ -700,7 +703,7 @@
                                    id="ot13"/>
                   </af:column>
                 </af:table>
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p7">
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p7" partialTriggers="b19">
                   <af:dialog id="d7" type="cancel" title="Create Appointment" binding="#{AppointmentsBean.component}">
                     <f:facet name="buttonBar">
                       <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create Appointment"
@@ -786,7 +789,7 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t15">
-                    <af:button text="Add Attendee" id="b24">
+                    <af:button text="Add Employee" id="b24">
                       <af:showPopupBehavior popupId="::p8"/>
                     </af:button>
                     <af:button actionListener="#{bindings.Delete3.execute}" text="Remove"
@@ -802,7 +805,7 @@
                           selectionListener="#{bindings.AppointmentAttendeesVO5.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO5.rangeSize}" id="t12"
                           summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25">
-                  <af:column headerText="Employees" id="c11" rowHeader="true">
+                  <af:column headerText="Employees" id="c11" rowHeader="true" align="left">
                     <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                     <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
                                         label="#{row.bindings.EmployeeId.label}"
@@ -837,7 +840,7 @@
                           selectionListener="#{bindings.AppointmentCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO2.rangeSize}" id="t16"
                           summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29">
-                  <af:column headerText="Contacts" id="c10" rowHeader="true">
+                  <af:column headerText="Contacts" id="c10" rowHeader="true" align="left">
                     <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                     <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
                                         required="#{bindings.AppointmentCustomersVO2.hints.CustId.mandatory}"
@@ -851,7 +854,7 @@
               </af:panelCollection>
             </af:panelBox>
           </af:panelDashboard>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p8">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p8" partialTriggers="b23">
             <af:dialog id="d8" title="Add Attendees" type="cancel" binding="#{AttendeeBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="Add" action="#{AttendeeBean.closeDialog}"
@@ -939,7 +942,7 @@
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p10">
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p10" partialTriggers="b27">
             <af:dialog id="d10" title="Add Attending Contact" type="cancel" binding="#{AttendeeCustomerBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams5.execute}" text="Add Contact" action="#{AttendeeCustomerBean.closeDialog}"
