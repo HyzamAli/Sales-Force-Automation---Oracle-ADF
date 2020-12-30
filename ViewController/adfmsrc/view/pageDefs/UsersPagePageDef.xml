@@ -7,15 +7,20 @@
     <iterator Binds="UserProfilesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
     <searchRegion Criteria="UserProfilesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery1"/>
+    <iterator Binds="RolesPerEmployeeVO2" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="RolesPerEmployeeVO2Iterator"/>
   </executables>
   <bindings>
-    <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameFirst">
       <AttrNames>
         <Item Value="NameFirst"/>
       </AttrNames>
     </attributeValues>
+        <attributeValues IterBinding="UserProfilesVO1Iterator" id="Id">
+      <AttrNames>
+        <Item Value="UserId"/>
+      </AttrNames>
+      </attributeValues>
     <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameLast">
       <AttrNames>
         <Item Value="NameLast"/>
@@ -67,7 +72,36 @@
     </action>
     <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="UserProfilesVO1Iterator" id="Create" RequiresUpdateModel="true" Action="createRow"/>
+    <tree IterBinding="RolesPerEmployeeVO2Iterator" id="RolesPerEmployeeVO2">
+      <nodeDefinition DefName="model.VO.RolesPerEmployeeVO" Name="RolesPerEmployeeVO20">
+        <AttrNames>
+          <Item Value="RoleId"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="RolesPerEmployeeVO2Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <list IterBinding="RolesPerEmployeeVO2Iterator" StaticList="false" Uses="LOV_RoleId" id="RoleId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="RolesPerEmployeeVO2Iterator" id="StartDate1">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="RolesPerEmployeeVO2Iterator" id="EndDate1">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="RolesPerEmployeeVO2Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="EmployeeId" NDValue="#{bindings.Id.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="StartDate" NDValue="#{RPEBeans.startDate}" NDType="java.lang.String"/>
+      <NamedData NDName="EndDate" NDValue="#{RPEBeans.endDate}" NDType="java.lang.String"/>
+      <NamedData NDName="RoleId" NDValue="#{RPEBeans.roleId}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

@@ -77,4 +77,14 @@
     <managed-bean-class>view.DialogHandler</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__16">
+    <managed-bean-name>RPEBeans</managed-bean-name>
+    <managed-bean-class>view.RPEBeans</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__17">
+    <managed-bean-name>DeleteDialogHandler</managed-bean-name>
+    <managed-bean-class>view.DeleteDialogHandler</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
 </adfc-config>
