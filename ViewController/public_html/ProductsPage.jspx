@@ -19,18 +19,7 @@
                             <af:panelDashboard id="pd1" columns="2" rowHeight="400px">
                                 <af:panelBox text="Products" id="pb1"
                                              inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:10px; padding-bottom:010px; padding-right:010px; padding-top:019px;">
-                                    <f:facet name="toolbar">
-                                        <af:toolbar id="t3" inlineStyle="padding-left:0px;">
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Save "
-                                                       disabled="#{!bindings.Commit.enabled}" id="b3"
-                                                       partialTriggers="pc1:t1"/>
-                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b4"
-                                                       partialTriggers="pc1:t1">
-                                                <af:resetActionListener/>
-                                            </af:button>
-                                        </af:toolbar>
-                                    </f:facet>
+                                    <f:facet name="toolbar"/>
                                     <af:panelCollection id="pc1"
                                                         inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
                                         <f:facet name="menus"/>
@@ -40,7 +29,9 @@
                                                     <af:showPopupBehavior popupId=":::p2"/>
                                                 </af:button>
                                                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                           disabled="#{!bindings.Delete.enabled}" id="b5"/>
+                                                           disabled="#{!bindings.Delete.enabled}" id="b5">
+                                                    <af:showPopupBehavior popupId="::p3"/>
+                                                </af:button>
                                             </af:toolbar>
                                         </f:facet>
                                         <f:facet name="statusbar"/>
@@ -53,7 +44,7 @@
                                                   rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
                                                   id="t1" columnStretching="last" partialTriggers="::::b2 ::b5">
                                             <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}"
-                                                       id="c1" rowHeader="true" width="200">
+                                                       id="c1" rowHeader="true" width="200" align="left">
                                                 <af:link text="" id="l1">
                                                     <af:outputText value="#{row.ProductName}"
                                                                    shortDesc="#{bindings.ProductsVO11.hints.ProductName.tooltip}"
@@ -107,7 +98,7 @@
                                                   columnStretching="last" summary="product ategories List"
                                                   partialTriggers="::::b6" inlineStyle="padding-left:0px;">
                                             <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
-                                                       id="c5" rowHeader="true" width="250">
+                                                       id="c5" rowHeader="true" width="250" align="left">
                                                 <af:outputText value="#{row.Category}"
                                                                shortDesc="#{bindings.ProductCategoriesVO1.hints.Category.tooltip}"
                                                                id="ot4"/>
@@ -116,6 +107,16 @@
                                     </af:panelCollection>
                                 </af:panelBox>
                             </af:panelDashboard>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+                                <af:dialog id="d5" title="Delete" type="cancel"
+                                           binding="#{DeleteDialogHandler.component}">
+                                    <af:outputText value="Confirm Action" id="ot2" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete.execute}"
+                                                   action="#{DeleteDialogHandler.closeDialogSave}" text="Yes" id="b4"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>
@@ -162,7 +163,7 @@
                     </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pt1:pc1:t1">
-                    <af:dialog id="d3" title="Edit Product">
+                    <af:dialog id="d3" title="Edit Product" dialogListener="#{DialogHandler.onUpdate}">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.ProductName.inputValue}"
@@ -202,10 +203,10 @@
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
                     <af:dialog id="d4" title="Create Product Category" type="cancel"
-                               binding="#{DialogHandler.dialogComponent}">
+                               binding="#{ProductCategoriesBean.component}">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Category"
-                            action="#{DialogHandler.closeDialog}"
+                            action="#{ProductCategoriesBean.closeDialog}"
                                        disabled="#{!bindings.CreateWithParams1.enabled}" id="b6"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl3">

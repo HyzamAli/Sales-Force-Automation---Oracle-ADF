@@ -18,18 +18,7 @@
                                       inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"/>
                             <af:panelBox text="Roles" id="pb1"
                                          inlineStyle="margin-top:20px; font-size:large; margin-bottom:20px; margin-left:20px; margin-right:20px;">
-                                <f:facet name="toolbar">
-                                    <af:toolbar id="t2" inlineStyle="margin-left:0px;">
-                                        <af:button actionListener="#{bindings.Commit.execute}" text="Save"
-                                                   disabled="#{!bindings.Commit.enabled}" id="b6"
-                                                   partialTriggers="pc1:t1"/>
-                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5"
-                                                   partialTriggers="pc1:t1">
-                                            <af:resetActionListener/>
-                                        </af:button>
-                                    </af:toolbar>
-                                </f:facet>
+                                <f:facet name="toolbar"/>
                                 <af:panelCollection id="pc1"
                                                     inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
                                     <f:facet name="menus"/>
@@ -38,8 +27,10 @@
                                             <af:button text="Add" id="b1">
                                                 <af:showPopupBehavior popupId="p1" triggerType="action"/>
                                             </af:button>
-                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                       disabled="#{!bindings.Delete.enabled}" id="b2"/>
+                                            <af:button text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b2">
+                                                <af:showPopupBehavior popupId="::p3"/>
+                                            </af:button>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -51,11 +42,11 @@
                                               selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
                                               id="t1"
-                                              partialTriggers=":::b6 :::b5 ::b2 ::b1 ::b3"
+                                              partialTriggers="::b2 ::b1 ::b3 :::b4"
                                               columnStretching="last" inlineStyle="margin-left:0px; min-width:100%;"
                                               width="1000">
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
-                                                   id="c1" rowHeader="true" width="300">
+                                                   id="c1" rowHeader="true" width="300" align="left">
                                             <af:link text="" id="l1">
                                                 <af:outputText value="#{row.RolesName}"
                                                                shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"
@@ -71,7 +62,7 @@
                                         </af:column>
                                     </af:table>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
-                                              >
+                                              partialTriggers="b3">
                                         <af:dialog title="Create Role" id="d2" type="none"
                                                    binding="#{DialogHandler.dialogComponent}">
                                             <f:facet name="buttonBar">
@@ -79,7 +70,7 @@
                                                            text="Create Role"
                                                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b3"
                                                            partialSubmit="true"
-                                                           action="#{DialogHandler.closeDialog}">                                            
+                                                           action="#{DialogHandler.closeDialog}">
                                                 </af:button>
                                             </f:facet>
                                             <af:panelFormLayout id="pfl2">
@@ -105,7 +96,8 @@
                                     </af:popup>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
                                               partialTriggers="t1">
-                                        <af:dialog title="Update Role" id="d3">
+                                        <af:dialog title="Update Role" id="d3"
+                                                   dialogListener="#{DialogHandler.onUpdate}">
                                             <f:facet name="buttonBar"/>
                                             <af:panelFormLayout id="pfl1">
                                                 <af:inputText value="#{bindings.RolesName.inputValue}"
@@ -130,6 +122,16 @@
                                     </af:popup>
                                 </af:panelCollection>
                             </af:panelBox>
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+                                <af:dialog id="d4" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot3" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b4"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>

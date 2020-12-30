@@ -7,27 +7,20 @@ import oracle.adf.view.rich.component.rich.RichPopup;
 
 import oracle.binding.OperationBinding;
 
-public class ProductCategoriesBean {
-    private String productCategory;
+public class DeleteDialogHandler {
     private RichDialog component;
     
-    public ProductCategoriesBean() {
-    }
-
-    public void setProductCategory(String productCategory) {
-        this.productCategory = productCategory;
-    }
-
-    public String getProductCategory() {
-        return productCategory;
-    }
     
-    public void closeDialog() {
+    public DeleteDialogHandler() {
+    }
+
+    public String closeDialogSave() {
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
         OperationBinding operationBinding = bindings.getOperationBinding("Commit");
         operationBinding.execute();
         RichPopup rp = (RichPopup) component.getParent();
         rp.hide();
+        return null;
     }
 
     public void setComponent(RichDialog component) {

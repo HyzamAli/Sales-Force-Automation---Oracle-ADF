@@ -210,8 +210,7 @@
     EntityAttrName="SupervisorId"
     EntityUsage="UserProfileEO"
     AliasName="SUPERVISOR_ID"
-    LOVName="LOV_SupervisorId"
-    IsUpdateable="while_insert">
+    LOVName="LOV_SupervisorId">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -304,6 +303,11 @@
   <ViewLinkAccessor
     Name="CustomerTasksVO"
     ViewLink="model.VO.SysC0011011Link"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="RolesPerEmployeeVO"
+    ViewLink="model.VO.RolesWithEmps"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

@@ -2,9 +2,13 @@ package view;
 
 import java.sql.Date;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.RichDialog;
 import oracle.adf.view.rich.component.rich.RichPopup;
 import oracle.adf.view.rich.component.rich.input.RichTextEditor;
+
+import oracle.binding.OperationBinding;
 
 public class NotesBean {
     private String title;
@@ -85,6 +89,9 @@ public class NotesBean {
     }
     
     public void closeDialog() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
         RichPopup rp = (RichPopup) component.getParent();
         rp.hide();
     }
