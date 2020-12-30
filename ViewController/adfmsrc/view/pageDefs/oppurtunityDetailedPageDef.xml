@@ -19,6 +19,7 @@
     <searchRegion Criteria="ProductsPerOppurtunitiesVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVOCriteriaQuery"/>
+    <iterator Binds="SalesTeamsVO4" RangeSize="25" DataControl="AppsModuleDataControl" id="SalesTeamsVO4Iterator"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
@@ -56,16 +57,6 @@
         <Item Value="WinProbability"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OppurtunityByID1Iterator" id="EstimatedDuration">
-      <AttrNames>
-        <Item Value="EstimatedDuration"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="OppurtunityByID1Iterator" id="ProductQuantity">
-      <AttrNames>
-        <Item Value="ProductQuantity"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OppurtunityByID1Iterator" id="DecisionLevel">
       <AttrNames>
         <Item Value="DecisionLevel"/>
@@ -89,6 +80,11 @@
     <attributeValues IterBinding="OppurtunityByID1Iterator" id="SalesChannel">
       <AttrNames>
         <Item Value="SalesChannel"/>
+      </AttrNames>
+    </attributeValues>
+        <attributeValues IterBinding="OppurtunityByID1Iterator" id="Attatchment">
+      <AttrNames>
+        <Item Value="Attatchment"/>
       </AttrNames>
     </attributeValues>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
@@ -224,5 +220,20 @@
         <Item Value="OpName"/>
       </AttrNames>
     </attributeValues>
+    <tree IterBinding="SalesTeamsVO4Iterator" id="SalesTeamsVO4">
+      <nodeDefinition DefName="model.VO.SalesTeamsVO" Name="SalesTeamsVO40">
+        <AttrNames>
+          <Item Value="EmployeeId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <action IterBinding="SalesTeamsVO4Iterator" id="Delete3" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <list IterBinding="SalesTeamsVO4Iterator" StaticList="false" Uses="LOV_EmployeeId" id="EmployeeId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="SalesTeamsVO4Iterator" id="CreateWithParams3" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="EmployeeId" NDValue="#{SalesTeamBean.empId}" NDType="java.lang.String"/>
+    </action>
   </bindings>
 </pageDefinition>

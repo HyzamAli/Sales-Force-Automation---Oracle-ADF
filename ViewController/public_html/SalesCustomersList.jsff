@@ -2,14 +2,6 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core">
   <af:panelGroupLayout id="pgl1" layout="vertical">
-    <af:toolbar id="t1" inlineStyle="padding-left:1240px;">
-      <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes" disabled="#{!bindings.Commit.enabled}"
-                 id="b1" partialTriggers="pc1:t3"/>
-      <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel" disabled="#{!bindings.Rollback.enabled}"
-                 immediate="true" id="b5" partialTriggers="pc1:t3">
-        <af:resetActionListener/>
-      </af:button>
-    </af:toolbar>
     <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="background-color:transparent;">
       <af:panelBox text="PanelBox1" id="pb2"
                    inlineStyle="margin-bottom:20px; margin-left:020px; margin-right:020px; margin-top:020px;"
@@ -25,7 +17,16 @@
       <af:panelBox text="Customers" id="pb1"
                    inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
                    showHeader="always" showDisclosure="false">
-        <f:facet name="toolbar"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t1" inlineStyle="padding-left:0px;">
+            <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                       disabled="#{!bindings.Commit.enabled}" id="b1" partialTriggers="pc1:t3"/>
+            <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                       disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" partialTriggers="pc1:t3">
+              <af:resetActionListener/>
+            </af:button>
+          </af:toolbar>
+        </f:facet>
         <af:panelCollection id="pc1"
                             inlineStyle="padding-bottom:20px; padding-left:100px; padding-right:20px; padding-top:20px;">
           <f:facet name="menus"/>

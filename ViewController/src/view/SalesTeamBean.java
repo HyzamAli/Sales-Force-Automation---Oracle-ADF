@@ -3,19 +3,19 @@ package view;
 import oracle.adf.view.rich.component.rich.RichDialog;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
-public class AttendeeBean {
-    private String employeeId;
+public class SalesTeamBean {
+    private String empId;
     private RichDialog component;
 
-    public AttendeeBean() {
+    public SalesTeamBean() {
     }
 
-    public void setEmployeeId(String employeeId) {
-        this.employeeId = employeeId;
+    public void setEmpId(String empId) {
+        this.empId = empId;
     }
 
-    public String getEmployeeId() {
-        return employeeId;
+    public String getEmpId() {
+        return empId;
     }
 
     public void setComponent(RichDialog component) {
@@ -28,6 +28,6 @@ public class AttendeeBean {
     
     public void closeDialog() {
         RichPopup rp = (RichPopup) component.getParent();
-        rp.hide();
+        rp.hide();        
     }
 }

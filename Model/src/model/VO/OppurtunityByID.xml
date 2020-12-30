@@ -360,6 +360,13 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Attatchment"
+    IsQueriable="false"
+    PrecisionRule="true"
+    EntityAttrName="Attatchment"
+    EntityUsage="OppurtunitieEO"
+    AliasName="ATTATCHMENT"/>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.NotesByOppurtunity"
@@ -373,6 +380,11 @@
   <ViewLinkAccessor
     Name="ProductsPerOppurtunitiesVO"
     ViewLink="model.VO.ProductsByOppurtunity"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="SalesTeamsVO"
+    ViewLink="model.VO.SalesTeamByOpID"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
   <ResourceBundle>

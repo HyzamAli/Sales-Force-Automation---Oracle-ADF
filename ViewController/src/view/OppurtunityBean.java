@@ -1,8 +1,13 @@
 package view;
 
+import java.sql.Blob;
 import java.sql.Date;
 
 import java.util.Calendar;
+
+import oracle.adf.view.rich.component.rich.input.RichInputFile;
+
+import org.apache.myfaces.trinidad.model.UploadedFile;
 
 public class OppurtunityBean {
     private String customerId;
@@ -23,6 +28,8 @@ public class OppurtunityBean {
     private String managerId;
     private String revenueQuarter;
     private String opName;
+    private UploadedFile file;
+    private RichInputFile richFile;
 
 
     public OppurtunityBean() {
@@ -183,5 +190,21 @@ public class OppurtunityBean {
 
     public String getOpName() {
         return opName;
+    }
+
+    public void setFile(UploadedFile file) {
+        this.file = file;
+    }
+
+    public UploadedFile getFile() {
+        return file;
+    }
+
+    public void setRichFile(RichInputFile richFile) {
+        this.richFile = richFile;
+    }
+
+    public RichInputFile getRichFile() {
+        return richFile;
     }
 }

@@ -40,6 +40,11 @@
       <managed-bean-class>view.AttendeeCustomerBean</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__16">
+      <managed-bean-name>SalesTeamBean</managed-bean-name>
+      <managed-bean-class>view.SalesTeamBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <view id="SalesCustomersList">
       <page>/SalesCustomersList.jsff</page>
     </view>

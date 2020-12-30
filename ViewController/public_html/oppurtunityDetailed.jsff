@@ -13,7 +13,16 @@
                          disclosed="true" inlineStyle="margin-left:0px; margin-right:0px; margin-top:0px;">
         <af:panelGroupLayout layout="vertical" id="pgl6">
           <af:panelBox text="Overview" id="pb1" showDisclosure="false" icon="#{resource['images:document.png']}">
-            <f:facet name="toolbar"/>
+            <f:facet name="toolbar">
+              <af:toolbar id="t8" inlineStyle="padding-left:0px;">
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                           disabled="#{!bindings.Commit.enabled}" id="b12" partialTriggers="pfl1"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b13" partialTriggers="pfl1">
+                  <af:resetActionListener/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
             <af:panelFormLayout id="pfl1">
               <af:inputText value="#{bindings.OpName.inputValue}" label="#{bindings.OpName.hints.label}"
                             required="#{bindings.OpName.hints.mandatory}"
@@ -88,24 +97,6 @@
                 <f:validator binding="#{bindings.WinProbability.validator}"/>
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
               </af:inputText>
-              <af:inputText value="#{bindings.EstimatedDuration.inputValue}"
-                            label="#{bindings.EstimatedDuration.hints.label}"
-                            required="#{bindings.EstimatedDuration.hints.mandatory}"
-                            columns="#{bindings.EstimatedDuration.hints.displayWidth}"
-                            maximumLength="#{bindings.EstimatedDuration.hints.precision}"
-                            shortDesc="#{bindings.EstimatedDuration.hints.tooltip}" id="it9">
-                <f:validator binding="#{bindings.EstimatedDuration.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.EstimatedDuration.format}"/>
-              </af:inputText>
-              <af:inputText value="#{bindings.ProductQuantity.inputValue}"
-                            label="#{bindings.ProductQuantity.hints.label}"
-                            required="#{bindings.ProductQuantity.hints.mandatory}"
-                            columns="#{bindings.ProductQuantity.hints.displayWidth}"
-                            maximumLength="#{bindings.ProductQuantity.hints.precision}"
-                            shortDesc="#{bindings.ProductQuantity.hints.tooltip}" id="it10">
-                <f:validator binding="#{bindings.ProductQuantity.validator}"/>
-                <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity.format}"/>
-              </af:inputText>
               <af:selectOneChoice value="#{bindings.SaleStage.inputValue}" label="#{bindings.SaleStage.hints.label}"
                                   required="#{bindings.SaleStage.hints.mandatory}"
                                   shortDesc="#{bindings.SaleStage.hints.tooltip}" id="soc1">
@@ -152,8 +143,13 @@
                 <af:selectItem label="Manager" value="Manager" id="si22"/>
                 <af:selectItem label="Buyer" value="Buyer" id="si23"/>
               </af:selectOneChoice>
+              <af:inputFile label="Add Attatchment" id="if1" 
+                            uploadType="manual" binding="#{OppurtunityBean.richFile}"/>
               <f:facet name="footer">
-                <af:button text="Submit" id="b1"/>
+                <af:button text="Submit" id="b1">
+                  <af:setActionListener from="#{OppurtunityBean.file}"
+                                        to="#{bindings.Attatchment.inputValue}"/>
+                </af:button>
               </f:facet>
             </af:panelFormLayout>
           </af:panelBox>
@@ -173,14 +169,6 @@
           <af:spacer id="s6" height="35px"/>
           <af:panelBox text="Products" id="pb4" showDisclosure="false">
             <f:facet name="toolbar"/>
-            <af:toolbar id="t8" inlineStyle="padding-left:0px;">
-              <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                         disabled="#{!bindings.Commit.enabled}" id="b12" partialTriggers="pfl1"/>
-              <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b13" partialTriggers="pfl1">
-                <af:resetActionListener/>
-              </af:button>
-            </af:toolbar>
             <af:panelCollection id="pc3"
                                 inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
               <f:facet name="menus"/>
@@ -641,6 +629,64 @@
                     <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
                     <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
                   </af:inputText>
+                </af:panelFormLayout>
+              </af:dialog>
+            </af:popup>
+          </af:panelBox>
+        </af:panelGroupLayout>
+      </af:showDetailItem>
+      <af:showDetailItem id="sdi1" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}" text="Tasks">
+        <af:panelGroupLayout layout="vertical" id="pgl2">
+          <af:panelBox id="pb9" showHeader="ifNeeded" showDisclosure="false" text="Sales Team">
+            <f:facet name="toolbar">
+              <af:toolbar id="t12">
+                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+                           disabled="#{!bindings.Commit.enabled}" id="b20"/>
+                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b21">
+                  <af:resetActionListener/>
+                </af:button>
+              </af:toolbar>
+            </f:facet>
+            <af:panelCollection id="pc4">
+              <f:facet name="menus"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t11">
+                  <af:button text="Add" id="b17"/>
+                  <af:button actionListener="#{bindings.Delete3.execute}" text="Delete"
+                             disabled="#{!bindings.Delete3.enabled}" id="b18"/>
+                </af:toolbar>
+              </f:facet>
+              <f:facet name="statusbar"/>
+              <af:table value="#{bindings.SalesTeamsVO4.collectionModel}" var="row"
+                        rows="#{bindings.SalesTeamsVO4.rangeSize}"
+                        emptyText="#{bindings.SalesTeamsVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
+                        rowBandingInterval="0" fetchSize="#{bindings.SalesTeamsVO4.rangeSize}" id="t10"
+                        columnStretching="last" summary="summary" partialTriggers="::b18 :::b19">
+                <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true">
+                  <af:selectOneChoice id="sc1" value="#{row.bindings.EmployeeId.inputValue}"
+                                      label="#{row.bindings.EmployeeId.label}"
+                                      required="#{bindings.SalesTeamsVO4.hints.EmployeeId.mandatory}"
+                                      shortDesc="#{bindings.SalesTeamsVO4.hints.EmployeeId.tooltip}" readOnly="true">
+                    <f:selectItems id="si111" value="#{row.bindings.EmployeeId.items}"/>
+                    <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
+                  </af:selectOneChoice>
+                </af:column>
+              </af:table>
+            </af:panelCollection>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p6">
+              <af:dialog id="d6" title="Add Employee to Team" binding="#{SalesTeamBean.component}" type="cancel">
+                <f:facet name="buttonBar">
+                  <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Add" action="#{SalesTeamBean.closeDialog}"
+                             disabled="#{!bindings.CreateWithParams3.enabled}" id="b19"/>
+                </f:facet>
+                <af:panelFormLayout id="pfl7">
+                  <af:selectOneChoice value="#{SalesTeamBean.empId}" label="#{bindings.EmployeeId.label}"
+                                      required="#{bindings.EmployeeId.hints.mandatory}"
+                                      shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="soc14">
+                    <f:selectItems value="#{bindings.EmployeeId.items}" id="si28"/>
+                    <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                  </af:selectOneChoice>
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>

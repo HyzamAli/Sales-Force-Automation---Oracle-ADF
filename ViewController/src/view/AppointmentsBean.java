@@ -2,6 +2,9 @@ package view;
 
 import java.sql.Date;
 
+import oracle.adf.view.rich.component.rich.RichDialog;
+import oracle.adf.view.rich.component.rich.RichPopup;
+
 public class AppointmentsBean {
     private String name;
     private String description;
@@ -12,6 +15,7 @@ public class AppointmentsBean {
     private String type;
     private String direction;
     private String contactID;
+    private RichDialog component;
 
     public AppointmentsBean() {
     }
@@ -86,5 +90,18 @@ public class AppointmentsBean {
 
     public String getContactID() {
         return contactID;
+    }
+    
+    public void setComponent(RichDialog component) {
+        this.component = component;
+    }
+
+    public RichDialog getComponent() {
+        return component;
+    }
+    
+    public void closeDialog() {
+        RichPopup rp = (RichPopup) component.getParent();
+        rp.hide();
     }
 }

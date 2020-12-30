@@ -243,6 +243,14 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="Attatchment"
+    IsQueriable="false"
+    ColumnName="ATTATCHMENT"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="OPPURTUNITIES"/>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011001Assoc"
