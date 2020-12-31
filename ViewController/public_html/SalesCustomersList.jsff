@@ -35,8 +35,10 @@
               <af:button text="Create Customer" id="b3">
                 <af:showPopupBehavior popupId="::p1"/>
               </af:button>
-              <af:button text="Delete " id="b2" actionListener="#{bindings.Delete.execute}"
-                         disabled="#{!bindings.Delete.enabled}"/>
+              <af:button text="Delete " id="b2" 
+                         disabled="#{!bindings.Delete.enabled}">
+                <af:showPopupBehavior popupId="::p3"/>
+              </af:button>
             </af:toolbar>
           </f:facet>
           <f:facet name="statusbar"/>
@@ -154,5 +156,15 @@
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>
+    <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+                                <af:dialog id="d4" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot1" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b6"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
   </af:panelGroupLayout>
 </ui:composition>
