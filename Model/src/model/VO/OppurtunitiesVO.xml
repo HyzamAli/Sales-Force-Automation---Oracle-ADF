@@ -185,6 +185,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.WinProbability_LABEL"/>
+        <DISPLAYWIDTH
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
