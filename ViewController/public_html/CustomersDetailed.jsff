@@ -155,7 +155,7 @@
                         selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
                         columnStretching="last" summary="Customer Notes List"
-                        partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34"
+                        partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36"
                         width="1000">
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
                            rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200"
@@ -841,8 +841,10 @@
                     <af:button text="Add Employee" id="b24">
                       <af:showPopupBehavior popupId="::p8"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Delete3.execute}" text="Remove"
-                               disabled="#{!bindings.Delete3.enabled}" id="b25"/>
+                    <af:button text="Remove"
+                               disabled="#{!bindings.Delete3.enabled}" id="b25">
+                      <af:showPopupBehavior popupId="::p15"/>
+                    </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -876,8 +878,10 @@
                     <af:button text="Add Contact" id="b28">
                       <af:showPopupBehavior popupId="::p10"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Delete5.execute}" text="Remove"
-                               disabled="#{!bindings.Delete5.enabled}" id="b29"/>
+                    <af:button text="Remove"
+                               disabled="#{!bindings.Delete5.enabled}" id="b29">
+                      <af:showPopupBehavior popupId="::p16"/>
+                    </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -901,6 +905,26 @@
                   </af:column>
                 </af:table>
               </af:panelCollection>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p15">
+                                <af:dialog id="d15" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot21" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete3.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete3.enabled}" id="b35"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p16">
+                                <af:dialog id="d16" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot22" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete5.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete5.enabled}" id="b36"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
             </af:panelBox>
           </af:panelDashboard>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p8" partialTriggers="b23">
