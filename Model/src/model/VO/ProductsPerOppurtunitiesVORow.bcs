@@ -1,0 +1,12 @@
+//Groovy Scripts for model.VO.ProductsPerOppurtunitiesVO
+
+package model.VO
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="ProductPrice")
+def ProductPrice_ExpressionScript_Expression()
+{
+ProductsVO1.ProductPrice
+}
+

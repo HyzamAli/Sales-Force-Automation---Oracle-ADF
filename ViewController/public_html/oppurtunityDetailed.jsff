@@ -157,15 +157,102 @@
           <af:outputText value="Products" id="ot6"
                          inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
           <af:spacer id="s4" height="20px"/>
-          <af:panelBox text="PanelBox3" id="pb7" showHeader="never" showDisclosure="false">
-            <f:facet name="toolbar"/>
-            <af:query id="qryId3" headerText="Search" disclosed="true"
-                      value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
-                      model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
-                      queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
-                      queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
-          </af:panelBox>
+          <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
+            <af:panelBox text="PanelBox3" id="pb7" showHeader="never" showDisclosure="false">
+              <f:facet name="toolbar"/>
+              <af:query id="qryId3" headerText="Search" disclosed="true"
+                        value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
+                        model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
+                        queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
+                        queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
+                        inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+            </af:panelBox>
+            <af:panelBox text="Products" id="pb4" showDisclosure="false">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc3"
+                                  inlineStyle="padding-bottom:010px; padding-right:010px; padding-top:010px; padding-left:50px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t9">
+                    <af:button text="Add Products" id="b15">
+                      <af:showPopupBehavior popupId="::p3"/>
+                    </af:button>
+                    <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
+                               disabled="#{!bindings.Delete2.enabled}" id="b16"/>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel}" var="row"
+                          rows="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}"
+                          emptyText="#{bindings.ProductsPerOppurtunitiesVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
+                          summary="products by oppurtunity list" columnStretching="last" partialTriggers=":::b14 ::b16"
+                          width="500">
+                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
+                             rowHeader="true" width="200" align="left">
+                    <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
+                    <af:selectOneChoice value="#{row.bindings.ProductId.inputValue}"
+                                        label="#{row.bindings.ProductId.label}"
+                                        required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.mandatory}"
+                                        shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.tooltip}"
+                                        readOnly="true" id="soc13">
+                      <f:selectItems value="#{row.bindings.ProductId.items}" id="si27"/>
+                      <f:validator binding="#{row.bindings.ProductId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.label}" id="c14"
+                             width="150">
+                    <af:outputText value="#{row.ProductQuantity}"
+                                   shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.tooltip}"
+                                   id="ot5">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c2">
+                    <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
+                                  label="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}"
+                                  required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.mandatory}"
+                                  columns="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.displayWidth}"
+                                  maximumLength="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.precision}"
+                                  shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.tooltip}"
+                                  id="it9">
+                      <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.format}"/>
+                    </af:inputText>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b14">
+                <af:dialog id="d3" title="Add Product to Oppurtunity" type="cancel">
+                  <f:facet name="buttonBar">
+                    <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create"
+                               disabled="#{!bindings.CreateWithParams2.enabled}" id="b14"/>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl4">
+                    <af:selectOneChoice value="#{ProductsOpBean.prodId}" label="#{bindings.ProductId.label}"
+                                        required="#{bindings.ProductId.hints.mandatory}"
+                                        shortDesc="#{bindings.ProductId.hints.tooltip}" id="soc20">
+                      <f:selectItems value="#{bindings.ProductId.items}" id="si34"/>
+                      <f:validator binding="#{bindings.ProductId.validator}"/>
+                    </af:selectOneChoice>
+                    <af:inputText value="#{ProductsOpBean.quantity}" label="#{bindings.ProductQuantity1.hints.label}"
+                                  required="#{bindings.ProductQuantity1.hints.mandatory}"
+                                  columns="#{bindings.ProductQuantity1.hints.displayWidth}"
+                                  maximumLength="#{bindings.ProductQuantity1.hints.precision}"
+                                  shortDesc="#{bindings.ProductQuantity1.hints.tooltip}" id="it11">
+                      <f:validator binding="#{bindings.ProductQuantity1.validator}"/>
+                      <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity1.format}"/>
+                    </af:inputText>
+                  </af:panelFormLayout>
+                </af:dialog>
+              </af:popup>
+            </af:panelBox>
+          </af:panelDashboard>
           <af:spacer id="s6" height="35px"/>
           <af:panelBox text="Products" id="pb4" showDisclosure="false">
             <f:facet name="toolbar"/>

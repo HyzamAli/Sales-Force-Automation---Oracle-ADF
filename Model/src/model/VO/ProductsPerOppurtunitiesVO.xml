@@ -6,14 +6,14 @@
   Name="ProductsPerOppurtunitiesVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT"
   SelectListFlags="1"
   FromListFlags="1"
   WhereFlags="1"
-  BindingStyle="OracleName"
-  CustomQuery="false"
-  SelectAllAttributes="false"
-  PageIterMode="Full"
-  AccessMode="DEFAULT">
+  SelectAllAttributes="false">
   <Variable
     Name="p"
     Kind="viewcriteria"
@@ -30,6 +30,10 @@
     Name="ProductsVO1"
     ViewObjectName="model.VO.ProductsVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductCategoriesVO1"
+    ViewObjectName="model.VO.ProductCategoriesVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ProductId12"
     ListVOName="ProductsVO1"
@@ -44,23 +48,6 @@
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="ProductName"/>
-    </AttrArray>
-    <DisplayCriteria/>
-  </ListBinding>
-  <ListBinding
-    Name="LOV_ProductCategory"
-    ListVOName="ProductsVO1"
-    NullValueFlag="none"
-    MRUCount="0">
-    <AttrArray Name="AttrNames">
-      <Item Value="ProductCategory"/>
-    </AttrArray>
-    <AttrArray Name="AttrExpressions"/>
-    <AttrArray Name="ListAttrNames">
-      <Item Value="ProductCategory"/>
-    </AttrArray>
-    <AttrArray Name="ListDisplayAttrNames">
-      <Item Value="ProductCategory"/>
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
@@ -118,35 +105,22 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ProductCategory"
-    PrecisionRule="true"
-    EntityAttrName="ProductCategory"
-    EntityUsage="ProductsPerOppurtunityEO"
-    AliasName="PRODUCT_CATEGORY"
-    LOVName="LOV_ProductCategory">
-    <Properties>
-      <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
-        <LABEL
-          ResId="model.VO.ProductsPerOppurtunitiesVO.ProductCategory_LABEL"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="ProductPrice"
     IsUpdateable="false"
     IsPersistent="false"
     PrecisionRule="true"
-    Precision="255"
     Type="java.math.BigDecimal"
-    ColumnType="VARCHAR2"
+    ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="VARCHAR">
+    SQLType="NUMERIC"
+    IsQueriable="false">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="ProductsPerOppurtunitiesVORow"/>
     <Dependencies>
       <Item
-        Value="ProductQuantity"
-        Type="notify"/>
+        Value="ProductQuantity"/>
     </Dependencies>
   </ViewAttribute>
   <ViewCriteria
@@ -181,14 +155,6 @@
         Operator="="
         Conjunction="AND"
         Value=":p"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ProductCategory"
-        ViewAttribute="ProductCategory"
-        Operator="="
-        Conjunction="AND"
-        Value=":i"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

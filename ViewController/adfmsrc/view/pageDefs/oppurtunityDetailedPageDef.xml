@@ -204,14 +204,11 @@
         <Item Value="ProductQuantity"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="ProductsPerOppurtunitiesVO4Iterator" StaticList="false" Uses="LOV_ProductCategory"
-          id="ProductCategory" DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="CreateWithParams2" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="ProductId" NDValue="#{ProductsOpBean.prodId}" NDType="java.lang.String"/>
       <NamedData NDName="ProductQuantity" NDValue="#{ProductsOpBean.quantity}" NDType="java.lang.String"/>
-      <NamedData NDName="ProductCategory" NDValue="#{ProductsOpBean.category}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
