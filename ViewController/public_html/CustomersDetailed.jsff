@@ -226,7 +226,7 @@
               </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p5" partialTriggers="pc2:t4">
-              <af:dialog id="d4" title="Edit Contact">
+              <af:dialog id="d4" title="Edit Contact" dialogListener="#{DialogHandler.onUpdate}">
                 <f:facet name="buttonBar"/>
                 <af:panelFormLayout id="pfl5">
                   <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
@@ -360,7 +360,7 @@
             <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note" action="#{NotesBean.closeDialog}"
-                           disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
+                           disabled="#{!bindings.CreateWithParams.enabled}" id="b37"/>
               </f:facet>
               <af:panelFormLayout id="pfl2">
                 <af:inputText value="#{NotesBean.title}" label="#{bindings.NotesTitle.hints.label}"
@@ -401,7 +401,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t5">
-            <af:dialog id="d5" title="Edit Notes">
+            <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl6">
                 <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -601,7 +601,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="pc3:t1">
-            <af:dialog id="d6" title="Edit Task">
+            <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl7">
                 <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
@@ -944,7 +944,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p9" partialTriggers="pc4:t3">
-            <af:dialog id="d9" title="Edit Appointment">
+            <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl10">
                 <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"

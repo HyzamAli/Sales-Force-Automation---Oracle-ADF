@@ -212,7 +212,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t1">
-            <af:dialog id="d1" title="Edit Note">
+            <af:dialog id="d1" title="Edit Note" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl2">
                 <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -299,7 +299,7 @@
                   <af:button text="Add Task" id="b11">
                     <af:showPopupBehavior popupId="::p4"/>
                   </af:button>
-                  <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                  <af:button  text="Delete"
                              disabled="#{!bindings.Delete.enabled}" id="b2">
                     <af:showPopupBehavior popupId="::p6"/>
                   </af:button>
@@ -366,7 +366,7 @@
             </af:panelCollection>
           </af:panelBox>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p4" partialTriggers="b9">
-            <af:dialog id="d4" title="Create Task" type="cancel" binding="#{TasksBean.component}">
+            <af:dialog id="d6" title="Create Task" type="cancel" binding="#{TasksBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Task"
                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b9" action="#{TasksBean.closeDialog}"/>
@@ -417,7 +417,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pc2:t2">
-            <af:dialog id="d2" title="Edit Task">
+            <af:dialog id="d2" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl3">
                 <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
