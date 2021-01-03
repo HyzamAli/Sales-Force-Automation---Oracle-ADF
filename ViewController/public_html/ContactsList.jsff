@@ -15,6 +15,15 @@
     <af:panelBox id="pb1" text="Contacts"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"
                  showDisclosure="false">
+      <af:popup childCreation="deferred" autoCancel="disabled" id="po3">
+        <af:dialog id="d4" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+          <af:outputText value="Confirm Action" id="ot4" inlineStyle="margin-right:50px;"/>
+          <f:facet name="buttonBar">
+            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                       action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b6"/>
+          </f:facet>
+        </af:dialog>
+      </af:popup>
       <f:facet name="toolbar">
         <af:toolbar id="t3" inlineStyle="padding-left:0px;">
           <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
@@ -34,8 +43,11 @@
             <af:button text="Add Contact" id="b1">
               <af:showPopupBehavior popupId="p1"/>
             </af:button>
-            <af:button actionListener="#{bindings.Delete.execute}" text="Delete" disabled="#{!bindings.Delete.enabled}"
-                       id="b3"/>
+            <af:button  text="Delete" disabled="#{!bindings.Delete.enabled}"
+                       id="b3">
+              <af:showPopupBehavior popupId="::po3"/>
+    
+            </af:button>
           </af:toolbar>
         </f:facet>
         <f:facet name="statusbar"/>
@@ -45,7 +57,7 @@
                   rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerContactsVO1.collectionModel.selectedRow}"
                   selectionListener="#{bindings.CustomerContactsVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1" columnStretching="last"
-                  summary="Contacts list" partialTriggers="::b2 ::b3" width="1000">
+                  summary="Contacts list" partialTriggers="::b2 ::b3 :::b6" width="1000">
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true"
                      width="300" align="left">
             <af:link id="l1" action="toDetailed">
