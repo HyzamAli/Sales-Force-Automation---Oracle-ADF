@@ -140,8 +140,10 @@
                   <af:button text="Create Contact" id="b9">
                     <af:showPopupBehavior popupId="::p3"/>
                   </af:button>
-                  <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                             disabled="#{!bindings.Delete.enabled}" id="b16"/>
+                  <af:button  text="Delete"
+                             disabled="#{!bindings.Delete.enabled}" id="b16">
+                    <af:showPopupBehavior popupId="::p11"/>
+                  </af:button>
                 </af:toolbar>
               </f:facet>
               <f:facet name="statusbar"/>
@@ -152,7 +154,8 @@
                         selectedRowKeys="#{bindings.CustomerContactsVO3.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
-                        columnStretching="last" summary="Customer Notes List" partialTriggers=":::b8 ::b16"
+                        columnStretching="last" summary="Customer Notes List"
+                        partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36"
                         width="1000">
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
                            rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200"
@@ -223,7 +226,7 @@
               </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p5" partialTriggers="pc2:t4">
-              <af:dialog id="d4" title="Edit Contact">
+              <af:dialog id="d4" title="Edit Contact" dialogListener="#{DialogHandler.onUpdate}">
                 <f:facet name="buttonBar"/>
                 <af:panelFormLayout id="pfl5">
                   <af:inputText value="#{bindings.ContactName.inputValue}" label="#{bindings.ContactName.hints.label}"
@@ -261,6 +264,16 @@
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
+                                <af:dialog id="d11" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot9" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete.enabled}" id="b4"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
           </af:panelBox>
         </af:panelGroupLayout>
       </af:showDetailItem>
@@ -299,8 +312,10 @@
                   <af:button text="Create" id="b7">
                     <af:showPopupBehavior popupId="::p2"/>
                   </af:button>
-                  <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
-                             disabled="#{!bindings.Delete1.enabled}" id="b17"/>
+                  <af:button text="Delete"
+                             disabled="#{!bindings.Delete1.enabled}" id="b17">
+                    <af:showPopupBehavior popupId="::p12"/>
+                  </af:button>
                 </af:toolbar>
               </f:facet>
               <f:facet name="statusbar"/>
@@ -345,7 +360,7 @@
             <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
               <f:facet name="buttonBar">
                 <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note" action="#{NotesBean.closeDialog}"
-                           disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
+                           disabled="#{!bindings.CreateWithParams.enabled}" id="b37"/>
               </f:facet>
               <af:panelFormLayout id="pfl2">
                 <af:inputText value="#{NotesBean.title}" label="#{bindings.NotesTitle.hints.label}"
@@ -386,7 +401,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t5">
-            <af:dialog id="d5" title="Edit Notes">
+            <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl6">
                 <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -419,6 +434,16 @@
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p12">
+                                <af:dialog id="d12" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot14" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete1.enabled}" id="b32"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
         </af:panelGroupLayout>
       </af:showDetailItem>
       <af:showDetailItem id="dr4" shortDesc="Task" icon="#{resource['images:paper-list-2.png']}">
@@ -465,8 +490,10 @@
                   <af:button text="Create" id="b15">
                     <af:showPopupBehavior popupId="::p4"/>
                   </af:button>
-                  <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
-                             disabled="#{!bindings.Delete2.enabled}" id="b18"/>
+                  <af:button text="Delete"
+                             disabled="#{!bindings.Delete2.enabled}" id="b18">
+                    <af:showPopupBehavior popupId="::p13"/>
+                  </af:button>
                 </af:toolbar>
               </f:facet>
               <f:facet name="statusbar"/>
@@ -574,7 +601,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="pc3:t1">
-            <af:dialog id="d6" title="Edit Task">
+            <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl7">
                 <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
@@ -621,6 +648,16 @@
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
+          <af:popup childCreation="deferred" autoCancel="disabled" id="p13">
+                                <af:dialog id="d13" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot17" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete2.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete2.enabled}" id="b33"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
         </af:panelGroupLayout>
       </af:showDetailItem>
       <af:showDetailItem id="dr5" shortDesc="Appointments" icon="#{resource['images:calendar.png']}">
@@ -659,8 +696,10 @@
                     <af:button text="Create" id="b5">
                       <af:showPopupBehavior popupId="p7"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Delete4.execute}" text="Delete"
-                               disabled="#{!bindings.Delete4.enabled}" id="b6"/>
+                    <af:button text="Delete"
+                               disabled="#{!bindings.Delete4.enabled}" id="b6">
+                      <af:showPopupBehavior popupId="::p14"/>
+                    </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -777,6 +816,16 @@
                   </af:dialog>
                 </af:popup>
               </af:panelCollection>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p14">
+                                <af:dialog id="d14" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot20" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete4.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete4.enabled}" id="b34"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
               <af:spacer id="s9" height="35px"/>
               <af:spacer id="s10" height="35px"/>
             </af:panelBox>
@@ -792,8 +841,10 @@
                     <af:button text="Add Employee" id="b24">
                       <af:showPopupBehavior popupId="::p8"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Delete3.execute}" text="Remove"
-                               disabled="#{!bindings.Delete3.enabled}" id="b25"/>
+                    <af:button text="Remove"
+                               disabled="#{!bindings.Delete3.enabled}" id="b25">
+                      <af:showPopupBehavior popupId="::p15"/>
+                    </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -827,8 +878,10 @@
                     <af:button text="Add Contact" id="b28">
                       <af:showPopupBehavior popupId="::p10"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Delete5.execute}" text="Remove"
-                               disabled="#{!bindings.Delete5.enabled}" id="b29"/>
+                    <af:button text="Remove"
+                               disabled="#{!bindings.Delete5.enabled}" id="b29">
+                      <af:showPopupBehavior popupId="::p16"/>
+                    </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -852,6 +905,26 @@
                   </af:column>
                 </af:table>
               </af:panelCollection>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p15">
+                                <af:dialog id="d15" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot21" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete3.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete3.enabled}" id="b35"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p16">
+                                <af:dialog id="d16" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                           
+                                    <af:outputText value="Confirm Action" id="ot22" inlineStyle="margin-right:50px;"/>
+                                    <f:facet name="buttonBar">
+                                        <af:button actionListener="#{bindings.Delete5.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                                   disabled="#{!bindings.Delete5.enabled}" id="b36"/>
+                                    </f:facet>
+                                </af:dialog>
+                            </af:popup>
             </af:panelBox>
           </af:panelDashboard>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p8" partialTriggers="b23">
@@ -871,7 +944,7 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p9" partialTriggers="pc4:t3">
-            <af:dialog id="d9" title="Edit Appointment">
+            <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl10">
                 <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"
