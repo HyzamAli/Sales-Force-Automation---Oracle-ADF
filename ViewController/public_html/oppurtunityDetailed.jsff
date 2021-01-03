@@ -212,14 +212,18 @@
                                         pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c12"
-                             width="150">
-                    <af:outputText value="#{row.ProductPrice}"
-                                   shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.tooltip}"
-                                   id="ot7">
+                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c2">
+                    <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
+                                  label="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}"
+                                  required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.mandatory}"
+                                  columns="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.displayWidth}"
+                                  maximumLength="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.precision}"
+                                  shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.tooltip}"
+                                  id="it9">
+                      <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.format}"/>
-                    </af:outputText>
+                    </af:inputText>
                   </af:column>
                 </af:table>
               </af:panelCollection>
