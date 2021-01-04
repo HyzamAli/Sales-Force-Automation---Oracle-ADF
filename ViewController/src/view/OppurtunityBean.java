@@ -1,9 +1,20 @@
 package view;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+
+import java.io.InputStream;
+
+import java.io.InputStreamReader;
+
 import java.sql.Blob;
 import java.sql.Date;
 
 import java.util.Calendar;
+
+import javax.faces.application.FacesMessage;
+
+import javax.faces.context.FacesContext;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
@@ -32,9 +43,6 @@ public class OppurtunityBean {
     private String managerId;
     private String revenueQuarter;
     private String opName;
-    private UploadedFile file;
-    private RichInputFile richFile;
-
 
     public OppurtunityBean() {
     }
@@ -194,22 +202,6 @@ public class OppurtunityBean {
 
     public String getOpName() {
         return opName;
-    }
-
-    public void setFile(UploadedFile file) {
-        this.file = file;
-    }
-
-    public UploadedFile getFile() {
-        return file;
-    }
-
-    public void setRichFile(RichInputFile richFile) {
-        this.richFile = richFile;
-    }
-
-    public RichInputFile getRichFile() {
-        return richFile;
     }
     
     public String commitData() {

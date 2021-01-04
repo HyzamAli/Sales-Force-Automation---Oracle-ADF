@@ -387,6 +387,11 @@
     ViewLink="model.VO.SalesTeamByOpID"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="FilesVO"
+    ViewLink="model.VO.FilesByOpID"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

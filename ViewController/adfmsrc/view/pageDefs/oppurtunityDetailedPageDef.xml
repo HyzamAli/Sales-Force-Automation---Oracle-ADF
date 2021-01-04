@@ -20,6 +20,7 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVOCriteriaQuery"/>
     <iterator Binds="SalesTeamsVO4" RangeSize="25" DataControl="AppsModuleDataControl" id="SalesTeamsVO4Iterator"/>
+    <iterator Binds="FilesVO2" RangeSize="25" DataControl="AppsModuleDataControl" id="FilesVO2Iterator"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
@@ -232,5 +233,15 @@
     </action>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <action IterBinding="FilesVO2Iterator" id="CreateInsert" RequiresUpdateModel="true" Action="createInsertRow"/>
+    <tree IterBinding="FilesVO2Iterator" id="FilesVO2">
+      <nodeDefinition DefName="model.VO.FilesVO" Name="FilesVO20">
+        <AttrNames>
+          <Item Value="FileName"/>
+          <Item Value="FileContent"/>
+          <Item Value="OppId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

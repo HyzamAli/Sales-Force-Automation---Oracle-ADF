@@ -14,11 +14,11 @@
         <af:panelGroupLayout layout="vertical" id="pgl6">
           <af:panelBox text="Overview" id="pb1" showDisclosure="false" icon="#{resource['images:document.png']}">
             <f:facet name="toolbar">
-              <af:toolbar id="t1" rendered="false">
+              <af:toolbar id="t1" rendered="true">
                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                           disabled="#{!bindings.Commit.enabled}" id="b2"/>
+                           disabled="#{!bindings.Commit.enabled}" id="b2" rendered="false"/>
                 <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3">
+                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b3" rendered="false">
                   <af:resetActionListener/>
                 </af:button>
               </af:toolbar>
@@ -143,12 +143,8 @@
                 <af:selectItem label="Manager" value="Manager" id="si22"/>
                 <af:selectItem label="Buyer" value="Buyer" id="si23"/>
               </af:selectOneChoice>
-              <af:inputFile label="Add Attatchment" id="if1" 
-                            uploadType="manual" binding="#{OppurtunityBean.richFile}"/>
               <f:facet name="footer">
                 <af:button text="Submit" id="b1" action="#{OppurtunityBean.commitData}">
-                  <af:setActionListener from="#{OppurtunityBean.file}"
-                                        to="#{bindings.Attatchment.inputValue}"/>
                 </af:button>
               </f:facet>
             </af:panelFormLayout>
@@ -158,75 +154,103 @@
                          inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
           <af:spacer id="s4" height="20px"/>
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
-            <af:panelBox text="PanelBox3" id="pb7" showHeader="never" showDisclosure="false">
+            <af:panelBox text="Attatchments" id="pb10" showDisclosure="false">
               <f:facet name="toolbar"/>
-              <af:query id="qryId3" headerText="Search" disclosed="true"
-                        value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
-                        model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
-                        queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
-                        queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
-                        inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
-            </af:panelBox>
-            <af:panelBox text="Products" id="pb4" showDisclosure="false">
-              <f:facet name="toolbar"/>
-              <af:panelCollection id="pc3"
-                                  inlineStyle="padding-bottom:010px; padding-right:010px; padding-top:010px; padding-left:50px;">
+              <af:panelCollection id="pc5">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
-                  <af:toolbar id="t9">
-                    <af:button text="Add Products" id="b15">
-                      <af:showPopupBehavior popupId="::p3"/>
+                  <af:toolbar id="t8">
+                    <af:button text="Add File" id="b7">
+                      <af:showPopupBehavior popupId="::p10"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
-                               disabled="#{!bindings.Delete2.enabled}" id="b16"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
-                <af:table value="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel}" var="row"
-                          rows="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}"
-                          emptyText="#{bindings.ProductsPerOppurtunitiesVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
-                          summary="products by oppurtunity list" columnStretching="last" partialTriggers=":::b14 ::b16"
-                          width="500">
-                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
-                             rowHeader="true" width="200" align="left">
-                    <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
-                    <af:selectOneChoice value="#{row.bindings.ProductId.inputValue}"
-                                        label="#{row.bindings.ProductId.label}"
-                                        required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.mandatory}"
-                                        shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.tooltip}"
-                                        readOnly="true" id="soc13">
-                      <f:selectItems value="#{row.bindings.ProductId.items}" id="si27"/>
-                      <f:validator binding="#{row.bindings.ProductId.validator}"/>
-                    </af:selectOneChoice>
+                <af:table value="#{bindings.FilesVO2.collectionModel}" var="row" rows="#{bindings.FilesVO2.rangeSize}"
+                          emptyText="#{bindings.FilesVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
+                          summary="list"
+                          fetchSize="#{bindings.FilesVO2.rangeSize}" id="t6" partialTriggers=":::b8">
+                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c3" rowHeader="true">
+                    <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
+                                   id="ot10"/>
                   </af:column>
-                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.label}" id="c14"
-                             width="150">
-                    <af:outputText value="#{row.ProductQuantity}"
-                                   shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.tooltip}"
-                                   id="ot5">
-                      <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.format}"/>
-                    </af:outputText>
-                  </af:column>
-                  <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c2">
-                    <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
-                                  label="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}"
-                                  required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.mandatory}"
-                                  columns="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.displayWidth}"
-                                  maximumLength="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.precision}"
-                                  shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.tooltip}"
-                                  id="it9">
-                      <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
-                      <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.format}"/>
-                    </af:inputText>
+                  <af:column id="c4" headerText=" ">
+                    <af:link text="Download File" id="l3">
+                      <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
+                    </af:link>
                   </af:column>
                 </af:table>
               </af:panelCollection>
+            </af:panelBox>
+            <af:panelBox text="Products" id="pb4" showDisclosure="false">
+              <af:panelGroupLayout id="pgl3" layout="vertical">
+                <af:query id="qryId3" headerText="Search" disclosed="true"
+                          value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
+                          inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+                <af:panelCollection id="pc3"
+                                    inlineStyle="padding-bottom:010px; padding-right:010px; padding-top:010px; padding-left:50px;">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t9">
+                      <af:button text="Add Products" id="b15">
+                        <af:showPopupBehavior popupId="::p3"/>
+                      </af:button>
+                      <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
+                                 disabled="#{!bindings.Delete2.enabled}" id="b16"/>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel}" var="row"
+                            rows="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}"
+                            emptyText="#{bindings.ProductsPerOppurtunitiesVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
+                            summary="products by oppurtunity list" columnStretching="last"
+                            partialTriggers=":::b14 ::b16" width="500">
+                    <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
+                               rowHeader="true" width="200" align="left">
+                      <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
+                      <af:selectOneChoice value="#{row.bindings.ProductId.inputValue}"
+                                          label="#{row.bindings.ProductId.label}"
+                                          required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.mandatory}"
+                                          shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.tooltip}"
+                                          readOnly="true" id="soc13">
+                        <f:selectItems value="#{row.bindings.ProductId.items}" id="si27"/>
+                        <f:validator binding="#{row.bindings.ProductId.validator}"/>
+                      </af:selectOneChoice>
+                    </af:column>
+                    <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.label}" id="c14"
+                               width="150">
+                      <af:outputText value="#{row.ProductQuantity}"
+                                     shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.tooltip}"
+                                     id="ot5">
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.format}"/>
+                      </af:outputText>
+                    </af:column>
+                    <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c2">
+                      <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
+                                    label="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}"
+                                    required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.mandatory}"
+                                    maximumLength="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.precision}"
+                                    shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.tooltip}"
+                                    id="it9">
+                        <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
+                        <af:convertNumber groupingUsed="false"
+                                          pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.format}"/>
+                      </af:inputText>
+                    </af:column>
+                  </af:table>
+                </af:panelCollection>
+              </af:panelGroupLayout>
+              <f:facet name="toolbar"/>
               <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b14">
                 <af:dialog id="d3" title="Add Product to Oppurtunity" type="cancel">
                   <f:facet name="buttonBar">
@@ -255,6 +279,21 @@
           </af:panelDashboard>
           <af:spacer id="s6" height="35px"/>
         </af:panelGroupLayout>
+        <af:popup childCreation="deferred" autoCancel="disabled" id="p10" partialTriggers="b8">
+          <af:dialog id="d10" title="Add Attatchment" type="cancel" binding="#{FilesBean.component}">
+            <f:facet name="buttonBar">
+              <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"
+                         disabled="#{!bindings.CreateInsert.enabled}" id="b8" action="#{FilesBean.uploadAttach}"
+                         partialSubmit="true">
+                <af:setActionListener from="#{bindings.OppurtunityId.inputValue}" to="#{FilesBean.opId}"/>
+              </af:button>
+            </f:facet>
+            <af:panelFormLayout id="pfl8">
+              <af:inputFile label="File" id="if2" value="#{FilesBean.list}" uploadType="auto"/>
+              <f:facet name="footer"/>
+            </af:panelFormLayout>
+          </af:dialog>
+        </af:popup>
       </af:showDetailItem>
       <af:showDetailItem id="Notes" shortDesc="Drawer 2" icon="#{resource['images:attachment.png']}" text="Notes">
         <af:panelGroupLayout layout="vertical" id="pgl4">
