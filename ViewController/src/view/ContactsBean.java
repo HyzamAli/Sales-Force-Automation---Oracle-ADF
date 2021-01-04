@@ -1,5 +1,12 @@
 package view;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.view.rich.component.rich.RichDialog;
+import oracle.adf.view.rich.component.rich.RichPopup;
+
+import oracle.binding.OperationBinding;
+
 public class ContactsBean {
     private String name;
     private String phone;
@@ -7,6 +14,7 @@ public class ContactsBean {
     private String isPrimary;
     private String influenceLevel;
     private String customerId;
+    private RichDialog contactComponent;
 
     public ContactsBean() {
     }
@@ -57,5 +65,28 @@ public class ContactsBean {
 
     public String getCustomerId() {
         return customerId;
+    }
+
+    public void setContactComponent(RichDialog contactComponent) {
+        this.contactComponent = contactComponent;
+    }
+
+    public RichDialog getContactComponent() {
+        return contactComponent;
+    }
+    
+    public void closeDeleteDialog() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) contactComponent.getParent();
+        rp.hide();
+    }
+
+    public String commitData() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        return null;
     }
 }

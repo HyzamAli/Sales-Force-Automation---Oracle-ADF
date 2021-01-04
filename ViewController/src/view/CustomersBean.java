@@ -1,5 +1,10 @@
 package view;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+
+import oracle.binding.OperationBinding;
+
 public class CustomersBean {
     private String accName;
     private String refID;
@@ -102,5 +107,12 @@ public class CustomersBean {
 
     public String getIndustry() {
         return industry;
+    }
+    
+    public String commitData() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        return null;
     }
 }

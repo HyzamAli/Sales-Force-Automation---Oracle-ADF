@@ -87,8 +87,6 @@
         <Item Value="Attatchment"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId1"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_ManagerId" id="ManagerId1"
@@ -232,5 +230,7 @@
       <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="EmployeeId" NDValue="#{SalesTeamBean.empId}" NDType="java.lang.String"/>
     </action>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>

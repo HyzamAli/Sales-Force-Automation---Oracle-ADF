@@ -19,6 +19,7 @@ public class TasksBean {
     private String oppurtunityID;
     private String customerId;
     private RichDialog component;
+    private RichDialog deleteComponent;
 
     public TasksBean() {
     }
@@ -100,6 +101,22 @@ public class TasksBean {
         OperationBinding operationBinding = bindings.getOperationBinding("Commit");
         operationBinding.execute();
         RichPopup rp = (RichPopup) component.getParent();
+        rp.hide();
+    }
+    
+    public void setDeleteComponent(RichDialog deleteComponent) {
+        this.deleteComponent = deleteComponent;
+    }
+
+    public RichDialog getDeleteComponent() {
+        return deleteComponent;
+    }
+    
+    public void closeDeleteDialog() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) deleteComponent.getParent();
         rp.hide();
     }
 }

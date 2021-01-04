@@ -111,8 +111,6 @@
         <Item Value="PercentageCompletion"/>
       </AttrNames>
     </attributeValues>
-    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
-    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_RepId" id="RepId" DTSupportsMRU="false"
           SelectItemValueMode="ListObject"/>
     <action IterBinding="CustomerNotesVO8Iterator" id="CreateWithParams" RequiresUpdateModel="true"
@@ -140,5 +138,7 @@
       <NamedData NDName="RepId" NDValue="#{TasksBean.repID}" NDType="java.lang.String"/>
       <NamedData NDName="OppurtunityId" NDValue="#{TasksBean.oppurtunityID}" NDType="java.lang.String"/>
     </action>
+    <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>

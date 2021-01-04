@@ -5,7 +5,11 @@ import java.sql.Date;
 
 import java.util.Calendar;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.input.RichInputFile;
+
+import oracle.binding.OperationBinding;
 
 import org.apache.myfaces.trinidad.model.UploadedFile;
 
@@ -206,5 +210,12 @@ public class OppurtunityBean {
 
     public RichInputFile getRichFile() {
         return richFile;
+    }
+    
+    public String commitData() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        return null;
     }
 }
