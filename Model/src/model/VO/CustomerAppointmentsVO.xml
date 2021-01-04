@@ -163,6 +163,10 @@
           ResId="model.VO.CustomerAppointmentsVO.StartTime_LABEL_PLURAL"/>
         <DISPLAYWIDTH
           Value="147"/>
+        <FMT_FORMATTER
+          ResId="model.VO.CustomerAppointmentsVO.StartTime_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.VO.CustomerAppointmentsVO.StartTime_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -214,6 +218,8 @@
           ResId="model.VO.CustomerAppointmentsVO.EndDate_LABEL_PLURAL"/>
         <DISPLAYWIDTH
           Value="147"/>
+        <FMT_FORMAT
+          ResId="model.VO.CustomerAppointmentsVO.EndDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

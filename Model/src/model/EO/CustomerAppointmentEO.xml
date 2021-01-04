@@ -55,13 +55,6 @@
     </DesignTime>
   </Attribute>
   <Attribute
-    Name="StartTime"
-    ColumnName="START_TIME"
-    SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="CUSTOMER_APPOINTMENTS"/>
-  <Attribute
     Name="AppointmentType"
     Precision="1000"
     ColumnName="APPOINTMENT_TYPE"
@@ -84,22 +77,6 @@
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
-  </Attribute>
-  <Attribute
-    Name="EndDate"
-    ColumnName="END_DATE"
-    SQLType="DATE"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    TableName="CUSTOMER_APPOINTMENTS">
-    <validation:CompareValidationBean
-      Name="EndDateRule0"
-      ResId="model.EO.CustomerAppointmentEO.EndDate_Rule_0"
-      OnAttribute="EndDate"
-      OperandType="JBO"
-      Inverse="false"
-      CompareType="GREATERTHAN"
-      CompareValue="model.VO.CustomerAppointmentsVO.StartTime"/>
   </Attribute>
   <Attribute
     Name="Location"
@@ -137,6 +114,38 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.EO.CustomerAppointmentEO.ContactId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="StartTime"
+    ColumnName="START_TIME"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMAT
+          ResId="model.EO.CustomerAppointmentEO.StartTime_FMT_FORMAT"/>
+        <FMT_FORMATTER
+          ResId="model.EO.CustomerAppointmentEO.StartTime_FMT_FORMATTER"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EndDate"
+    ColumnName="END_DATE"
+    SQLType="TIMESTAMP"
+    Type="java.sql.Timestamp"
+    ColumnType="TIMESTAMP"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <Properties>
+      <SchemaBasedProperties>
+        <FMT_FORMATTER
+          ResId="model.EO.CustomerAppointmentEO.EndDate_FMT_FORMATTER"/>
+        <FMT_FORMAT
+          ResId="model.EO.CustomerAppointmentEO.EndDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
