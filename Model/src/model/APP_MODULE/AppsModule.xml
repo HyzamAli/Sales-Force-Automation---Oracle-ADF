@@ -175,6 +175,12 @@
   <ViewUsage
     Name="RolesPerEmployeeVO2"
     ViewObjectName="model.VO.RolesPerEmployeeVO"/>
+  <ViewUsage
+    Name="FilesVO1"
+    ViewObjectName="model.VO.FilesVO"/>
+  <ViewUsage
+    Name="FilesVO2"
+    ViewObjectName="model.VO.FilesVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -378,5 +384,11 @@
     ViewLinkObjectName="model.VO.RolesWithEmps"
     SrcViewUsageName="model.APP_MODULE.AppsModule.UserProfilesVO1"
     DstViewUsageName="model.APP_MODULE.AppsModule.RolesPerEmployeeVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="FilesByOpID1"
+    ViewLinkObjectName="model.VO.FilesByOpID"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.FilesVO2"
     Reversed="false"/>
 </AppModule>
