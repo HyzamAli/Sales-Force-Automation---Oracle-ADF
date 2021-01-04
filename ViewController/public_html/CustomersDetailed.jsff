@@ -936,7 +936,7 @@
                               columns="#{bindings.StartTime.hints.displayWidth}"
                               shortDesc="#{bindings.StartTime.hints.tooltip}" id="id6">
                   <f:validator binding="#{bindings.StartTime.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.StartTime.format}"/>
+                  <af:convertDateTime pattern="#{bindings.StartTime.format}" timeStyle="long" type="both"/>
                 </af:inputDate>
                 <af:inputDate value="#{bindings.EndDate.inputValue}" label="#{bindings.EndDate.hints.label}"
                               required="#{bindings.EndDate.hints.mandatory}"

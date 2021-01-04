@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding='UTF-8'?>
-<!DOCTYPE OperationDefinitions SYSTEM "jbo_03_01.dtd">
-<OperationDefinitions xmlns="http://xmlns.oracle.com/bc4j" Name="ProductsPerOppurtunitiesVOOperations">
-  <ExpressionCodeSource
-    Name="ProductsPerOppurtunitiesVORow"
-    Type="Static"
-    Content-Type="application/x-adf-groovy"
-    URI="model/VO/ProductsPerOppurtunitiesVORow.bcs"/>
-</OperationDefinitions>

@@ -106,23 +106,10 @@
   </ViewAttribute>
   <ViewAttribute
     Name="ProductPrice"
-    IsUpdateable="false"
-    IsPersistent="false"
     PrecisionRule="true"
-    Type="java.math.BigDecimal"
-    ColumnType="NUMBER"
-    AliasName="VIEW_ATTR"
-    SQLType="NUMERIC"
-    IsQueriable="false">
-    <TransientExpression
-      Name="ExpressionScript"
-      trustMode="untrusted"
-      CodeSourceName="ProductsPerOppurtunitiesVORow"/>
-    <Dependencies>
-      <Item
-        Value="ProductQuantity"/>
-    </Dependencies>
-  </ViewAttribute>
+    EntityAttrName="ProductPrice"
+    EntityUsage="ProductsPerOppurtunityEO"
+    AliasName="PRODUCT_PRICE"/>
   <ViewCriteria
     Name="ProductsPerOppurtunitiesVOCriteria"
     ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"
