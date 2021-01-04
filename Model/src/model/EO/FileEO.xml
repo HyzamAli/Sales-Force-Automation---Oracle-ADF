@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE Entity SYSTEM "jbo_03_01.dtd">
+<!---->
+<Entity
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="FileEO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  DBObjectType="table"
+  DBObjectName="OPPURTUNITY_FILES"
+  AliasName="FileEO"
+  BindingStyle="OracleName">
+  <Attribute
+    Name="Id"
+    IsUpdateable="while_insert"
+    DefaultValue="@0"
+    Domain="oracle.jbo.domain.DBSequence"
+    ColumnName="ID"
+    SQLType="NUMERIC"
+    Type="oracle.jbo.domain.DBSequence"
+    ColumnType="NUMBER"
+    TableName="OPPURTUNITY_FILES"
+    PrimaryKey="true"
+    RetrievedOnInsert="true"/>
+  <Attribute
+    Name="OppId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    ColumnName="OPP_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="OPPURTUNITY_FILES"/>
+  <Attribute
+    Name="FileName"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    Precision="20"
+    ColumnName="FILE_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPURTUNITY_FILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="FileContent"
+    IsUpdateable="while_insert"
+    IsQueriable="false"
+    IsNotNull="true"
+    ColumnName="FILE_CONTENT"
+    SQLType="BLOB"
+    Type="oracle.jbo.domain.BlobDomain"
+    ColumnType="BLOB"
+    TableName="OPPURTUNITY_FILES"/>
+  <Key
+    Name="OppurtunityFilesFileContentCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"FILE_CONTENT" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OPPURTUNITY_FILES_FILE_CONTENT"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.FileEO.FileContent"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OppurtunityFilesFileNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"FILE_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OPPURTUNITY_FILES_FILE_NAME_CH"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.FileEO.FileName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OppurtunityFilesOppIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"OPP_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="OPPURTUNITY_FILES_OPP_ID_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.FileEO.OppId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="OppurtunityFilesPk"
+    PrimaryKey="true">
+    <DesignTime>
+      <Attr Name="_DBObjectName" Value="OPPURTUNITY_FILES_PK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.FileEO.Id"/>
+    </AttrArray>
+  </Key>
+</Entity>
