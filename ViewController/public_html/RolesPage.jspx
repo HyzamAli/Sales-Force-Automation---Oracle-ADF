@@ -44,9 +44,10 @@
                                               id="t1"
                                               partialTriggers="::b2 ::b1 ::b3 :::b4"
                                               columnStretching="last" inlineStyle="margin-left:0px; min-width:100%;"
-                                              width="1000">
+                                              width="1150"
+                                              contentDelivery="immediate">
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesName.label}"
-                                                   id="c1" rowHeader="true" width="300" align="left">
+                                                   id="c1" rowHeader="true" width="100" align="left">
                                             <af:link text="" id="l1">
                                                 <af:outputText value="#{row.RolesName}"
                                                                shortDesc="#{bindings.RoleProfilesVO1.hints.RolesName.tooltip}"
@@ -55,7 +56,7 @@
                                             </af:link>
                                         </af:column>
                                         <af:column headerText="#{bindings.RoleProfilesVO1.hints.RolesDescription.label}"
-                                                   id="c2" width="700">
+                                                   id="c2" width="1150">
                                             <af:outputText value="#{row.RolesDescription}"
                                                            shortDesc="#{bindings.RoleProfilesVO1.hints.RolesDescription.tooltip}"
                                                            id="ot2"/>
@@ -88,7 +89,7 @@
                                                               columns="#{bindings.RolesDescription.hints.displayWidth}"
                                                               maximumLength="#{bindings.RolesDescription.hints.precision}"
                                                               shortDesc="#{bindings.RolesDescription.hints.tooltip}"
-                                                              id="it2" value="#{RolesBean.roleDescription}">
+                                                              id="it2" value="#{RolesBean.roleDescription}" rows="10">
                                                     <f:validator binding="#{bindings.RolesDescription.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>
@@ -114,7 +115,7 @@
                                                               columns="#{bindings.RolesDescription.hints.displayWidth}"
                                                               maximumLength="#{bindings.RolesDescription.hints.precision}"
                                                               shortDesc="#{bindings.RolesDescription.hints.tooltip}"
-                                                              id="it4">
+                                                              id="it4" rows="10">
                                                     <f:validator binding="#{bindings.RolesDescription.validator}"/>
                                                 </af:inputText>
                                             </af:panelFormLayout>

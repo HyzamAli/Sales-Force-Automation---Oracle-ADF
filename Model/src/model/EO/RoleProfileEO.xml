@@ -22,7 +22,16 @@
     DefaultValue="@0"
     Domain="oracle.jbo.domain.DBSequence"
     RetrievedOnInsert="true"
-    IsEffectiveDateSequence="true"/>
+    IsEffectiveDateSequence="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.RoleProfileEO.RolesId_LABEL"/>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="RolesName"
     Precision="1000"
@@ -42,7 +51,7 @@
         <LABEL_PLURAL
           ResId="model.EO.RoleProfileEO.RolesName_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="30"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -63,6 +72,10 @@
           ResId="model.EO.RoleProfileEO.RolesDescription_LABEL"/>
         <LABEL_PLURAL
           ResId="model.EO.RoleProfileEO.RolesDescription_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="150"/>
+        <DISPLAYHEIGHT
+          Value="5"/>
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
@@ -73,7 +86,14 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="ROLE_PROFILES"
-    DefaultValue="1"/>
+    DefaultValue="1">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="UserProfileEO"
     Association="model.EO.SysC0011015Assoc"
