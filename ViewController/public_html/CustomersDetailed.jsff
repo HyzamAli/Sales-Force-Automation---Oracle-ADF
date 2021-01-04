@@ -16,10 +16,10 @@
                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
                      icon="#{resource['images:document.png']}">
           <f:facet name="toolbar">
-            <af:toolbar id="t2">
-              <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
+            <af:toolbar id="t2" rendered="false">
+              <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                          disabled="#{!bindings.Commit.enabled}" id="b1"/>
-              <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
+              <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
                          disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b2">
                 <af:resetActionListener/>
               </af:button>
@@ -99,7 +99,7 @@
               <f:validator binding="#{bindings.ReferencePt.validator}"/>
             </af:selectOneChoice>
             <f:facet name="footer">
-              <af:button text="Submit" id="b3" inlineStyle="padding-left:0px;"/>
+              <af:button text="Submit" id="b3" inlineStyle="padding-left:0px;" action="#{CustomersBean.commitData}"/>
             </f:facet>
             <af:column id="c12"/>
             <af:column id="c13"/>
@@ -122,16 +122,7 @@
           </af:panelBox>
           <af:spacer id="s4" height="35px"/>
           <af:panelBox text="Contacts" id="pb5">
-            <f:facet name="toolbar">
-              <af:toolbar id="t9">
-                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                           disabled="#{!bindings.Commit.enabled}" id="b10"/>
-                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b11">
-                  <af:resetActionListener/>
-                </af:button>
-              </af:toolbar>
-            </f:facet>
+            <f:facet name="toolbar"/>
             <af:panelCollection id="pc2"
                                 inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
               <f:facet name="menus"/>
@@ -155,7 +146,7 @@
                         selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
                         columnStretching="last" summary="Customer Notes List"
-                        partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36"
+                        partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4"
                         width="1000">
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
                            rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200"
@@ -265,11 +256,13 @@
               </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
-                                <af:dialog id="d11" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d11" title="Delete" type="cancel"
+                                           binding="#{ContactsBean.contactComponent}">
                                            
                                     <af:outputText value="Confirm Action" id="ot9" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                   action="#{ContactsBean.closeDeleteDialog}"
                                                    disabled="#{!bindings.Delete.enabled}" id="b4"/>
                                     </f:facet>
                                 </af:dialog>
@@ -294,16 +287,7 @@
           <af:spacer id="s1" height="35px"/>
           <af:panelBox text="Notes" id="pb2"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:010px; padding-top:010px;">
-            <f:facet name="toolbar">
-              <af:toolbar id="t10">
-                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                           disabled="#{!bindings.Commit.enabled}" id="b13"/>
-                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b14">
-                  <af:resetActionListener/>
-                </af:button>
-              </af:toolbar>
-            </f:facet>
+            <f:facet name="toolbar"/>
             <af:panelCollection id="pc1"
                                 inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:010px; padding-top:010px;">
               <f:facet name="menus"/>
@@ -435,11 +419,11 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p12">
-                                <af:dialog id="d12" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d12" title="Delete" type="cancel" binding="#{NotesBean.deleteComponent}">
                                            
                                     <af:outputText value="Confirm Action" id="ot14" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" action="#{NotesBean.closeDeleteDialog}"
                                                    disabled="#{!bindings.Delete1.enabled}" id="b32"/>
                                     </f:facet>
                                 </af:dialog>
@@ -472,16 +456,7 @@
           <af:spacer id="s6" height="35px"/>
           <af:panelBox text="Tasks" id="pb4"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
-            <f:facet name="toolbar">
-              <af:toolbar id="t18">
-                <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                           disabled="#{!bindings.Commit.enabled}" id="b30"/>
-                <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                           disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b31">
-                  <af:resetActionListener/>
-                </af:button>
-              </af:toolbar>
-            </f:facet>
+            <f:facet name="toolbar"/>
             <af:panelCollection id="pc3"
                                 inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
               <f:facet name="menus"/>
@@ -649,11 +624,11 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p13">
-                                <af:dialog id="d13" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d13" title="Delete" type="cancel" binding="#{TasksBean.deleteComponent}">
                                            
                                     <af:outputText value="Confirm Action" id="ot17" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete2.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete2.execute}" text="Delete" action="#{TasksBean.closeDeleteDialog}"
                                                    disabled="#{!bindings.Delete2.enabled}" id="b33"/>
                                     </f:facet>
                                 </af:dialog>
@@ -678,16 +653,7 @@
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
             <af:panelBox text="Appointments" id="pb3"
                          inlineStyle="padding-bottom:010px; padding-left:010px; padding-top:010px; padding-right:010px;">
-              <f:facet name="toolbar">
-                <af:toolbar id="t14">
-                  <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
-                             disabled="#{!bindings.Commit.enabled}" id="b26"/>
-                  <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
-                             disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b22">
-                    <af:resetActionListener/>
-                  </af:button>
-                </af:toolbar>
-              </f:facet>
+              <f:facet name="toolbar"/>
               <af:panelCollection id="pc4"
                                   inlineStyle="padding-bottom:010px; padding-left:50px; padding-right:010px; padding-top:010px;">
                 <f:facet name="menus"/>
@@ -817,11 +783,12 @@
                 </af:popup>
               </af:panelCollection>
               <af:popup childCreation="deferred" autoCancel="disabled" id="p14">
-                                <af:dialog id="d14" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d14" title="Delete" type="cancel"
+                                           binding="#{AppointmentsBean.deleteComponent}">
                                            
                                     <af:outputText value="Confirm Action" id="ot20" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete4.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete4.execute}" text="Delete" action="#{AppointmentsBean.closeDeleteDialog}"
                                                    disabled="#{!bindings.Delete4.enabled}" id="b34"/>
                                     </f:facet>
                                 </af:dialog>
@@ -906,21 +873,23 @@
                 </af:table>
               </af:panelCollection>
               <af:popup childCreation="deferred" autoCancel="disabled" id="p15">
-                                <af:dialog id="d15" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d15" title="Delete" type="cancel"
+                                           binding="#{AttendeeBean.deleteComponent}">
                                            
                                     <af:outputText value="Confirm Action" id="ot21" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete3.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete3.execute}" text="Delete" action="#{AttendeeBean.closeDeleteDialog}"
                                                    disabled="#{!bindings.Delete3.enabled}" id="b35"/>
                                     </f:facet>
                                 </af:dialog>
                             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p16">
-                                <af:dialog id="d16" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d16" title="Delete" type="cancel"
+                                           binding="#{AttendeeCustomerBean.deleteComponent}">
                                            
                                     <af:outputText value="Confirm Action" id="ot22" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete5.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete5.execute}" text="Delete" action="#{AttendeeCustomerBean.closeDeleteDialog}"
                                                    disabled="#{!bindings.Delete5.enabled}" id="b36"/>
                                     </f:facet>
                                 </af:dialog>

@@ -25,7 +25,7 @@
         </af:dialog>
       </af:popup>
       <f:facet name="toolbar">
-        <af:toolbar id="t3" inlineStyle="padding-left:0px;">
+        <af:toolbar id="t3" inlineStyle="padding-left:0px;" rendered="false">
           <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
                      disabled="#{!bindings.Commit.enabled}" id="b4" partialTriggers="pc1:t1"
                      inlineStyle="padding-left:0px;"/>

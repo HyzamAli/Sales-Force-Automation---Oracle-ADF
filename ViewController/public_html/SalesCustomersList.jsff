@@ -18,7 +18,7 @@
                    inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
                    showHeader="always" showDisclosure="false">
         <f:facet name="toolbar">
-          <af:toolbar id="t1" inlineStyle="padding-left:0px;">
+          <af:toolbar id="t1" inlineStyle="padding-left:0px;" rendered="false">
             <af:button actionListener="#{bindings.Commit.execute}" text="Save Changes"
                        disabled="#{!bindings.Commit.enabled}" id="b1" partialTriggers="pc1:t3"/>
             <af:button actionListener="#{bindings.Rollback.execute}" text="Cancel"
