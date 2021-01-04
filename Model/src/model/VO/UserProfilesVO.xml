@@ -94,7 +94,14 @@
     EntityAttrName="UserId"
     EntityUsage="UserProfileEO"
     AliasName="USER_ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.UserId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RolesId"
     PrecisionRule="true"
@@ -123,7 +130,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="94"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameFirst_LABEL"/>
       </SchemaBasedProperties>
@@ -138,7 +145,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="94"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameLast_LABEL"/>
       </SchemaBasedProperties>
@@ -153,7 +160,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameMiddle_LABEL"/>
       </SchemaBasedProperties>
@@ -168,7 +175,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.Password1_LABEL"/>
       </SchemaBasedProperties>
@@ -185,7 +192,7 @@
         <LABEL
           ResId="model.VO.UserProfilesVO.StartDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="90"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -200,7 +207,7 @@
         <LABEL
           ResId="model.VO.UserProfilesVO.EndDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="90"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -249,7 +256,7 @@
       <ViewCriteriaItem
         Name="NameFirst"
         ViewAttribute="NameFirst"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":pNF"
         IsBindVarValue="true"
@@ -257,7 +264,7 @@
       <ViewCriteriaItem
         Name="NameLast"
         ViewAttribute="NameLast"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":pNL"
         IsBindVarValue="true"

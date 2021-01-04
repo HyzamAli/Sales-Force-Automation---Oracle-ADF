@@ -5,10 +5,10 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="UserProfilesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
-    <searchRegion Criteria="UserProfilesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
-                  Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery1"/>
     <iterator Binds="RolesPerEmployeeVO2" RangeSize="25" DataControl="AppsModuleDataControl"
               id="RolesPerEmployeeVO2Iterator"/>
+    <searchRegion Criteria="UserProfilesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameFirst">
