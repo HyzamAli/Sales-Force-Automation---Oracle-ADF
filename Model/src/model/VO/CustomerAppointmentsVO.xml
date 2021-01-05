@@ -95,14 +95,7 @@
     EntityAttrName="AppId"
     EntityUsage="CustomerAppointmentEO"
     AliasName="APP_ID"
-    IsUpdateable="while_insert">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -131,7 +124,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="35"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppName_LABEL"/>
         <LABEL_PLURAL
@@ -169,7 +162,7 @@
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.StartTime_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="32"/>
+          Value="147"/>
         <FMT_FORMATTER
           ResId="model.VO.CustomerAppointmentsVO.StartTime_FMT_FORMATTER"/>
         <FMT_FORMAT
@@ -224,7 +217,7 @@
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.EndDate_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="32"/>
+          Value="147"/>
         <FMT_FORMAT
           ResId="model.VO.CustomerAppointmentsVO.EndDate_FMT_FORMAT"/>
       </SchemaBasedProperties>
@@ -239,7 +232,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="35"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.Location_LABEL"/>
         <LABEL_PLURAL
@@ -256,7 +249,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="35"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.Resolution_LABEL"/>
         <LABEL_PLURAL
@@ -304,9 +297,6 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
-        <Property
-          Name="displayName"
-          ResId="model.VO.CustomerAppointmentsVO.CustomerAppointmentsVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
@@ -315,7 +305,7 @@
       <ViewCriteriaItem
         Name="AppName"
         ViewAttribute="AppName"
-        Operator="CONTAINS"
+        Operator="="
         Conjunction="AND"
         Value=":pAName"
         IsBindVarValue="true"

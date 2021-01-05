@@ -657,8 +657,7 @@
                       model="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                      rows="1" maxColumns="2"/>
+                      inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
           </af:panelBox>
           <af:spacer id="s8" height="35px"/>
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
@@ -739,7 +738,7 @@
                                     required="#{bindings.AppDescription.hints.mandatory}"
                                     columns="#{bindings.AppDescription.hints.displayWidth}"
                                     maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="5">
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29">
                         <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                       <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
@@ -939,7 +938,7 @@
                               required="#{bindings.AppDescription.hints.mandatory}"
                               columns="#{bindings.AppDescription.hints.displayWidth}"
                               maximumLength="#{bindings.AppDescription.hints.precision}"
-                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="5">
+                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34">
                   <f:validator binding="#{bindings.AppDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
