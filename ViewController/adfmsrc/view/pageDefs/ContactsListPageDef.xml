@@ -8,6 +8,9 @@
               id="CustomerContactsVO1Iterator"/>
     <searchRegion Criteria="ContactsListVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerContactsVO1Iterator" id="ContactsListVOCriteriaQuery"/>
+    <iterator Binds="CustomersVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="CustomersVO1Iterator"/>
+    <searchRegion Criteria="CustomersSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomersVO1Iterator" id="CustomersSearchQuery"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerContactsVO1Iterator" id="CustomerContactsVO1">

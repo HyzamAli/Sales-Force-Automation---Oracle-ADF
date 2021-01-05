@@ -13,7 +13,8 @@
                 </f:facet>
                 <f:facet name="bottom"/>
                 <f:facet name="center">
-                    <af:panelFormLayout id="pfl1" inlineStyle="padding-left:600px; padding-top:250px;">
+                    <af:panelFormLayout id="pfl1"
+                                        inlineStyle="padding-left:600px; padding-top:250px; background-color:transparent;">
                         <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
                         <af:inputText label="Password" id="it2" required="true" secret="true"
                                       value="#{loginBean.password}"/>
