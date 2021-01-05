@@ -460,7 +460,8 @@
                       model="#{bindings.CustomerTasksVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerTasksVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerTasksVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"/>
+                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                      rows="1" maxColumns="3"/>
           </af:panelBox>
           <af:spacer id="s6" height="35px"/>
           <af:panelBox text="Tasks" id="pb4"
@@ -491,7 +492,7 @@
                         partialTriggers=":::b12 ::b18" summary="Tasks List"
                         inlineStyle="min-width:800pt; width:800pt;">
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
-                           inlineStyle="min-width:200pt; width:200pt;" width="200" minimumWidth="200" align="left">
+                           inlineStyle="min-width:200pt; width:200pt;" width="400" minimumWidth="200" align="left">
                   <af:link id="l3">
                     <af:outputText id="ot44" value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO61.hints.TaskDetails.tooltip}"/>
@@ -499,7 +500,7 @@
                   </af:link>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.Priority1.label}" id="c1" rowHeader="false" inlineStyle="min-width:200pt; width:200pt;"
-                           width="200" minimumWidth="200">
+                           width="100" minimumWidth="200">
                   <af:outputText id="ot41" value="#{row.Priority1}"
                                  shortDesc="#{bindings.CustomerTasksVO61.hints.Priority1.tooltip}"/>
                 </af:column>
@@ -513,7 +514,7 @@
                   </dvt:statusMeterGauge>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.DueDate.label}" id="c2" inlineStyle="min-width:200pt; width:200pt;"
-                           width="200">
+                           width="100">
                   <af:outputText id="ot42" value="#{row.DueDate}"
                                  shortDesc="#{bindings.CustomerTasksVO61.hints.DueDate.tooltip}"
                                  inlineStyle="min-width:200pt; width:200pt;">
@@ -545,7 +546,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="3">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
@@ -592,7 +593,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14" rows="3">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
