@@ -121,7 +121,14 @@
     EntityAttrName="Id"
     EntityUsage="CustomerNoteEO"
     AliasName="ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -186,7 +193,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="154"/>
+          Value="35"/>
         <LABEL
           ResId="model.VO.CustomerNotesVO.NotesTitle_LABEL"/>
       </SchemaBasedProperties>
@@ -203,7 +210,7 @@
         <LABEL
           ResId="model.VO.CustomerNotesVO.CreatedOn_LABEL"/>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="20"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -233,7 +240,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="215"/>
+          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerNotesVO.NotesDescription_LABEL"/>
       </SchemaBasedProperties>
@@ -260,6 +267,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.CustomerNotesVO.CustomerNotesVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow

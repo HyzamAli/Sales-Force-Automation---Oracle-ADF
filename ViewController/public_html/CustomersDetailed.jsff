@@ -290,7 +290,8 @@
                       model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="border-color:#848484; margin-bottom:20px; margin-left:20px; margin-right:020px; margin-top:020px; border-left-color:#848484; border-right-color:#848484; border-top-color:#848484; border-bottom-color:#848484;"/>
+                      inlineStyle="border-color:#848484; margin-bottom:20px; margin-left:20px; margin-right:020px; margin-top:020px; border-left-color:#848484; border-right-color:#848484; border-top-color:#848484; border-bottom-color:#848484;"
+                      maxColumns="2" rows="1"/>
           </af:panelBox>
           <af:spacer id="s1" height="35px"/>
           <af:panelBox text="Notes" id="pb2"
@@ -367,7 +368,7 @@
                               required="#{bindings.NotesDescription.hints.mandatory}"
                               columns="#{bindings.NotesDescription.hints.displayWidth}"
                               maximumLength="#{bindings.NotesDescription.hints.precision}"
-                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13">
+                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13" rows="8">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
@@ -408,7 +409,7 @@
                               required="#{bindings.NotesDescription.hints.mandatory}"
                               columns="#{bindings.NotesDescription.hints.displayWidth}"
                               maximumLength="#{bindings.NotesDescription.hints.precision}"
-                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it24">
+                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it24" rows="8">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.ContactId.inputValue}" label="#{bindings.ContactId.label}"
