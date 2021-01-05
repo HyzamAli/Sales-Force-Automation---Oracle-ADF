@@ -24,7 +24,7 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
-                                            <af:button text="Create" id="b1">
+                                            <af:button text="Add" id="b1">
                                                 <af:showPopupBehavior popupId="p1" triggerType="action"/>
                                             </af:button>
                                             <af:button text="Delete"

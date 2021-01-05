@@ -9,7 +9,7 @@
       <f:facet name="toolbar"/>
     </af:panelBox>
     <af:panelDrawer position="start" id="pd1" width="100%"
-                    inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
+                    inlineStyle="padding-left:20px; padding-right:10px; padding-top:75px;">
       <af:showDetailItem id="dr1" shortDesc="Overview" icon="#{resource['images:document.png']}" disclosed="true"
                          inlineStyle="padding-left:0px;">
         <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"
@@ -657,7 +657,8 @@
                       model="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+                      inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"
+                      rows="1" maxColumns="2"/>
           </af:panelBox>
           <af:spacer id="s8" height="35px"/>
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
@@ -695,24 +696,21 @@
                       <af:showPopupBehavior popupId=":::p9"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.label}" id="c6">
-                    <af:outputText value="#{row.AppDescription}"
-                                   shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.tooltip}"
-                                   id="ot11"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7"
+                             width="175">
                     <af:outputText value="#{row.StartTime}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO31.hints.StartTime.tooltip}" id="ot12">
                       <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17" width="175">
                     <af:outputText value="#{row.EndDate}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
                       <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.EndDate.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.label}" id="c8">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.label}" id="c8"
+                             width="50">
                     <af:outputText value="#{row.AppointmentType}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.tooltip}"
                                    id="ot13"/>
@@ -738,7 +736,7 @@
                                     required="#{bindings.AppDescription.hints.mandatory}"
                                     columns="#{bindings.AppDescription.hints.displayWidth}"
                                     maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29">
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="3">
                         <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                       <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
@@ -832,8 +830,8 @@
                           selectedRowKeys="#{bindings.AppointmentAttendeesVO5.collectionModel.selectedRow}"
                           selectionListener="#{bindings.AppointmentAttendeesVO5.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO5.rangeSize}" id="t12"
-                          summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25">
-                  <af:column headerText="Employees" id="c11" rowHeader="true" align="left">
+                          summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25" width="500">
+                  <af:column headerText="Employees" id="c11" rowHeader="true" align="left" width="500">
                     <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                     <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
                                         label="#{row.bindings.EmployeeId.label}"
@@ -869,8 +867,9 @@
                           selectedRowKeys="#{bindings.AppointmentCustomersVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.AppointmentCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO2.rangeSize}" id="t16"
-                          summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29">
-                  <af:column headerText="Contacts" id="c10" rowHeader="true" align="left">
+                          summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29"
+                          width="500">
+                  <af:column headerText="Contacts" id="c10" rowHeader="true" align="left" width="500">
                     <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                     <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
                                         required="#{bindings.AppointmentCustomersVO2.hints.CustId.mandatory}"
@@ -938,7 +937,7 @@
                               required="#{bindings.AppDescription.hints.mandatory}"
                               columns="#{bindings.AppDescription.hints.displayWidth}"
                               maximumLength="#{bindings.AppDescription.hints.precision}"
-                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34">
+                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="3">
                   <f:validator binding="#{bindings.AppDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
