@@ -2,6 +2,13 @@ package view;
 
 import java.sql.Date;
 
+import oracle.adf.model.BindingContext;
+import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.view.rich.component.rich.RichDialog;
+import oracle.adf.view.rich.component.rich.RichPopup;
+
+import oracle.binding.OperationBinding;
+
 public class UsersBean {
     private String fname;
     private String mname;
@@ -11,6 +18,25 @@ public class UsersBean {
     private Date end_date;
     private String supervisor;
     private String role;
+    private String email;
+    private String phone;
+    private RichDialog component;
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
 
     public UsersBean() {
     }
@@ -77,5 +103,22 @@ public class UsersBean {
 
     public String getRole() {
         return role;
+    }
+    
+    public String closeDialogSave() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) component.getParent();
+        rp.hide();
+        return null;
+    }
+
+    public void setComponent(RichDialog component) {
+        this.component = component;
+    }
+
+    public RichDialog getComponent() {
+        return component;
     }
 }

@@ -10,6 +10,7 @@ import oracle.binding.OperationBinding;
 public class ProductCategoriesBean {
     private String productCategory;
     private RichDialog component;
+    private RichDialog deleteComponent;
     
     public ProductCategoriesBean() {
     }
@@ -29,6 +30,14 @@ public class ProductCategoriesBean {
         RichPopup rp = (RichPopup) component.getParent();
         rp.hide();
     }
+    
+    public void closeSaveDialog() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) deleteComponent.getParent();
+        rp.hide();
+    }
 
     public void setComponent(RichDialog component) {
         this.component = component;
@@ -36,5 +45,13 @@ public class ProductCategoriesBean {
 
     public RichDialog getComponent() {
         return component;
+    }
+
+    public void setDeleteComponent(RichDialog deleteComponent) {
+        this.deleteComponent = deleteComponent;
+    }
+
+    public RichDialog getDeleteComponent() {
+        return deleteComponent;
     }
 }

@@ -181,6 +181,21 @@
   <ViewUsage
     Name="FilesVO2"
     ViewObjectName="model.VO.FilesVO"/>
+  <ViewUsage
+    Name="SupervisorsVO1"
+    ViewObjectName="model.VO.SupervisorsVO"/>
+  <ViewUsage
+    Name="ProductCategoriesVO2"
+    ViewObjectName="model.VO.ProductCategoriesVO"/>
+  <ViewUsage
+    Name="ProductsVO2"
+    ViewObjectName="model.VO.ProductsVO"/>
+  <ViewUsage
+    Name="ProductCategoriesVO3"
+    ViewObjectName="model.VO.ProductCategoriesVO"/>
+  <ViewUsage
+    Name="ProductsVO3"
+    ViewObjectName="model.VO.ProductsVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -390,5 +405,17 @@
     ViewLinkObjectName="model.VO.FilesByOpID"
     SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
     DstViewUsageName="model.APP_MODULE.AppsModule.FilesVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ProductWithCatFk"
+    ViewLinkObjectName="model.APP_MODULE.ProductWithCatFk"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.ProductCategoriesVO2"
+    DstViewUsageName="model.APP_MODULE.AppsModule.ProductsVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ProductWithCatFk1"
+    ViewLinkObjectName="model.APP_MODULE.ProductWithCatFk"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.ProductCategoriesVO3"
+    DstViewUsageName="model.APP_MODULE.AppsModule.ProductsVO3"
     Reversed="false"/>
 </AppModule>
