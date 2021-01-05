@@ -47,24 +47,6 @@
     ViewObjectName="model.VO.RoleProfilesVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="UserProfilesVO1"
-    ViewObjectName="model.VO.UserProfilesVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="AppsModule_ManagerEmployeesVO1_1"
-    ViewObjectName="model.VO.ManagerEmployeesVO"
-    AMUsageName="AppsModule"
-    ViewInstanceName="ManagerEmployeesVO1"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="ManagerEmployeesVO1"
-    ViewObjectName="model.VO.ManagerEmployeesVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
-    Name="SupervisorsVO1"
-    ViewObjectName="model.VO.SupervisorsVO"
-    RowLevelBinds="true"/>
-  <ViewAccessor
     Name="SupervisorsVO2"
     ViewObjectName="model.VO.SupervisorsVO"
     RowLevelBinds="true"/>

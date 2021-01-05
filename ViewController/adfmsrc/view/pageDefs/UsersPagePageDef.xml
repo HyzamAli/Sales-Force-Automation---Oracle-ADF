@@ -116,5 +116,7 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
