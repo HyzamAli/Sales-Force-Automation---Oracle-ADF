@@ -31,7 +31,7 @@
                           columns="#{bindings.AccName.hints.displayWidth}"
                           maximumLength="#{bindings.AccName.hints.precision}"
                           shortDesc="#{bindings.AccName.hints.tooltip}" id="it1"
-                          inlineStyle="width:100pt; min-width:100pt;">
+                          inlineStyle="width:30pt; min-width:30pt;">
               <f:validator binding="#{bindings.AccName.validator}"/>
             </af:inputText>
             <af:inputText value="#{bindings.AddLine1.inputValue}" label="#{bindings.AddLine1.hints.label}"
@@ -118,7 +118,8 @@
                       model="#{bindings.CustomerContactsVOCriteriaQuery1.queryModel}"
                       queryListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQuery}"
                       queryOperationListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQueryOperation}"
-                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"/>
+                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                      maxColumns="2" rows="2"/>
           </af:panelBox>
           <af:spacer id="s4" height="35px"/>
           <af:panelBox text="Contacts" id="pb5">
@@ -156,6 +157,13 @@
                                    shortDesc="#{bindings.CustomerContactsVO3.hints.ContactName.tooltip}" id="ot2"/>
                     <af:showPopupBehavior popupId=":::p5"/>
                   </af:link>
+                </af:column>
+                <af:column headerText="#{bindings.CustomerContactsVO31.hints.IsPrimary.label}" id="c15" width="40">
+                  <af:outputText value="#{row.IsPrimary}"
+                                 shortDesc="#{bindings.CustomerContactsVO31.hints.IsPrimary.tooltip}" id="ot23">
+                    <af:convertNumber groupingUsed="false"
+                                      pattern="#{bindings.CustomerContactsVO31.hints.IsPrimary.format}"/>
+                  </af:outputText>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
                            inlineStyle="width:200pt;" width="200" minimumWidth="200">
