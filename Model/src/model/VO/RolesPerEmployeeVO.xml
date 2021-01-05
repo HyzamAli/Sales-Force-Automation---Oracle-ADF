@@ -57,6 +57,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.RolesPerEmployeeVO.RoleId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -72,11 +74,29 @@
     PrecisionRule="true"
     EntityAttrName="StartDate"
     EntityUsage="RolesPerEmployee"
-    AliasName="START_DATE"/>
+    AliasName="START_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.RolesPerEmployeeVO.StartDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="EndDate"
     PrecisionRule="true"
     EntityAttrName="EndDate"
     EntityUsage="RolesPerEmployee"
-    AliasName="END_DATE"/>
+    AliasName="END_DATE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.RolesPerEmployeeVO.EndDate_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

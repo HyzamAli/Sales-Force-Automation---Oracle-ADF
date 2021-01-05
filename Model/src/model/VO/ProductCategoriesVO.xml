@@ -22,18 +22,16 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="ProductCategoryEO"
-    AliasName="ID">
-    <Properties>
-      <SchemaBasedProperties/>
-    </Properties>
-  </ViewAttribute>
+    AliasName="ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="Category"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="Category"
     EntityUsage="ProductCategoryEO"
-    AliasName="CATEGORY">
+    AliasName="CATEGORY"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -41,4 +39,9 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="ProductsVO"
+    ViewLink="model.APP_MODULE.ProductWithCatFk"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

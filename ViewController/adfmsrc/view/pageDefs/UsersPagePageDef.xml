@@ -69,6 +69,8 @@
       <NamedData NDName="SupervisorId" NDValue="#{UsersBean.supervisor}" NDType="java.lang.String"/>
       <NamedData NDName="RolesId" NDValue="#{UsersBean.role}" NDType="java.lang.String"/>
       <NamedData NDName="Password1" NDValue="#{UsersBean.password}" NDType="java.lang.String"/>
+      <NamedData NDName="Email" NDValue="#{UsersBean.email}" NDType="java.lang.String"/>
+      <NamedData NDName="PhoneNumber" NDValue="#{UsersBean.phone}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
@@ -103,5 +105,16 @@
       <NamedData NDName="EndDate" NDValue="#{RPEBeans.endDate}" NDType="java.lang.String"/>
       <NamedData NDName="RoleId" NDValue="#{RPEBeans.roleId}" NDType="java.lang.String"/>
     </action>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="Email">
+      <AttrNames>
+        <Item Value="Email"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="PhoneNumber">
+      <AttrNames>
+        <Item Value="PhoneNumber"/>
+      </AttrNames>
+    </attributeValues>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
   </bindings>
 </pageDefinition>

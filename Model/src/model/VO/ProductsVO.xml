@@ -31,17 +31,22 @@
     Name="ProductCategoriesVO1"
     ViewObjectName="model.VO.ProductCategoriesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ProductCategoriesVO2"
+    ViewObjectName="model.VO.ProductCategoriesVO"
+    RowLevelBinds="true"/>
   <ListBinding
-    Name="LOV_ProductCategory"
+    Name="LOV_CategoryId"
     ListVOName="ProductCategoriesVO1"
-    NullValueFlag="none"
-    MRUCount="0">
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
-      <Item Value="ProductCategory"/>
+      <Item Value="CategoryId"/>
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="Category"/>
+      <Item Value="Id"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="Category"/>
@@ -103,26 +108,6 @@
     </Properties>
   </ViewAttribute>
   <ViewAttribute
-    Name="ProductCategory"
-    PrecisionRule="true"
-    EntityAttrName="ProductCategory"
-    EntityUsage="ProductEO"
-    AliasName="PRODUCT_CATEGORY"
-    LOVName="LOV_ProductCategory">
-    <Properties>
-      <SchemaBasedProperties>
-        <LABEL
-          ResId="model.VO.ProductsVO.ProductCategory_LABEL"/>
-        <LABEL_PLURAL
-          ResId="model.VO.ProductsVO.ProductCategory_LABEL_PLURAL"/>
-        <DISPLAYWIDTH
-          Value="95"/>
-        <CONTROLTYPE
-          Value="choice"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
-  <ViewAttribute
     Name="ProductPrice"
     PrecisionRule="true"
     EntityAttrName="ProductPrice"
@@ -136,6 +121,21 @@
           ResId="model.VO.ProductsVO.ProductPrice_LABEL_PLURAL"/>
         <DISPLAYWIDTH
           Value="95"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CategoryId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryId"
+    EntityUsage="ProductEO"
+    AliasName="CATEGORY_ID"
+    LOVName="LOV_CategoryId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -174,14 +174,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ProductsVOCriteria_ProductsVOCriteria_row_0_ProductCategory"
-        ViewAttribute="ProductCategory"
-        Operator="="
-        Conjunction="AND"
-        Value=":pPC"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ProductPrice"
         ViewAttribute="ProductPrice"
         Operator="="
@@ -209,6 +201,10 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="ProductId"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="ProductId"/>

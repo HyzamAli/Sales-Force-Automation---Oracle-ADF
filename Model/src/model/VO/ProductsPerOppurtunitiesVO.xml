@@ -109,7 +109,13 @@
     PrecisionRule="true"
     EntityAttrName="ProductPrice"
     EntityUsage="ProductsPerOppurtunityEO"
-    AliasName="PRODUCT_PRICE"/>
+    AliasName="PRODUCT_PRICE">
+    <Dependencies>
+      <Item
+        Value="ProductId"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewCriteria
     Name="ProductsPerOppurtunitiesVOCriteria"
     ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"

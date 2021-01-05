@@ -26,7 +26,16 @@
                             </af:panelBox>
                             <af:panelBox text="Users" id="pb1"
                                          inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
-                                <f:facet name="toolbar"/>
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t4" rendered="false">
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                   disabled="#{!bindings.Commit.enabled}" id="b5"/>
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b10">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                    </af:toolbar>
+                                </f:facet>
                                 <af:panelCollection id="pc1"
                                                     inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
                                     <f:facet name="menus"/>
@@ -90,6 +99,17 @@
                                         </af:column>
                                     </af:table>
                                 </af:panelCollection>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
+                                    <af:dialog id="d5" title="Delete" type="cancel"
+                                               binding="#{UsersBean.component}">
+                                        <af:outputText value="Are you sure?" id="ot6" inlineStyle="margin-right:50px;"/>
+                                        <f:facet name="buttonBar">
+                                            <af:button actionListener="#{bindings.Delete.execute}"
+                                                       action="#{UsersBean.closeDialogSave}" text="Yes"
+                                                       id="b4"/>
+                                        </f:facet>
+                                    </af:dialog>
+                                </af:popup>
                             </af:panelBox>
                             <af:panelBox text="Roles Associated" id="pb2" showDisclosure="false"
                                          inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;">
@@ -118,7 +138,7 @@
                                               selectionListener="#{bindings.RolesPerEmployeeVO2.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.RolesPerEmployeeVO2.rangeSize}" id="t2"
-                                              columnStretching="last" partialTriggers="::b7 ::b8">
+                                              columnStretching="last" partialTriggers="::b7 ::b8 :::b4">
                                         <af:column headerText="#{bindings.RolesPerEmployeeVO2.hints.RoleId.label}"
                                                    id="c6" rowHeader="true" align="left">
                                             <af:selectOneChoice value="#{row.bindings.RoleId.inputValue}"
@@ -132,7 +152,7 @@
                                         </af:column>
                                         <af:column headerText="#{bindings.RolesPerEmployeeVO2.hints.StartDate.label}"
                                                    id="c7">
-                                            <af:inputDate value="#{row.bindings.StartDate.inputValue}"
+                                            <af:inputDate value="#{row.bindings.StartDate.inputValue}" id="id1"
                                                           label="#{bindings.RolesPerEmployeeVO2.hints.StartDate.label}"
                                                           required="#{bindings.RolesPerEmployeeVO2.hints.StartDate.mandatory}"
                                                           readOnly="true"
@@ -143,7 +163,7 @@
                                         </af:column>
                                         <af:column headerText="#{bindings.RolesPerEmployeeVO2.hints.EndDate.label}"
                                                    id="c8">
-                                            <af:inputDate value="#{row.bindings.EndDate.inputValue}"
+                                            <af:inputDate value="#{row.bindings.EndDate.inputValue}" id="id2"
                                                           label="#{bindings.RolesPerEmployeeVO2.hints.EndDate.label}"
                                                           required="#{bindings.RolesPerEmployeeVO2.hints.EndDate.mandatory}"
                                                           readOnly="true"
@@ -195,7 +215,7 @@
                             
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
                                 <af:dialog id="d6" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
-                                    <af:outputText value="Confirm Action" id="ot7" inlineStyle="margin-right:50px;"/>
+                                    <af:outputText value="Are you sure?" id="ot7" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
                                         <af:button actionListener="#{bindings.Delete1.execute}"
                                                    action="#{DeleteDialogHandler.closeDialogSave}" text="Yes" id="b9"/>
@@ -261,6 +281,22 @@
                                           shortDesc="#{bindings.Password1.hints.tooltip}" id="it4" secret="true">
                                 <f:validator binding="#{bindings.Password1.validator}"/>
                             </af:inputText>
+                            <af:inputText value="#{UsersBean.email}" simple="true"
+                                          required="#{bindings.Email.hints.mandatory}"
+                                          label="#{bindings.Email.hints.label}"
+                                          columns="#{bindings.Email.hints.displayWidth}"
+                                          maximumLength="#{bindings.Email.hints.precision}"
+                                          shortDesc="#{bindings.Email.hints.tooltip}" id="it8">
+                                <f:validator binding="#{bindings.Email.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{UsersBean.phone}" simple="true"
+                                          required="#{bindings.PhoneNumber.hints.mandatory}"
+                                          columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                          label="#{bindings.PhoneNumber.hints.label}"
+                                          maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                          shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it9">
+                                <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                            </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>
@@ -314,6 +350,22 @@
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si4"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
+                            <af:inputText value="#{bindings.Email.inputValue}" simple="true"
+                                          required="#{bindings.Email.hints.mandatory}"
+                                          label="#{bindings.Email.hints.label}"
+                                          columns="#{bindings.Email.hints.displayWidth}"
+                                          maximumLength="#{bindings.Email.hints.precision}"
+                                          shortDesc="#{bindings.Email.hints.tooltip}" id="it10">
+                                <f:validator binding="#{bindings.Email.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.PhoneNumber.inputValue}"
+                                          label="#{bindings.PhoneNumber.hints.label}"
+                                          required="#{bindings.PhoneNumber.hints.mandatory}"
+                                          columns="#{bindings.PhoneNumber.hints.displayWidth}"
+                                          maximumLength="#{bindings.PhoneNumber.hints.precision}"
+                                          shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it11">
+                                <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                            </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>
