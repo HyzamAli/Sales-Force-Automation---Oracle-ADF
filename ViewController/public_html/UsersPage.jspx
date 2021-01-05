@@ -10,13 +10,20 @@
                     <f:attribute name="PanelText" value="Manage Users"/>
                     <f:facet name="body">
                         <af:panelGroupLayout layout="vertical" id="pgl1" inlineStyle="background-color:transparent;">
-                            <af:query id="qryId2" headerText="Search" disclosed="true"
-                                          value="#{bindings.UserProfilesVOCriteriaQuery1.queryDescriptor}"
-                                          model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
-                                          queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
-                                          queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
-                                          
-                                          inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"/>
+                            <af:panelBox id="pb3" showDisclosure="false"
+                                         inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
+                                <f:facet name="toolbar"/>
+                                <af:panelGroupLayout layout="vertical" id="pgl2">
+                                    
+                                        <af:query id="qryId2" headerText="Search" disclosed="true"
+                                                  value="#{bindings.UserProfilesVOCriteriaQuery1.queryDescriptor}"
+                                                  model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
+                                                  queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
+                                                  queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
+                                                  maxColumns="3" rows="2"/>
+                                    
+                                </af:panelGroupLayout>
+                            </af:panelBox>
                             <af:panelBox text="Users" id="pb1"
                                          inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
                                 <f:facet name="toolbar"/>
@@ -66,7 +73,7 @@
                                                            id="ot3"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.StartDate.label}"
-                                                   id="c4" width="200">
+                                                   id="c4" width="70">
                                             <af:outputText value="#{row.StartDate}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.StartDate.tooltip}"
                                                            id="ot4">
@@ -74,7 +81,7 @@
                                             </af:outputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.EndDate.label}" id="c5"
-                                                   width="200">
+                                                   width="70">
                                             <af:outputText value="#{row.EndDate}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.EndDate.tooltip}"
                                                            id="ot5">
@@ -185,15 +192,7 @@
                                     </af:popup>
                                 </af:panelCollection>
                             </af:panelBox>
-                            <af:popup childCreation="deferred" autoCancel="disabled" id="p4">
-                                <af:dialog id="d5" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
-                                    <af:outputText value="Confirm Action" id="ot6" inlineStyle="margin-right:50px;"/>
-                                    <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}"
-                                                   action="#{DeleteDialogHandler.closeDialogSave}" text="Yes" id="b4"/>
-                                    </f:facet>
-                                </af:dialog>
-                            </af:popup>
+                            
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
                                 <af:dialog id="d6" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
                                     <af:outputText value="Confirm Action" id="ot7" inlineStyle="margin-right:50px;"/>
@@ -221,19 +220,19 @@
                                           shortDesc="#{bindings.NameFirst.hints.tooltip}" id="it1">
                                 <f:validator binding="#{bindings.NameFirst.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{UsersBean.lname}" label="#{bindings.NameLast.hints.label}"
-                                          required="#{bindings.NameLast.hints.mandatory}"
-                                          columns="#{bindings.NameLast.hints.displayWidth}"
-                                          maximumLength="#{bindings.NameLast.hints.precision}"
-                                          shortDesc="#{bindings.NameLast.hints.tooltip}" id="it2">
-                                <f:validator binding="#{bindings.NameLast.validator}"/>
-                            </af:inputText>
                             <af:inputText value="#{UsersBean.mname}" label="#{bindings.NameMiddle.hints.label}"
                                           required="#{bindings.NameMiddle.hints.mandatory}"
                                           columns="#{bindings.NameMiddle.hints.displayWidth}"
                                           maximumLength="#{bindings.NameMiddle.hints.precision}"
                                           shortDesc="#{bindings.NameMiddle.hints.tooltip}" id="it3">
                                 <f:validator binding="#{bindings.NameMiddle.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{UsersBean.lname}" label="#{bindings.NameLast.hints.label}"
+                                          required="#{bindings.NameLast.hints.mandatory}"
+                                          columns="#{bindings.NameLast.hints.displayWidth}"
+                                          maximumLength="#{bindings.NameLast.hints.precision}"
+                                          shortDesc="#{bindings.NameLast.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.NameLast.validator}"/>
                             </af:inputText>
                             <af:selectOneChoice value="#{UsersBean.supervisor}" label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
@@ -259,7 +258,7 @@
                                           required="#{bindings.Password1.hints.mandatory}"
                                           columns="#{bindings.Password1.hints.displayWidth}"
                                           maximumLength="#{bindings.Password1.hints.precision}"
-                                          shortDesc="#{bindings.Password1.hints.tooltip}" id="it4">
+                                          shortDesc="#{bindings.Password1.hints.tooltip}" id="it4" secret="true">
                                 <f:validator binding="#{bindings.Password1.validator}"/>
                             </af:inputText>
                         </af:panelFormLayout>
@@ -277,14 +276,6 @@
                                           shortDesc="#{bindings.NameFirst.hints.tooltip}" id="it5">
                                 <f:validator binding="#{bindings.NameFirst.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{bindings.NameLast.inputValue}"
-                                          label="#{bindings.NameLast.hints.label}"
-                                          required="#{bindings.NameLast.hints.mandatory}"
-                                          columns="#{bindings.NameLast.hints.displayWidth}"
-                                          maximumLength="#{bindings.NameLast.hints.precision}"
-                                          shortDesc="#{bindings.NameLast.hints.tooltip}" id="it6">
-                                <f:validator binding="#{bindings.NameLast.validator}"/>
-                            </af:inputText>
                             <af:inputText value="#{bindings.NameMiddle.inputValue}"
                                           label="#{bindings.NameMiddle.hints.label}"
                                           required="#{bindings.NameMiddle.hints.mandatory}"
@@ -292,6 +283,14 @@
                                           maximumLength="#{bindings.NameMiddle.hints.precision}"
                                           shortDesc="#{bindings.NameMiddle.hints.tooltip}" id="it7">
                                 <f:validator binding="#{bindings.NameMiddle.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.NameLast.inputValue}"
+                                          label="#{bindings.NameLast.hints.label}"
+                                          required="#{bindings.NameLast.hints.mandatory}"
+                                          columns="#{bindings.NameLast.hints.displayWidth}"
+                                          maximumLength="#{bindings.NameLast.hints.precision}"
+                                          shortDesc="#{bindings.NameLast.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.NameLast.validator}"/>
                             </af:inputText>
                             <af:inputDate value="#{bindings.StartDate.inputValue}"
                                           label="#{bindings.StartDate.hints.label}"
