@@ -139,6 +139,55 @@
     Type="java.lang.String"
     ColumnType="NUMBER"
     TableName="USER_PROFILES"/>
+  <Attribute
+    Name="Email"
+    Precision="20"
+    ColumnName="EMAIL"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USER_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <validation:PreDefinedValidationBean
+      Name="EmailRule0"
+      Description="Precision : (20)"
+      ValName="Precision : (20)"
+      Subtype="PRECISION_SCALE"/>
+    <validation:RegExpValidationBean
+      Name="EmailRule1"
+      ResId="model.EO.UserProfileEO.Email_Rule_1"
+      OnAttribute="Email"
+      Pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
+      Inverse="false"/>
+  </Attribute>
+  <Attribute
+    Name="PhoneNumber"
+    Precision="20"
+    ColumnName="PHONE_NUMBER"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USER_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.UserProfileEO.PhoneNumber_LABEL"/>
+        <DISPLAYWIDTH
+          Value="12"/>
+      </SchemaBasedProperties>
+    </Properties>
+    <validation:RegExpValidationBean
+      Name="PhoneNumberRule0"
+      ResId="model.EO.UserProfileEO.PhoneNumber_Rule_1"
+      OnAttribute="PhoneNumber"
+      Pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+      Inverse="false"/>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011012Assoc"

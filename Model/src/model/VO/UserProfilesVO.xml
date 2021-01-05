@@ -30,6 +30,18 @@
     Name="pED"
     Kind="viewcriteria"
     Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pe"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="ppn"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="ppnn"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="RoleProfilesVO1"
     ViewObjectName="model.VO.RoleProfilesVO"
@@ -227,8 +239,27 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Email"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="UserProfileEO"
+    AliasName="EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="70"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="UserProfileEO"
+    AliasName="PHONE_NUMBER"/>
   <ViewCriteria
-    Name="UserProfilesVOCriteria"
+    Name="UsersSearch"
     ViewObjectName="model.VO.UserProfilesVO"
     Conjunction="AND">
     <Properties Name="_Props">
@@ -283,6 +314,22 @@
         Operator="="
         Conjunction="AND"
         Value=":pED"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":pe"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PhoneNumber"
+        ViewAttribute="PhoneNumber"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":ppnn"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

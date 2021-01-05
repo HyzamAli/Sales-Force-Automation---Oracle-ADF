@@ -13,12 +13,16 @@
                             <af:panelBox id="pb3" showDisclosure="false"
                                          inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
                                 <f:facet name="toolbar"/>
-                                <af:query id="qryId1" headerText="Search" disclosed="true"
-                                          value="#{bindings.UserProfilesVOCriteriaQuery.queryDescriptor}"
-                                          model="#{bindings.UserProfilesVOCriteriaQuery.queryModel}"
-                                          queryListener="#{bindings.UserProfilesVOCriteriaQuery.processQuery}"
-                                          queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery.processQueryOperation}"
-                                          maxColumns="2" rows="2"/>
+                                <af:panelGroupLayout layout="vertical" id="pgl2">
+                                    
+                                        <af:query id="qryId2" headerText="Search" disclosed="true"
+                                                  value="#{bindings.UserProfilesVOCriteriaQuery1.queryDescriptor}"
+                                                  model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
+                                                  queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
+                                                  queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
+                                                  maxColumns="3" rows="2"/>
+                                    
+                                </af:panelGroupLayout>
                             </af:panelBox>
                             <af:panelBox text="Users" id="pb1"
                                          inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
