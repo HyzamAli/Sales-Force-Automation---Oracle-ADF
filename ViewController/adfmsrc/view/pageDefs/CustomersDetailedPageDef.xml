@@ -22,9 +22,9 @@
     <searchRegion Criteria="CustomerAppointmentsVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVOCriteriaQuery"/>
-    <searchRegion Criteria="CustomerContactsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+    <searchRegion Criteria="CustomerSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerContactsVO3Iterator" id="CustomerContactsVOCriteriaQuery"/>
-    <searchRegion Criteria="CustomerContactsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+    <searchRegion Criteria="CustomerSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerContactsVO3Iterator" id="CustomerContactsVOCriteriaQuery1"/>
     <iterator Binds="AppointmentAttendeesVO5" RangeSize="25" DataControl="AppsModuleDataControl"
               id="AppointmentAttendeesVO5Iterator"/>
@@ -34,11 +34,6 @@
               id="CustomerAppointmentsVO1Iterator"/>
   </executables>
   <bindings>
-      <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
-      <AttrNames>
-        <Item Value="CustomerId"/>
-      </AttrNames>
-    </attributeValues>
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
       <nodeDefinition DefName="model.VO.CustomerContactsVO" Name="CustomerContactsVO30">
         <AttrNames>
@@ -360,5 +355,17 @@
             Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO31">
+      <nodeDefinition DefName="model.VO.CustomerContactsVO" Name="CustomerContactsVO310">
+        <AttrNames>
+          <Item Value="CustomerId"/>
+          <Item Value="IsPrimary"/>
+          <Item Value="ContactName"/>
+          <Item Value="ContactPhone"/>
+          <Item Value="ContactEmail"/>
+          <Item Value="InfluenceLevel"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

@@ -12,7 +12,8 @@
                   model="#{bindings.CustomersVOCriteriaQuery.queryModel}"
                   queryListener="#{bindings.CustomersVOCriteriaQuery.processQuery}"
                   queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"
-                  inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"/>
+                  inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                  maxColumns="2" rows="2"/>
       </af:panelBox>
       <af:panelBox text="Customers" id="pb1"
                    inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
@@ -60,10 +61,10 @@
               <af:outputText value="#{row.AddLine1}" shortDesc="#{bindings.CustomersVO1.hints.AddLine1.tooltip}"
                              id="ot3"/>
             </af:column>
-            <af:column headerText="#{bindings.CustomersVO1.hints.AccUrl.label}" id="c4" width="200">
+            <af:column headerText="#{bindings.CustomersVO1.hints.AccUrl.label}" id="c4" width="300">
               <af:outputText value="#{row.AccUrl}" shortDesc="#{bindings.CustomersVO1.hints.AccUrl.tooltip}" id="ot4"/>
             </af:column>
-            <af:column headerText="#{bindings.CustomersVO1.hints.Industry.label}" id="c5" width="200">
+            <af:column headerText="#{bindings.CustomersVO1.hints.Industry.label}" id="c5" width="100">
               <af:selectOneChoice value="#{row.bindings.Industry.inputValue}" label="#{row.bindings.Industry.label}"
                                   required="#{bindings.CustomersVO1.hints.Industry.mandatory}"
                                   shortDesc="#{bindings.CustomersVO1.hints.Industry.tooltip}" readOnly="true" id="soc1">
@@ -91,12 +92,6 @@
                         shortDesc="#{bindings.AccName.hints.tooltip}" id="it1">
             <f:validator binding="#{bindings.AccName.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{CustomersBean.refID}" label="#{bindings.ReferencePt.label}"
-                              required="#{bindings.ReferencePt.hints.mandatory}"
-                              shortDesc="#{bindings.ReferencePt.hints.tooltip}" id="soc2">
-            <f:selectItems value="#{bindings.ReferencePt.items}" id="si2"/>
-            <f:validator binding="#{bindings.ReferencePt.validator}"/>
-          </af:selectOneChoice>
           <af:inputText value="#{CustomersBean.addLine1}" label="#{bindings.AddLine1.hints.label}"
                         required="#{bindings.AddLine1.hints.mandatory}"
                         columns="#{bindings.AddLine1.hints.displayWidth}"
@@ -123,24 +118,12 @@
                         shortDesc="#{bindings.Pincode.hints.tooltip}" id="it5">
             <f:validator binding="#{bindings.Pincode.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{CustomersBean.parentAccount}" label="#{bindings.ParentAcc.label}"
-                              required="#{bindings.ParentAcc.hints.mandatory}"
-                              shortDesc="#{bindings.ParentAcc.hints.tooltip}" id="soc3">
-            <f:selectItems value="#{bindings.ParentAcc.items}" id="si3"/>
-            <f:validator binding="#{bindings.ParentAcc.validator}"/>
-          </af:selectOneChoice>
           <af:inputText value="#{CustomersBean.accURL}" label="#{bindings.AccUrl.hints.label}"
                         required="#{bindings.AccUrl.hints.mandatory}" columns="#{bindings.AccUrl.hints.displayWidth}"
                         maximumLength="#{bindings.AccUrl.hints.precision}" shortDesc="#{bindings.AccUrl.hints.tooltip}"
                         id="it6">
             <f:validator binding="#{bindings.AccUrl.validator}"/>
           </af:inputText>
-          <af:selectOneChoice value="#{CustomersBean.industry}" label="#{bindings.Industry.label}"
-                              required="#{bindings.Industry.hints.mandatory}"
-                              shortDesc="#{bindings.Industry.hints.tooltip}" id="soc4">
-            <f:selectItems value="#{bindings.Industry.items}" id="si4"/>
-            <f:validator binding="#{bindings.Industry.validator}"/>
-          </af:selectOneChoice>
           <af:inputText value="#{CustomersBean.email}" label="#{bindings.Email.hints.label}"
                         required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
                         maximumLength="#{bindings.Email.hints.precision}" shortDesc="#{bindings.Email.hints.tooltip}"
@@ -153,6 +136,24 @@
                         id="it8">
             <f:validator binding="#{bindings.Phone.validator}"/>
           </af:inputText>
+          <af:selectOneChoice value="#{CustomersBean.industry}" label="#{bindings.Industry.label}"
+                              required="#{bindings.Industry.hints.mandatory}"
+                              shortDesc="#{bindings.Industry.hints.tooltip}" id="soc4">
+            <f:selectItems value="#{bindings.Industry.items}" id="si4"/>
+            <f:validator binding="#{bindings.Industry.validator}"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{CustomersBean.parentAccount}" label="#{bindings.ParentAcc.label}"
+                              required="#{bindings.ParentAcc.hints.mandatory}"
+                              shortDesc="#{bindings.ParentAcc.hints.tooltip}" id="soc3">
+            <f:selectItems value="#{bindings.ParentAcc.items}" id="si3"/>
+            <f:validator binding="#{bindings.ParentAcc.validator}"/>
+          </af:selectOneChoice>
+          <af:selectOneChoice value="#{CustomersBean.refID}" label="#{bindings.ReferencePt.label}"
+                              required="#{bindings.ReferencePt.hints.mandatory}"
+                              shortDesc="#{bindings.ReferencePt.hints.tooltip}" id="soc2">
+            <f:selectItems value="#{bindings.ReferencePt.items}" id="si2"/>
+            <f:validator binding="#{bindings.ReferencePt.validator}"/>
+          </af:selectOneChoice>
         </af:panelFormLayout>
       </af:dialog>
     </af:popup>

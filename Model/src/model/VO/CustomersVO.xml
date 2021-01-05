@@ -38,6 +38,10 @@
     Name="p5"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="pphone"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="IndustryLovsVO1"
     ViewObjectName="model.VO.IndustryLovsVO"
@@ -147,7 +151,9 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="35"/>
+        <LABEL
+          ResId="model.VO.CustomersVO.AccName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -160,7 +166,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="35"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -173,7 +179,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="35"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -186,7 +192,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="35"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -200,6 +206,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="10"/>
+        <LABEL
+          ResId="model.VO.CustomersVO.Pincode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -228,7 +236,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="80"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -257,7 +265,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="60"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -279,9 +287,16 @@
     PrecisionRule="true"
     EntityAttrName="IsVisible"
     EntityUsage="CustomerEO"
-    AliasName="IS_VISIBLE"/>
+    AliasName="IS_VISIBLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
-    Name="CustomersVOCriteria"
+    Name="CustomersSearch"
     ViewObjectName="model.VO.CustomersVO"
     Conjunction="AND">
     <Properties Name="_Props">
@@ -328,6 +343,14 @@
         Operator="STARTSWITH"
         Conjunction="AND"
         Value=":p5"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Phone"
+        ViewAttribute="Phone"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pphone"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

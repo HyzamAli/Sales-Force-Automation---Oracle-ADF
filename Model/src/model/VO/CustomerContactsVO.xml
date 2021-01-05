@@ -73,7 +73,14 @@
     EntityAttrName="CcId"
     EntityUsage="CustomerContactEO"
     AliasName="CC_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -98,7 +105,14 @@
     PrecisionRule="true"
     EntityAttrName="IsPrimary"
     EntityUsage="CustomerContactEO"
-    AliasName="IS_PRIMARY"/>
+    AliasName="IS_PRIMARY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.IsPrimary_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactName"
     PrecisionRule="true"
@@ -108,7 +122,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="35"/>
         <LABEL
           ResId="model.VO.CustomerContactsVO.ContactName_LABEL"/>
         <LABEL_PLURAL
@@ -125,7 +139,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="12"/>
         <LABEL
           ResId="model.VO.CustomerContactsVO.ContactPhone_LABEL"/>
         <LABEL_PLURAL
@@ -142,7 +156,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="50"/>
         <LABEL
           ResId="model.VO.CustomerContactsVO.ContactEmail_LABEL"/>
         <LABEL_PLURAL
@@ -170,9 +184,16 @@
     PrecisionRule="true"
     EntityAttrName="IsVisible"
     EntityUsage="CustomerContactEO"
-    AliasName="IS_VISIBLE"/>
+    AliasName="IS_VISIBLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
-    Name="CustomerContactsVOCriteria"
+    Name="CustomerSearch"
     ViewObjectName="model.VO.CustomerContactsVO"
     Conjunction="AND">
     <Properties Name="_Props">
@@ -201,7 +222,7 @@
       <ViewCriteriaItem
         Name="ContactName"
         ViewAttribute="ContactName"
-        Operator="="
+        Operator="STARTSWITH"
         Conjunction="AND"
         Value=":b"
         IsBindVarValue="true"
@@ -209,7 +230,7 @@
       <ViewCriteriaItem
         Name="ContactPhone"
         ViewAttribute="ContactPhone"
-        Operator="="
+        Operator="STARTSWITH"
         Conjunction="AND"
         Value=":c"
         IsBindVarValue="true"
@@ -217,7 +238,7 @@
       <ViewCriteriaItem
         Name="ContactEmail"
         ViewAttribute="ContactEmail"
-        Operator="="
+        Operator="STARTSWITH"
         Conjunction="AND"
         Value=":a"
         IsBindVarValue="true"
