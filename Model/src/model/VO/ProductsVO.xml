@@ -93,7 +93,7 @@
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductName_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="95"/>
+          Value="35"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -125,7 +125,7 @@
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductPrice_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="95"/>
+          Value="24"/>
         <LABEL
           ResId="model.VO.ProductsVO.ProductPrice_LABEL"/>
       </SchemaBasedProperties>
