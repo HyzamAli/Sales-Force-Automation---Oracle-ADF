@@ -10,6 +10,10 @@
   DBObjectName="ROLES_PER_EMPLOYEES"
   AliasName="RolesPerEmployee"
   BindingStyle="OracleName">
+  <ViewAccessor
+    Name="RoleProfilesVO1"
+    ViewObjectName="model.VO.RoleProfilesVO"
+    RowLevelBinds="true"/>
   <Attribute
     Name="Id"
     IsUpdateable="while_insert"
@@ -37,7 +41,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ROLES_PER_EMPLOYEES"/>
+    TableName="ROLES_PER_EMPLOYEES"
+    IsNotNull="true"/>
   <Attribute
     Name="EndDate"
     ColumnName="END_DATE"
@@ -51,7 +56,20 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="ROLES_PER_EMPLOYEES"/>
+    TableName="ROLES_PER_EMPLOYEES"
+    IsNotNull="true"/>
+  <Key
+    Name="RolesPerEmployeesEmployeeIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"EMPLOYEE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ROLES_PER_EMPLOYEES_EMPLOYEE_I"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.RolesPerEmployee.EmployeeId"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="RolesPerEmployeesPk"
     PrimaryKey="true">
@@ -60,6 +78,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.RolesPerEmployee.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RolesPerEmployeesStartDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"START_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ROLES_PER_EMPLOYEES_START_DATE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.RolesPerEmployee.StartDate"/>
     </AttrArray>
   </Key>
 </Entity>

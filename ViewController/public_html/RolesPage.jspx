@@ -42,7 +42,7 @@
                                               selectionListener="#{bindings.RoleProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.RoleProfilesVO1.rangeSize}"
                                               id="t1"
-                                              partialTriggers="::b2 ::b1 ::b3 :::b4"
+                                              partialTriggers="::b1 ::b2 ::b3 :::b4 ::p2 ::d3"
                                               columnStretching="last" inlineStyle="margin-left:0px; min-width:100%;"
                                               width="1150"
                                               contentDelivery="immediate">
@@ -96,9 +96,10 @@
                                         </af:dialog>
                                     </af:popup>
                                     <af:popup childCreation="deferred" autoCancel="disabled" id="p2"
-                                              partialTriggers="t1">
+                                              partialTriggers="t1" contentDelivery="immediate">
                                         <af:dialog title="Update Role" id="d3"
-                                                   dialogListener="#{DialogHandler.onUpdate}">
+                                                   dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                                                   affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
                                             <f:facet name="buttonBar"/>
                                             <af:panelFormLayout id="pfl1">
                                                 <af:inputText value="#{bindings.RolesName.inputValue}"
