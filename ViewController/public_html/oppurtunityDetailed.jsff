@@ -235,27 +235,27 @@
                                           pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductQuantity.format}"/>
                       </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c2">
-                      <af:inputText value="#{row.bindings.ProductPrice.inputValue}"
-                                    label="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}"
-                                    required="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.mandatory}"
-                                    maximumLength="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.precision}"
+                    <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.label}" id="c2"
+                               partialTriggers=":::b14">
+                      <af:outputText value="#{row.bindings.ProductPrice.inputValue}"
                                     shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.tooltip}"
-                                    id="it9">
-                        <f:validator binding="#{row.bindings.ProductPrice.validator}"/>
+                                    id="it9" partialTriggers=":::b14">
                         <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.format}"/>
-                      </af:inputText>
+                                          pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductPrice.format}"
+                                          type="currency"/>
+                      </af:outputText>
                     </af:column>
                   </af:table>
                 </af:panelCollection>
               </af:panelGroupLayout>
               <f:facet name="toolbar"/>
               <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b14">
-                <af:dialog id="d3" title="Add Product to Oppurtunity" type="cancel">
+                <af:dialog id="d3" title="Add Product to Oppurtunity" type="cancel"
+                           binding="#{ProductsOpBean.component}">
                   <f:facet name="buttonBar">
                     <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create"
-                               disabled="#{!bindings.CreateWithParams2.enabled}" id="b14"/>
+                               disabled="#{!bindings.CreateWithParams2.enabled}" id="b14"
+                               action="#{ProductsOpBean.closeDialog}"/>
                   </f:facet>
                   <af:panelFormLayout id="pfl4">
                     <af:selectOneChoice value="#{ProductsOpBean.prodId}" label="#{bindings.ProductId.label}"
