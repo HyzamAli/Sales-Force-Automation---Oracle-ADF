@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.2.1.22.48" id="DataBindings"
-             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+             SeparateXMLFiles="false" Package="view" ClientType="Generic" ErrorHandlerClass="view.MyDCException">
   <definitionFactories>
     <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
              className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>

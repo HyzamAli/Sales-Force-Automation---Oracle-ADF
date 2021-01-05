@@ -60,6 +60,14 @@
     Name="ManagerEmployeesVO1"
     ViewObjectName="model.VO.ManagerEmployeesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SupervisorsVO1"
+    ViewObjectName="model.VO.SupervisorsVO"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SupervisorsVO2"
+    ViewObjectName="model.VO.SupervisorsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RolesId"
     ListVOName="RoleProfilesVO1"
@@ -79,10 +87,9 @@
   </ListBinding>
   <ListBinding
     Name="LOV_SupervisorId"
-    ListVOName="ManagerEmployeesVO1"
-    NullValueFlag="start"
-    MRUCount="0"
-    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
+    ListVOName="SupervisorsVO2"
+    NullValueFlag="none"
+    MRUCount="0">
     <AttrArray Name="AttrNames">
       <Item Value="SupervisorId"/>
     </AttrArray>
@@ -257,7 +264,14 @@
     PrecisionRule="true"
     EntityAttrName="PhoneNumber"
     EntityUsage="UserProfileEO"
-    AliasName="PHONE_NUMBER"/>
+    AliasName="PHONE_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.PhoneNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="UsersSearch"
     ViewObjectName="model.VO.UserProfilesVO"

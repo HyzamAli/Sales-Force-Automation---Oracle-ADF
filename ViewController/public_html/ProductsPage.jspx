@@ -19,7 +19,17 @@
                             <af:panelDashboard id="pd1" columns="2" rowHeight="400px">
                                 <af:panelBox text="Products" id="pb1"
                                              inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:10px; padding-bottom:010px; padding-right:010px; padding-top:019px;">
-                                    <f:facet name="toolbar"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t3" rendered="false">
+                                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                       disabled="#{!bindings.Commit.enabled}" id="b3"/>
+                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
+                                                       id="b8">
+                                                <af:resetActionListener/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </f:facet>
                                     <af:panelCollection id="pc1"
                                                         inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
                                         <f:facet name="menus"/>
@@ -30,7 +40,7 @@
                                                 </af:button>
                                                 <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                                                            disabled="#{!bindings.Delete.enabled}" id="b5">
-                                                    <af:showPopupBehavior popupId="::p3"/>
+                                                    <af:showPopupBehavior popupId="::p5"/>
                                                 </af:button>
                                             </af:toolbar>
                                         </f:facet>
@@ -42,7 +52,7 @@
                                                   selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
                                                   selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
                                                   rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
-                                                  id="t1" columnStretching="last" partialTriggers="::::b2 ::b5">
+                                                  id="t1" columnStretching="last" partialTriggers="::::b2 ::b5 :::b9">
                                             <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}"
                                                        id="c1" rowHeader="true" width="200" align="left">
                                                 <af:link text="" id="l1">
@@ -51,18 +61,6 @@
                                                                    id="ot1"/>
                                                     <af:showPopupBehavior popupId="::::p1"/>
                                                 </af:link>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.ProductsVO11.hints.ProductCategory.label}"
-                                                       id="c3">
-                                                <af:selectOneChoice value="#{row.bindings.ProductCategory.inputValue}"
-                                                                    label="#{row.bindings.ProductCategory.label}"
-                                                                    required="#{bindings.ProductsVO11.hints.ProductCategory.mandatory}"
-                                                                    shortDesc="#{bindings.ProductsVO11.hints.ProductCategory.tooltip}"
-                                                                    readOnly="true" id="soc1">
-                                                    <f:selectItems value="#{row.bindings.ProductCategory.items}"
-                                                                   id="si1"/>
-                                                    <f:validator binding="#{row.bindings.ProductCategory.validator}"/>
-                                                </af:selectOneChoice>
                                             </af:column>
                                             <af:column headerText="#{bindings.ProductsVO11.hints.ProductPrice.label}"
                                                        id="c4">
@@ -73,6 +71,17 @@
                                                                       pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"
                                                                       type="currency"/>
                                                 </af:outputText>
+                                            </af:column>
+                                            <af:column headerText="#{bindings.ProductsVO11.hints.CategoryId.label}"
+                                                       id="c2">
+                                                <af:selectOneChoice id="soc1" value="#{row.bindings.CategoryId.inputValue}"
+                                                                    label="#{row.bindings.CategoryId.label}"
+                                                                    required="#{bindings.ProductsVO11.hints.CategoryId.mandatory}"
+                                                                    shortDesc="#{bindings.ProductsVO11.hints.CategoryId.tooltip}"
+                                                                    readOnly="true">
+                                                    <f:selectItems id="si1" value="#{row.bindings.CategoryId.items}"/>
+                                                    <f:validator binding="#{row.bindings.CategoryId.validator}"/>
+                                                </af:selectOneChoice>
                                             </af:column>
                                         </af:table>
                                     </af:panelCollection>
@@ -87,6 +96,9 @@
                                                 <af:button text="Add" id="b7">
                                                     <af:showPopupBehavior popupId=":::p4"/>
                                                 </af:button>
+                                                <af:button text="Delete" id="b4">
+                                                    <af:showPopupBehavior popupId="::p3"/>
+                                                </af:button>
                                             </af:toolbar>
                                         </f:facet>
                                         <f:facet name="statusbar"/>
@@ -96,7 +108,7 @@
                                                   rowBandingInterval="0"
                                                   fetchSize="#{bindings.ProductCategoriesVO1.rangeSize}" id="t4"
                                                   columnStretching="last" summary="product ategories List"
-                                                  partialTriggers="::::b6" inlineStyle="padding-left:0px;">
+                                                  partialTriggers="::::b6 :::b10" inlineStyle="padding-left:0px;">
                                             <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
                                                        id="c5" rowHeader="true" width="250" align="left">
                                                 <af:outputText value="#{row.Category}"
@@ -105,15 +117,28 @@
                                             </af:column>
                                         </af:table>
                                     </af:panelCollection>
+                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+                                              partialTriggers="pc1:t1">
+                                        <af:dialog id="d6" title="Delete" type="cancel"
+                                                   binding="#{DeleteDialogHandler.component}">
+                                            <af:outputText value="Are you sure? " id="ot5"
+                                                           inlineStyle="margin-right:50px;"/>
+                                            <f:facet name="buttonBar">
+                                                <af:button actionListener="#{bindings.Delete.execute}"
+                                                           action="#{DeleteDialogHandler.closeDialogSave}" text="Yes"
+                                                           id="b9"/>
+                                            </f:facet>
+                                        </af:dialog>
+                                    </af:popup>
                                 </af:panelBox>
                             </af:panelDashboard>
-                            <af:popup childCreation="deferred" autoCancel="disabled" id="p3">
+                            <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="pc2:t4">
                                 <af:dialog id="d5" title="Delete" type="cancel"
-                                           binding="#{DeleteDialogHandler.component}">
-                                    <af:outputText value="Confirm Action" id="ot2" inlineStyle="margin-right:50px;"/>
+                                           binding="#{ProductCategoriesBean.deleteComponent}">
+                                    <af:outputText value="Are you sure? " id="ot2" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}"
-                                                   action="#{DeleteDialogHandler.closeDialogSave}" text="Yes" id="b4"/>
+                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Yes" action="#{ProductCategoriesBean.closeSaveDialog}"
+                                                   disabled="#{!bindings.Delete1.enabled}" id="b10"/>
                                     </f:facet>
                                 </af:dialog>
                             </af:popup>
@@ -143,13 +168,6 @@
                                           shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it2">
                                 <f:validator binding="#{bindings.ProductDescription.validator}"/>
                             </af:inputText>
-                            <af:selectOneChoice value="#{ProductsBean.productCategory}"
-                                                label="#{bindings.ProductCategory.label}"
-                                                required="#{bindings.ProductCategory.hints.mandatory}"
-                                                shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="soc2">
-                                <f:selectItems value="#{bindings.ProductCategory.items}" id="si2"/>
-                                <f:validator binding="#{bindings.ProductCategory.validator}"/>
-                            </af:selectOneChoice>
                             <af:inputText value="#{ProductsBean.productPrice}"
                                           label="#{bindings.ProductPrice.hints.label}"
                                           required="#{bindings.ProductPrice.hints.mandatory}"
@@ -159,6 +177,13 @@
                                 <f:validator binding="#{bindings.ProductPrice.validator}"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductPrice.format}"/>
                             </af:inputText>
+                            <af:selectOneChoice value="#{ProductsBean.productCategory}"
+                                                label="#{bindings.CategoryId1.label}"
+                                                required="#{bindings.CategoryId1.hints.mandatory}"
+                                                shortDesc="#{bindings.CategoryId1.hints.tooltip}" id="soc2">
+                                <f:selectItems value="#{bindings.CategoryId1.items}" id="si2"/>
+                                <f:validator binding="#{bindings.CategoryId1.validator}"/>
+                            </af:selectOneChoice>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>
@@ -182,12 +207,12 @@
                                           shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it5">
                                 <f:validator binding="#{bindings.ProductDescription.validator}"/>
                             </af:inputText>
-                            <af:selectOneChoice value="#{bindings.ProductCategory.inputValue}"
-                                                label="#{bindings.ProductCategory.label}"
-                                                required="#{bindings.ProductCategory.hints.mandatory}"
-                                                shortDesc="#{bindings.ProductCategory.hints.tooltip}" id="soc3">
-                                <f:selectItems value="#{bindings.ProductCategory.items}" id="si3"/>
-                                <f:validator binding="#{bindings.ProductCategory.validator}"/>
+                            <af:selectOneChoice value="#{bindings.CategoryId1.inputValue}"
+                                                label="#{bindings.CategoryId1.label}"
+                                                required="#{bindings.CategoryId1.hints.mandatory}"
+                                                shortDesc="#{bindings.CategoryId1.hints.tooltip}" id="soc3">
+                                <f:selectItems value="#{bindings.CategoryId1.items}" id="si3"/>
+                                <f:validator binding="#{bindings.CategoryId1.validator}"/>
                             </af:selectOneChoice>
                             <af:inputText value="#{bindings.ProductPrice.inputValue}"
                                           label="#{bindings.ProductPrice.hints.label}"

@@ -90,6 +90,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.RoleProfilesVO.RoleProfilesVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow

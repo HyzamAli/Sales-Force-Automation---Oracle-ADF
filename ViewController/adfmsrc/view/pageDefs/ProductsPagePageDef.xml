@@ -17,7 +17,6 @@
         <AttrNames>
           <Item Value="ProductName"/>
           <Item Value="ProductDescription"/>
-          <Item Value="ProductCategory"/>
           <Item Value="ProductPrice"/>
         </AttrNames>
       </nodeDefinition>
@@ -27,9 +26,8 @@
       <nodeDefinition DefName="model.VO.ProductsVO" Name="ProductsVO110">
         <AttrNames>
           <Item Value="ProductName"/>
-          <Item Value="ProductDescription"/>
-          <Item Value="ProductCategory"/>
           <Item Value="ProductPrice"/>
+          <Item Value="CategoryId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -43,8 +41,6 @@
         <Item Value="ProductDescription"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_ProductCategory" id="ProductCategory"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="ProductsVO1Iterator" id="ProductPrice">
       <AttrNames>
         <Item Value="ProductPrice"/>
@@ -54,7 +50,7 @@
             Action="createWithParams">
       <NamedData NDName="ProductName" NDValue="#{ProductsBean.productName}" NDType="java.lang.String"/>
       <NamedData NDName="ProductDescription" NDValue="#{ProductsBean.productDescription}" NDType="java.lang.String"/>
-      <NamedData NDName="ProductCategory" NDValue="#{ProductsBean.productCategory}" NDType="java.lang.String"/>
+      <NamedData NDName="CategoryId" NDValue="#{ProductsBean.productCategory}" NDType="java.lang.String"/>
       <NamedData NDName="ProductPrice" NDValue="#{ProductsBean.productPrice}" NDType="java.lang.String"/>
     </action>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
@@ -75,5 +71,11 @@
             Action="createWithParams">
       <NamedData NDName="Category" NDValue="#{ProductCategoriesBean.productCategory}" NDType="java.lang.String"/>
     </action>
+    <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <action IterBinding="ProductCategoriesVO1Iterator" id="Delete1" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
+    <listOfValues IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_CategoryId" id="CategoryId"/>
+    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_CategoryId" id="CategoryId1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
