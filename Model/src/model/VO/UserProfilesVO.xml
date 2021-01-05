@@ -30,6 +30,18 @@
     Name="pED"
     Kind="viewcriteria"
     Type="java.sql.Timestamp"/>
+  <Variable
+    Name="pe"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="ppn"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
+  <Variable
+    Name="ppnn"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="RoleProfilesVO1"
     ViewObjectName="model.VO.RoleProfilesVO"
@@ -94,7 +106,14 @@
     EntityAttrName="UserId"
     EntityUsage="UserProfileEO"
     AliasName="USER_ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.UserId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="RolesId"
     PrecisionRule="true"
@@ -123,7 +142,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="94"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameFirst_LABEL"/>
       </SchemaBasedProperties>
@@ -138,7 +157,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="94"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameLast_LABEL"/>
       </SchemaBasedProperties>
@@ -153,7 +172,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="25"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.NameMiddle_LABEL"/>
       </SchemaBasedProperties>
@@ -168,7 +187,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="100"/>
+          Value="30"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.Password1_LABEL"/>
       </SchemaBasedProperties>
@@ -185,7 +204,7 @@
         <LABEL
           ResId="model.VO.UserProfilesVO.StartDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="90"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -200,7 +219,7 @@
         <LABEL
           ResId="model.VO.UserProfilesVO.EndDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="90"/>
+          Value="10"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -220,8 +239,27 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="Email"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="UserProfileEO"
+    AliasName="EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="70"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="PhoneNumber"
+    PrecisionRule="true"
+    EntityAttrName="PhoneNumber"
+    EntityUsage="UserProfileEO"
+    AliasName="PHONE_NUMBER"/>
   <ViewCriteria
-    Name="UserProfilesVOCriteria"
+    Name="UsersSearch"
     ViewObjectName="model.VO.UserProfilesVO"
     Conjunction="AND">
     <Properties Name="_Props">
@@ -249,7 +287,7 @@
       <ViewCriteriaItem
         Name="NameFirst"
         ViewAttribute="NameFirst"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":pNF"
         IsBindVarValue="true"
@@ -257,7 +295,7 @@
       <ViewCriteriaItem
         Name="NameLast"
         ViewAttribute="NameLast"
-        Operator="="
+        Operator="CONTAINS"
         Conjunction="AND"
         Value=":pNL"
         IsBindVarValue="true"
@@ -276,6 +314,22 @@
         Operator="="
         Conjunction="AND"
         Value=":pED"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":pe"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="PhoneNumber"
+        ViewAttribute="PhoneNumber"
+        Operator="CONTAINS"
+        Conjunction="AND"
+        Value=":ppnn"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
