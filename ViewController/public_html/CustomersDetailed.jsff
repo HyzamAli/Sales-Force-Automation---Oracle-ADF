@@ -129,7 +129,7 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t8">
-                  <af:button text="Create Contact" id="b9">
+                  <af:button text="Create " id="b9">
                     <af:showPopupBehavior popupId="::p3"/>
                   </af:button>
                   <af:button  text="Delete"
@@ -148,9 +148,9 @@
                         rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
                         columnStretching="last" summary="Customer Notes List"
                         partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4"
-                        width="1000">
+                        width="1150">
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
-                           rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200"
+                           rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="250"
                            align="left">
                   <af:link id="l1">
                     <af:outputText value="#{row.ContactName}"
@@ -158,7 +158,7 @@
                     <af:showPopupBehavior popupId=":::p5"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerContactsVO31.hints.IsPrimary.label}" id="c15" width="40">
+                <af:column headerText="#{bindings.CustomerContactsVO31.hints.IsPrimary.label}" id="c15" width="100">
                   <af:outputText value="#{row.IsPrimary}"
                                  shortDesc="#{bindings.CustomerContactsVO31.hints.IsPrimary.tooltip}" id="ot23">
                     <af:convertNumber groupingUsed="false"
@@ -166,11 +166,11 @@
                   </af:outputText>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
-                           inlineStyle="width:200pt;" width="200" minimumWidth="200">
+                           inlineStyle="width:200pt;" width="100" minimumWidth="200">
                   <af:outputText value="#{row.ContactPhone}"
                                  shortDesc="#{bindings.CustomerContactsVO3.hints.ContactPhone.tooltip}" id="ot3"/>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="250"
+                <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="400"
                            minimumWidth="250">
                   <af:outputText value="#{row.ContactEmail}"
                                  shortDesc="#{bindings.CustomerContactsVO3.hints.ContactEmail.tooltip}" id="ot4"/>
