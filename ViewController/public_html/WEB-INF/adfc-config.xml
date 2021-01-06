@@ -31,6 +31,14 @@
       <from-outcome>toHome</from-outcome>
       <to-activity-id>WelcomeView</to-activity-id>
     </control-flow-case>
+    <control-flow-case id="__18">
+      <from-outcome>#{loginBean.doLogout}</from-outcome>
+      <to-activity-id>ProductsView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__19">
+      <from-outcome>#{loginBean.onLogout}</from-outcome>
+      <to-activity-id>ProductsView</to-activity-id>
+    </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__5">
     <description>Menu Model Managed Bean</description>

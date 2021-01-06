@@ -3,6 +3,7 @@ package view;
 import java.io.IOException;
 
 import javax.faces.application.FacesMessage;
+import javax.faces.context.ExternalContext;
 import javax.faces.context.FacesContext;
 import javax.faces.event.ActionEvent;
 
@@ -15,6 +16,8 @@ import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import javax.servlet.http.HttpSession;
 
 import weblogic.security.URLCallbackHandler;
 import weblogic.security.services.Authentication;
@@ -67,6 +70,34 @@ public class LoginHandler {
     }catch(LoginException e){
         reportUnexpectedLoginError("LoginException", e);
     }
+    }
+    
+    public String onLogout() {
+
+      FacesContext fctx = FacesContext.getCurrentInstance();
+
+      ExternalContext ectx =
+    fctx.getExternalContext();
+
+      String url = ectx.getRequestContextPath()
+    + 
+
+                 "/adfAuthentication?logout=true&end_url=/faces/Login.jsf";     
+
+      try {
+
+        ectx.redirect(url);
+
+      } catch (IOException e) {
+
+        e.printStackTrace();
+
+      }
+
+      fctx.responseComplete();
+
+      return null;
+
     }
     
     private void sendForward(HttpServletRequest request, 

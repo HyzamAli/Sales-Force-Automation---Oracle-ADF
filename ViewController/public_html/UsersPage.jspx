@@ -41,7 +41,7 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t6">
-                                            <af:button text="Add" id="b1">
+                                            <af:button text="Create" id="b1">
                                                 <af:showPopupBehavior popupId=":::p1"/>
                                             </af:button>
                                             <af:button text="Delete"
@@ -268,7 +268,8 @@
                             </af:inputText>
                             <af:selectOneChoice value="#{UsersBean.supervisor}" label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
-                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc2">
+                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc2"
+                                                partialTriggers="pt1:pc2:t2">
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si2"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
@@ -299,7 +300,7 @@
                                           shortDesc="#{bindings.Password1.hints.tooltip}" id="it4" secret="true">
                                 <f:validator binding="#{bindings.Password1.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{UsersBean.email}" simple="true"
+                            <af:inputText value="#{UsersBean.email}"
                                           required="#{bindings.Email.hints.mandatory}"
                                           label="Email"
                                           columns="#{bindings.Email.hints.displayWidth}"
@@ -307,7 +308,7 @@
                                           shortDesc="#{bindings.Email.hints.tooltip}" id="it8">
                                 <f:validator binding="#{bindings.Email.validator}"/>
                             </af:inputText>
-                            <af:inputText value="#{UsersBean.phone}" simple="true"
+                            <af:inputText value="#{UsersBean.phone}"
                                           required="#{bindings.PhoneNumber.hints.mandatory}"
                                           columns="#{bindings.PhoneNumber.hints.displayWidth}"
                                           label="Phone Number"
@@ -369,7 +370,7 @@
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si4"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
-                            <af:inputText value="#{bindings.Email.inputValue}" simple="true"
+                            <af:inputText value="#{bindings.Email.inputValue}"
                                           required="#{bindings.Email.hints.mandatory}"
                                           label="Email"
                                           columns="#{bindings.Email.hints.displayWidth}"
