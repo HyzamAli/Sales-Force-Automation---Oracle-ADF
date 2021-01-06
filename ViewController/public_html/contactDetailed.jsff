@@ -2,7 +2,7 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:panelGroupLayout id="pgl3" layout="vertical">
-    <af:panelBox id="pb6" showDisclosure="false" inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px;" background="dark"
+    <af:panelBox id="pb6" showDisclosure="true" inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px;" background="dark"
                  text="#{bindings.ContactName.inputValue}">
       <f:facet name="toolbar"/>
     </af:panelBox>
@@ -13,11 +13,12 @@
                          icon="#{resource['images:document.png']}">
         <af:panelBox text="Overview" id="pb1" showDisclosure="false">
           <f:facet name="toolbar">
-            <af:toolbar id="t5" rendered="false">
+            <af:toolbar id="t5" rendered="true">
+              <af:button text="Go Back" id="b7" action="goBack"/>
               <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                         disabled="#{!bindings.Commit.enabled}" id="b4"/>
+                         disabled="#{!bindings.Commit.enabled}" id="b4" rendered="false"/>
               <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5">
+                         disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b5" rendered="false">
                 <af:resetActionListener/>
               </af:button>
             </af:toolbar>

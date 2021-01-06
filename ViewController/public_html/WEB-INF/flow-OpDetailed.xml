@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="flow-OpDetailed">
+    <default-activity>ExecuteWithParams</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>OppurtunityId</name>
+      <value>#{pageFlowScope.OppurtunityId}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name>OppurtunityBean</managed-bean-name>
+      <managed-bean-class>view.OppurtunityBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__7">
+      <managed-bean-name>NotesBean</managed-bean-name>
+      <managed-bean-class>view.NotesBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+      <managed-bean-name>TasksBean</managed-bean-name>
+      <managed-bean-class>view.TasksBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name>SalesTeamBean</managed-bean-name>
+      <managed-bean-class>view.SalesTeamBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name>FilesBean</managed-bean-name>
+      <managed-bean-class>view.FilesBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__12">
+      <managed-bean-name>ProductsOpBean</managed-bean-name>
+      <managed-bean-class>view.ProductsOpBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="oppurtunityDetailed">
+      <page>/oppurtunityDetailed.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="flow-customerDetailed">
+      <task-flow-reference>
+        <document>/WEB-INF/flow-customerDetailed.xml</document>
+        <id>flow-customerDetailed</id>
+      </task-flow-reference>
+      <input-parameter id="__13">
+        <name>CustomerId</name>
+        <value>#{pageFlowScope.CustomerId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>oppurtunityDetailed</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>oppurtunityDetailed</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>goBack</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__9">
+        <from-outcome>toCustomerDetailed</from-outcome>
+        <to-activity-id>flow-customerDetailed</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

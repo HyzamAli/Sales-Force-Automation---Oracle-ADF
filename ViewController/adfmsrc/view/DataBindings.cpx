@@ -15,26 +15,18 @@
     <page path="/Sales.jsf" usageId="view_SalesPageDef"/>
     <page path="/SalesCustomersList.jsff" usageId="view_SalesCustomersListPageDef"/>
     <page path="/CustomersDetailed.jsff" usageId="view_CustomersDetailedPageDef"/>
-    <page path="/WEB-INF/sales-flow-customers.xml#sales-flow-customers@ExecuteWithParams"
-          usageId="view_sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef"/>
     <page path="/Oppurtunities.jsff" usageId="view_OppurtunitiesPageDef"/>
-    <page path="/WEB-INF/sales-flow-oppurtunities.xml#sales-flow-oppurtunities@ExecuteWithParams"
-          usageId="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"/>
     <page path="/oppurtunityDetailed.jsff" usageId="view_oppurtunityDetailedPageDef"/>
     <page path="/SalesDashboard.jsff" usageId="view_SalesDashboardPageDef"/>
     <page path="/ContactsList.jsff" usageId="view_ContactsListPageDef"/>
-    <page path="/WEB-INF/sales-flow-oppurtunities.xml#sales-flow-oppurtunities@ExecuteWithParams1"
-          usageId="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParams1PageDef"/>
-    <page path="/WEB-INF/sales-flow-customers.xml#sales-flow-customers@ExecuteWithParams1"
-          usageId="view_sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef"/>
     <page path="/home.jsf" usageId="view_homePageDef"/>
-    <page path="/WEB-INF/sales-flow-contact.xml#sales-flow-contact@ExecuteWithParams"
-          usageId="view_sales_flow_contact_sales_flow_contact_ExecuteWithParamsPageDef"/>
     <page path="/contactDetailed.jsff" usageId="view_contactDetailedPageDef"/>
-    <page path="/WEB-INF/sales-flow-contact.xml#sales-flow-contact@ExecuteWithParams1"
-          usageId="view_sales_flow_contact_sales_flow_contact_ExecuteWithParams1PageDef"/>
-    <page path="/WEB-INF/sales-flow-contact.xml#sales-flow-contact@ExecuteWithParams2"
-          usageId="view_sales_flow_contact_sales_flow_contact_ExecuteWithParams2PageDef"/>
+    <page path="/WEB-INF/flow-contactsDetailed.xml#flow-contactsDetailed@ExecuteWithParams"
+          usageId="view_flow_contactsDetailed_flow_contactsDetailed_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/flow-OpDetailed.xml#flow-OpDetailed@ExecuteWithParams"
+          usageId="view_flow_OpDetailed_flow_OpDetailed_ExecuteWithParamsPageDef"/>
+    <page path="/WEB-INF/flow-customerDetailed.xml#flow-customerDetailed@ExecuteWithParams"
+          usageId="view_flow_customerDetailed_flow_customerDetailed_ExecuteWithParamsPageDef"/>
   </pageMap>
   <pageDefinitionUsages>
     <page id="view_ProductsPagePageDef" path="view.pageDefs.ProductsPagePageDef"/>
@@ -43,26 +35,18 @@
     <page id="view_SalesPageDef" path="view.pageDefs.SalesPageDef"/>
     <page id="view_SalesCustomersListPageDef" path="view.pageDefs.SalesCustomersListPageDef"/>
     <page id="view_CustomersDetailedPageDef" path="view.pageDefs.CustomersDetailedPageDef"/>
-    <page id="view_sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef"
-          path="view.pageDefs.sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef"/>
     <page id="view_OppurtunitiesPageDef" path="view.pageDefs.OppurtunitiesPageDef"/>
-    <page id="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"
-          path="view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef"/>
     <page id="view_oppurtunityDetailedPageDef" path="view.pageDefs.oppurtunityDetailedPageDef"/>
     <page id="view_SalesDashboardPageDef" path="view.pageDefs.SalesDashboardPageDef"/>
     <page id="view_ContactsListPageDef" path="view.pageDefs.ContactsListPageDef"/>
-    <page id="view_sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParams1PageDef"
-          path="view.pageDefs.sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParams1PageDef"/>
-    <page id="view_sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef"
-          path="view.pageDefs.sales_flow_customers_sales_flow_customers_ExecuteWithParams1PageDef"/>
     <page id="view_homePageDef" path="view.pageDefs.homePageDef"/>
-    <page id="view_sales_flow_contact_sales_flow_contact_ExecuteWithParamsPageDef"
-          path="view.pageDefs.sales_flow_contact_sales_flow_contact_ExecuteWithParamsPageDef"/>
     <page id="view_contactDetailedPageDef" path="view.pageDefs.contactDetailedPageDef"/>
-    <page id="view_sales_flow_contact_sales_flow_contact_ExecuteWithParams1PageDef"
-          path="view.pageDefs.sales_flow_contact_sales_flow_contact_ExecuteWithParams1PageDef"/>
-    <page id="view_sales_flow_contact_sales_flow_contact_ExecuteWithParams2PageDef"
-          path="view.pageDefs.sales_flow_contact_sales_flow_contact_ExecuteWithParams2PageDef"/>
+    <page id="view_flow_contactsDetailed_flow_contactsDetailed_ExecuteWithParamsPageDef"
+          path="view.pageDefs.flow_contactsDetailed_flow_contactsDetailed_ExecuteWithParamsPageDef"/>
+    <page id="view_flow_OpDetailed_flow_OpDetailed_ExecuteWithParamsPageDef"
+          path="view.pageDefs.flow_OpDetailed_flow_OpDetailed_ExecuteWithParamsPageDef"/>
+    <page id="view_flow_customerDetailed_flow_customerDetailed_ExecuteWithParamsPageDef"
+          path="view.pageDefs.flow_customerDetailed_flow_customerDetailed_ExecuteWithParamsPageDef"/>
   </pageDefinitionUsages>
   <dataControlUsages>
     <BC4JDataControl id="AppsModuleDataControl" Package="model.APP_MODULE"
