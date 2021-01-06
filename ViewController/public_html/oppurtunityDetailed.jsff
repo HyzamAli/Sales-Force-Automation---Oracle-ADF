@@ -15,6 +15,7 @@
           <af:panelBox text="Overview" id="pb1" showDisclosure="false" icon="#{resource['images:document.png']}">
             <f:facet name="toolbar">
               <af:toolbar id="t1" rendered="true">
+                <af:button text="Go Back" id="b12" action="goBack"/>
                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                            disabled="#{!bindings.Commit.enabled}" id="b2" rendered="false"/>
                 <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"

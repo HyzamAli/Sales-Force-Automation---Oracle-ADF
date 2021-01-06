@@ -53,50 +53,21 @@
     <view id="SalesCustomersList">
       <page>/SalesCustomersList.jsff</page>
     </view>
-    <view id="CustomersDetailed">
-      <page>/CustomersDetailed.jsff</page>
-    </view>
-    <method-call id="ExecuteWithParams">
-      <method>#{bindings.ExecuteWithParams.execute}</method>
-      <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
-      </outcome>
-    </method-call>
-    <method-call id="ExecuteWithParams1">
-      <method>#{bindings.ExecuteWithParams.execute}</method>
-      <outcome>
-        <fixed-outcome>ExecuteWithParams</fixed-outcome>
-      </outcome>
-    </method-call>
-    <view id="opDetailed">
-      <page>/oppurtunityDetailed.jsff</page>
-    </view>
+    <task-flow-call id="flow-customerDetailed">
+      <task-flow-reference>
+        <document>/WEB-INF/flow-customerDetailed.xml</document>
+        <id>flow-customerDetailed</id>
+      </task-flow-reference>
+      <input-parameter id="__18">
+        <name>CustomerId</name>
+        <value>#{pageFlowScope.custID}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__5">
       <from-activity-id>SalesCustomersList</from-activity-id>
       <control-flow-case id="__6">
         <from-outcome>toDetailed</from-outcome>
-        <to-activity-id>ExecuteWithParams</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__7">
-      <from-activity-id>ExecuteWithParams</from-activity-id>
-      <control-flow-case id="__8">
-        <from-outcome>ExecuteWithParams</from-outcome>
-        <to-activity-id>CustomersDetailed</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__11">
-      <from-activity-id>CustomersDetailed</from-activity-id>
-      <control-flow-case id="__12">
-        <from-outcome>toOpDetailed</from-outcome>
-        <to-activity-id>ExecuteWithParams1</to-activity-id>
-      </control-flow-case>
-    </control-flow-rule>
-    <control-flow-rule id="__13">
-      <from-activity-id>ExecuteWithParams1</from-activity-id>
-      <control-flow-case id="__14">
-        <from-outcome>ExecuteWithParams</from-outcome>
-        <to-activity-id>opDetailed</to-activity-id>
+        <to-activity-id>flow-customerDetailed</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>

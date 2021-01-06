@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="flow-customerDetailed">
+    <default-activity>ExecuteWithParams</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <input-parameter-definition id="__1">
+      <name>CustomerId</name>
+      <value>#{pageFlowScope.CustomerId}</value>
+      <class>java.lang.String</class>
+      <required/>
+    </input-parameter-definition>
+    <managed-bean id="__6">
+      <managed-bean-name>CustomersBean</managed-bean-name>
+      <managed-bean-class>view.CustomersBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__7">
+      <managed-bean-name>ContactsBean</managed-bean-name>
+      <managed-bean-class>view.ContactsBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__8">
+      <managed-bean-name>NotesBean</managed-bean-name>
+      <managed-bean-class>view.NotesBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__9">
+      <managed-bean-name>TasksBean</managed-bean-name>
+      <managed-bean-class>view.TasksBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__10">
+      <managed-bean-name>AppointmentsBean</managed-bean-name>
+      <managed-bean-class>view.AppointmentsBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__11">
+      <managed-bean-name>AttendeeBean</managed-bean-name>
+      <managed-bean-class>view.AttendeeBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__12">
+      <managed-bean-name>AttendeeCustomerBean</managed-bean-name>
+      <managed-bean-class>view.AttendeeCustomerBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <method-call id="ExecuteWithParams">
+      <method>#{bindings.ExecuteWithParams.execute}</method>
+      <outcome>
+        <fixed-outcome>ExecuteWithParams</fixed-outcome>
+      </outcome>
+    </method-call>
+    <view id="CustomersDetailed">
+      <page>/CustomersDetailed.jsff</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <task-flow-call id="flow-contactsDetailed">
+      <task-flow-reference>
+        <document>/WEB-INF/flow-contactsDetailed.xml</document>
+        <id>flow-contactsDetailed</id>
+      </task-flow-reference>
+      <input-parameter id="__14">
+        <name>ContactId</name>
+        <value>#{pageFlowScope.ContactId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <task-flow-call id="flow-OpDetailed">
+      <task-flow-reference>
+        <document>/WEB-INF/flow-OpDetailed.xml</document>
+        <id>flow-OpDetailed</id>
+      </task-flow-reference>
+      <input-parameter id="__16">
+        <name>OppurtunityId</name>
+        <value>#{pageFlowScope.OpId}</value>
+      </input-parameter>
+    </task-flow-call>
+    <control-flow-rule id="__2">
+      <from-activity-id>ExecuteWithParams</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>ExecuteWithParams</from-outcome>
+        <to-activity-id>CustomersDetailed</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>CustomersDetailed</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>goBack</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__13">
+        <from-outcome>toContactDetailed</from-outcome>
+        <to-activity-id>flow-contactsDetailed</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>toOpDetailed</from-outcome>
+        <to-activity-id>flow-OpDetailed</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

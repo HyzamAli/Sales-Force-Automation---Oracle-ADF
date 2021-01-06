@@ -37,11 +37,12 @@
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
       <nodeDefinition DefName="model.VO.CustomerContactsVO" Name="CustomerContactsVO30">
         <AttrNames>
-          <Item Value="IsPrimary"/>
           <Item Value="ContactName"/>
+          <Item Value="IsPrimary"/>
           <Item Value="ContactPhone"/>
           <Item Value="ContactEmail"/>
           <Item Value="InfluenceLevel"/>
+          <Item Value="CcId"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -102,6 +103,7 @@
       <NamedData NDName="NotesTitle" NDValue="#{NotesBean.title}" NDType="java.lang.String"/>
       <NamedData NDName="NotesDescription" NDValue="#{NotesBean.description}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{NotesBean.contactID}" NDType="java.lang.String"/>
+      <NamedData NDName="OppurtunityId" NDValue="#{NotesBean.oppurtunityID}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
       <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
     </action>
@@ -161,6 +163,11 @@
       <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
     </action>
+        <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="CustomerByIDVO1Iterator" id="AccName">
       <AttrNames>
         <Item Value="AccName"/>
@@ -207,16 +214,6 @@
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ParentAcc" id="ParentAcc"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <attributeValues IterBinding="CustomerContactsVO3Iterator" id="InfluenceLevel">
-      <AttrNames>
-        <Item Value="InfluenceLevel"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="CustomerContactsVO3Iterator" id="IsPrimary">
-      <AttrNames>
-        <Item Value="IsPrimary"/>
-      </AttrNames>
-    </attributeValues>
     <action IterBinding="CustomerContactsVO3Iterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <list IterBinding="CustomerNotesVO6Iterator" id="CustomerId1" DTSupportsMRU="true" SelectItemValueMode="ListObject"
@@ -367,5 +364,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>
