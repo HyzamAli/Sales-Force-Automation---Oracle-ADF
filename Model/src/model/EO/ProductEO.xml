@@ -78,7 +78,8 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="PRODUCTS"
-    IsNotNull="true"/>
+    IsNotNull="true"
+    IsUpdateable="while_insert"/>
   <AccessorAttribute
     Name="ProductsPerOppurtunityEO"
     Association="model.EO.SysC0011006Assoc"
@@ -106,9 +107,7 @@
       <Attr Name="_isCheck" Value="true"/>
       <Attr Name="_DBObjectName" Value="PRODUCTS_PRODUCT_CATEGORY_CHEC"/>
     </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EO.ProductEO.ProductCategory"/>
-    </AttrArray>
+    <AttrArray Name="Attributes"/>
   </Key>
   <Key
     Name="ProductsProductNameCheck">
