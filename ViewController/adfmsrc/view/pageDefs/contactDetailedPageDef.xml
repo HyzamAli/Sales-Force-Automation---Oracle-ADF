@@ -87,8 +87,6 @@
         <Item Value="CreatedOn"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId1"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <attributeValues IterBinding="CustomerTasksVO8Iterator" id="TaskDetails">

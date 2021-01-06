@@ -176,13 +176,6 @@
                               shortDesc="#{bindings.NotesTitle.hints.tooltip}" id="it11">
                   <f:validator binding="#{bindings.NotesTitle.validator}"/>
                 </af:inputText>
-                <af:inputText value="#{NotesBean.description}" label="#{bindings.NotesDescription.hints.label}"
-                              required="#{bindings.NotesDescription.hints.mandatory}"
-                              columns="#{bindings.NotesDescription.hints.displayWidth}"
-                              maximumLength="#{bindings.NotesDescription.hints.precision}"
-                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it12" rows="8">
-                  <f:validator binding="#{bindings.NotesDescription.validator}"/>
-                </af:inputText>
                 <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
                               required="#{bindings.CreatedOn.hints.mandatory}"
                               columns="#{bindings.CreatedOn.hints.displayWidth}"
@@ -190,6 +183,13 @@
                   <f:validator binding="#{bindings.CreatedOn.validator}"/>
                   <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                 </af:inputDate>
+                <af:inputText value="#{NotesBean.description}" label="#{bindings.NotesDescription.hints.label}"
+                              required="#{bindings.NotesDescription.hints.mandatory}"
+                              columns="#{bindings.NotesDescription.hints.displayWidth}"
+                              maximumLength="#{bindings.NotesDescription.hints.precision}"
+                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it12" rows="8">
+                  <f:validator binding="#{bindings.NotesDescription.validator}"/>
+                </af:inputText>
                 <af:selectOneChoice value="#{NotesBean.oppurtunityID}" label="#{bindings.OppurtunityId.label}"
                                     required="#{bindings.OppurtunityId.hints.mandatory}"
                                     shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc8">
@@ -217,6 +217,13 @@
                               shortDesc="#{bindings.NotesTitle.hints.tooltip}" id="it6">
                   <f:validator binding="#{bindings.NotesTitle.validator}"/>
                 </af:inputText>
+                <af:inputDate value="#{bindings.CreatedOn.inputValue}" label="#{bindings.CreatedOn.hints.label}"
+                              required="#{bindings.CreatedOn.hints.mandatory}"
+                              columns="#{bindings.CreatedOn.hints.displayWidth}"
+                              shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id1">
+                  <f:validator binding="#{bindings.CreatedOn.validator}"/>
+                  <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
+                </af:inputDate>
                 <af:inputText value="#{bindings.NotesDescription.inputValue}"
                               label="#{bindings.NotesDescription.hints.label}"
                               required="#{bindings.NotesDescription.hints.mandatory}"
@@ -225,25 +232,6 @@
                               shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it7" rows="8">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
-                <af:inputDate value="#{bindings.CreatedOn.inputValue}" label="#{bindings.CreatedOn.hints.label}"
-                              required="#{bindings.CreatedOn.hints.mandatory}"
-                              columns="#{bindings.CreatedOn.hints.displayWidth}"
-                              shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id1">
-                  <f:validator binding="#{bindings.CreatedOn.validator}"/>
-                  <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
-                </af:inputDate>
-                <af:selectOneChoice value="#{bindings.CustomerId1.inputValue}" label="#{bindings.CustomerId1.label}"
-                                    required="#{bindings.CustomerId1.hints.mandatory}"
-                                    shortDesc="#{bindings.CustomerId1.hints.tooltip}" id="soc6">
-                  <f:selectItems value="#{bindings.CustomerId1.items}" id="si6"/>
-                  <f:validator binding="#{bindings.CustomerId1.validator}"/>
-                </af:selectOneChoice>
-                <af:selectOneChoice value="#{bindings.OppurtunityId.inputValue}" label="#{bindings.OppurtunityId.label}"
-                                    required="#{bindings.OppurtunityId.hints.mandatory}"
-                                    shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc7">
-                  <f:selectItems value="#{bindings.OppurtunityId.items}" id="si7"/>
-                  <f:validator binding="#{bindings.OppurtunityId.validator}"/>
-                </af:selectOneChoice>
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
