@@ -59,9 +59,9 @@
                                               selectionListener="#{bindings.UserProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.UserProfilesVO1.rangeSize}"
                                               id="t1" summary="Users List" partialTriggers="::b3 ::::b2 ::::p2 ::::d2"
-                                              inlineStyle="min-width:100%;" styleClass="AFStretchWidth" width="800pt">
+                                              inlineStyle="min-width:100%;" styleClass="AFStretchWidth" width="1175">
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameFirst.label}"
-                                                   id="c1" rowHeader="true" width="210" align="left">
+                                                   id="c1" rowHeader="true" width="175" align="left">
                                             <af:link text="" id="l1">
                                                 <af:outputText value="#{row.NameFirst}"
                                                                shortDesc="#{bindings.UserProfilesVO1.hints.NameFirst.tooltip}"
@@ -70,19 +70,19 @@
                                             </af:link>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameMiddle.label}"
-                                                   id="c2" width="200">
+                                                   id="c2" width="175">
                                             <af:outputText value="#{row.NameMiddle}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.NameMiddle.tooltip}"
                                                            id="ot2"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameLast.label}"
-                                                   id="c3" width="200">
+                                                   id="c3" width="175">
                                             <af:outputText value="#{row.NameLast}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.NameLast.tooltip}"
                                                            id="ot3"/>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.StartDate.label}"
-                                                   id="c4" width="70">
+                                                   id="c4" width="80">
                                             <af:outputText value="#{row.StartDate}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.StartDate.tooltip}"
                                                            id="ot4">
@@ -90,12 +90,24 @@
                                             </af:outputText>
                                         </af:column>
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.EndDate.label}" id="c5"
-                                                   width="70">
+                                                   width="80">
                                             <af:outputText value="#{row.EndDate}"
                                                            shortDesc="#{bindings.UserProfilesVO1.hints.EndDate.tooltip}"
                                                            id="ot5">
                                                 <af:convertDateTime pattern="#{bindings.UserProfilesVO1.hints.EndDate.format}"/>
                                             </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="Email" id="c17"
+                                                   width="300">
+                                            <af:outputText value="#{row.Email}"
+                                                           shortDesc="#{bindings.UserProfilesVO11.hints.Email.tooltip}"
+                                                           id="ot8"/>
+                                        </af:column>
+                                        <af:column headerText="Phone Number"
+                                                   id="c18" width="125">
+                                            <af:outputText value="#{row.PhoneNumber}"
+                                                           shortDesc="#{bindings.UserProfilesVO11.hints.PhoneNumber.tooltip}"
+                                                           id="ot9"/>
                                         </af:column>
                                     </af:table>
                                 </af:panelCollection>
@@ -111,7 +123,7 @@
                                     </af:dialog>
                                 </af:popup>
                             </af:panelBox>
-                            <af:panelBox text="Roles Associated" id="pb2" showDisclosure="false"
+                            <af:panelBox text="Roles Associated" id="pb2" showDisclosure="true"
                                          inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;">
                                 <f:facet name="toolbar"/>
                                 <af:panelCollection id="pc2"
@@ -138,9 +150,9 @@
                                               selectionListener="#{bindings.RolesPerEmployeeVO2.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.RolesPerEmployeeVO2.rangeSize}" id="t2"
-                                              columnStretching="last" partialTriggers="::b7 ::b8 :::b4">
+                                              columnStretching="last" partialTriggers="::b7 ::b8 :::b4" width="1175">
                                         <af:column headerText="#{bindings.RolesPerEmployeeVO2.hints.RoleId.label}"
-                                                   id="c6" rowHeader="true" align="left">
+                                                   id="c6" rowHeader="true" align="left" width="775">
                                             <af:selectOneChoice value="#{row.bindings.RoleId.inputValue}"
                                                                 label="#{row.bindings.RoleId.label}"
                                                                 required="#{bindings.RolesPerEmployeeVO2.hints.RoleId.mandatory}"
@@ -151,7 +163,7 @@
                                             </af:selectOneChoice>
                                         </af:column>
                                         <af:column headerText="#{bindings.RolesPerEmployeeVO2.hints.StartDate.label}"
-                                                   id="c7">
+                                                   id="c7" width="200">
                                             <af:inputDate value="#{row.bindings.StartDate.inputValue}" id="id1"
                                                           label="#{bindings.RolesPerEmployeeVO2.hints.StartDate.label}"
                                                           required="#{bindings.RolesPerEmployeeVO2.hints.StartDate.mandatory}"
@@ -289,7 +301,7 @@
                             </af:inputText>
                             <af:inputText value="#{UsersBean.email}" simple="true"
                                           required="#{bindings.Email.hints.mandatory}"
-                                          label="#{bindings.Email.hints.label}"
+                                          label="Email"
                                           columns="#{bindings.Email.hints.displayWidth}"
                                           maximumLength="#{bindings.Email.hints.precision}"
                                           shortDesc="#{bindings.Email.hints.tooltip}" id="it8">
@@ -298,7 +310,7 @@
                             <af:inputText value="#{UsersBean.phone}" simple="true"
                                           required="#{bindings.PhoneNumber.hints.mandatory}"
                                           columns="#{bindings.PhoneNumber.hints.displayWidth}"
-                                          label="#{bindings.PhoneNumber.hints.label}"
+                                          label="Phone Number"
                                           maximumLength="#{bindings.PhoneNumber.hints.precision}"
                                           shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it9">
                                 <f:validator binding="#{bindings.PhoneNumber.validator}"/>
@@ -359,7 +371,7 @@
                             </af:selectOneChoice>
                             <af:inputText value="#{bindings.Email.inputValue}" simple="true"
                                           required="#{bindings.Email.hints.mandatory}"
-                                          label="#{bindings.Email.hints.label}"
+                                          label="Email"
                                           columns="#{bindings.Email.hints.displayWidth}"
                                           maximumLength="#{bindings.Email.hints.precision}"
                                           shortDesc="#{bindings.Email.hints.tooltip}" id="it10">

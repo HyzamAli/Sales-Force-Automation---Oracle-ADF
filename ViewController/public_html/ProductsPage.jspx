@@ -107,9 +107,9 @@
                                               fetchSize="#{bindings.ProductCategoriesVO1.rangeSize}" id="t4"
                                               columnStretching="last" summary="product ategories List"
                                               partialTriggers="::::b6 :::b10" inlineStyle="padding-left:0px;"
-                                              width="600">
+                                              width="1100">
                                         <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
-                                                   id="c5" rowHeader="true" width="600" align="left">
+                                                   id="c5" rowHeader="true" width="1100" align="left">
                                             <af:outputText value="#{row.Category}"
                                                            shortDesc="#{bindings.ProductCategoriesVO1.hints.Category.tooltip}"
                                                            id="ot4"/>
