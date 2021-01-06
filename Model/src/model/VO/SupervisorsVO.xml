@@ -8,7 +8,8 @@
   InheritPersonalization="merge"
   BindingStyle="OracleName"
   CustomQuery="true"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AutoRefresh="true">
   <DesignTime>
     <Attr Name="_isExpertMode" Value="true"/>
   </DesignTime>

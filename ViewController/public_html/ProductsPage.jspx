@@ -50,7 +50,8 @@
                                               selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
-                                              id="t1" columnStretching="last" partialTriggers="::::b2 ::b5 :::b9"
+                                              id="t1" columnStretching="last"
+                                              partialTriggers="::b5 :::b9 ::::b2 ::::p1 ::::d3"
                                               width="1100">
                                         <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}" id="c1"
                                                    rowHeader="true" width="400" align="left">
@@ -186,7 +187,8 @@
                     </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pt1:pc1:t1">
-                    <af:dialog id="d3" title="Edit Product" dialogListener="#{DialogHandler.onUpdate}">
+                    <af:dialog id="d3" title="Edit Product" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                               affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.ProductName.inputValue}"
