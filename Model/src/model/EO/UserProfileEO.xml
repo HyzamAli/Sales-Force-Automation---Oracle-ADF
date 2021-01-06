@@ -161,6 +161,12 @@
       OnAttribute="Email"
       Pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}"
       Inverse="false"/>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.UserProfileEO.Email_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </Attribute>
   <Attribute
     Name="PhoneNumber"

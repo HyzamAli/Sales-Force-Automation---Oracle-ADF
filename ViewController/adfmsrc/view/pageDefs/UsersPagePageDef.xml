@@ -118,5 +118,21 @@
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
     <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO11">
+      <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO110">
+        <AttrNames>
+          <Item Value="RolesId"/>
+          <Item Value="NameFirst"/>
+          <Item Value="NameLast"/>
+          <Item Value="NameMiddle"/>
+          <Item Value="Password1"/>
+          <Item Value="StartDate"/>
+          <Item Value="EndDate"/>
+          <Item Value="SupervisorId"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

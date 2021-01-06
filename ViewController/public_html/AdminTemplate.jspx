@@ -33,7 +33,8 @@
             </af:navigationPane>
           </f:facet>
           <af:menuBar id="pt_mb1" inlineStyle="flex-item-align:end;">
-            <af:goMenuItem text="Logout" id="pt_gmi1" destination="adfAuthentication?logout=true&amp;end_url=/faces/Login.jsf"/>
+            <af:goMenuItem text="Logout" id="pt_gmi1" destination="adfAuthentication?logout=true&amp;end_url=/faces/Login.jsf"
+                           inlineStyle="color:Blue; margin-left:1370px; background-color:transparent;"/>
           </af:menuBar>
         </af:panelBox>
       </f:facet>

@@ -238,6 +238,8 @@
       <SchemaBasedProperties>
         <DISPLAYWIDTH
           Value="70"/>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.Email_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -275,6 +277,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.UserProfilesVO.UsersSearch_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
