@@ -29,7 +29,7 @@
                             required="#{bindings.OpName.hints.mandatory}"
                             columns="#{bindings.OpName.hints.displayWidth}"
                             maximumLength="#{bindings.OpName.hints.precision}"
-                            shortDesc="#{bindings.OpName.hints.tooltip}" id="it16">
+                            shortDesc="#{bindings.OpName.hints.tooltip}" id="it16" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.OpName.validator}"/>
               </af:inputText>
               <af:selectOneChoice value="#{bindings.CustomerId1.inputValue}" label="#{bindings.CustomerId1.label}"
@@ -54,7 +54,7 @@
                             required="#{bindings.Revenue.hints.mandatory}"
                             columns="#{bindings.Revenue.hints.displayWidth}"
                             maximumLength="#{bindings.Revenue.hints.precision}"
-                            shortDesc="#{bindings.Revenue.hints.tooltip}" id="it4">
+                            shortDesc="#{bindings.Revenue.hints.tooltip}" id="it4" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.Revenue.validator}"/>
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
               </af:inputText>
@@ -72,7 +72,7 @@
                             required="#{bindings.WorstCaseRevenue.hints.mandatory}"
                             columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
                             maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
-                            shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6">
+                            shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
               </af:inputText>
@@ -80,7 +80,7 @@
                             required="#{bindings.BudgetedAmount.hints.mandatory}"
                             columns="#{bindings.BudgetedAmount.hints.displayWidth}"
                             maximumLength="#{bindings.BudgetedAmount.hints.precision}"
-                            shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it7">
+                            shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it7" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.BudgetedAmount.validator}"/>
               </af:inputText>
               <af:inputDate value="#{bindings.CloseDate.inputValue}" label="#{bindings.CloseDate.hints.label}"
@@ -157,7 +157,7 @@
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
             <af:panelBox text="Attatchments" id="pb10" showDisclosure="false">
               <f:facet name="toolbar"/>
-              <af:panelCollection id="pc5">
+              <af:panelCollection id="pc5" inlineStyle="padding-left:100px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t8">
@@ -172,7 +172,7 @@
                           rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
                           summary="list"
-                          fetchSize="#{bindings.FilesVO2.rangeSize}" id="t6" partialTriggers=":::b8">
+                          fetchSize="#{bindings.FilesVO2.rangeSize}" id="t6" partialTriggers=":::b8" width="600">
                   <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c3" rowHeader="true">
                     <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                    id="ot10"/>

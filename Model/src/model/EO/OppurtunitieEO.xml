@@ -113,7 +113,14 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPURTUNITIES"/>
+    TableName="OPPURTUNITIES">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="23"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <Attribute
     Name="BestCaseRevenue"
     ColumnName="BEST_CASE_REVENUE"

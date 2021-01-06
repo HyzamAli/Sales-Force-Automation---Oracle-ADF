@@ -37,7 +37,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CUSTOMER_APPOINTMENTS">
+    TableName="CUSTOMER_APPOINTMENTS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -85,7 +86,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CUSTOMER_APPOINTMENTS">
+    TableName="CUSTOMER_APPOINTMENTS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -123,7 +125,8 @@
     SQLType="TIMESTAMP"
     Type="java.sql.Timestamp"
     ColumnType="TIMESTAMP"
-    TableName="CUSTOMER_APPOINTMENTS">
+    TableName="CUSTOMER_APPOINTMENTS"
+    IsNotNull="true">
     <Properties>
       <SchemaBasedProperties>
         <FMT_FORMAT
@@ -163,6 +166,42 @@
     AssociationOtherEnd="model.EO.SysC0011003Assoc.CustomerAppointmentEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="CustomerAppointmentsAppNameCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"APP_NAME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUSTOMER_APPOINTMENTS_APP_NAME"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerAppointmentEO.AppName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CustomerAppointmentsLocationCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"LOCATION" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUSTOMER_APPOINTMENTS_LOCATION"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerAppointmentEO.Location"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CustomerAppointmentsStartTimeCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"START_TIME" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUSTOMER_APPOINTMENTS_START_TI"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerAppointmentEO.StartTime"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="SysC0010991"
     PrimaryKey="true">
