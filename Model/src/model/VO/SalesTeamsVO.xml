@@ -45,7 +45,8 @@
     PrecisionRule="true"
     EntityAttrName="StId"
     EntityUsage="SalesTeamEO"
-    AliasName="ST_ID"/>
+    AliasName="ST_ID"
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="OppurtunityId"
     PrecisionRule="true"
@@ -63,6 +64,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.SalesTeamsVO.EmployeeId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -72,4 +75,8 @@
     EntityAttrName="Revenue"
     EntityUsage="SalesTeamEO"
     AliasName="REVENUE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
