@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
-                id="sales_flow_oppurtunities_sales_flow_oppurtunities_ExecuteWithParamsPageDef" Package="view.pageDefs"
+                id="flow_OpDetailed_flow_OpDetailed_ExecuteWithParamsPageDef" Package="view.pageDefs"
                 SkipValidation="true">
   <parameters/>
   <executables>
@@ -10,7 +10,7 @@
   <bindings>
     <action IterBinding="OppurtunityByID1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
-      <NamedData NDName="opId" NDValue="#{pageFlowScope.oppurtunityId}" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="opId" NDValue="#{pageFlowScope.OppurtunityId}" NDType="oracle.jbo.domain.Number"/>
     </action>
   </bindings>
 </pageDefinition>

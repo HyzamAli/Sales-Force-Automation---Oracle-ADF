@@ -9,116 +9,43 @@
       <property
          name="pageFragment">true</property>
       <property
-         name="x">289.0</property>
+         name="x">351.0</property>
       <property
          name="start">true</property>
       <property
          name="description">&lt;html>&lt;p>&lt;b>SalesCustomersList&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
       <property
-         name="y">343.26953</property>
+         name="y">224.13672</property>
       <property
          name="page">/SalesCustomersList.jsff</property>
       <property
          name="exceptionHandler">false</property>
    </View>
-   <View
-      id="View8">
-      <property
-         name="activityId">CustomersDetailed</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">673.3037</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>CustomersDetailed&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">213.23438</property>
-      <property
-         name="page">/CustomersDetailed.jsff</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <MethodCall
-      id="MethodCall8">
-      <property
-         name="activityId">ExecuteWithParams</property>
-      <property
-         name="x">521.55176</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">333.4336</property>
-      <property
-         name="exceptionHandler">false</property>
-   </MethodCall>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase9"
       from="View2"
-      to="MethodCall8">
+      to="TaskFlowCall12">
       <property
          name="fromOutcome">toDetailed</property>
       <property
-         name="sdm:polyPoints">R50,330.0,343.20312,480.55176,333.3672,L50</property>
+         name="sdm:polyPoints">R50,392.0,224.07031,617.83203,215.23438,L50</property>
    </ControlFlowCase>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase10"
-      from="MethodCall8"
-      to="View8">
+   <TaskFlowCall
+      id="TaskFlowCall12">
       <property
-         name="fromOutcome">ExecuteWithParams</property>
+         name="description">&lt;html>&lt;p>&lt;b>flow-customerDetailed&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
       <property
-         name="sdm:polyPoints">T50,521.55176,279.3672,632.3037,213.16797,L50</property>
-   </ControlFlowCase>
-   <MethodCall
-      id="MethodCall7">
+         name="activityId">flow-customerDetailed</property>
       <property
-         name="activityId">ExecuteWithParams1</property>
+         name="x">658.83203</property>
       <property
-         name="x">805.3457</property>
+         name="y">215.23438</property>
       <property
-         name="description">&lt;html>&lt;p>&lt;b>ExecuteWithParams1&lt;/b>&lt;/p>&lt;p>Activity Type:  Method Call&lt;/p></property>
-      <property
-         name="y">129.30078</property>
+         name="documentReference">/WEB-INF/flow-customerDetailed.xml</property>
       <property
          name="exceptionHandler">false</property>
-   </MethodCall>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase8"
-      from="View8"
-      to="MethodCall7">
       <property
-         name="fromOutcome">toOpDetailed</property>
-      <property
-         name="sdm:polyPoints">R50,714.3037,213.16797,764.3457,129.23438,L50</property>
-   </ControlFlowCase>
-   <View
-      id="View9">
-      <property
-         name="activityId">opDetailed</property>
-      <property
-         name="pageFragment">true</property>
-      <property
-         name="x">898.0</property>
-      <property
-         name="description">&lt;html>&lt;p>&lt;b>opDetailed&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
-      <property
-         name="y">312.66797</property>
-      <property
-         name="page">/oppurtunityDetailed.jsff</property>
-      <property
-         name="exceptionHandler">false</property>
-   </View>
-   <ControlFlowCase
-      islink="true"
-      id="ControlFlowCase11"
-      from="MethodCall7"
-      to="View9">
-      <property
-         name="fromOutcome">ExecuteWithParams</property>
-      <property
-         name="sdm:polyPoints">B50,805.3457,183.23438,898.0,258.66797,T50</property>
-   </ControlFlowCase>
+         name="taskFlowId">flow-customerDetailed</property>
+   </TaskFlowCall>
 </SDM>

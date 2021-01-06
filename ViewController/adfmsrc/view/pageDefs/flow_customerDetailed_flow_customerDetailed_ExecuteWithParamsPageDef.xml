@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.2.1.22.48"
-                id="sales_flow_customers_sales_flow_customers_ExecuteWithParamsPageDef" Package="view.pageDefs"
+                id="flow_customerDetailed_flow_customerDetailed_ExecuteWithParamsPageDef" Package="view.pageDefs"
                 SkipValidation="true">
   <parameters/>
   <executables>
@@ -10,7 +10,7 @@
   <bindings>
     <action IterBinding="CustomerByIDVO1Iterator" id="ExecuteWithParams" RequiresUpdateModel="true"
             Action="executeWithParams">
-      <NamedData NDName="custID" NDValue="#{pageFlowScope.custID}" NDType="oracle.jbo.domain.Number"/>
+      <NamedData NDName="custID" NDValue="#{pageFlowScope.CustomerId}" NDType="oracle.jbo.domain.Number"/>
     </action>
   </bindings>
 </pageDefinition>
