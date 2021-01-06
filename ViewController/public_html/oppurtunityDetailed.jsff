@@ -669,9 +669,9 @@
                         emptyText="#{bindings.SalesTeamsVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
                         rowBandingInterval="0" fetchSize="#{bindings.SalesTeamsVO4.rangeSize}" id="t10"
                         columnStretching="last" summary="summary" partialTriggers="::b18 :::b19"
-                        inlineStyle="padding-left:0px;" width="500">
+                        inlineStyle="padding-left:0px;" width="1100">
                 <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true"
-                           align="left" width="500">
+                           align="left" width="1100">
                   <af:selectOneChoice id="sc1" value="#{row.bindings.EmployeeId.inputValue}"
                                       label="#{row.bindings.EmployeeId.label}"
                                       required="#{bindings.SalesTeamsVO4.hints.EmployeeId.mandatory}"

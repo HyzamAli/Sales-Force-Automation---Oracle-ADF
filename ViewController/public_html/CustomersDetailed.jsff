@@ -515,7 +515,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="3">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="8">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
@@ -563,7 +563,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14" rows="3">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14" rows="8">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
