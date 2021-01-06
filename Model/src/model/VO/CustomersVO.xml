@@ -316,6 +316,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.CustomersVO.CustomersSearch_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow

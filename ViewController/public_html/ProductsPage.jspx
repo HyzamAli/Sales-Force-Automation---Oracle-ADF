@@ -16,122 +16,120 @@
                                       queryListener="#{bindings.ProductsVOCriteriaQuery1.processQuery}"
                                       queryOperationListener="#{bindings.ProductsVOCriteriaQuery1.processQueryOperation}"
                                       inlineStyle="background-color:White; padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"/>
-                            <af:panelDashboard id="pd1" columns="2" rowHeight="400px">
-                                <af:panelBox text="Products" id="pb1"
-                                             inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:10px; padding-bottom:010px; padding-right:010px; padding-top:019px;">
+                            <af:panelBox text="Products" id="pb1"
+                                         inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:0px; padding-bottom:0px; padding-right:0px; padding-top:0px;">
+                                <f:facet name="toolbar">
+                                    <af:toolbar id="t3" rendered="false">
+                                        <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                                   disabled="#{!bindings.Commit.enabled}" id="b3"/>
+                                        <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
+                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b8">
+                                            <af:resetActionListener/>
+                                        </af:button>
+                                    </af:toolbar>
+                                </f:facet>
+                                <af:panelCollection id="pc1"
+                                                    inlineStyle="padding-bottom:20px; padding-left:100px; padding-right:20px; padding-top:20px;">
+                                    <f:facet name="menus"/>
                                     <f:facet name="toolbar">
-                                        <af:toolbar id="t3" rendered="false">
-                                            <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                       disabled="#{!bindings.Commit.enabled}" id="b3"/>
-                                            <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                       disabled="#{!bindings.Rollback.enabled}" immediate="true"
-                                                       id="b8">
-                                                <af:resetActionListener/>
+                                        <af:toolbar id="t2">
+                                            <af:button text="Create" id="b1">
+                                                <af:showPopupBehavior popupId=":::p2"/>
+                                            </af:button>
+                                            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                                       disabled="#{!bindings.Delete.enabled}" id="b5">
+                                                <af:showPopupBehavior popupId="::p5"/>
                                             </af:button>
                                         </af:toolbar>
                                     </f:facet>
-                                    <af:panelCollection id="pc1"
-                                                        inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:20px; padding-top:20px;">
-                                        <f:facet name="menus"/>
-                                        <f:facet name="toolbar">
-                                            <af:toolbar id="t2">
-                                                <af:button text="Add Product" id="b1">
-                                                    <af:showPopupBehavior popupId=":::p2"/>
-                                                </af:button>
-                                                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                                                           disabled="#{!bindings.Delete.enabled}" id="b5">
-                                                    <af:showPopupBehavior popupId="::p5"/>
-                                                </af:button>
-                                            </af:toolbar>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.ProductsVO11.collectionModel}" var="row"
+                                              rows="#{bindings.ProductsVO11.rangeSize}"
+                                              emptyText="#{bindings.ProductsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0" summary="Products Table"
+                                              selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
+                                              selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
+                                              rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
+                                              id="t1" columnStretching="last" partialTriggers="::::b2 ::b5 :::b9"
+                                              width="1100">
+                                        <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}" id="c1"
+                                                   rowHeader="true" width="400" align="left">
+                                            <af:link text="" id="l1">
+                                                <af:outputText value="#{row.ProductName}"
+                                                               shortDesc="#{bindings.ProductsVO11.hints.ProductName.tooltip}"
+                                                               id="ot1"/>
+                                                <af:showPopupBehavior popupId="::::p1"/>
+                                            </af:link>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ProductsVO11.hints.ProductPrice.label}"
+                                                   id="c4" width="250">
+                                            <af:outputText value="#{row.ProductPrice}"
+                                                           shortDesc="#{bindings.ProductsVO11.hints.ProductPrice.tooltip}"
+                                                           id="ot3">
+                                                <af:convertNumber groupingUsed="false"
+                                                                  pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"
+                                                                  type="currency"/>
+                                            </af:outputText>
+                                        </af:column>
+                                        <af:column headerText="#{bindings.ProductsVO11.hints.CategoryId.label}" id="c2">
+                                            <af:selectOneChoice id="soc1" value="#{row.bindings.CategoryId.inputValue}"
+                                                                label="#{row.bindings.CategoryId.label}"
+                                                                required="#{bindings.ProductsVO11.hints.CategoryId.mandatory}"
+                                                                shortDesc="#{bindings.ProductsVO11.hints.CategoryId.tooltip}"
+                                                                readOnly="true">
+                                                <f:selectItems id="si1" value="#{row.bindings.CategoryId.items}"/>
+                                                <f:validator binding="#{row.bindings.CategoryId.validator}"/>
+                                            </af:selectOneChoice>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                            </af:panelBox>
+                            <af:panelBox text="Product Categories" id="pb2"
+                                         inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:0px;">
+                                <f:facet name="toolbar"/>
+                                <af:panelCollection id="pc2" inlineStyle="padding-left:100px;">
+                                    <f:facet name="menus"/>
+                                    <f:facet name="toolbar">
+                                        <af:toolbar id="t5">
+                                            <af:button text="Create" id="b7">
+                                                <af:showPopupBehavior popupId=":::p4"/>
+                                            </af:button>
+                                            <af:button text="Delete" id="b4">
+                                                <af:showPopupBehavior popupId="::p3"/>
+                                            </af:button>
+                                        </af:toolbar>
+                                    </f:facet>
+                                    <f:facet name="statusbar"/>
+                                    <af:table value="#{bindings.ProductCategoriesVO1.collectionModel}" var="row"
+                                              rows="#{bindings.ProductCategoriesVO1.rangeSize}"
+                                              emptyText="#{bindings.ProductCategoriesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                              rowBandingInterval="0"
+                                              fetchSize="#{bindings.ProductCategoriesVO1.rangeSize}" id="t4"
+                                              columnStretching="last" summary="product ategories List"
+                                              partialTriggers="::::b6 :::b10" inlineStyle="padding-left:0px;"
+                                              width="600">
+                                        <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
+                                                   id="c5" rowHeader="true" width="600" align="left">
+                                            <af:outputText value="#{row.Category}"
+                                                           shortDesc="#{bindings.ProductCategoriesVO1.hints.Category.tooltip}"
+                                                           id="ot4"/>
+                                        </af:column>
+                                    </af:table>
+                                </af:panelCollection>
+                                <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
+                                          partialTriggers="pc1:t1">
+                                    <af:dialog id="d6" title="Delete" type="cancel"
+                                               binding="#{DeleteDialogHandler.component}">
+                                        <af:outputText value="Are you sure? " id="ot5"
+                                                       inlineStyle="margin-right:50px;"/>
+                                        <f:facet name="buttonBar">
+                                            <af:button actionListener="#{bindings.Delete.execute}"
+                                                       action="#{DeleteDialogHandler.closeDialogSave}" text="Yes"
+                                                       id="b9"/>
                                         </f:facet>
-                                        <f:facet name="statusbar"/>
-                                        <af:table value="#{bindings.ProductsVO11.collectionModel}" var="row"
-                                                  rows="#{bindings.ProductsVO11.rangeSize}"
-                                                  emptyText="#{bindings.ProductsVO11.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                  rowBandingInterval="0" summary="Products Table"
-                                                  selectedRowKeys="#{bindings.ProductsVO11.collectionModel.selectedRow}"
-                                                  selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
-                                                  rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
-                                                  id="t1" columnStretching="last" partialTriggers="::::b2 ::b5 :::b9">
-                                            <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}"
-                                                       id="c1" rowHeader="true" width="200" align="left">
-                                                <af:link text="" id="l1">
-                                                    <af:outputText value="#{row.ProductName}"
-                                                                   shortDesc="#{bindings.ProductsVO11.hints.ProductName.tooltip}"
-                                                                   id="ot1"/>
-                                                    <af:showPopupBehavior popupId="::::p1"/>
-                                                </af:link>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.ProductsVO11.hints.ProductPrice.label}"
-                                                       id="c4">
-                                                <af:outputText value="#{row.ProductPrice}"
-                                                               shortDesc="#{bindings.ProductsVO11.hints.ProductPrice.tooltip}"
-                                                               id="ot3">
-                                                    <af:convertNumber groupingUsed="false"
-                                                                      pattern="#{bindings.ProductsVO11.hints.ProductPrice.format}"
-                                                                      type="currency"/>
-                                                </af:outputText>
-                                            </af:column>
-                                            <af:column headerText="#{bindings.ProductsVO11.hints.CategoryId.label}"
-                                                       id="c2">
-                                                <af:selectOneChoice id="soc1" value="#{row.bindings.CategoryId.inputValue}"
-                                                                    label="#{row.bindings.CategoryId.label}"
-                                                                    required="#{bindings.ProductsVO11.hints.CategoryId.mandatory}"
-                                                                    shortDesc="#{bindings.ProductsVO11.hints.CategoryId.tooltip}"
-                                                                    readOnly="true">
-                                                    <f:selectItems id="si1" value="#{row.bindings.CategoryId.items}"/>
-                                                    <f:validator binding="#{row.bindings.CategoryId.validator}"/>
-                                                </af:selectOneChoice>
-                                            </af:column>
-                                        </af:table>
-                                    </af:panelCollection>
-                                </af:panelBox>
-                                <af:panelBox text="Product Categories" id="pb2"
-                                             inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:100px;">
-                                    <f:facet name="toolbar"/>
-                                    <af:panelCollection id="pc2" inlineStyle="padding-left:100px;">
-                                        <f:facet name="menus"/>
-                                        <f:facet name="toolbar">
-                                            <af:toolbar id="t5">
-                                                <af:button text="Add" id="b7">
-                                                    <af:showPopupBehavior popupId=":::p4"/>
-                                                </af:button>
-                                                <af:button text="Delete" id="b4">
-                                                    <af:showPopupBehavior popupId="::p3"/>
-                                                </af:button>
-                                            </af:toolbar>
-                                        </f:facet>
-                                        <f:facet name="statusbar"/>
-                                        <af:table value="#{bindings.ProductCategoriesVO1.collectionModel}" var="row"
-                                                  rows="#{bindings.ProductCategoriesVO1.rangeSize}"
-                                                  emptyText="#{bindings.ProductCategoriesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
-                                                  rowBandingInterval="0"
-                                                  fetchSize="#{bindings.ProductCategoriesVO1.rangeSize}" id="t4"
-                                                  columnStretching="last" summary="product ategories List"
-                                                  partialTriggers="::::b6 :::b10" inlineStyle="padding-left:0px;">
-                                            <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
-                                                       id="c5" rowHeader="true" width="250" align="left">
-                                                <af:outputText value="#{row.Category}"
-                                                               shortDesc="#{bindings.ProductCategoriesVO1.hints.Category.tooltip}"
-                                                               id="ot4"/>
-                                            </af:column>
-                                        </af:table>
-                                    </af:panelCollection>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p5"
-                                              partialTriggers="pc1:t1">
-                                        <af:dialog id="d6" title="Delete" type="cancel"
-                                                   binding="#{DeleteDialogHandler.component}">
-                                            <af:outputText value="Are you sure? " id="ot5"
-                                                           inlineStyle="margin-right:50px;"/>
-                                            <f:facet name="buttonBar">
-                                                <af:button actionListener="#{bindings.Delete.execute}"
-                                                           action="#{DeleteDialogHandler.closeDialogSave}" text="Yes"
-                                                           id="b9"/>
-                                            </f:facet>
-                                        </af:dialog>
-                                    </af:popup>
-                                </af:panelBox>
-                            </af:panelDashboard>
+                                    </af:dialog>
+                                </af:popup>
+                            </af:panelBox>
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="pc2:t4">
                                 <af:dialog id="d5" title="Delete" type="cancel"
                                            binding="#{ProductCategoriesBean.deleteComponent}">
@@ -165,7 +163,7 @@
                                           required="#{bindings.ProductDescription.hints.mandatory}"
                                           columns="#{bindings.ProductDescription.hints.displayWidth}"
                                           maximumLength="#{bindings.ProductDescription.hints.precision}"
-                                          shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it2">
+                                          shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it2" rows="8">
                                 <f:validator binding="#{bindings.ProductDescription.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{ProductsBean.productPrice}"
@@ -204,7 +202,7 @@
                                           required="#{bindings.ProductDescription.hints.mandatory}"
                                           columns="#{bindings.ProductDescription.hints.displayWidth}"
                                           maximumLength="#{bindings.ProductDescription.hints.precision}"
-                                          shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it5">
+                                          shortDesc="#{bindings.ProductDescription.hints.tooltip}" id="it5" rows="8">
                                 <f:validator binding="#{bindings.ProductDescription.validator}"/>
                             </af:inputText>
                             <af:selectOneChoice value="#{bindings.CategoryId1.inputValue}"

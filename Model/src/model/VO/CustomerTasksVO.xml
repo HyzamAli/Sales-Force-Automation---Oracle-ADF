@@ -212,7 +212,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="25"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.Priority1_LABEL"/>
       </SchemaBasedProperties>
@@ -229,7 +229,7 @@
         <LABEL
           ResId="model.VO.CustomerTasksVO.DueDate_LABEL"/>
         <DISPLAYWIDTH
-          Value="146"/>
+          Value="21"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -242,7 +242,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="25"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.PercentageCompletion_LABEL"/>
       </SchemaBasedProperties>
@@ -257,7 +257,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="100"/>
         <LABEL
           ResId="model.VO.CustomerTasksVO.TaskDetails_LABEL"/>
       </SchemaBasedProperties>
@@ -303,6 +303,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.CustomerTasksVO.CustomerTasksVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow

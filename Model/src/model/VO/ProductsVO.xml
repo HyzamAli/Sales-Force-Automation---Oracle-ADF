@@ -72,7 +72,14 @@
     EntityAttrName="ProductId"
     EntityUsage="ProductEO"
     AliasName="PRODUCT_ID"
-    IsUpdateable="false"/>
+    IsUpdateable="false">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ProductName"
     PrecisionRule="true"
@@ -86,7 +93,7 @@
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductName_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="95"/>
+          Value="35"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -115,12 +122,12 @@
     AliasName="PRODUCT_PRICE">
     <Properties>
       <SchemaBasedProperties>
-        <LABEL
-          ResId="model.VO.ProductsVO.ProductPrice_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.ProductsVO.ProductPrice_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="95"/>
+          Value="24"/>
+        <LABEL
+          ResId="model.VO.ProductsVO.ProductPrice_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -136,6 +143,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.ProductsVO.CategoryId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -160,6 +169,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.ProductsVO.ProductsVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
@@ -171,14 +183,6 @@
         Operator="CONTAINS"
         Conjunction="AND"
         Value=":pPN"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ProductPrice"
-        ViewAttribute="ProductPrice"
-        Operator="="
-        Conjunction="AND"
-        Value=":pPP"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

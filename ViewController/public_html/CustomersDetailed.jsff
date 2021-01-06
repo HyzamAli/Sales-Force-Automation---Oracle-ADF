@@ -9,7 +9,7 @@
       <f:facet name="toolbar"/>
     </af:panelBox>
     <af:panelDrawer position="start" id="pd1" width="100%"
-                    inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
+                    inlineStyle="padding-left:20px; padding-right:10px; padding-top:75px;">
       <af:showDetailItem id="dr1" shortDesc="Overview" icon="#{resource['images:document.png']}" disclosed="true"
                          inlineStyle="padding-left:0px;">
         <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"
@@ -129,7 +129,7 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t8">
-                  <af:button text="Create Contact" id="b9">
+                  <af:button text="Create " id="b9">
                     <af:showPopupBehavior popupId="::p3"/>
                   </af:button>
                   <af:button  text="Delete"
@@ -148,9 +148,9 @@
                         rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
                         columnStretching="last" summary="Customer Notes List"
                         partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4"
-                        width="1000">
+                        width="1150">
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
-                           rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="200"
+                           rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="250"
                            align="left">
                   <af:link id="l1">
                     <af:outputText value="#{row.ContactName}"
@@ -158,7 +158,7 @@
                     <af:showPopupBehavior popupId=":::p5"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerContactsVO31.hints.IsPrimary.label}" id="c15" width="40">
+                <af:column headerText="#{bindings.CustomerContactsVO31.hints.IsPrimary.label}" id="c15" width="100">
                   <af:outputText value="#{row.IsPrimary}"
                                  shortDesc="#{bindings.CustomerContactsVO31.hints.IsPrimary.tooltip}" id="ot23">
                     <af:convertNumber groupingUsed="false"
@@ -166,11 +166,11 @@
                   </af:outputText>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
-                           inlineStyle="width:200pt;" width="200" minimumWidth="200">
+                           inlineStyle="width:200pt;" width="100" minimumWidth="200">
                   <af:outputText value="#{row.ContactPhone}"
                                  shortDesc="#{bindings.CustomerContactsVO3.hints.ContactPhone.tooltip}" id="ot3"/>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="250"
+                <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="400"
                            minimumWidth="250">
                   <af:outputText value="#{row.ContactEmail}"
                                  shortDesc="#{bindings.CustomerContactsVO3.hints.ContactEmail.tooltip}" id="ot4"/>
@@ -290,7 +290,8 @@
                       model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="border-color:#848484; margin-bottom:20px; margin-left:20px; margin-right:020px; margin-top:020px; border-left-color:#848484; border-right-color:#848484; border-top-color:#848484; border-bottom-color:#848484;"/>
+                      inlineStyle="border-color:#848484; margin-bottom:20px; margin-left:20px; margin-right:020px; margin-top:020px; border-left-color:#848484; border-right-color:#848484; border-top-color:#848484; border-bottom-color:#848484;"
+                      maxColumns="2" rows="1"/>
           </af:panelBox>
           <af:spacer id="s1" height="35px"/>
           <af:panelBox text="Notes" id="pb2"
@@ -367,7 +368,7 @@
                               required="#{bindings.NotesDescription.hints.mandatory}"
                               columns="#{bindings.NotesDescription.hints.displayWidth}"
                               maximumLength="#{bindings.NotesDescription.hints.precision}"
-                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13">
+                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13" rows="8">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
@@ -408,7 +409,7 @@
                               required="#{bindings.NotesDescription.hints.mandatory}"
                               columns="#{bindings.NotesDescription.hints.displayWidth}"
                               maximumLength="#{bindings.NotesDescription.hints.precision}"
-                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it24">
+                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it24" rows="8">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.ContactId.inputValue}" label="#{bindings.ContactId.label}"
@@ -459,7 +460,8 @@
                       model="#{bindings.CustomerTasksVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerTasksVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerTasksVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"/>
+                      inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                      rows="1" maxColumns="3"/>
           </af:panelBox>
           <af:spacer id="s6" height="35px"/>
           <af:panelBox text="Tasks" id="pb4"
@@ -490,7 +492,7 @@
                         partialTriggers=":::b12 ::b18" summary="Tasks List"
                         inlineStyle="min-width:800pt; width:800pt;">
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
-                           inlineStyle="min-width:200pt; width:200pt;" width="200" minimumWidth="200" align="left">
+                           inlineStyle="min-width:200pt; width:200pt;" width="400" minimumWidth="200" align="left">
                   <af:link id="l3">
                     <af:outputText id="ot44" value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO61.hints.TaskDetails.tooltip}"/>
@@ -498,7 +500,7 @@
                   </af:link>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.Priority1.label}" id="c1" rowHeader="false" inlineStyle="min-width:200pt; width:200pt;"
-                           width="200" minimumWidth="200">
+                           width="100" minimumWidth="200">
                   <af:outputText id="ot41" value="#{row.Priority1}"
                                  shortDesc="#{bindings.CustomerTasksVO61.hints.Priority1.tooltip}"/>
                 </af:column>
@@ -512,7 +514,7 @@
                   </dvt:statusMeterGauge>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.DueDate.label}" id="c2" inlineStyle="min-width:200pt; width:200pt;"
-                           width="200">
+                           width="100">
                   <af:outputText id="ot42" value="#{row.DueDate}"
                                  shortDesc="#{bindings.CustomerTasksVO61.hints.DueDate.tooltip}"
                                  inlineStyle="min-width:200pt; width:200pt;">
@@ -544,7 +546,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="3">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
@@ -591,7 +593,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14" rows="3">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
@@ -655,7 +657,8 @@
                       model="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+                      inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"
+                      rows="1" maxColumns="2"/>
           </af:panelBox>
           <af:spacer id="s8" height="35px"/>
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
@@ -693,24 +696,21 @@
                       <af:showPopupBehavior popupId=":::p9"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.label}" id="c6">
-                    <af:outputText value="#{row.AppDescription}"
-                                   shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppDescription.tooltip}"
-                                   id="ot11"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7"
+                             width="175">
                     <af:outputText value="#{row.StartTime}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO31.hints.StartTime.tooltip}" id="ot12">
                       <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17" width="175">
                     <af:outputText value="#{row.EndDate}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
                       <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.EndDate.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.label}" id="c8">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.label}" id="c8"
+                             width="50">
                     <af:outputText value="#{row.AppointmentType}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.tooltip}"
                                    id="ot13"/>
@@ -736,7 +736,7 @@
                                     required="#{bindings.AppDescription.hints.mandatory}"
                                     columns="#{bindings.AppDescription.hints.displayWidth}"
                                     maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29">
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="3">
                         <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                       <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
@@ -830,8 +830,8 @@
                           selectedRowKeys="#{bindings.AppointmentAttendeesVO5.collectionModel.selectedRow}"
                           selectionListener="#{bindings.AppointmentAttendeesVO5.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO5.rangeSize}" id="t12"
-                          summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25">
-                  <af:column headerText="Employees" id="c11" rowHeader="true" align="left">
+                          summary="Attendees List" partialTriggers=":::pc4:t3 :::b23 ::b25" width="500">
+                  <af:column headerText="Employees" id="c11" rowHeader="true" align="left" width="500">
                     <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                     <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
                                         label="#{row.bindings.EmployeeId.label}"
@@ -867,8 +867,9 @@
                           selectedRowKeys="#{bindings.AppointmentCustomersVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.AppointmentCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO2.rangeSize}" id="t16"
-                          summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29">
-                  <af:column headerText="Contacts" id="c10" rowHeader="true" align="left">
+                          summary="appointment customers list" columnStretching="last" partialTriggers=":::b27 ::b29"
+                          width="500">
+                  <af:column headerText="Contacts" id="c10" rowHeader="true" align="left" width="500">
                     <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                     <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
                                         required="#{bindings.AppointmentCustomersVO2.hints.CustId.mandatory}"
@@ -936,7 +937,7 @@
                               required="#{bindings.AppDescription.hints.mandatory}"
                               columns="#{bindings.AppDescription.hints.displayWidth}"
                               maximumLength="#{bindings.AppDescription.hints.precision}"
-                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34">
+                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="3">
                   <f:validator binding="#{bindings.AppDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
