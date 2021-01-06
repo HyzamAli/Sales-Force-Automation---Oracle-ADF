@@ -278,7 +278,7 @@
       <ViewCriteriaItem
         Name="NotesTitle"
         ViewAttribute="NotesTitle"
-        Operator="="
+        Operator="STARTSWITH"
         Conjunction="AND"
         Value=":pTitle"
         IsBindVarValue="true"

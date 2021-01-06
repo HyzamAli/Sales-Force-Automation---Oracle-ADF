@@ -281,16 +281,16 @@
                         selectedRowKeys="#{bindings.CustomerNotesVO61.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerNotesVO61.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
-                        partialTriggers=":::b4 ::b17" summary="Notes List" width="900">
+                        partialTriggers=":::b4 ::b17 :::p1 :::d5" summary="Notes List" width="1100">
                 <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true"
-                           width="300" minimumWidth="300" align="left">
+                           width="500" minimumWidth="300" align="left">
                   <af:link id="l2">
                     <af:outputText value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO61.hints.NotesTitle.tooltip}" id="ot6"/>
                     <af:showPopupBehavior popupId=":::p1"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36" width="300"
+                <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36" width="400"
                            minimumWidth="300">
                   <af:link text="View Oppurtunity" id="l5" action="toOpDetailed">
                     <af:outputText value="" shortDesc="#{bindings.CustomerNotesVO61.hints.OppurtunityId.tooltip}"
@@ -301,8 +301,8 @@
                     <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO61.hints.CreatedOn.label}" id="c35" width="300"
-                           minimumWidth="300">
+                <af:column headerText="#{bindings.CustomerNotesVO61.hints.CreatedOn.label}" id="c35" width="200"
+                           minimumWidth="200">
                   <af:outputText value="#{row.CreatedOn}"
                                  shortDesc="#{bindings.CustomerNotesVO61.hints.CreatedOn.tooltip}" id="ot7">
                     <af:convertDateTime pattern="#{bindings.CustomerNotesVO61.hints.CreatedOn.format}"/>
@@ -457,7 +457,7 @@
                         selectedRowKeys="#{bindings.CustomerTasksVO61.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerTasksVO61.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
-                        partialTriggers=":::b12 ::b18" summary="Tasks List"
+                        partialTriggers="::b18 :::b12 :::p6 :::d6" summary="Tasks List"
                         inlineStyle="min-width:800pt; width:800pt;">
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
                            inlineStyle="min-width:200pt; width:200pt;" width="400" minimumWidth="200" align="left">
@@ -655,7 +655,7 @@
                           selectedRowKeys="#{bindings.CustomerAppointmentsVO31.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerAppointmentsVO31.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO31.rangeSize}" id="t3"
-                          partialTriggers="" summary="Appointments List">
+                          partialTriggers=":::p9 :::d9" summary="Appointments List">
                   <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppName.label}" id="c5"
                              rowHeader="true" align="left">
                     <af:link id="l4">
@@ -704,7 +704,7 @@
                                     required="#{bindings.AppDescription.hints.mandatory}"
                                     columns="#{bindings.AppDescription.hints.displayWidth}"
                                     maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="3">
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="8">
                         <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                       <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
@@ -905,7 +905,7 @@
                               required="#{bindings.AppDescription.hints.mandatory}"
                               columns="#{bindings.AppDescription.hints.displayWidth}"
                               maximumLength="#{bindings.AppDescription.hints.precision}"
-                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="3">
+                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="8">
                   <f:validator binding="#{bindings.AppDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
