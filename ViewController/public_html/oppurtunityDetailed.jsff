@@ -24,12 +24,12 @@
                 </af:button>
               </af:toolbar>
             </f:facet>
-            <af:panelFormLayout id="pfl1">
+            <af:panelFormLayout id="pfl1" maxColumns="3" rows="6">
               <af:inputText value="#{bindings.OpName.inputValue}" label="#{bindings.OpName.hints.label}"
                             required="#{bindings.OpName.hints.mandatory}"
                             columns="#{bindings.OpName.hints.displayWidth}"
                             maximumLength="#{bindings.OpName.hints.precision}"
-                            shortDesc="#{bindings.OpName.hints.tooltip}" id="it16">
+                            shortDesc="#{bindings.OpName.hints.tooltip}" id="it16" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.OpName.validator}"/>
               </af:inputText>
               <af:selectOneChoice value="#{bindings.CustomerId1.inputValue}" label="#{bindings.CustomerId1.label}"
@@ -54,7 +54,7 @@
                             required="#{bindings.Revenue.hints.mandatory}"
                             columns="#{bindings.Revenue.hints.displayWidth}"
                             maximumLength="#{bindings.Revenue.hints.precision}"
-                            shortDesc="#{bindings.Revenue.hints.tooltip}" id="it4">
+                            shortDesc="#{bindings.Revenue.hints.tooltip}" id="it4" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.Revenue.validator}"/>
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
               </af:inputText>
@@ -72,7 +72,7 @@
                             required="#{bindings.WorstCaseRevenue.hints.mandatory}"
                             columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
                             maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
-                            shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6">
+                            shortDesc="#{bindings.WorstCaseRevenue.hints.tooltip}" id="it6" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.WorstCaseRevenue.validator}"/>
                 <af:convertNumber groupingUsed="false" pattern="#{bindings.WorstCaseRevenue.format}"/>
               </af:inputText>
@@ -80,7 +80,7 @@
                             required="#{bindings.BudgetedAmount.hints.mandatory}"
                             columns="#{bindings.BudgetedAmount.hints.displayWidth}"
                             maximumLength="#{bindings.BudgetedAmount.hints.precision}"
-                            shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it7">
+                            shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it7" inlineStyle="width:23%;">
                 <f:validator binding="#{bindings.BudgetedAmount.validator}"/>
               </af:inputText>
               <af:inputDate value="#{bindings.CloseDate.inputValue}" label="#{bindings.CloseDate.hints.label}"
@@ -157,7 +157,7 @@
           <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
             <af:panelBox text="Attatchments" id="pb10" showDisclosure="false">
               <f:facet name="toolbar"/>
-              <af:panelCollection id="pc5">
+              <af:panelCollection id="pc5" inlineStyle="padding-left:50px; padding:0px 50px 0px 0px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t8">
@@ -172,12 +172,13 @@
                           rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
                           summary="list"
-                          fetchSize="#{bindings.FilesVO2.rangeSize}" id="t6" partialTriggers=":::b8">
-                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c3" rowHeader="true">
+                          fetchSize="#{bindings.FilesVO2.rangeSize}" id="t6" partialTriggers=":::b8" width="650">
+                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c3" rowHeader="true"
+                             width="250" align="left">
                     <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                    id="ot10"/>
                   </af:column>
-                  <af:column id="c4" headerText=" ">
+                  <af:column id="c4" headerText=" " width="400">
                     <af:link text="Download File" id="l3">
                       <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
                     </af:link>
@@ -308,7 +309,8 @@
                       model="#{bindings.CustomerNotesVOCriteriaQuery.queryModel}"
                       queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
-                      inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+                      inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
+                      rows="1" maxColumns="1"/>
           </af:panelBox>
           <af:spacer id="s1" height="35px"/>
           <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
@@ -333,17 +335,17 @@
                         emptyText="#{bindings.CustomerNotesVO7.viewable ? 'No data to display.' : 'Access Denied.'}"
                         rowBandingInterval="0" fetchSize="#{bindings.CustomerNotesVO7.rangeSize}" id="t2"
                         summary="oppurtunity nores list" columnStretching="last"
-                        partialTriggers=":::b4 ::b6 :::b23 :::b24"
-                        width="800">
+                        partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4"
+                        width="1100">
                 <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
-                           align="left" width="400">
+                           align="left" width="900">
                   <af:link id="l1">
                     <af:outputText id="ot21" value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO7.hints.NotesTitle.tooltip}"/>
                     <af:showPopupBehavior popupId=":::p4"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO7.hints.CreatedOn.label}" id="c5" width="400">
+                <af:column headerText="#{bindings.CustomerNotesVO7.hints.CreatedOn.label}" id="c5" width="200">
                   <af:outputText id="ot23" value="#{row.CreatedOn}"
                                  shortDesc="#{bindings.CustomerNotesVO7.hints.CreatedOn.tooltip}">
                     <af:convertDateTime pattern="#{bindings.CustomerNotesVO7.hints.CreatedOn.format}"/>
@@ -366,11 +368,18 @@
                                 shortDesc="#{bindings.NotesTitle.hints.tooltip}" id="it1">
                     <f:validator binding="#{bindings.NotesTitle.validator}"/>
                   </af:inputText>
+                  <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
+                                required="#{bindings.CreatedOn.hints.mandatory}"
+                                columns="#{bindings.CreatedOn.hints.displayWidth}"
+                                shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id2">
+                    <f:validator binding="#{bindings.CreatedOn.validator}"/>
+                    <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
+                  </af:inputDate>
                   <af:inputText value="#{NotesBean.description}" label="#{bindings.NotesDescription.hints.label}"
                                 required="#{bindings.NotesDescription.hints.mandatory}"
                                 columns="#{bindings.NotesDescription.hints.displayWidth}"
                                 maximumLength="#{bindings.NotesDescription.hints.precision}"
-                                shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it2">
+                                shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it2" rows="8">
                     <f:validator binding="#{bindings.NotesDescription.validator}"/>
                   </af:inputText>
                   <af:selectOneChoice value="#{NotesBean.contactID}" label="#{bindings.ContactId.label}"
@@ -385,18 +394,12 @@
                     <f:selectItems value="#{bindings.RepId.items}" id="si30"/>
                     <f:validator binding="#{bindings.RepId.validator}"/>
                   </af:selectOneChoice>
-                  <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
-                                required="#{bindings.CreatedOn.hints.mandatory}"
-                                columns="#{bindings.CreatedOn.hints.displayWidth}"
-                                shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id2">
-                    <f:validator binding="#{bindings.CreatedOn.validator}"/>
-                    <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
-                  </af:inputDate>
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p4" partialTriggers="pc1:t2">
-              <af:dialog id="d4" title="Edit" dialogListener="#{DialogHandler.onUpdate}">
+              <af:dialog id="d4" title="Edit" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                         affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                 <f:facet name="buttonBar"/>
                 <af:panelFormLayout id="pfl5">
                   <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -406,26 +409,6 @@
                                 shortDesc="#{bindings.NotesTitle.hints.tooltip}" id="it13">
                     <f:validator binding="#{bindings.NotesTitle.validator}"/>
                   </af:inputText>
-                  <af:inputText value="#{bindings.NotesDescription.inputValue}"
-                                label="#{bindings.NotesDescription.hints.label}"
-                                required="#{bindings.NotesDescription.hints.mandatory}"
-                                columns="#{bindings.NotesDescription.hints.displayWidth}"
-                                maximumLength="#{bindings.NotesDescription.hints.precision}"
-                                shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it14">
-                    <f:validator binding="#{bindings.NotesDescription.validator}"/>
-                  </af:inputText>
-                  <af:selectOneChoice value="#{bindings.ContactId.inputValue}" label="#{bindings.ContactId.label}"
-                                      required="#{bindings.ContactId.hints.mandatory}"
-                                      shortDesc="#{bindings.ContactId.hints.tooltip}" id="soc23">
-                    <f:selectItems value="#{bindings.ContactId.items}" id="si37"/>
-                    <f:validator binding="#{bindings.ContactId.validator}"/>
-                  </af:selectOneChoice>
-                  <af:selectOneChoice value="#{bindings.RepId.inputValue}" label="#{bindings.RepId.label}"
-                                      required="#{bindings.RepId.hints.mandatory}"
-                                      shortDesc="#{bindings.RepId.hints.tooltip}" id="soc24">
-                    <f:selectItems value="#{bindings.RepId.items}" id="si38"/>
-                    <f:validator binding="#{bindings.RepId.validator}"/>
-                  </af:selectOneChoice>
                   <af:inputDate value="#{bindings.CreatedOn.inputValue}" label="#{bindings.CreatedOn.hints.label}"
                                 required="#{bindings.CreatedOn.hints.mandatory}"
                                 columns="#{bindings.CreatedOn.hints.displayWidth}"
@@ -433,6 +416,14 @@
                     <f:validator binding="#{bindings.CreatedOn.validator}"/>
                     <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                   </af:inputDate>
+                  <af:inputText value="#{bindings.NotesDescription.inputValue}"
+                                label="#{bindings.NotesDescription.hints.label}"
+                                required="#{bindings.NotesDescription.hints.mandatory}"
+                                columns="#{bindings.NotesDescription.hints.displayWidth}"
+                                maximumLength="#{bindings.NotesDescription.hints.precision}"
+                                shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it14" rows="8">
+                    <f:validator binding="#{bindings.NotesDescription.validator}"/>
+                  </af:inputText>
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
@@ -449,7 +440,7 @@
         </af:panelGroupLayout>
       </af:showDetailItem>
       <af:showDetailItem id="Tasks" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}" text="Tasks">
-        <af:panelGroupLayout layout="vertical" id="pgl5" inlineStyle="padding-left:100px;">
+        <af:panelGroupLayout layout="vertical" id="pgl5" inlineStyle="padding-left:0px;">
           <af:outputText value="Tasks" id="ot4"
                          inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
           <af:spacer id="s2" height="20px"/>
@@ -460,7 +451,8 @@
                       model="#{bindings.CustomerTasksVOCriteria1Query.queryModel}"
                       queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
                       queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"
-                      inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+                      inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
+                      maxColumns="2" rows="2"/>
           </af:panelBox>
           <af:spacer id="s5" height="35px"/>
           <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
@@ -487,9 +479,9 @@
                         selectedRowKeys="#{bindings.CustomerTasksVO7.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerTasksVO7.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO7.rangeSize}" id="t3"
-                        summary="oppurtunity taks list" width="1000" partialTriggers=":::b10 ::b11 :::b22">
+                        summary="oppurtunity taks list" width="1100" partialTriggers=":::b22 ::b11 :::b10 :::p5 :::d5">
                 <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskDetails.label}" id="c6" rowHeader="true"
-                           align="left" width="200">
+                           align="left" width="350">
                   <af:link id="l2">
                     <af:outputText value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO7.hints.TaskDetails.tooltip}" id="ot1"/>
@@ -501,7 +493,7 @@
                                  shortDesc="#{bindings.CustomerTasksVO7.hints.Priority1.tooltip}" id="ot2"/>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO7.hints.PercentageCompletion.label}" id="c10"
-                           width="300">
+                           width="250">
                   <dvt:statusMeterGauge id="statusMeterGauge1"
                                         shortDesc="#{bindings.CustomerTasksVO7.hints.PercentageCompletion.tooltip}"
                                         value="#{row.bindings.PercentageCompletion.inputValue}" minimum="0"
@@ -509,13 +501,13 @@
                     <dvt:gaugeMetricLabel rendered="true" id="gml1" textType="percent"/>
                   </dvt:statusMeterGauge>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.DueDate.label}" id="c11" width="200">
+                <af:column headerText="#{bindings.CustomerTasksVO7.hints.DueDate.label}" id="c11" width="100">
                   <af:outputText value="#{row.DueDate}" shortDesc="#{bindings.CustomerTasksVO7.hints.DueDate.tooltip}"
                                  id="ot3">
                     <af:convertDateTime pattern="#{bindings.CustomerTasksVO7.hints.DueDate.format}"/>
                   </af:outputText>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustomerId.label}" id="c16" width="200">
+                <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustomerId.label}" id="c16" width="300">
                   <af:selectOneChoice id="sc12" value="#{row.bindings.CustomerId.inputValue}"
                                       label="#{row.bindings.CustomerId.label}"
                                       required="#{bindings.CustomerTasksVO7.hints.CustomerId.mandatory}"
@@ -541,7 +533,7 @@
                                 required="#{bindings.TaskDetails.hints.mandatory}"
                                 columns="#{bindings.TaskDetails.hints.displayWidth}"
                                 maximumLength="#{bindings.TaskDetails.hints.precision}"
-                                shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it3">
+                                shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it3" rows="8">
                     <f:validator binding="#{bindings.TaskDetails.validator}"/>
                   </af:inputText>
                   <af:selectOneChoice value="#{TasksBean.contactID}" label="#{bindings.ContactId1.label}"
@@ -581,28 +573,17 @@
               </af:dialog>
             </af:popup>
             <af:popup childCreation="deferred" autoCancel="disabled" id="p5" partialTriggers="pc2:t3">
-              <af:dialog id="d5" title="Edit" dialogListener="#{DialogHandler.onUpdate}">
+              <af:dialog id="d5" title="Edit" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                         affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                 <f:facet name="buttonBar"/>
                 <af:panelFormLayout id="pfl6">
                   <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
                                 required="#{bindings.TaskDetails.hints.mandatory}"
                                 columns="#{bindings.TaskDetails.hints.displayWidth}"
                                 maximumLength="#{bindings.TaskDetails.hints.precision}"
-                                shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it15">
+                                shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it15" rows="8">
                     <f:validator binding="#{bindings.TaskDetails.validator}"/>
                   </af:inputText>
-                  <af:selectOneChoice value="#{bindings.ContactId1.inputValue}" label="#{bindings.ContactId1.label}"
-                                      required="#{bindings.ContactId1.hints.mandatory}"
-                                      shortDesc="#{bindings.ContactId1.hints.tooltip}" id="soc26">
-                    <f:selectItems value="#{bindings.ContactId1.items}" id="si40"/>
-                    <f:validator binding="#{bindings.ContactId1.validator}"/>
-                  </af:selectOneChoice>
-                  <af:selectOneChoice value="#{bindings.RepId1.inputValue}" label="#{bindings.RepId1.label}"
-                                      required="#{bindings.RepId1.hints.mandatory}"
-                                      shortDesc="#{bindings.RepId1.hints.tooltip}" id="soc27">
-                    <f:selectItems value="#{bindings.RepId1.items}" id="si41"/>
-                    <f:validator binding="#{bindings.RepId1.validator}"/>
-                  </af:selectOneChoice>
                   <af:selectOneChoice value="#{bindings.Priority1.inputValue}" label="#{bindings.Priority1.hints.label}"
                                       required="#{bindings.Priority1.hints.mandatory}" id="soc316">
                     <f:validator binding="#{bindings.Priority1.validator}"/>
@@ -664,9 +645,9 @@
                         emptyText="#{bindings.SalesTeamsVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
                         rowBandingInterval="0" fetchSize="#{bindings.SalesTeamsVO4.rangeSize}" id="t10"
                         columnStretching="last" summary="summary" partialTriggers="::b18 :::b19"
-                        inlineStyle="padding-left:0px;" width="500">
+                        inlineStyle="padding-left:0px;" width="1100">
                 <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true"
-                           align="left" width="500">
+                           align="left" width="1100">
                   <af:selectOneChoice id="sc1" value="#{row.bindings.EmployeeId.inputValue}"
                                       label="#{row.bindings.EmployeeId.label}"
                                       required="#{bindings.SalesTeamsVO4.hints.EmployeeId.mandatory}"

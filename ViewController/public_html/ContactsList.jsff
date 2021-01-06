@@ -10,7 +10,8 @@
                 model="#{bindings.ContactsListVOCriteriaQuery.queryModel}"
                 queryListener="#{bindings.ContactsListVOCriteriaQuery.processQuery}"
                 queryOperationListener="#{bindings.ContactsListVOCriteriaQuery.processQueryOperation}"
-                inlineStyle="padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:010px;"/>
+                inlineStyle="padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:010px;"
+                maxColumns="2" rows="2"/>
     </af:panelBox>
     <af:panelBox id="pb1" text="Contacts"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"
@@ -57,20 +58,20 @@
                   rowBandingInterval="0" selectedRowKeys="#{bindings.CustomerContactsVO1.collectionModel.selectedRow}"
                   selectionListener="#{bindings.CustomerContactsVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.CustomerContactsVO1.rangeSize}" id="t1" columnStretching="last"
-                  summary="Contacts list" partialTriggers="::b2 ::b3 :::b6" width="1000">
+                  summary="Contacts list" partialTriggers="::b2 ::b3 :::b6" width="1100">
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactName.label}" id="c1" rowHeader="true"
-                     width="300" align="left">
+                     width="400" align="left">
             <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.ContactName}"
                              shortDesc="#{bindings.CustomerContactsVO1.hints.ContactName.tooltip}" id="ot1"/>
               <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
             </af:link>
           </af:column>
-          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2" width="300">
+          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2" width="250">
             <af:outputText value="#{row.ContactPhone}"
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactPhone.tooltip}" id="ot2"/>
           </af:column>
-          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactEmail.label}" id="c3" width="400">
+          <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactEmail.label}" id="c3" width="650">
             <af:outputText value="#{row.ContactEmail}"
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactEmail.tooltip}" id="ot3"/>
           </af:column>

@@ -140,7 +140,14 @@
     EntityAttrName="OppurtunityId"
     EntityUsage="OppurtunitieEO"
     AliasName="OPPURTUNITY_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -185,6 +192,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.WinProbability_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -232,7 +241,14 @@
     PrecisionRule="true"
     EntityAttrName="Revenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="REVENUE"/>
+    AliasName="REVENUE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="23"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="BestCaseRevenue"
     PrecisionRule="true"
@@ -243,6 +259,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.BestCaseRevenue_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -256,6 +274,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.WorstCaseRevenue_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -269,6 +289,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.EstimatedDuration_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -282,6 +304,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.BudgetedAmount_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -312,6 +336,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.ProductQuantity_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -346,7 +372,14 @@
     PrecisionRule="true"
     EntityAttrName="IsVisible"
     EntityUsage="OppurtunitieEO"
-    AliasName="IS_VISIBLE"/>
+    AliasName="IS_VISIBLE">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Quarter"
     PrecisionRule="true"
@@ -376,6 +409,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.OpName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -400,6 +435,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.OppurtunitiesVO.OppurtunitiesVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow

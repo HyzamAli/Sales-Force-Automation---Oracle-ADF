@@ -23,7 +23,7 @@
                 inlineStyle="margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:0px; padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:0010px;"/>
     </af:panelBox>
     <af:panelBox text="Oppurtunities" id="pb2"
-                 inlineStyle="padding-bottom:0010px; padding-left:0010px; padding-right:0010px; padding-top:0010px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
+                 inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
                  showDisclosure="false">
       <f:facet name="toolbar">
         <af:toolbar id="t3" inlineStyle="margin-left:0px;" rendered="false">
@@ -56,7 +56,7 @@
                   selectionListener="#{bindings.OppurtunitiesVO1.collectionModel.makeCurrent}" rowSelection="single"
                   fetchSize="#{bindings.OppurtunitiesVO1.rangeSize}" id="t2" columnStretching="last"
                   summary="Oppurtunity List" partialTriggers=":::b3 ::b2 :::b8" width="1150">
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true" width="150"
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.OpName.label}" id="c7" rowHeader="true" width="250"
                      align="left">
             <af:link id="l1" action="toDetailed">
               <af:outputText value="#{row.OpName}" shortDesc="#{bindings.OppurtunitiesVO1.hints.OpName.tooltip}"
@@ -64,7 +64,7 @@
               <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.oppurtunityId}"/>
             </af:link>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.CustomerId.label}" id="c2" width="150">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.CustomerId.label}" id="c2" width="200">
             <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}" label="#{row.bindings.CustomerId.label}"
                                 required="#{bindings.OppurtunitiesVO1.hints.CustomerId.mandatory}"
                                 shortDesc="#{bindings.OppurtunitiesVO1.hints.CustomerId.tooltip}" readOnly="true"
@@ -73,7 +73,7 @@
               <f:validator binding="#{row.bindings.CustomerId.validator}"/>
             </af:selectOneChoice>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3" width="300">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3" width="200">
             <af:outputText value="#{row.WinProbability}"
                            shortDesc="#{bindings.OppurtunitiesVO1.hints.WinProbability.tooltip}" id="ot2">
               <af:convertNumber groupingUsed="false"
@@ -90,7 +90,7 @@
               <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunitiesVO1.hints.Revenue.format}"/>
             </af:outputText>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6" width="150">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6" width="100">
             <af:outputText value="#{row.RiskLevel}" shortDesc="#{bindings.OppurtunitiesVO1.hints.RiskLevel.tooltip}"
                            id="ot5"/>
           </af:column>
@@ -105,7 +105,7 @@
                      action="#{DialogHandler.closeDialog}"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b3"/>
         </f:facet>
-        <af:panelFormLayout id="pfl1">
+        <af:panelFormLayout id="pfl1" maxColumns="2" rows="9">
           <af:inputText value="#{OppurtunityBean.opName}" label="#{bindings.OpName.hints.label}"
                         required="#{bindings.OpName.hints.mandatory}" columns="#{bindings.OpName.hints.displayWidth}"
                         maximumLength="#{bindings.OpName.hints.precision}" shortDesc="#{bindings.OpName.hints.tooltip}"

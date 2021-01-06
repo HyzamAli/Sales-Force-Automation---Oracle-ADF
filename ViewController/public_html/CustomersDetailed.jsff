@@ -281,16 +281,16 @@
                         selectedRowKeys="#{bindings.CustomerNotesVO61.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerNotesVO61.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
-                        partialTriggers=":::b4 ::b17" summary="Notes List" width="900">
+                        partialTriggers=":::b4 ::b17 :::p1 :::d5" summary="Notes List" width="1100">
                 <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true"
-                           width="300" minimumWidth="300" align="left">
+                           width="500" minimumWidth="300" align="left">
                   <af:link id="l2">
                     <af:outputText value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO61.hints.NotesTitle.tooltip}" id="ot6"/>
                     <af:showPopupBehavior popupId=":::p1"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36" width="300"
+                <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36" width="400"
                            minimumWidth="300">
                   <af:link text="View Oppurtunity" id="l5" action="toOpDetailed">
                     <af:outputText value="" shortDesc="#{bindings.CustomerNotesVO61.hints.OppurtunityId.tooltip}"
@@ -301,8 +301,8 @@
                     <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO61.hints.CreatedOn.label}" id="c35" width="300"
-                           minimumWidth="300">
+                <af:column headerText="#{bindings.CustomerNotesVO61.hints.CreatedOn.label}" id="c35" width="200"
+                           minimumWidth="200">
                   <af:outputText value="#{row.CreatedOn}"
                                  shortDesc="#{bindings.CustomerNotesVO61.hints.CreatedOn.tooltip}" id="ot7">
                     <af:convertDateTime pattern="#{bindings.CustomerNotesVO61.hints.CreatedOn.format}"/>
@@ -326,13 +326,6 @@
                               inlineStyle="min-width:50pt; width:40pt;">
                   <f:validator binding="#{bindings.NotesTitle.validator}"/>
                 </af:inputText>
-                <af:inputText value="#{NotesBean.description}" label="#{bindings.NotesDescription.hints.label}"
-                              required="#{bindings.NotesDescription.hints.mandatory}"
-                              columns="#{bindings.NotesDescription.hints.displayWidth}"
-                              maximumLength="#{bindings.NotesDescription.hints.precision}"
-                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13" rows="8">
-                  <f:validator binding="#{bindings.NotesDescription.validator}"/>
-                </af:inputText>
                 <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
                               required="#{bindings.CreatedOn.hints.mandatory}"
                               columns="#{bindings.CreatedOn.hints.displayWidth}"
@@ -340,6 +333,13 @@
                   <f:validator binding="#{bindings.CreatedOn.validator}"/>
                   <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                 </af:inputDate>
+                <af:inputText value="#{NotesBean.description}" label="#{bindings.NotesDescription.hints.label}"
+                              required="#{bindings.NotesDescription.hints.mandatory}"
+                              columns="#{bindings.NotesDescription.hints.displayWidth}"
+                              maximumLength="#{bindings.NotesDescription.hints.precision}"
+                              shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it13" rows="8">
+                  <f:validator binding="#{bindings.NotesDescription.validator}"/>
+                </af:inputText>
                 <af:selectOneChoice value="#{NotesBean.contactID}" label="Contact Associated"
                                     required="#{bindings.CustomerId1.hints.mandatory}"
                                     shortDesc="#{bindings.CustomerId1.hints.tooltip}" id="soc11">
@@ -362,7 +362,8 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t5">
-            <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}">
+            <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                       affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl6">
                 <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -380,18 +381,6 @@
                               shortDesc="#{bindings.NotesDescription.hints.tooltip}" id="it24" rows="8">
                   <f:validator binding="#{bindings.NotesDescription.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.ContactId.inputValue}" label="#{bindings.ContactId.label}"
-                                    required="#{bindings.ContactId.hints.mandatory}"
-                                    shortDesc="#{bindings.ContactId.hints.tooltip}" id="soc12">
-                  <f:selectItems value="#{bindings.ContactId.items}" id="si20"/>
-                  <f:validator binding="#{bindings.ContactId.validator}"/>
-                </af:selectOneChoice>
-                <af:selectOneChoice value="#{bindings.RepId2.inputValue}" label="#{bindings.RepId2.label}"
-                                    required="#{bindings.RepId2.hints.mandatory}"
-                                    shortDesc="#{bindings.RepId2.hints.tooltip}" id="soc13">
-                  <f:selectItems value="#{bindings.RepId2.items}" id="si21"/>
-                  <f:validator binding="#{bindings.RepId2.validator}"/>
-                </af:selectOneChoice>
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
@@ -457,7 +446,7 @@
                         selectedRowKeys="#{bindings.CustomerTasksVO61.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerTasksVO61.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
-                        partialTriggers=":::b12 ::b18" summary="Tasks List"
+                        partialTriggers="::b18 :::b12 :::p6 :::d6" summary="Tasks List"
                         inlineStyle="min-width:800pt; width:800pt;">
                 <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
                            inlineStyle="min-width:200pt; width:200pt;" width="400" minimumWidth="200" align="left">
@@ -514,7 +503,7 @@
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="3">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="8">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
@@ -554,14 +543,15 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="pc3:t1">
-            <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}">
+            <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                       affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl7">
                 <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
                               required="#{bindings.TaskDetails.hints.mandatory}"
                               columns="#{bindings.TaskDetails.hints.displayWidth}"
                               maximumLength="#{bindings.TaskDetails.hints.precision}"
-                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14" rows="3">
+                              shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it14" rows="8">
                   <f:validator binding="#{bindings.TaskDetails.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
@@ -585,18 +575,6 @@
                   <af:selectItem label="Low" value="Low" id="si28"/>
                   <af:selectItem label="Medium" value="Medium" id="si29"/>
                   <af:selectItem label="High" value="High" id="si30"/>
-                </af:selectOneChoice>
-                <af:selectOneChoice value="#{bindings.RepId.inputValue}" label="#{bindings.RepId.label}"
-                                    required="#{bindings.RepId.hints.mandatory}"
-                                    shortDesc="#{bindings.RepId.hints.tooltip}" id="soc17">
-                  <f:selectItems value="#{bindings.RepId.items}" id="si27"/>
-                  <f:validator binding="#{bindings.RepId.validator}"/>
-                </af:selectOneChoice>
-                <af:selectOneChoice value="#{bindings.ContactId1.inputValue}" label="#{bindings.ContactId1.label}"
-                                    required="#{bindings.ContactId1.hints.mandatory}"
-                                    shortDesc="#{bindings.ContactId1.hints.tooltip}" id="soc7">
-                  <f:selectItems value="#{bindings.ContactId1.items}" id="si12"/>
-                  <f:validator binding="#{bindings.ContactId1.validator}"/>
                 </af:selectOneChoice>
               </af:panelFormLayout>
             </af:dialog>
@@ -655,7 +633,7 @@
                           selectedRowKeys="#{bindings.CustomerAppointmentsVO31.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerAppointmentsVO31.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO31.rangeSize}" id="t3"
-                          partialTriggers="" summary="Appointments List">
+                          partialTriggers=":::p9 :::d9" summary="Appointments List">
                   <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppName.label}" id="c5"
                              rowHeader="true" align="left">
                     <af:link id="l4">
@@ -704,7 +682,7 @@
                                     required="#{bindings.AppDescription.hints.mandatory}"
                                     columns="#{bindings.AppDescription.hints.displayWidth}"
                                     maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="3">
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it29" rows="8">
                         <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                       <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
@@ -890,7 +868,8 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p9" partialTriggers="pc4:t3">
-            <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}">
+            <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                       affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl10">
                 <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"
@@ -905,7 +884,7 @@
                               required="#{bindings.AppDescription.hints.mandatory}"
                               columns="#{bindings.AppDescription.hints.displayWidth}"
                               maximumLength="#{bindings.AppDescription.hints.precision}"
-                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="3">
+                              shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it34" rows="8">
                   <f:validator binding="#{bindings.AppDescription.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
@@ -952,12 +931,6 @@
                               shortDesc="#{bindings.Resolution.hints.tooltip}" id="it38">
                   <f:validator binding="#{bindings.Resolution.validator}"/>
                 </af:inputText>
-                <af:selectOneChoice value="#{bindings.ContactId2.inputValue}" label="#{bindings.ContactId2.label}"
-                                    required="#{bindings.ContactId2.hints.mandatory}"
-                                    shortDesc="#{bindings.ContactId2.hints.tooltip}" id="soc24">
-                  <f:selectItems value="#{bindings.ContactId2.items}" id="si39"/>
-                  <f:validator binding="#{bindings.ContactId2.validator}"/>
-                </af:selectOneChoice>
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>

@@ -228,13 +228,9 @@
         <Item Value="ContactName"/>
       </ListDisplayAttrNames>
     </list>
-    <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" Uses="LOV_RepId" id="RepId2" DTSupportsMRU="true"
           SelectItemValueMode="ListObject"/>
     <action IterBinding="CustomerNotesVO6Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <list IterBinding="CustomerTasksVO6Iterator" StaticList="false" Uses="LOV_RepId" id="RepId" DTSupportsMRU="false"
-          SelectItemValueMode="ListObject"/>
     <action IterBinding="CustomerTasksVO6Iterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="CustomerAppointmentsVO3Iterator" id="AppId">
       <AttrNames>
@@ -314,8 +310,6 @@
       <NamedData NDName="AppointmentId" NDValue="#{bindings.AppId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="EmployeeId" NDValue="#{AttendeeBean.employeeId}" NDType="java.lang.String"/>
     </action>
-    <list IterBinding="CustomerAppointmentsVO3Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId2"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="AppointmentAttendeesVO5Iterator" id="Delete3" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <tree IterBinding="AppointmentCustomersVO2Iterator" id="AppointmentCustomersVO2">

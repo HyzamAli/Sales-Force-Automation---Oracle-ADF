@@ -61,7 +61,14 @@
     EntityAttrName="PooId"
     EntityUsage="ProductsPerOppurtunityEO"
     AliasName="POO_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="OppurtunityId"
     PrecisionRule="true"
@@ -115,6 +122,12 @@
         Value="ProductId"
         Type="notify"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ProductsPerOppurtunitiesVO.ProductPrice_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="ProductsPerOppurtunitiesVOCriteria"
@@ -137,6 +150,9 @@
         <Property
           Name="displayOperators"
           Value="InAdvancedMode"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.ProductsPerOppurtunitiesVO.ProductsPerOppurtunitiesVOCriteria_displayName"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
