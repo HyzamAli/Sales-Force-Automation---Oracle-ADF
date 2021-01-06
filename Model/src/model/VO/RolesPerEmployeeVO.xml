@@ -55,10 +55,10 @@
     LOVName="LOV_RoleId">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.VO.RolesPerEmployeeVO.RoleId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -95,6 +95,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <LOVUIHints
+    ListType="105"
+    MRUCount="0"
+    NullValueFlag="none">
+    <DisplayCriteria/>
+  </LOVUIHints>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

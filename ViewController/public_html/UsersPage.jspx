@@ -58,7 +58,7 @@
                                               selectedRowKeys="#{bindings.UserProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.UserProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.UserProfilesVO1.rangeSize}"
-                                              id="t1" summary="Users List" partialTriggers="::::b2 ::b3"
+                                              id="t1" summary="Users List" partialTriggers="::b3 ::::b2 ::::p2 ::::d2"
                                               inlineStyle="min-width:100%;" styleClass="AFStretchWidth" width="800pt">
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameFirst.label}"
                                                    id="c1" rowHeader="true" width="210" align="left">
@@ -260,17 +260,23 @@
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si2"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
+                            <af:selectOneChoice value="#{UsersBean.role}" label="#{bindings.RolesId.label}"
+                                                required="#{bindings.RolesId.hints.mandatory}"
+                                                shortDesc="#{bindings.RolesId.hints.tooltip}" id="soc1">
+                                <f:selectItems value="#{bindings.RolesId.items}" id="si1"/>
+                                <f:validator binding="#{bindings.RolesId.validator}"/>
+                            </af:selectOneChoice>
                             <af:inputDate value="#{UsersBean.start_date}" label="#{bindings.StartDate.hints.label}"
                                           required="#{bindings.StartDate.hints.mandatory}"
                                           columns="#{bindings.StartDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.StartDate.hints.tooltip}" id="id1">
+                                          shortDesc="#{bindings.StartDate.hints.tooltip}" id="id11">
                                 <f:validator binding="#{bindings.StartDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
                             </af:inputDate>
                             <af:inputDate value="#{UsersBean.end_date}" label="#{bindings.EndDate.hints.label}"
                                           required="#{bindings.EndDate.hints.mandatory}"
                                           columns="#{bindings.EndDate.hints.displayWidth}"
-                                          shortDesc="#{bindings.EndDate.hints.tooltip}" id="id2">
+                                          shortDesc="#{bindings.EndDate.hints.tooltip}" id="id22">
                                 <f:validator binding="#{bindings.EndDate.validator}"/>
                                 <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
                             </af:inputDate>
@@ -301,7 +307,8 @@
                     </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pt1:pc1:t1">
-                    <af:dialog id="d2" title="Edit Users" dialogListener="#{DialogHandler.onUpdate}">
+                    <af:dialog id="d2" title="Edit Users" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                               affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.NameFirst.inputValue}"

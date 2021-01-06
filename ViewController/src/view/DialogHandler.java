@@ -35,17 +35,15 @@ public class DialogHandler {
     }
     
     public void onUpdate(DialogEvent dialogEvent) {
-        
-        if (dialogEvent.getOutcome() == DialogEvent.Outcome.ok)
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding;
+        if (dialogEvent.getOutcome() == DialogEvent.Outcome.yes)
          {
-          DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
-          OperationBinding operationBinding = bindings.getOperationBinding("Commit");
-          operationBinding.execute();          
-         } else
-         {
-            DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
-            OperationBinding operationBinding = bindings.getOperationBinding("Rollback");
-            operationBinding.execute();
-        }    
+            operationBinding = bindings.getOperationBinding("Commit");
+        } else {
+            operationBinding = bindings.getOperationBinding("Rollback");
+        }
+        operationBinding.execute();
+
     }
 }
