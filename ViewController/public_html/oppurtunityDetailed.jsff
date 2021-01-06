@@ -24,7 +24,7 @@
                 </af:button>
               </af:toolbar>
             </f:facet>
-            <af:panelFormLayout id="pfl1">
+            <af:panelFormLayout id="pfl1" maxColumns="3" rows="6">
               <af:inputText value="#{bindings.OpName.inputValue}" label="#{bindings.OpName.hints.label}"
                             required="#{bindings.OpName.hints.mandatory}"
                             columns="#{bindings.OpName.hints.displayWidth}"

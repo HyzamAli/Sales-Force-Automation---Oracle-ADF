@@ -362,7 +362,8 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t5">
-            <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}">
+            <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                       affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl6">
                 <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -554,7 +555,8 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="pc3:t1">
-            <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}">
+            <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                       affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl7">
                 <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
@@ -890,7 +892,8 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p9" partialTriggers="pc4:t3">
-            <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}">
+            <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                       affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl10">
                 <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"
