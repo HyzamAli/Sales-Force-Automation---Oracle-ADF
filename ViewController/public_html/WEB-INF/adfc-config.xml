@@ -95,4 +95,9 @@
     <managed-bean-class>view.DeleteDialogHandler</managed-bean-class>
     <managed-bean-scope>request</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__20">
+    <managed-bean-name>LocaleBean</managed-bean-name>
+    <managed-bean-class>view.LocaleBean</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

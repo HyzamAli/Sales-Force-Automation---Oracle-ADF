@@ -1,8 +1,9 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
-          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich" xmlns:c="http://java.sun.com/jsp/jstl/core">
+    <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
-    <f:view>
+    <f:view locale="#{LocaleBean.userLocale}">
         <af:document title="ProductsPage.jspx" id="d1">
             <af:messages id="m1"/>
              <af:form id="f1">
@@ -168,7 +169,7 @@
                                 <f:validator binding="#{bindings.ProductDescription.validator}"/>
                             </af:inputText>
                             <af:inputText value="#{ProductsBean.productPrice}"
-                                          label="#{bindings.ProductPrice.hints.label}"
+                                          label="#{viewcontrollerBundle.PRODUCT_PRICE_LABEL}"
                                           required="#{bindings.ProductPrice.hints.mandatory}"
                                           columns="#{bindings.ProductPrice.hints.displayWidth}"
                                           maximumLength="#{bindings.ProductPrice.hints.precision}"
@@ -215,7 +216,7 @@
                                 <f:validator binding="#{bindings.CategoryId1.validator}"/>
                             </af:selectOneChoice>
                             <af:inputText value="#{bindings.ProductPrice.inputValue}"
-                                          label="#{bindings.ProductPrice.hints.label}"
+                                          label="#{viewcontrollerBundle.PRODUCT_PRICE_LABEL}"
                                           required="#{bindings.ProductPrice.hints.mandatory}"
                                           columns="#{bindings.ProductPrice.hints.displayWidth}"
                                           maximumLength="#{bindings.ProductPrice.hints.precision}"
