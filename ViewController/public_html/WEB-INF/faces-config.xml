@@ -2,5 +2,14 @@
 <faces-config version="2.1" xmlns="http://java.sun.com/xml/ns/javaee">
   <application>
     <default-render-kit-id>oracle.adf.rich</default-render-kit-id>
+    <resource-bundle>
+      <base-name>view.ViewControllerBundle</base-name>
+      <var>res</var>
+    </resource-bundle>
+    <locale-config>
+      <default-locale>en_US</default-locale>
+      <supported-locale>en_US</supported-locale>
+      <supported-locale>en_IN</supported-locale>
+    </locale-config>
   </application>
 </faces-config>

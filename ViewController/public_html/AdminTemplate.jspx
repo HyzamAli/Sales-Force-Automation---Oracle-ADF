@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-          xmlns:f="http://java.sun.com/jsf/core" xmlns:h="http://java.sun.com/jsf/html">
+          xmlns:f="http://java.sun.com/jsf/core" >
   <jsp:directive.page contentType="text/html;charset=UTF-8"/>
   <af:pageTemplateDef var="attrs" definition="private">
     <af:xmlContent>
@@ -19,21 +19,30 @@
         </attribute>
       </component>
     </af:xmlContent>
-    <af:panelStretchLayout id="pt_psl1" topHeight="75px">
+    <af:panelStretchLayout id="pt_psl1" topHeight="105px">
       <f:facet name="start"/>
       <f:facet name="end"/>
       <f:facet name="top">
-        <af:panelBox text="#{attrs.PanelText}" id="pt_pb1" showHeader="always" showDisclosure="false" background="dark">
-          <af:button text="Logout" id="pt_b1" action="#{loginBean.onLogout}"
-                     inlineStyle="margin-left:96%; background-color:Highlight;"/>
-          <h:commandButton value="" id="pt_cb1" action="#{loginBean.onLogout}"/>
-          <f:facet name="toolbar">
-            <af:navigationPane hint="tabs" id="pt_np1" value="#{adminMenu}" var="n">
+        <af:panelBox text="Sales Assist - #{attrs.PanelText}" id="pt_pb1" showHeader="always" showDisclosure="false" background="dark">
+          <af:panelGroupLayout id="pt_pgl1" layout="horizontal"
+                               inlineStyle="margin-top:15px; margin-bottom:15px; margin-left:15px; margin-right:20px;">
+            <af:navigationPane id="pt_np1" value="#{adminMenu}" var="n">
               <f:facet name="nodeStamp">
                 <af:commandNavigationItem text="#{n.label}" id="pt_cni1" action="#{n.doAction}"/>
               </f:facet>
             </af:navigationPane>
-          </f:facet>
+            <af:spacer id="pt_s1" width="600px"/>
+            <af:selectOneChoice label="Region" value="#{LocaleBean.userLocale}" id="soc4"
+                                binding="#{LocaleBean.localeSelector}">
+                        <af:selectItem label="United States" value="en_US" id="si4"/>
+                        <af:selectItem label="India" value="en_IN" id="si5"/>
+            </af:selectOneChoice>
+            <af:button text="Refresh" id="b11" partialSubmit="false" inlineStyle="margin-left:6px;"/>
+            <af:button text="Logout" id="pt_b1" action="#{loginBean.onLogout}" inlineStyle="margin-left:10px;"/>
+          </af:panelGroupLayout>
+          
+          
+          <f:facet name="toolbar"/>
         </af:panelBox>
       </f:facet>
       <f:facet name="bottom"/>
