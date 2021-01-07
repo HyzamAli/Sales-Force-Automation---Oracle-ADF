@@ -441,6 +441,7 @@
                             </af:popup>
         </af:panelGroupLayout>
       </af:showDetailItem>
+      <af:showDetailItem id="dr5" shortDesc="Appointments" icon="#{resource['images:calendar.png']}"/>
     </af:panelDrawer>
   </af:panelGroupLayout>
 </jsp:root>

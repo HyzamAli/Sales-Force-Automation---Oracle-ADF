@@ -102,6 +102,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunityByID.BestCaseRevenue_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -114,7 +116,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="30"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.BudgetedAmount_LABEL"/>
       </SchemaBasedProperties>
@@ -146,7 +148,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.DecisionLevel_LABEL"/>
       </SchemaBasedProperties>
@@ -162,6 +164,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunityByID.EstimatedDuration_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -238,7 +242,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.Revenue_LABEL"/>
       </SchemaBasedProperties>
@@ -253,7 +257,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.RiskLevel_LABEL"/>
       </SchemaBasedProperties>
@@ -268,7 +272,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.SaleMethod_LABEL"/>
       </SchemaBasedProperties>
@@ -283,7 +287,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.SaleStage_LABEL"/>
       </SchemaBasedProperties>
@@ -298,7 +302,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.SalesChannel_LABEL"/>
       </SchemaBasedProperties>
@@ -313,7 +317,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.WinProbability_LABEL"/>
       </SchemaBasedProperties>
@@ -328,7 +332,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="23"/>
         <LABEL
           ResId="model.VO.OppurtunityByID.WorstCaseRevenue_LABEL"/>
       </SchemaBasedProperties>
@@ -357,6 +361,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.OppurtunityByID.OpName_LABEL"/>
+        <DISPLAYWIDTH
+          Value="23"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

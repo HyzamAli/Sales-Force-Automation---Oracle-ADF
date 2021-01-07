@@ -185,12 +185,12 @@
     AliasName="APPOINTMENT_TYPE">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYWIDTH
-          Value="150"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppointmentType_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.AppointmentType_LABEL_PLURAL"/>
+        <DISPLAYWIDTH
+          Value="35"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -203,7 +203,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="150"/>
+          Value="35"/>
         <LABEL
           ResId="model.VO.CustomerAppointmentsVO.AppointmentDirection_LABEL"/>
         <LABEL_PLURAL
