@@ -1,0 +1,15 @@
+//Groovy Scripts for model.VO.CustomerContactsVO
+
+package model.VO
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="checked")
+def checked_ExpressionScript_Expression()
+{
+ if (IsPrimary == 1) {
+    return true
+ }
+ return false;
+}
+

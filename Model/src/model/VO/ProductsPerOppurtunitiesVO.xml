@@ -129,6 +129,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="TotalPrice"
+    PrecisionRule="true"
+    EntityAttrName="TotalPrice"
+    EntityUsage="ProductsPerOppurtunityEO"
+    AliasName="TOTAL_PRICE"/>
   <ViewCriteria
     Name="ProductsPerOppurtunitiesVOCriteria"
     ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"

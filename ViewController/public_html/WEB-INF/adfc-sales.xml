@@ -8,4 +8,14 @@
     <managed-bean-class>view.SalesDynamicRegionBean</managed-bean-class>
     <managed-bean-scope>view</managed-bean-scope>
   </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>LoginBean</managed-bean-name>
+    <managed-bean-class>view.LoginHandler</managed-bean-class>
+    <managed-bean-scope>request</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__3">
+    <managed-bean-name>LocaleBean</managed-bean-name>
+    <managed-bean-class>view.LocaleBean</managed-bean-class>
+    <managed-bean-scope>application</managed-bean-scope>
+  </managed-bean>
 </adfc-config>

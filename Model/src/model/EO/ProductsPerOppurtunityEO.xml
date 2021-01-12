@@ -62,6 +62,13 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="PRODUCTS_PER_OPPURTUNITY"/>
+  <Attribute
+    Name="TotalPrice"
+    ColumnName="TOTAL_PRICE"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="PRODUCTS_PER_OPPURTUNITY"/>
   <AccessorAttribute
     Name="OppurtunitieEO"
     Association="model.EO.SysC0011005Assoc"

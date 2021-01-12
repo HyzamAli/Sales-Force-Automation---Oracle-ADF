@@ -2,8 +2,8 @@
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:panelGroupLayout id="pgl3" layout="vertical">
-    <af:panelBox id="pb6" showDisclosure="true" inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px;" background="dark"
-                 text="#{bindings.ContactName.inputValue}">
+    <af:panelBox id="pb6" showDisclosure="false" inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px;" background="dark"
+                 text="Contact - #{bindings.ContactName.inputValue}">
       <f:facet name="toolbar"/>
     </af:panelBox>
     <af:spacer id="s5" height="150px"/>
@@ -57,10 +57,10 @@
               <af:selectItem label="Medium" value="2" id="si13"/>
               <af:selectItem label="Strong" value="3" id="si14"/>
             </af:selectOneChoice>
-            <af:selectOneChoice label="Primary Contact" id="soc13" value="#{bindings.IsPrimary.inputValue}">
-              <af:selectItem label="Yes" value="1" id="si15"/>
-              <af:selectItem label="No" value="0" id="si16"/>
-            </af:selectOneChoice>
+            <af:selectOneRadio label="Primary" id="sor1" value="#{bindings.IsPrimary.inputValue}" layout="horizontal">
+              <af:selectItem label="Yes" value="1" id="si6"/>
+              <af:selectItem label="No" value="0" id="si7"/>
+            </af:selectOneRadio>
             <f:facet name="footer">
               <af:button text="Submit" id="b1" action="#{ContactsBean.commitData}"/>
             </f:facet>
@@ -128,7 +128,7 @@
                     <f:selectItems value="#{row.bindings.CustomerId.items}" id="si2"/>
                     <f:validator binding="#{row.bindings.CustomerId.validator}"/>
                   </af:selectOneChoice>
-                  <af:link text="View" id="l3" action="toCustomerDetailed">
+                  <af:link text="#{row.bindings.CustomerId.label}" id="l3" action="toCustomerDetailed">
                     <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                   </af:link>
                 </af:column>
