@@ -192,6 +192,25 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="checked"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="CustomerContactsVORow"/>
+    <Dependencies>
+      <Item
+        Value="IsPrimary"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerSearch"
     ViewObjectName="model.VO.CustomerContactsVO"

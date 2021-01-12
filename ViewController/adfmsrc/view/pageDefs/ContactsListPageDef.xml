@@ -16,15 +16,21 @@
     <tree IterBinding="CustomerContactsVO1Iterator" id="CustomerContactsVO1">
       <nodeDefinition DefName="model.VO.CustomerContactsVO" Name="CustomerContactsVO10">
         <AttrNames>
+          <Item Value="CcId"/>
           <Item Value="ContactName"/>
           <Item Value="ContactPhone"/>
           <Item Value="ContactEmail"/>
-          <Item Value="CcId"/>
+          <Item Value="checked"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
     <list IterBinding="CustomerContactsVO1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="CcId">
+      <AttrNames>
+        <Item Value="CcId"/>
+      </AttrNames>
+    </attributeValues>
     <attributeValues IterBinding="CustomerContactsVO1Iterator" id="ContactName">
       <AttrNames>
         <Item Value="ContactName"/>
@@ -43,11 +49,6 @@
     <attributeValues IterBinding="CustomerContactsVO1Iterator" id="InfluenceLevel">
       <AttrNames>
         <Item Value="InfluenceLevel"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="CustomerContactsVO1Iterator" id="IsPrimary">
-      <AttrNames>
-        <Item Value="IsPrimary"/>
       </AttrNames>
     </attributeValues>
     <action IterBinding="CustomerContactsVO1Iterator" id="CreateWithParams" RequiresUpdateModel="true"

@@ -11,8 +11,8 @@ public class ContactsBean {
     private String name;
     private String phone;
     private String email;
-    private String isPrimary;
-    private String influenceLevel;
+    private String isPrimary = "0";
+    private String influenceLevel = "1";
     private String customerId;
     private RichDialog contactComponent;
 

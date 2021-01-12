@@ -18,7 +18,7 @@
                  showDisclosure="false">
       <af:popup childCreation="deferred" autoCancel="disabled" id="po3">
         <af:dialog id="d4" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
-          <af:outputText value="Confirm Action" id="ot4" inlineStyle="margin-right:50px;"/>
+          <af:outputText value="Are you sure?" id="ot4" inlineStyle="margin-right:50px;"/>
           <f:facet name="buttonBar">
             <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
                        action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b6"/>
@@ -67,6 +67,11 @@
               <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
             </af:link>
           </af:column>
+          <af:column headerText="Primary" id="c4" width="60" align="center">
+            <af:selectBooleanCheckbox text=" " label=" " id="sbc1" value="#{row.checked}"
+                                      shortDesc="#{bindings.CustomerContactsVO1.hints.checked.tooltip}"
+                                      rendered="#{row.checked}" readOnly="true"/>
+          </af:column>
           <af:column headerText="#{bindings.CustomerContactsVO1.hints.ContactPhone.label}" id="c2" width="250">
             <af:outputText value="#{row.ContactPhone}"
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactPhone.tooltip}" id="ot2"/>
@@ -77,7 +82,7 @@
           </af:column>
         </af:table>
         <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b2">
-          <af:dialog id="d1" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
+          <af:dialog id="d1" title="Create Contact" type="none" binding="#{DialogHandler.dialogComponent}">
             <f:facet name="buttonBar">
               <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
                          disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
@@ -115,10 +120,11 @@
                 <af:selectItem label="Medium" value="2" id="si5"/>
                 <af:selectItem label="Strong" value="3" id="si6"/>
               </af:selectOneChoice>
-              <af:selectOneChoice label="Primary Contact" id="soc5" value="#{ContactsBean.isPrimary}">
-                <af:selectItem label="Yes" value="1" id="si7"/>
-                <af:selectItem label="No" value="0" id="si8"/>
-              </af:selectOneChoice>
+              <af:selectOneRadio label="Primary Contact" value="#{ContactsBean.isPrimary}" id="sor1"
+                                 layout="horizontal" showRequired="true">
+                <af:selectItem label="Yes" value="1" id="si3"/>
+                <af:selectItem label="No" value="0" id="si9"/>
+              </af:selectOneRadio>
             </af:panelFormLayout>
           </af:dialog>
         </af:popup>

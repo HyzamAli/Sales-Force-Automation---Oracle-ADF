@@ -33,7 +33,7 @@
             </af:navigationPane>
             <af:spacer id="pt_s1" width="600px"/>
             <af:selectOneChoice label="Region" value="#{LocaleBean.userLocale}" id="soc4"
-                                binding="#{LocaleBean.localeSelector}">
+                                binding="#{LocaleBean.localeSelector}" autoSubmit="true">
                         <af:selectItem label="United States" value="en_US" id="si4"/>
                         <af:selectItem label="India" value="en_IN" id="si5"/>
             </af:selectOneChoice>

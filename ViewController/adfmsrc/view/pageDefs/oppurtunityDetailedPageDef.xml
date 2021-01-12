@@ -125,6 +125,7 @@
           <Item Value="ProductId"/>
           <Item Value="ProductQuantity"/>
           <Item Value="ProductPrice"/>
+          <Item Value="TotalPrice"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
