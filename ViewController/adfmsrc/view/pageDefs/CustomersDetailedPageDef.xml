@@ -210,8 +210,6 @@
     </attributeValues>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_Industry" id="Industry"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ReferencePt" id="ReferencePt"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerByIDVO1Iterator" StaticList="false" Uses="LOV_ParentAcc" id="ParentAcc"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="CustomerContactsVO3Iterator" id="Delete" RequiresUpdateModel="false"
