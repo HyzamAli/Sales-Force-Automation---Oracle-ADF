@@ -21,6 +21,9 @@
                   Binds="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVOCriteriaQuery"/>
     <iterator Binds="SalesTeamsVO4" RangeSize="25" DataControl="AppsModuleDataControl" id="SalesTeamsVO4Iterator"/>
     <iterator Binds="FilesVO2" RangeSize="25" DataControl="AppsModuleDataControl" id="FilesVO2Iterator"/>
+    <iterator Binds="ContactsOpVO2" RangeSize="25" DataControl="AppsModuleDataControl" id="ContactsOpVO2Iterator"/>
+    <iterator id="CustomerContactsVO1Iterator" Binds="CustomerContactsVO1" DataControl="AppsModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
@@ -244,5 +247,35 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
+    <tree IterBinding="ContactsOpVO2Iterator" id="ContactsOpVO2">
+      <nodeDefinition DefName="model.VO.ContactsOpVO" Name="ContactsOpVO20">
+        <AttrNames>
+          <Item Value="ContactId"/>
+          <Item Value="Name"/>
+          <Item Value="Phone"/>
+          <Item Value="Email"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <list IterBinding="ContactsOpVO2Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ContactsOpVO2Iterator" id="CreateWithParams4" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="ContactId" NDValue="#{ContactsPerOpBean.contactId}" NDType="java.lang.String"/>
+      <NamedData NDName="OpNumber" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="Name" NDValue="#{ContactsPerOpBean.contactName}" NDType="java.lang.String"/>
+      <NamedData NDName="Email" NDValue="#{ContactsPerOpBean.email}" NDType="java.lang.String"/>
+      <NamedData NDName="Phone" NDValue="#{ContactsPerOpBean.phone}" NDType="java.lang.String"/>
+
+    </action>
+    <action IterBinding="ContactsOpVO2Iterator" id="Delete4" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <table IterBinding="CustomerContactsVO1Iterator" id="CustomerContactsVO1">
+      <AttrNames>
+        <Item Value="CcId"/>
+        <Item Value="ContactName"/>
+        <Item Value="ContactPhone"/>
+        <Item Value="ContactEmail"/>
+      </AttrNames>
+    </table>
   </bindings>
 </pageDefinition>

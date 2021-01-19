@@ -46,6 +46,11 @@
       <managed-bean-class>view.LocaleBean</managed-bean-class>
       <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__17">
+      <managed-bean-name>ContactsPerOpBean</managed-bean-name>
+      <managed-bean-class>view.ContactsPerOpBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
@@ -70,6 +75,16 @@
         <value>#{pageFlowScope.CustomerId}</value>
       </input-parameter>
     </task-flow-call>
+    <task-flow-call id="flow-contactsDetailed">
+      <task-flow-reference>
+        <document>/WEB-INF/flow-contactsDetailed.xml</document>
+        <id>flow-contactsDetailed</id>
+      </task-flow-reference>
+      <input-parameter id="__16">
+        <name>ContactId</name>
+        <value>#{pageFlowScope.ContactId}</value>
+      </input-parameter>
+    </task-flow-call>
     <control-flow-rule id="__2">
       <from-activity-id>ExecuteWithParams</from-activity-id>
       <control-flow-case id="__3">
@@ -86,6 +101,10 @@
       <control-flow-case id="__9">
         <from-outcome>toCustomerDetailed</from-outcome>
         <to-activity-id>flow-customerDetailed</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__15">
+        <from-outcome>toContactDetailed</from-outcome>
+        <to-activity-id>flow-contactsDetailed</to-activity-id>
       </control-flow-case>
     </control-flow-rule>
     <use-page-fragments/>
