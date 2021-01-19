@@ -85,6 +85,30 @@
       <Attr Name="_DisplaySize" Value="500"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="CustName"
+    Precision="30"
+    ColumnName="CUST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_NOTES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OpName"
+    Precision="30"
+    ColumnName="OP_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_NOTES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerEO"
     Association="model.EO.SysC0010999Assoc"

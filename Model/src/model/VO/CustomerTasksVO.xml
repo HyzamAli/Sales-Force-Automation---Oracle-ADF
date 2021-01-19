@@ -266,6 +266,32 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CustName"
+    PrecisionRule="true"
+    EntityAttrName="CustName"
+    EntityUsage="CustomerTaskEO"
+    AliasName="CUST_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.CustName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OpName"
+    PrecisionRule="true"
+    EntityAttrName="OpName"
+    EntityUsage="CustomerTaskEO"
+    AliasName="OP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.OpName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerTasksVOCriteria"
     ViewObjectName="model.VO.CustomerTasksVO"

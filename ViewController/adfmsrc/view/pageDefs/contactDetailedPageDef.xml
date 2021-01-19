@@ -13,6 +13,9 @@
               id="CustomerTasksVO8Iterator"/>
     <searchRegion Criteria="CustomerTasksVOCriteria1" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerTasksVO8Iterator" id="CustomerTasksVOCriteria1Query"/>
+    <iterator id="OppurtunitiesVO1Iterator" Binds="OppurtunitiesVO1" DataControl="AppsModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="ContactByIdVO1Iterator" id="CcId">
@@ -51,11 +54,12 @@
       <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO80">
         <AttrNames>
           <Item Value="NotesTitle"/>
-          <Item Value="NotesDescription"/>
           <Item Value="CustomerId"/>
+          <Item Value="OppurtunityId"/>
           <Item Value="RepId"/>
           <Item Value="CreatedOn"/>
-          <Item Value="OppurtunityId"/>
+          <Item Value="CustName"/>
+          <Item Value="OpName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -67,6 +71,8 @@
           <Item Value="OppurtunityId"/>
           <Item Value="Priority1"/>
           <Item Value="PercentageCompletion"/>
+          <Item Value="CustName"/>
+          <Item Value="OpName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -120,6 +126,8 @@
       <NamedData NDName="OppurtunityId" NDValue="#{NotesBean.oppurtunityID}" NDType="java.lang.String"/>
       <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
+      <NamedData NDName="CustName" NDValue="#{NotesBean.customerName}" NDType="java.lang.String"/>
+      <NamedData NDName="OpName" NDValue="#{NotesBean.opName}" NDType="java.lang.String"/>
     </action>
     <list IterBinding="CustomerTasksVO8Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId1"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
@@ -135,8 +143,22 @@
       <NamedData NDName="DueDate" NDValue="#{TasksBean.dueDate}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{TasksBean.repID}" NDType="java.lang.String"/>
       <NamedData NDName="OppurtunityId" NDValue="#{TasksBean.oppurtunityID}" NDType="java.lang.String"/>
+      <NamedData NDName="CustName" NDValue="#{TasksBean.custName}" NDType="java.lang.String"/>
+      <NamedData NDName="OpName" NDValue="#{TasksBean.opName}" NDType="java.lang.String"/>
     </action>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <table IterBinding="CustomersVO1Iterator" id="CustomersVO1">
+      <AttrNames>
+        <Item Value="AccName"/>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="OppurtunitiesVO1Iterator" id="OppurtunitiesVO1">
+      <AttrNames>
+        <Item Value="OpName"/>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+    </table>
   </bindings>
 </pageDefinition>
