@@ -99,13 +99,13 @@
                                             </af:outputText>
                                         </af:column>
                                         <af:column headerText="Email" id="c17"
-                                                   width="300">
+                                                   width="270">
                                             <af:outputText value="#{row.Email}"
                                                            shortDesc="#{bindings.UserProfilesVO11.hints.Email.tooltip}"
                                                            id="ot8"/>
                                         </af:column>
                                         <af:column headerText="Phone Number"
-                                                   id="c18" width="125">
+                                                   id="c18" width="143">
                                             <af:outputText value="#{row.PhoneNumber}"
                                                            shortDesc="#{bindings.UserProfilesVO11.hints.PhoneNumber.tooltip}"
                                                            id="ot9"/>
@@ -242,7 +242,7 @@
                           resetEditableValues="whenCanceled">
                     <af:dialog id="d4" title="Create User" type="cancel" binding="#{DialogHandler.dialogComponent}">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create User"
+                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create "
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"
                                        action="#{DialogHandler.closeDialog}"/>
                         </f:facet>

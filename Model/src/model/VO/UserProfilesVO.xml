@@ -325,14 +325,6 @@
         Value=":pe"
         IsBindVarValue="true"
         Required="Optional"/>
-      <ViewCriteriaItem
-        Name="PhoneNumber"
-        ViewAttribute="PhoneNumber"
-        Operator="CONTAINS"
-        Conjunction="AND"
-        Value=":ppnn"
-        IsBindVarValue="true"
-        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

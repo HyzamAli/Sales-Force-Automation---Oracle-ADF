@@ -68,7 +68,7 @@
                                                    binding="#{DialogHandler.dialogComponent}">
                                             <f:facet name="buttonBar">
                                                 <af:button actionListener="#{bindings.CreateWithParams1.execute}"
-                                                           text="Create Role"
+                                                           text="Create"
                                                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b3"
                                                            partialSubmit="true"
                                                            action="#{DialogHandler.closeDialog}">

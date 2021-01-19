@@ -148,7 +148,7 @@
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p2">
                     <af:dialog title="Create Product" id="d2" type="cancel" binding="#{DialogHandler.dialogComponent}">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Product" action="#{DialogHandler.closeDialog}"
+                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create " action="#{DialogHandler.closeDialog}"
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl1">
@@ -231,7 +231,7 @@
                     <af:dialog id="d4" title="Create Product Category" type="cancel"
                                binding="#{ProductCategoriesBean.component}">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Category"
+                            <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create "
                             action="#{ProductCategoriesBean.closeDialog}"
                                        disabled="#{!bindings.CreateWithParams1.enabled}" id="b6"/>
                         </f:facet>
