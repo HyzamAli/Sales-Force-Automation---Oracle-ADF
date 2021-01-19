@@ -85,5 +85,23 @@
     <action IterBinding="CustomersVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
+    <tree IterBinding="CustomersVO1Iterator" id="CustomersVO11">
+      <nodeDefinition DefName="model.VO.CustomersVO" Name="CustomersVO110">
+        <AttrNames>
+          <Item Value="CustomerId"/>
+          <Item Value="ReferencePt"/>
+          <Item Value="AccName"/>
+          <Item Value="AddLine1"/>
+          <Item Value="AddLine2"/>
+          <Item Value="Country"/>
+          <Item Value="Pincode"/>
+          <Item Value="ParentAcc"/>
+          <Item Value="AccUrl"/>
+          <Item Value="Industry"/>
+          <Item Value="Email"/>
+          <Item Value="Phone"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>

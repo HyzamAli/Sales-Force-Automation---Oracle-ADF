@@ -62,7 +62,8 @@
               <af:selectItem label="No" value="0" id="si7"/>
             </af:selectOneRadio>
             <f:facet name="footer">
-              <af:button text="Submit" id="b1" action="#{ContactsBean.commitData}"/>
+              <af:button text="Submit" id="b1" action="#{ContactsBean.commitData}" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true"/>
             </f:facet>
           </af:panelFormLayout>
         </af:panelBox>
@@ -91,11 +92,13 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t4">
-                  <af:button text="Add Note" id="b10">
+                  <af:button text="Create" id="b10" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                     <af:showPopupBehavior popupId="::p3"/>
                   </af:button>
                   <af:button  text="Delete"
-                             disabled="#{!bindings.Delete1.enabled}" id="b3">
+                             disabled="#{!bindings.Delete1.enabled}" id="b3" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                     <af:showPopupBehavior popupId="::p5"/>
                   </af:button>
                 </af:toolbar>
@@ -162,10 +165,11 @@
               </af:table>
             </af:panelCollection>
           </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b8">
+          <af:popup childCreation="deferred" autoCancel="enabled" id="p3" partialTriggers="b8"
+                    resetEditableValues="whenCanceled">
             <af:dialog id="d3" title="New Note" type="cancel" binding="#{NotesBean.component}">
               <f:facet name="buttonBar">
-                <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note"
+                <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create "
                            disabled="#{!bindings.CreateWithParams.enabled}" id="b8" action="#{NotesBean.closeDialog}"/>
               </f:facet>
               <af:panelFormLayout id="pfl4">
@@ -205,7 +209,8 @@
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t1">
+          <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="pc1:t1"
+                    resetEditableValues="whenCanceled">
             <af:dialog id="d1" title="Edit Note" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
                        affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel" partialTriggers="pc1:t1">
               <f:facet name="buttonBar"/>
@@ -271,11 +276,13 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t3">
-                  <af:button text="Add Task" id="b11">
+                  <af:button text="Create" id="b11" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                     <af:showPopupBehavior popupId="::p4"/>
                   </af:button>
                   <af:button  text="Delete"
-                             disabled="#{!bindings.Delete.enabled}" id="b2">
+                             disabled="#{!bindings.Delete.enabled}" id="b2" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                     <af:showPopupBehavior popupId="::p6"/>
                   </af:button>
                 </af:toolbar>
@@ -340,10 +347,11 @@
               </af:table>
             </af:panelCollection>
           </af:panelBox>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p4" partialTriggers="b9">
+          <af:popup childCreation="deferred" autoCancel="enabled" id="p4" partialTriggers="b9"
+                    resetEditableValues="whenCanceled">
             <af:dialog id="d6" title="Create Task" type="cancel" binding="#{TasksBean.component}">
               <f:facet name="buttonBar">
-                <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Task"
+                <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create"
                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b9" action="#{TasksBean.closeDialog}"/>
               </f:facet>
               <af:panelFormLayout id="pfl5">
@@ -391,7 +399,8 @@
               </af:panelFormLayout>
             </af:dialog>
           </af:popup>
-          <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pc2:t2">
+          <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="pc2:t2"
+                    resetEditableValues="whenCanceled">
             <af:dialog id="d2" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
                        affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>

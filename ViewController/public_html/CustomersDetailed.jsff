@@ -165,6 +165,9 @@
                                         pattern="#{bindings.CustomerContactsVO31.hints.IsPrimary.format}"/>
                     </af:outputText>
                   </af:column>
+                  
+                     
+                     
                   <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
                              inlineStyle="width:200pt;" width="100" minimumWidth="200">
                     <af:outputText value="#{row.ContactPhone}"

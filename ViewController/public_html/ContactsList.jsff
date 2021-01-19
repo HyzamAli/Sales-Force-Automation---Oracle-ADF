@@ -41,11 +41,13 @@
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t2">
-            <af:button text="Add Contact" id="b1">
+            <af:button text="Add Contact" id="b1" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
               <af:showPopupBehavior popupId="p1"/>
             </af:button>
             <af:button  text="Delete" disabled="#{!bindings.Delete.enabled}"
-                       id="b3">
+                       id="b3" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
               <af:showPopupBehavior popupId="::po3"/>
     
             </af:button>
@@ -81,7 +83,8 @@
                            shortDesc="#{bindings.CustomerContactsVO1.hints.ContactEmail.tooltip}" id="ot3"/>
           </af:column>
         </af:table>
-        <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b2">
+        <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="b2"
+                  resetEditableValues="whenCanceled">
           <af:dialog id="d1" title="Create Contact" type="none" binding="#{DialogHandler.dialogComponent}">
             <f:facet name="buttonBar">
               <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
@@ -130,7 +133,8 @@
         </af:popup>
       </af:panelCollection>
     </af:panelBox>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pc1:t1">
+    <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="pc1:t1"
+              resetEditableValues="whenCanceled">
       <af:dialog id="d2" title="Edit Contact">
         <f:facet name="buttonBar"/>
         <af:panelFormLayout id="pfl2">
