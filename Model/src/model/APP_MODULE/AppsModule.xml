@@ -196,6 +196,12 @@
   <ViewUsage
     Name="ProductsVO3"
     ViewObjectName="model.VO.ProductsVO"/>
+  <ViewUsage
+    Name="ContactsOpVO1"
+    ViewObjectName="model.VO.ContactsOpVO"/>
+  <ViewUsage
+    Name="ContactsOpVO2"
+    ViewObjectName="model.VO.ContactsOpVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -417,5 +423,11 @@
     ViewLinkObjectName="model.APP_MODULE.ProductWithCatFk"
     SrcViewUsageName="model.APP_MODULE.AppsModule.ProductCategoriesVO3"
     DstViewUsageName="model.APP_MODULE.AppsModule.ProductsVO3"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="ContactsByOpurtunity1"
+    ViewLinkObjectName="model.APP_MODULE.ContactsByOpurtunity"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.ContactsOpVO2"
     Reversed="false"/>
 </AppModule>

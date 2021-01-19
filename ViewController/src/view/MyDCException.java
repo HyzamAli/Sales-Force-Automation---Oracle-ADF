@@ -22,6 +22,9 @@ public class MyDCException extends DCErrorHandlerImpl {
     public void reportException(DCBindingContainer dCBindingContainer, Exception exception) {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
+        if (error_message.startsWith("JBO-26048: Constraint \"CONTACTSOPS_UK1\" is violated")) {
+            error_message="Contact is already added, try  a different contact"; 
+        }
         if (error_message.startsWith("JBO-26048: Constraint \"ROLES_PER_EMPLOYEES_UK1\" is violated")) {
             error_message="Role is already assigned, try  a different role"; 
         }

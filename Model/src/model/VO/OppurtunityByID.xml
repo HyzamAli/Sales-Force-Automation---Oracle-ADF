@@ -398,6 +398,11 @@
     ViewLink="model.VO.FilesByOpID"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactsOpVO"
+    ViewLink="model.APP_MODULE.ContactsByOpurtunity"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
