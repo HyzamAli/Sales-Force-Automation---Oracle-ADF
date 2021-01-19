@@ -24,11 +24,13 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
-                                            <af:button text="Create" id="b1">
+                                            <af:button text="Create" id="b1" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                                                 <af:showPopupBehavior popupId="p1" triggerType="action"/>
                                             </af:button>
                                             <af:button text="Delete"
-                                                       disabled="#{!bindings.Delete.enabled}" id="b2">
+                                                       disabled="#{!bindings.Delete.enabled}" id="b2" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                                                 <af:showPopupBehavior popupId="::p3"/>
                                             </af:button>
                                         </af:toolbar>

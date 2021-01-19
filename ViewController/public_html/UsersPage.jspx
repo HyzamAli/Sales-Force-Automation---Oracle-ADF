@@ -42,11 +42,13 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t6">
-                                            <af:button text="Create" id="b1">
+                                            <af:button text="Create" id="b1" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                                                 <af:showPopupBehavior popupId=":::p1"/>
                                             </af:button>
                                             <af:button text="Delete"
-                                                       disabled="#{!bindings.Delete.enabled}" id="b3">
+                                                       disabled="#{!bindings.Delete.enabled}" id="b3" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                                                 <af:showPopupBehavior popupId="::p4"/>
                                             </af:button>
                                         </af:toolbar>
@@ -132,11 +134,13 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
-                                            <af:button text="Add Role" id="b6">
+                                            <af:button text="Add Role" id="b6" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                                                 <af:showPopupBehavior popupId="p3"/>
                                             </af:button>
                                             <af:button text="Remove"
-                                                       disabled="#{!bindings.Delete1.enabled}" id="b7">
+                                                       disabled="#{!bindings.Delete1.enabled}" id="b7" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                                                 <af:showPopupBehavior popupId="::p5"/>
                                             </af:button>
                                         </af:toolbar>
@@ -186,8 +190,8 @@
                                             </af:inputDate>
                                         </af:column>
                                     </af:table>
-                                    <af:popup childCreation="deferred" autoCancel="disabled" id="p3"
-                                              partialTriggers="b8">
+                                    <af:popup childCreation="deferred" autoCancel="enabled" id="p3"
+                                              partialTriggers="b8" resetEditableValues="whenCanceled">
                                         <af:dialog id="d3" title="Add Role" type="cancel"
                                                    binding="#{RPEBeans.component}">
                                             <f:facet name="buttonBar">
