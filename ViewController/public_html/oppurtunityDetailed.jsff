@@ -294,9 +294,26 @@
         </af:showDetailItem>
         <af:showDetailItem text="Contacts" id="sdi2" icon="#{resource['images:telephone.png']}">
           <af:panelGroupLayout id="pgl7">
-            <af:panelBox text="Contact" id="pb7" showHeader="never" showDisclosure="false">
+          <af:outputText value="Contacts" id="ot19"
+                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+            <af:spacer id="s3" height="20px"/>
+            <af:panelBox id="pb11" showDisclosure="false">
               <f:facet name="toolbar"/>
-              <af:panelCollection id="pc6">
+              <af:panelGroupLayout layout="vertical" id="pgl8">
+                
+                  <af:query id="qryId4" headerText="Search" disclosed="true"
+                            value="#{bindings.ContactsOpVOCriteriaQuery.queryDescriptor}"
+                            model="#{bindings.ContactsOpVOCriteriaQuery.queryModel}"
+                            queryListener="#{bindings.ContactsOpVOCriteriaQuery.processQuery}"
+                            queryOperationListener="#{bindings.ContactsOpVOCriteriaQuery.processQueryOperation}"/>
+                
+                
+              </af:panelGroupLayout>
+            </af:panelBox>
+            <af:spacer id="s10" height="35px"/>
+            <af:panelBox text="Contact" id="pb7" showHeader="always" showDisclosure="false" disclosed="true">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc6" inlineStyle="padding-left:100px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t13">
@@ -319,17 +336,18 @@
                           rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsOpVO2.rangeSize}" id="t12"
-                          partialTriggers="::b25 ::b27">
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c8" rowHeader="true">
+                          partialTriggers="::b25 ::b27" width="1100">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c8" rowHeader="true"
+                             width="500">
                     <af:link text="" id="l5" action="toContactDetailed">
                     <af:outputText id="ot111" value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"/>
                       <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c12">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c12" width="200">
                     <af:outputText id="ot112" value="#{row.Phone}" shortDesc="#{bindings.ContactsOpVO2.hints.Phone.tooltip}"/>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c15">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c15" width="400">
                     <af:outputText id="ot113" value="#{row.Email}" shortDesc="#{bindings.ContactsOpVO2.hints.Email.tooltip}"/>
                   </af:column>
                 </af:table>
@@ -367,9 +385,9 @@
         </af:showDetailItem>
         <af:showDetailItem id="Notes" shortDesc="Drawer 2" icon="#{resource['images:attachment.png']}" text="Notes">
           <af:panelGroupLayout layout="vertical" id="pgl4">
-            <af:outputText value="Notes" id="ot19"
+            <af:outputText value="Notes" id="ot13"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:spacer id="s3" height="20px"/>
+            <af:spacer id="s8" height="20px"/>
             <af:panelBox text="PanelBox1" id="pb5" showHeader="never" showDisclosure="false">
               <f:facet name="toolbar"/>
               <af:query id="qryId1" headerText="Search" disclosed="true"
@@ -772,12 +790,13 @@
                            text="Attachments">
           <af:panelBox text="Attatchments" id="pb12" showDisclosure="false">
             <f:facet name="toolbar"/>
-            <af:panelCollection id="pc7" inlineStyle="padding-left:50px; padding:0px 50px 0px 0px;">
+            <af:panelCollection id="pc7" inlineStyle="padding-left:100px; padding:0px 50px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t14">
-                  <af:button text="Add File" id="b21">
-                    <af:showPopupBehavior popupId="::p10"/>
+                  <af:button text="Add File" id="b21" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
+                    <af:showPopupBehavior popupId="::p140"/>
                   </af:button>
                 </af:toolbar>
               </f:facet>
@@ -788,8 +807,8 @@
                         selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
                         summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
                         partialTriggers=":::b8 :::b28"
-                        width="650">
-                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="250"
+                        width="1150">
+                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="1200"
                            align="left">
                   <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                  id="ot6"/>
@@ -801,7 +820,8 @@
                 </af:column>
               </af:table>
             </af:panelCollection>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p14" partialTriggers="b8">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p140" partialTriggers="b8"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d14" title="Add Attatchment" type="cancel" binding="#{FilesBean.component}">
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateInsert.execute}" text="Add"

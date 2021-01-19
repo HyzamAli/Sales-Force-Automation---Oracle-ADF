@@ -41,7 +41,7 @@
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t2">
-            <af:button text="Create Contact" id="b1" inlineStyle=" background-color:Green; color:White;"
+            <af:button text="Create" id="b1" inlineStyle=" background-color:Green; color:White;"
                                            selected="true">
               <af:showPopupBehavior popupId="p1"/>
             </af:button>
@@ -110,6 +110,8 @@
                             maximumLength="#{bindings.ContactPhone.hints.precision}"
                             shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it2">
                 <f:validator binding="#{bindings.ContactPhone.validator}"/>
+                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                                   messageDetailNoMatch="Invalid Phone number"/>
               </af:inputText>
               <af:inputText value="#{ContactsBean.email}" label="#{bindings.ContactEmail.hints.label}"
                             required="#{bindings.ContactEmail.hints.mandatory}"
@@ -117,6 +119,8 @@
                             maximumLength="#{bindings.ContactEmail.hints.precision}"
                             shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3">
                 <f:validator binding="#{bindings.ContactEmail.validator}"/>
+                <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
+                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
               </af:inputText>
               <af:selectOneChoice label="Influence Level" id="soc4" value="#{ContactsBean.influenceLevel}">
                 <af:selectItem label="Weak" value="1" id="si4"/>

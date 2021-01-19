@@ -14,6 +14,14 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="em"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="qm"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -45,7 +53,14 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="ContactsOpEO"
-    AliasName="ID"/>
+    AliasName="ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactId"
     IsUnique="true"
@@ -69,25 +84,93 @@
     PrecisionRule="true"
     EntityAttrName="OpNumber"
     EntityUsage="ContactsOpEO"
-    AliasName="OP_NUMBER"/>
+    AliasName="OP_NUMBER">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Name"
     PrecisionRule="true"
     EntityAttrName="Name"
     EntityUsage="ContactsOpEO"
-    AliasName="NAME"/>
+    AliasName="NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Email"
     PrecisionRule="true"
     EntityAttrName="Email"
     EntityUsage="ContactsOpEO"
-    AliasName="EMAIL"/>
+    AliasName="EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="60"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Phone"
     PrecisionRule="true"
     EntityAttrName="Phone"
     EntityUsage="ContactsOpEO"
     AliasName="PHONE"/>
+  <ViewCriteria
+    Name="ContactsOpVOCriteria"
+    ViewObjectName="model.VO.ContactsOpVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="false"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.ContactsOpVO.ContactsOpVOCriteria_displayName"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ContactsOpVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Name"
+        ViewAttribute="Name"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":em"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":qm"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
