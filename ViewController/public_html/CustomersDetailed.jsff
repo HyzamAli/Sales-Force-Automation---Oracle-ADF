@@ -292,14 +292,10 @@
                       <af:showPopupBehavior popupId=":::p1"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c36" width="400"
-                             minimumWidth="300">
-                    <af:link text="View Oppurtunity" id="l5" action="toOpDetailed">
-                      <af:outputText value="" shortDesc="#{bindings.CustomerNotesVO61.hints.OppurtunityId.tooltip}"
-                                     id="ot8">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.CustomerNotesVO61.hints.OppurtunityId.format}"/>
-                      </af:outputText>
+                  <af:column headerText="#{bindings.CustomerNotesVO61.hints.OpName.label}" id="c6">
+                    <af:link text="" id="l7" action="toOpDetailed">
+                      <af:outputText value="#{row.OpName}"
+                                     shortDesc="#{bindings.CustomerNotesVO61.hints.OpName.tooltip}" id="ot11"/>
                       <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
                     </af:link>
                   </af:column>
@@ -310,6 +306,16 @@
                       <af:convertDateTime pattern="#{bindings.CustomerNotesVO61.hints.CreatedOn.format}"/>
                     </af:outputText>
                   </af:column>
+                  <af:column headerText="#{bindings.CustomerNotesVO61.hints.OppurtunityId.label}" id="c12"
+                             rendered="false">
+                    <af:selectOneChoice value="#{row.bindings.OppurtunityId.inputValue}"
+                                        label="#{row.bindings.OppurtunityId.label}"
+                                        required="#{bindings.CustomerNotesVO61.hints.OppurtunityId.mandatory}"
+                                        shortDesc="#{bindings.CustomerNotesVO61.hints.OppurtunityId.tooltip}" id="soc2">
+                      <f:selectItems value="#{row.bindings.OppurtunityId.items}" id="si2"/>
+                      <f:validator binding="#{row.bindings.OppurtunityId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
                 </af:table>
               </af:panelCollection>
             </af:panelBox>
@@ -319,7 +325,9 @@
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
                              action="#{NotesBean.closeDialog}" disabled="#{!bindings.CreateWithParams.enabled}"
-                             id="b37"/>
+                             id="b37">
+                    <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{NotesBean.customerId}"/>
+                  </af:button>
                 </f:facet>
                 <af:panelFormLayout id="pfl2">
                   <af:inputText value="#{NotesBean.title}" label="#{bindings.NotesTitle.hints.label}"
@@ -461,6 +469,13 @@
                       <af:showPopupBehavior popupId=":::p6"/>
                     </af:link>
                   </af:column>
+                  <af:column headerText="#{bindings.CustomerTasksVO61.hints.OpName.label}" id="c13">
+                    <af:link text="" id="l5" action="toOpDetailed">
+                      <af:outputText value="#{row.OpName}"
+                                     shortDesc="#{bindings.CustomerTasksVO61.hints.OpName.tooltip}" id="ot8"/>
+                      <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
+                    </af:link>
+                  </af:column>
                   <af:column headerText="#{bindings.CustomerTasksVO61.hints.Priority1.label}" id="c1" rowHeader="false"
                              inlineStyle="min-width:200pt; width:200pt;" width="100" minimumWidth="200">
                     <af:outputText id="ot41" value="#{row.Priority1}"
@@ -483,16 +498,13 @@
                       <af:convertDateTime pattern="#{bindings.CustomerTasksVO61.hints.DueDate.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerTasksVO61.hints.OppurtunityId.label}" id="c9"
-                             inlineStyle="min-width:200pt; width:200pt;" width="200" minimumWidth="200">
-                    <af:link text="View Oppurtunity" id="l6" action="toOpDetailed">
-                      <af:outputText id="ot434" value=""
-                                     shortDesc="#{bindings.CustomerTasksVO61.hints.OppurtunityId.tooltip}">
-                        <af:convertNumber groupingUsed="false"
-                                          pattern="#{bindings.CustomerTasksVO61.hints.OppurtunityId.format}"/>
-                      </af:outputText>
-                      <af:setActionListener from="#{row.OppurtunityId}" to="#{pageFlowScope.OpId}"/>
-                    </af:link>
+                  <af:column headerText="#{bindings.CustomerTasksVO61.hints.OppurtunityId.label}" id="c14"
+                             rendered="false">
+                    <af:outputText value="#{row.OppurtunityId}"
+                                   shortDesc="#{bindings.CustomerTasksVO61.hints.OppurtunityId.tooltip}" id="xcv">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CustomerTasksVO61.hints.OppurtunityId.format}"/>
+                    </af:outputText>
                   </af:column>
                 </af:table>
               </af:panelCollection>
@@ -503,7 +515,9 @@
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create "
                              action="#{TasksBean.closeDialog}" disabled="#{!bindings.CreateWithParams2.enabled}"
-                             id="b12"/>
+                             id="b12">
+                    <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{TasksBean.customerId}"/>
+                  </af:button>
                 </f:facet>
                 <af:panelFormLayout id="pfl4">
                   <af:inputText value="#{TasksBean.details}" label="#{bindings.TaskDetails.hints.label}"
@@ -533,6 +547,12 @@
                     <af:selectItem label="Low" value="Low" id="si23"/>
                     <af:selectItem label="Medium" value="Medium" id="si24"/>
                     <af:selectItem label="High" value="High" id="si25"/>
+                  </af:selectOneChoice>
+                  <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="#{bindings.OppurtunityId1.label}"
+                                      required="#{bindings.OppurtunityId1.hints.mandatory}"
+                                      shortDesc="#{bindings.OppurtunityId1.hints.tooltip}" id="soc7">
+                    <f:selectItems value="#{bindings.OppurtunityId1.items}" id="si12"/>
+                    <f:validator binding="#{bindings.OppurtunityId1.validator}"/>
                   </af:selectOneChoice>
                   <af:selectOneChoice value="#{TasksBean.repID}" label="#{bindings.RepId2.label}"
                                       required="#{bindings.RepId2.hints.mandatory}"

@@ -32,6 +32,9 @@
               id="AppointmentCustomersVO2Iterator"/>
     <iterator Binds="CustomerAppointmentsVO1" RangeSize="25" DataControl="AppsModuleDataControl"
               id="CustomerAppointmentsVO1Iterator"/>
+    <iterator id="OppurtunitiesVO1Iterator" Binds="OppurtunitiesVO1" DataControl="AppsModuleDataControl"
+              RangeSize="25"/>
+    <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
@@ -50,9 +53,10 @@
       <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO610">
         <AttrNames>
           <Item Value="NotesTitle"/>
+          <Item Value="OpName"/>
+          <Item Value="CustName"/>
           <Item Value="CreatedOn"/>
           <Item Value="OppurtunityId"/>
-          <Item Value="NotesDescription"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -60,6 +64,7 @@
       <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO610">
         <AttrNames>
           <Item Value="TaskDetails"/>
+          <Item Value="OpName"/>
           <Item Value="Priority1"/>
           <Item Value="PercentageCompletion"/>
           <Item Value="DueDate"/>
@@ -106,6 +111,8 @@
       <NamedData NDName="OppurtunityId" NDValue="#{NotesBean.oppurtunityID}" NDType="java.lang.String"/>
       <NamedData NDName="RepId" NDValue="#{NotesBean.repID}" NDType="java.lang.String"/>
       <NamedData NDName="CreatedOn" NDValue="#{NotesBean.createdOn}" NDType="java.lang.String"/>
+      <NamedData NDName="CustName" NDValue="#{NotesBean.customerName}" NDType="java.lang.String"/>
+      <NamedData NDName="OpName" NDValue="#{NotesBean.opName}" NDType="java.lang.String"/>
     </action>
     <attributeValues IterBinding="CustomerContactsVO3Iterator" id="ContactName">
       <AttrNames>
@@ -160,8 +167,11 @@
       <NamedData NDName="RepId" NDValue="#{TasksBean.repID}" NDType="java.lang.String"/>
       <NamedData NDName="Priority1" NDValue="#{TasksBean.priority}" NDType="java.lang.String"/>
       <NamedData NDName="DueDate" NDValue="#{TasksBean.dueDate}" NDType="java.lang.String"/>
+      <NamedData NDName="OppurtunityId" NDValue="#{TasksBean.oppurtunityID}" NDType="java.lang.String"/>
       <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
+      <NamedData NDName="CustName" NDValue="#{TasksBean.custName}" NDType="java.lang.String"/>
+      <NamedData NDName="OpName" NDValue="#{TasksBean.opName}" NDType="java.lang.String"/>
     </action>
         <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
       <AttrNames>
@@ -357,6 +367,20 @@
       </nodeDefinition>
     </tree>
     <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <table IterBinding="OppurtunitiesVO1Iterator" id="OppurtunitiesVO1">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+        <Item Value="OpName"/>
+      </AttrNames>
+    </table>
+    <table IterBinding="CustomersVO1Iterator" id="CustomersVO1">
+      <AttrNames>
+        <Item Value="AccName"/>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+    </table>
+    <list IterBinding="CustomerTasksVO6Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId1"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

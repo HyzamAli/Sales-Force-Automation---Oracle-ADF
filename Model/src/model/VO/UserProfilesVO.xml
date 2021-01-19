@@ -237,7 +237,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="70"/>
+          Value="20"/>
         <LABEL
           ResId="model.VO.UserProfilesVO.Email_LABEL"/>
       </SchemaBasedProperties>
