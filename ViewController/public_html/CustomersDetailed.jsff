@@ -812,7 +812,7 @@
                         <af:showPopupBehavior popupId="::p10"/>
                       </af:button>
                       <af:button text="Remove" disabled="#{!bindings.Delete5.enabled}" id="b29" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">>
+                                           selected="true">
                         <af:showPopupBehavior popupId="::p16"/>
                       </af:button>
                     </af:toolbar>
