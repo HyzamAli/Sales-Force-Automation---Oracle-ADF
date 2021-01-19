@@ -348,14 +348,6 @@
         Value=":p5"
         IsBindVarValue="true"
         Required="Optional"/>
-      <ViewCriteriaItem
-        Name="Phone"
-        ViewAttribute="Phone"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":pphone"
-        IsBindVarValue="true"
-        Required="Optional"/>
     </ViewCriteriaRow>
   </ViewCriteria>
   <ViewLinkAccessor

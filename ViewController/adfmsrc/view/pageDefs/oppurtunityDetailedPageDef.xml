@@ -91,12 +91,6 @@
         <Item Value="Attatchment"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId1"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_ManagerId" id="ManagerId1"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="OppurtunityByID1Iterator" StaticList="false" Uses="LOV_RefContact" id="RefContact1"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <tree IterBinding="CustomerNotesVO7Iterator" id="CustomerNotesVO7">
       <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO70">
         <AttrNames>
