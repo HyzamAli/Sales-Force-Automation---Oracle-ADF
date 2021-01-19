@@ -3,7 +3,7 @@
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <f:view locale="#{LocaleBean.userLocale}">
     <af:panelGroupLayout id="pgl1" layout="vertical">
-      <af:panelBox id="pb8" showDisclosure="false" text="#{bindings.OpName.inputValue}"
+      <af:panelBox id="pb8" showDisclosure="false" text="Oppurtunity- #{bindings.OpName.inputValue}"
                    inlineStyle="margin-left:20px; margin-right:50px; margin-bottom:40px;" background="dark">
         <f:facet name="toolbar"/>
       </af:panelBox>
@@ -309,6 +309,76 @@
             </af:dialog>
           </af:popup>
         </af:showDetailItem>
+        <af:showDetailItem text="Contacts" id="sdi2" icon="#{resource['images:telephone.png']}">
+          <af:panelGroupLayout id="pgl7">
+            <af:panelBox text="Contact" id="pb7" showHeader="never" showDisclosure="false">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc6">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t13">
+                    <af:button text="Add" id="b20">
+                      <af:showPopupBehavior popupId="p12"/>
+                    </af:button>
+                    <af:button text="Remove"
+                               disabled="#{!bindings.Delete4.enabled}" id="b27">
+                      <af:showPopupBehavior popupId="p13"/>
+                    </af:button>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.ContactsOpVO2.collectionModel}" var="row"
+                          rows="#{bindings.ContactsOpVO2.rangeSize}"
+                          summary="List"
+                          emptyText="#{bindings.ContactsOpVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.ContactsOpVO2.rangeSize}" id="t12"
+                          partialTriggers="::b25 ::b27">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c8" rowHeader="true">
+                    <af:link text="" id="l5" action="toContactDetailed">
+                    <af:outputText id="ot111" value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"/>
+                      <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
+                    </af:link>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c12">
+                    <af:outputText id="ot112" value="#{row.Phone}" shortDesc="#{bindings.ContactsOpVO2.hints.Phone.tooltip}"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c15">
+                    <af:outputText id="ot113" value="#{row.Email}" shortDesc="#{bindings.ContactsOpVO2.hints.Email.tooltip}"/>
+                  </af:column>
+                </af:table>
+                <af:popup childCreation="deferred" id="p12" partialTriggers="b25" resetEditableValues="whenCanceled">
+                  <af:dialog id="d12" type="cancel" title="Add Contact" binding="#{ContactsPerOpBean.component}">
+                    <af:panelFormLayout id="pfl9">
+                      <af:selectOneChoice value="#{ContactsPerOpBean.contactId}" label="#{bindings.ContactId2.label}"
+                                          required="#{bindings.ContactId2.hints.mandatory}"
+                                          shortDesc="#{bindings.ContactId2.hints.tooltip}" id="soc10">
+                        <f:selectItems value="#{bindings.ContactId2.items}" id="si24"/>
+                        <f:validator binding="#{bindings.ContactId2.validator}"/>
+                      </af:selectOneChoice>
+                    </af:panelFormLayout>
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="Add"
+                                 disabled="#{!bindings.CreateWithParams4.enabled}" id="b25"
+                                 action="#{ContactsPerOpBean.closeDialog}"/>
+                    </f:facet>
+                  </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p13" partialTriggers="t12">
+                  <af:dialog id="d13" title="Delete" type="cancel" binding="#{ContactsPerOpBean.deleteComponent}">
+                    <af:outputText value="Are you sure?" id="ot12" inlineStyle="margin-right:50px;"/>
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.Delete4.execute}" text="Delete"
+                                 action="#{ContactsPerOpBean.closeDeleteDialog}" disabled="#{!bindings.Delete4.enabled}"
+                                 id="b26"/>
+                    </f:facet>
+                  </af:dialog>
+                </af:popup>
+              </af:panelCollection>
+            </af:panelBox>
+          </af:panelGroupLayout>
+        </af:showDetailItem>
         <af:showDetailItem id="Notes" shortDesc="Drawer 2" icon="#{resource['images:attachment.png']}" text="Notes">
           <af:panelGroupLayout layout="vertical" id="pgl4">
             <af:outputText value="Notes" id="ot19"
@@ -346,7 +416,7 @@
                           emptyText="#{bindings.CustomerNotesVO7.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" fetchSize="#{bindings.CustomerNotesVO7.rangeSize}" id="t2"
                           summary="oppurtunity nores list" columnStretching="last"
-                          partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13" width="1100">
+                          partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13 :::pc6:b26" width="1100">
                   <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
                              align="left" width="900">
                     <af:link id="l1">

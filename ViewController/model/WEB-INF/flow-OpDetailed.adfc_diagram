@@ -67,7 +67,7 @@
       <property
          name="fromOutcome">goBack</property>
       <property
-         name="sdm:polyPoints">R50,466.2041,390.16797,591.0,296.73438,L50</property>
+         name="sdm:polyPoints">R46,466.2041,386.66797,591.0,296.73438,L50</property>
    </ControlFlowCase>
    <TaskFlowCall
       id="TaskFlowCall7">
@@ -95,5 +95,32 @@
          name="fromOutcome">toCustomerDetailed</property>
       <property
          name="sdm:polyPoints">B50,425.2041,444.16797,503.83203,545.3672,T50</property>
+   </ControlFlowCase>
+   <TaskFlowCall
+      id="TaskFlowCall9">
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>flow-contactsDetailed&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Call&lt;/p></property>
+      <property
+         name="activityId">flow-contactsDetailed</property>
+      <property
+         name="x">778.0635</property>
+      <property
+         name="y">452.96875</property>
+      <property
+         name="documentReference">/WEB-INF/flow-contactsDetailed.xml</property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="taskFlowId">flow-contactsDetailed</property>
+   </TaskFlowCall>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase10"
+      from="View3"
+      to="TaskFlowCall9">
+      <property
+         name="fromOutcome">toContactDetailed</property>
+      <property
+         name="sdm:polyPoints">R54,466.2041,393.66797,737.0635,452.90234,L50</property>
    </ControlFlowCase>
 </SDM>
