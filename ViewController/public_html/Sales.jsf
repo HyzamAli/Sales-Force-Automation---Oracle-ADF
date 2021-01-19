@@ -4,25 +4,16 @@
     <af:document title="Sales.jsf" id="d1">
         <af:form id="f1">
             <af:panelGridLayout id="pgl1">
-                <af:gridRow height="110px" id="gr2">
+                <af:gridRow height="70px" id="gr2">
                     <af:gridCell width="100%" halign="stretch" valign="stretch" columnSpan="2" id="gc3">
                         <!-- Header -->
                         <af:panelBox text="Sales Assist #{viewScope.tabText}" id="pb1" showDisclosure="false" background="dark"
                                      inlineStyle="margin-bottom:20px;" partialTriggers="cmi1 cmi2 cmi3 cmi4">
-                            <af:panelGroupLayout id="pgl2" layout="horizontal">
-                                <af:selectOneChoice label="Region" value="#{LocaleBean.userLocale}" id="smc1"
-                                                     autoSubmit="true" inlineStyle="margin-left:10px;">
-                                    <af:selectItem label="United States" value="en_US" id="si1"/>
-                                    <af:selectItem label="India" value="en_IN" id="si2"/>
-                                </af:selectOneChoice>
-                                <af:button text="Refresh" id="b1" partialSubmit="false"
-                                           inlineStyle="margin-left:6px;"/>
-                            </af:panelGroupLayout>
                             <f:facet name="toolbar">
                                 <af:menuBar id="mb1">
                                     <af:commandMenuItem text="Dashboard" id="cmi1"
                                                         action="#{viewScope.SalesDynamicRegionBean.salesflowdashboard}"
-                                                        >
+                                                        inlineStyle="color:Navy;">
                                                         <af:setActionListener from="- DashBoard" to="#{viewScope.tabText}"/>
                                     </af:commandMenuItem>
                                     <af:commandMenuItem text="Customers" id="cmi2"

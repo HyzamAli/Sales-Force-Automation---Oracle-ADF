@@ -13,6 +13,9 @@
   <view id="WelcomeView">
     <page>/HomePage.jspx</page>
   </view>
+  <view id="settings">
+    <page>/settings.jspx</page>
+  </view>
   <control-flow-rule id="__1">
     <from-activity-id>*</from-activity-id>
     <control-flow-case id="__2">
@@ -38,6 +41,10 @@
     <control-flow-case id="__19">
       <from-outcome>#{loginBean.onLogout}</from-outcome>
       <to-activity-id>ProductsView</to-activity-id>
+    </control-flow-case>
+    <control-flow-case id="__21">
+      <from-outcome>toSettings</from-outcome>
+      <to-activity-id>settings</to-activity-id>
     </control-flow-case>
   </control-flow-rule>
   <managed-bean id="__5">

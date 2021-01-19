@@ -52,7 +52,7 @@
                                               selectionListener="#{bindings.ProductsVO11.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.ProductsVO11.rangeSize}"
                                               id="t1" columnStretching="last"
-                                              partialTriggers="::b5 :::b9 ::::b2 ::::p1 ::::d3"
+                                              partialTriggers="::b5 :::b9 ::::b2 ::::p1 ::::d3 :::soc4 :::b11 :::pt_b1"
                                               width="1100">
                                         <af:column headerText="#{bindings.ProductsVO11.hints.ProductName.label}" id="c1"
                                                    rowHeader="true" width="400" align="left">

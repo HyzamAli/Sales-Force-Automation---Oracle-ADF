@@ -3,27 +3,34 @@
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <af:document title="login.jsf" id="d1">
         <af:form id="f2">
-            <af:panelStretchLayout id="psl1" startWidth="0" endWidth="0" bottomHeight="0">
-                <f:facet name="start"/>
-                <f:facet name="end"/>
-                <f:facet name="top">
-                    <af:panelBox text="Sales Assist" id="pb1" showDisclosure="false" background="dark">
+            <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
+                <f:facet name="header"/>
+                <f:facet name="status"/>
+                <f:facet name="appNav"/>
+                <f:facet name="globalLinks"/>
+                <f:facet name="footer"/>
+                <f:facet name="center">
+                    <af:panelBox text="Login" id="pb1" showDisclosure="false" titleHalign="center"
+                                 inlineStyle="margin-top:15%; margin-left:30%; margin-right:30%;" showHeader="never">
                         <f:facet name="toolbar"/>
+                        <af:panelFormLayout id="pfl1"
+                                            inlineStyle="padding-top:15%; padding-bottom:15%; margin-left:4%;">
+                            <af:outputText value="Sales Assist" id="ot1"
+                                           inlineStyle="font-weight:bold; margin-bottom:15px;"/>
+                            <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
+                            <af:inputText label="Password" id="it2" required="true" secret="true"
+                                          value="#{loginBean.password}"/>
+                            <f:facet name="footer">
+                                <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"
+                                           inlineStyle="padding-right:38%; padding-left:39%; margin-top:15px; padding-top:5px; padding-bottom:5px; background-color:Navy; color:White;"
+                                           selected="true"/>
+                            </f:facet>
+                        </af:panelFormLayout>
                     </af:panelBox>
                 </f:facet>
-                <f:facet name="bottom"/>
-                <f:facet name="center">
-                    <af:panelFormLayout id="pfl1"
-                                        inlineStyle="padding-left:600px; padding-top:250px; background-color:transparent;">
-                        <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
-                        <af:inputText label="Password" id="it2" required="true" secret="true"
-                                      value="#{loginBean.password}"/>
-                        <f:facet name="footer">
-                            <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"/>
-                        </f:facet>
-                    </af:panelFormLayout>
-                </f:facet>
-            </af:panelStretchLayout>
+                <f:facet name="start"/>
+                <f:facet name="end"/>
+            </af:pageTemplate>
         </af:form>
     </af:document>
 </f:view>

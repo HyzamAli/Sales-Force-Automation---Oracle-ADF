@@ -87,7 +87,8 @@
           <af:column headerText="#{bindings.OppurtunitiesVO1.hints.Revenue.label}" id="c5" width="150">
             <af:outputText value="#{row.Revenue}" shortDesc="#{bindings.OppurtunitiesVO1.hints.Revenue.tooltip}"
                            id="ot4">
-              <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunitiesVO1.hints.Revenue.format}"/>
+              <af:convertNumber groupingUsed="false" pattern="#{bindings.OppurtunitiesVO1.hints.Revenue.format}"
+                                type="currency"/>
             </af:outputText>
           </af:column>
           <af:column headerText="#{bindings.OppurtunitiesVO1.hints.RiskLevel.label}" id="c6" width="100">

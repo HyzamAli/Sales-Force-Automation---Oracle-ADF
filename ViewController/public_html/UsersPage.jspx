@@ -13,7 +13,8 @@
                             <af:panelBox id="pb3" showDisclosure="false"
                                          inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;">
                                 <f:facet name="toolbar"/>
-                                <af:panelGroupLayout layout="vertical" id="pgl2">
+                                <af:panelGroupLayout layout="vertical" id="pgl2"
+                                                     inlineStyle="padding-top:15px; padding-right:15px; padding-left:15px; padding-bottom:15px;">
                                     
                                         <af:query id="qryId2" headerText="Search" disclosed="true"
                                                   value="#{bindings.UserProfilesVOCriteriaQuery1.queryDescriptor}"
@@ -237,7 +238,8 @@
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b2">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="b2"
+                          resetEditableValues="whenCanceled">
                     <af:dialog id="d4" title="Create User" type="cancel" binding="#{DialogHandler.dialogComponent}">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create User"
@@ -269,7 +271,7 @@
                             <af:selectOneChoice value="#{UsersBean.supervisor}" label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
                                                 shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc2"
-                                                partialTriggers="pt1:pc2:t2">
+                                                partialTriggers="pt1:pc2:t2 pt1:b9 pt1:pc2:b8">
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si2"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
@@ -306,7 +308,10 @@
                                           columns="#{bindings.Email.hints.displayWidth}"
                                           maximumLength="#{bindings.Email.hints.precision}"
                                           shortDesc="#{bindings.Email.hints.tooltip}" id="it8">
-                                <f:validator binding="#{bindings.Email.validator}"/>
+                                <f:validator binding="#{bindings.Email.validator}"
+                                             validatorId="javax.faces.RegularExpression"/>
+                                <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
+                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
                             </af:inputText>
                             <af:inputText value="#{UsersBean.phone}"
                                           required="#{bindings.PhoneNumber.hints.mandatory}"
@@ -315,11 +320,14 @@
                                           maximumLength="#{bindings.PhoneNumber.hints.precision}"
                                           shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it9">
                                 <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                                   messageDetailNoMatch="Invalid Phone number"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="pt1:pc1:t1">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="pt1:pc1:t1"
+                          resetEditableValues="whenCanceled">
                     <af:dialog id="d2" title="Edit Users" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
                                affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>

@@ -204,8 +204,10 @@
                         <af:button text="Add Products" id="b15">
                           <af:showPopupBehavior popupId="::p3"/>
                         </af:button>
-                        <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
-                                   disabled="#{!bindings.Delete2.enabled}" id="b16"/>
+                        <af:button text="Delete"
+                                   disabled="#{!bindings.Delete2.enabled}" id="b16">
+                          <af:showPopupBehavior popupId="::p11"/>
+                        </af:button>
                       </af:toolbar>
                     </f:facet>
                     <f:facet name="statusbar"/>
@@ -217,7 +219,7 @@
                               selectionListener="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.makeCurrent}"
                               rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}"
                               id="t4" summary="products by oppurtunity list" columnStretching="last"
-                              partialTriggers=":::b14 ::b16" width="500">
+                              partialTriggers=":::b14 ::b16" width="500" contentDelivery="lazy">
                       <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
                                  rowHeader="true" width="200" align="left">
                         <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
@@ -243,7 +245,8 @@
                         <af:outputText id="ot142" value="#{row.TotalPrice}"
                                        shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.TotalPrice.tooltip}">
                           <af:convertNumber id="cn12" groupingUsed="false"
-                                            pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.TotalPrice.format}"/>
+                                            pattern="#{bindings.ProductsPerOppurtunitiesVO4.hints.TotalPrice.format}"
+                                            type="currency"/>
                         </af:outputText>
                       </af:column>
                     </af:table>
@@ -274,6 +277,16 @@
                         <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity1.format}"/>
                       </af:inputText>
                     </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
+                  <af:dialog id="d11" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                    <af:outputText value="Are you sure?" id="ot11" inlineStyle="margin-right:50px;"/>
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
+                                 action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete2.enabled}"
+                                 id="b13"/>
+                    </f:facet>
                   </af:dialog>
                 </af:popup>
               </af:panelBox>
@@ -333,7 +346,7 @@
                           emptyText="#{bindings.CustomerNotesVO7.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" fetchSize="#{bindings.CustomerNotesVO7.rangeSize}" id="t2"
                           summary="oppurtunity nores list" columnStretching="last"
-                          partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4" width="1100">
+                          partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13" width="1100">
                   <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
                              align="left" width="900">
                     <af:link id="l1">

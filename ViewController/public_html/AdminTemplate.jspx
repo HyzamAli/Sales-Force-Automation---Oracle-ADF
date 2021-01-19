@@ -19,30 +19,26 @@
         </attribute>
       </component>
     </af:xmlContent>
-    <af:panelStretchLayout id="pt_psl1" topHeight="105px">
+    <af:panelStretchLayout id="pt_psl1" topHeight="70px">
       <f:facet name="start"/>
       <f:facet name="end"/>
       <f:facet name="top">
         <af:panelBox text="Sales Assist - #{attrs.PanelText}" id="pt_pb1" showHeader="always" showDisclosure="false" background="dark">
-          <af:panelGroupLayout id="pt_pgl1" layout="horizontal"
-                               inlineStyle="margin-top:15px; margin-bottom:15px; margin-left:15px; margin-right:20px;">
-            <af:navigationPane id="pt_np1" value="#{adminMenu}" var="n">
-              <f:facet name="nodeStamp">
-                <af:commandNavigationItem text="#{n.label}" id="pt_cni1" action="#{n.doAction}"/>
-              </f:facet>
-            </af:navigationPane>
-            <af:spacer id="pt_s1" width="600px"/>
-            <af:selectOneChoice label="Region" value="#{LocaleBean.userLocale}" id="soc4"
-                                binding="#{LocaleBean.localeSelector}" autoSubmit="true">
-                        <af:selectItem label="United States" value="en_US" id="si4"/>
-                        <af:selectItem label="India" value="en_IN" id="si5"/>
-            </af:selectOneChoice>
-            <af:button text="Refresh" id="b11" partialSubmit="false" inlineStyle="margin-left:6px;"/>
-            <af:button text="Logout" id="pt_b1" action="#{loginBean.onLogout}" inlineStyle="margin-left:10px;"/>
-          </af:panelGroupLayout>
           
           
-          <f:facet name="toolbar"/>
+          <f:facet name="toolbar">
+            <af:panelGroupLayout id="pt_pgl1" layout="horizontal"
+                                 inlineStyle=" margin-left:15px; margin-right:20px;">
+              <af:navigationPane id="pt_np1" value="#{adminMenu}" var="n" hint="bar">
+                <f:facet name="nodeStamp">
+                  <af:commandNavigationItem text="#{n.label}" id="pt_cni1" action="#{n.doAction}"/>
+                </f:facet>
+              </af:navigationPane>
+              <af:spacer id="pt_s1" width="15px"/>
+              <af:button text="Logout" id="pt_b1" action="#{loginBean.onLogout}"
+                         inlineStyle="color:Gray; background-color:inherit; border-color:White; font-size:small; border-left-color:transparent; border-right-color:transparent; border-top-color:transparent; border-bottom-color:transparent;" selected="true"/>
+            </af:panelGroupLayout>
+          </f:facet>
         </af:panelBox>
       </f:facet>
       <f:facet name="bottom"/>

@@ -1,0 +1,28 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:f="http://java.sun.com/jsf/core"
+          xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <jsp:directive.page contentType="text/html;charset=UTF-8"/>
+    <f:view>
+        <af:document title="settings.jspx" id="d1">
+            <af:form id="f1">
+                <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
+                    <f:facet name="body">
+                        <af:panelBox text="PanelBox1" id="pb1" showHeader="never" showDisclosure="false"
+                                     inlineStyle="margin-right:25px; margin-top:25px; margin-left:25px;">
+                            <af:panelGroupLayout id="pgl1" layout="horizontal"
+                                                 inlineStyle="padding-top:20px; padding-right:20px; padding-left:20px; padding-bottom:20px;">
+                                <af:selectOneChoice label="Selected Global Region" value="#{LocaleBean.userLocale}" id="soc4"
+                                                    binding="#{LocaleBean.localeSelector}" autoSubmit="true">
+                                    <af:selectItem label="United States" value="en_US" id="si4"/>
+                                    <af:selectItem label="India" value="en_IN" id="si5"/>
+                                </af:selectOneChoice>
+                            </af:panelGroupLayout>            
+                            <f:facet name="toolbar"/>
+                        </af:panelBox>
+                    </f:facet>
+                    <f:attribute name="PanelText" value="Settings"/>
+                </af:pageTemplate>
+            </af:form>
+        </af:document>
+    </f:view>
+</jsp:root>
