@@ -96,14 +96,10 @@
                 <f:selectItems value="#{bindings.ParentAcc.items}" id="si3"/>
                 <f:validator binding="#{bindings.ParentAcc.validator}"/>
               </af:selectOneChoice>
-              <af:selectOneChoice value="#{bindings.ReferencePt.inputValue}" label="#{bindings.ReferencePt.label}"
-                                  required="#{bindings.ReferencePt.hints.mandatory}"
-                                  shortDesc="#{bindings.ReferencePt.hints.tooltip}" id="soc2">
-                <f:selectItems value="#{bindings.ReferencePt.items}" id="si2"/>
-                <f:validator binding="#{bindings.ReferencePt.validator}"/>
-              </af:selectOneChoice>
               <f:facet name="footer">
-                <af:button text="Submit" id="b3" inlineStyle="padding-left:0px;" action="#{CustomersBean.commitData}"/>
+                <af:button text="Submit" id="b3"
+                           inlineStyle="padding-left:0px; background-color:Green; color:White; margin-left:500px;"
+                                           selected="true" action="#{CustomersBean.commitData}"/>
               </f:facet>
             </af:panelFormLayout>
           </af:panelBox>
@@ -131,10 +127,12 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t8">
-                    <af:button text="Create " id="b9">
+                    <af:button text="Create " id="b9" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="::p3"/>
                     </af:button>
-                    <af:button text="Delete" disabled="#{!bindings.Delete.enabled}" id="b16">
+                    <af:button text="Delete" disabled="#{!bindings.Delete.enabled}" id="b16" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="::p11"/>
                     </af:button>
                   </af:toolbar>
@@ -148,7 +146,7 @@
                           selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
                           columnStretching="last" summary="Customer Notes List"
-                          partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4" width="1150">
+                          partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4" width="1100">
                   <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
                              rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="250"
                              align="left">
@@ -165,17 +163,21 @@
                                         pattern="#{bindings.CustomerContactsVO31.hints.IsPrimary.format}"/>
                     </af:outputText>
                   </af:column>
+                  
+                     
+                     
                   <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
-                             inlineStyle="width:200pt;" width="100" minimumWidth="200">
+                             inlineStyle="width:200pt;" width="150" minimumWidth="200">
                     <af:outputText value="#{row.ContactPhone}"
                                    shortDesc="#{bindings.CustomerContactsVO3.hints.ContactPhone.tooltip}" id="ot3"/>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="400"
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="300"
                              minimumWidth="250">
                     <af:outputText value="#{row.ContactEmail}"
                                    shortDesc="#{bindings.CustomerContactsVO3.hints.ContactEmail.tooltip}" id="ot4"/>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.InfluenceLevel.label}" id="c33">
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.InfluenceLevel.label}" id="c33"
+                             width="100">
                     <af:selectOneChoice value="#{row.InfluenceLevel}" label="Influence Level" id="soc6" readOnly="true">
                       <af:selectItem label="Weak" value="1" id="si9"/>
                       <af:selectItem label="Medium" value="2" id="si10"/>
@@ -184,10 +186,11 @@
                   </af:column>
                 </af:table>
               </af:panelCollection>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="b8">
+              <af:popup childCreation="deferred" autoCancel="enabled" id="p3" partialTriggers="b8"
+                        resetEditableValues="whenCanceled">
                 <af:dialog id="d2" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
                   <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create Contact"
+                    <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create "
                                action="#{DialogHandler.closeDialog}" disabled="#{!bindings.CreateWithParams1.enabled}"
                                id="b8"/>
                   </f:facet>
@@ -262,10 +265,12 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t7">
-                    <af:button text="Create" id="b7">
+                    <af:button text="Create" id="b7" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="::p2"/>
                     </af:button>
-                    <af:button text="Delete" disabled="#{!bindings.Delete1.enabled}" id="b17">
+                    <af:button text="Delete" disabled="#{!bindings.Delete1.enabled}" id="b17" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="::p12"/>
                     </af:button>
                   </af:toolbar>
@@ -278,7 +283,7 @@
                           selectedRowKeys="#{bindings.CustomerNotesVO61.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerNotesVO61.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
-                          partialTriggers=":::b4 ::b17 :::p1 :::d5" summary="Notes List" width="1100">
+                          partialTriggers=":::b4 ::b17 :::p1 :::d5 :::b37" summary="Notes List" width="1100">
                   <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true"
                              width="500" minimumWidth="300" align="left">
                     <af:link id="l2">
@@ -308,10 +313,11 @@
                 </af:table>
               </af:panelCollection>
             </af:panelBox>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p2" partialTriggers="b4">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="b4"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create Note"
+                  <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
                              action="#{NotesBean.closeDialog}" disabled="#{!bindings.CreateWithParams.enabled}"
                              id="b37"/>
                 </f:facet>
@@ -359,7 +365,8 @@
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="pc1:t5">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="pc1:t5"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d5" title="Edit Notes" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
                          affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                 <f:facet name="buttonBar"/>
@@ -426,10 +433,12 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t11">
-                    <af:button text="Create" id="b15">
+                    <af:button text="Create" id="b15" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="::p4"/>
                     </af:button>
-                    <af:button text="Delete" disabled="#{!bindings.Delete2.enabled}" id="b18">
+                    <af:button text="Delete" disabled="#{!bindings.Delete2.enabled}" id="b18" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="::p13"/>
                     </af:button>
                   </af:toolbar>
@@ -488,10 +497,11 @@
                 </af:table>
               </af:panelCollection>
             </af:panelBox>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p4" partialTriggers="b12">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p4" partialTriggers="b12"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d3" title="Create Task" type="cancel" binding="#{TasksBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create Task"
+                  <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create "
                              action="#{TasksBean.closeDialog}" disabled="#{!bindings.CreateWithParams2.enabled}"
                              id="b12"/>
                 </f:facet>
@@ -539,7 +549,8 @@
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="pc3:t1">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p6" partialTriggers="pc3:t1"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d6" title="Edit Task" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
                          affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                 <f:facet name="buttonBar"/>
@@ -612,10 +623,12 @@
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
                     <af:toolbar id="t6">
-                      <af:button text="Create" id="b5">
+                      <af:button text="Create" id="b5" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                         <af:showPopupBehavior popupId="p7"/>
                       </af:button>
-                      <af:button text="Delete" disabled="#{!bindings.Delete4.enabled}" id="b6">
+                      <af:button text="Delete" disabled="#{!bindings.Delete4.enabled}" id="b6" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                         <af:showPopupBehavior popupId="::p14"/>
                       </af:button>
                     </af:toolbar>
@@ -628,7 +641,7 @@
                             selectedRowKeys="#{bindings.CustomerAppointmentsVO31.collectionModel.selectedRow}"
                             selectionListener="#{bindings.CustomerAppointmentsVO31.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO31.rangeSize}" id="t3"
-                            partialTriggers=":::p9 :::d9" summary="Appointments List">
+                            partialTriggers=":::p9 :::d9 ::b19" summary="Appointments List">
                     <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.AppName.label}" id="c5"
                                rowHeader="true" align="left">
                       <af:link id="l4">
@@ -659,10 +672,11 @@
                                      id="ot13"/>
                     </af:column>
                   </af:table>
-                  <af:popup childCreation="deferred" autoCancel="disabled" id="p7" partialTriggers="b19">
+                  <af:popup childCreation="deferred" autoCancel="enabled" id="p7" partialTriggers="b19"
+                            resetEditableValues="whenCanceled">
                     <af:dialog id="d7" type="cancel" title="Create Appointment" binding="#{AppointmentsBean.component}">
                       <f:facet name="buttonBar">
-                        <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create Appointment"
+                        <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create "
                                    action="#{AppointmentsBean.closeDialog}"
                                    disabled="#{!bindings.CreateWithParams3.enabled}" id="b19"/>
                       </f:facet>
@@ -755,10 +769,12 @@
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
                     <af:toolbar id="t15">
-                      <af:button text="Add Employee" id="b24">
+                      <af:button text="Add Employee" id="b24" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                         <af:showPopupBehavior popupId="::p8"/>
                       </af:button>
-                      <af:button text="Remove" disabled="#{!bindings.Delete3.enabled}" id="b25">
+                      <af:button text="Remove" disabled="#{!bindings.Delete3.enabled}" id="b25" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                         <af:showPopupBehavior popupId="::p15"/>
                       </af:button>
                     </af:toolbar>
@@ -791,10 +807,12 @@
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
                     <af:toolbar id="t17">
-                      <af:button text="Add Contact" id="b28">
+                      <af:button text="Add Contact" id="b28" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                         <af:showPopupBehavior popupId="::p10"/>
                       </af:button>
-                      <af:button text="Remove" disabled="#{!bindings.Delete5.enabled}" id="b29">
+                      <af:button text="Remove" disabled="#{!bindings.Delete5.enabled}" id="b29" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">>
                         <af:showPopupBehavior popupId="::p16"/>
                       </af:button>
                     </af:toolbar>
@@ -843,7 +861,8 @@
                 </af:popup>
               </af:panelBox>
             </af:panelDashboard>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p8" partialTriggers="b23">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p8" partialTriggers="b23"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d8" title="Add Attendees" type="cancel" binding="#{AttendeeBean.component}">
                 <f:facet name="buttonBar">
                   <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="Add"
@@ -860,7 +879,8 @@
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p9" partialTriggers="pc4:t3">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p9" partialTriggers="pc4:t3"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d9" title="Edit Appointment" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
                          affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                 <f:facet name="buttonBar"/>
@@ -927,11 +947,12 @@
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
-            <af:popup childCreation="deferred" autoCancel="disabled" id="p10" partialTriggers="b27">
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p10" partialTriggers="b27"
+                      resetEditableValues="whenCanceled">
               <af:dialog id="d10" title="Add Attending Contact" type="cancel"
                          binding="#{AttendeeCustomerBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams5.execute}" text="Add Contact"
+                  <af:button actionListener="#{bindings.CreateWithParams5.execute}" text="Add "
                              action="#{AttendeeCustomerBean.closeDialog}"
                              disabled="#{!bindings.CreateWithParams5.enabled}" id="b27"/>
                 </f:facet>

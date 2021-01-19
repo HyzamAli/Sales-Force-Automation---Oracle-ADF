@@ -33,11 +33,13 @@
           <f:facet name="menus"/>
           <f:facet name="toolbar">
             <af:toolbar id="t2">
-              <af:button text="Create Customer" id="b3">
+              <af:button text="Create" id="b3" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                 <af:showPopupBehavior popupId="::p1"/>
               </af:button>
               <af:button text="Delete " id="b2" 
-                         disabled="#{!bindings.Delete.enabled}">
+                         disabled="#{!bindings.Delete.enabled}" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">>
                 <af:showPopupBehavior popupId="::p3"/>
               </af:button>
             </af:toolbar>
@@ -79,7 +81,8 @@
         </af:panelCollection>
       </af:panelBox>
     </af:panelGroupLayout>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b4">
+    <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="b4"
+              resetEditableValues="whenCanceled">
       <af:dialog id="d1" title="Create Customer" type="cancel" binding="#{DialogHandler.dialogComponent}">
         <f:facet name="buttonBar">
           <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
