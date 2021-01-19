@@ -24,6 +24,8 @@
     <iterator Binds="ContactsOpVO2" RangeSize="25" DataControl="AppsModuleDataControl" id="ContactsOpVO2Iterator"/>
     <iterator id="CustomerContactsVO1Iterator" Binds="CustomerContactsVO1" DataControl="AppsModuleDataControl"
               RangeSize="25"/>
+    <searchRegion Criteria="ContactsOpVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="ContactsOpVO2Iterator" id="ContactsOpVOCriteriaQuery"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
