@@ -47,44 +47,35 @@
       <property
          name="exceptionHandler">false</property>
    </View>
-   <WildcardControlFlowRule
-      id="WildcardControlFlowRule5">
-      <property
-         name="activityId">*</property>
-      <property
-         name="x">374.0</property>
-      <property
-         name="y">316.73438</property>
-   </WildcardControlFlowRule>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase6"
-      from="WildcardControlFlowRule5"
+      from="WildcardControlFlowRule11"
       to="View2">
       <property
          name="fromOutcome">toRoles</property>
       <property
-         name="sdm:polyPoints">L50,338.0,317.16797,128.0,476.66797,T50</property>
+         name="sdm:polyPoints">B36,33.0,100.96611,87.0,530.66797,L50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase7"
-      from="WildcardControlFlowRule5"
+      from="WildcardControlFlowRule11"
       to="View3">
       <property
          name="fromOutcome">toUsers</property>
       <property
-         name="sdm:polyPoints">B50,374.0,359.66797,376.0,483.60156,T50</property>
+         name="sdm:polyPoints">B64,47.0,98.26953,376.0,483.60156,T50</property>
    </ControlFlowCase>
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase8"
-      from="WildcardControlFlowRule5"
+      from="WildcardControlFlowRule11"
       to="View4">
       <property
          name="fromOutcome">toProducts</property>
       <property
-         name="sdm:polyPoints">R50,410.0,317.16797,648.0,469.53516,T50</property>
+         name="sdm:polyPoints">R66,76.0,66.26953,641.0,469.53516,T39</property>
    </ControlFlowCase>
    <View
       id="View9">
@@ -104,11 +95,75 @@
    <ControlFlowCase
       islink="true"
       id="ControlFlowCase12"
-      from="WildcardControlFlowRule5"
+      from="WildcardControlFlowRule11"
       to="View9">
       <property
          name="fromOutcome">toHome</property>
       <property
-         name="sdm:polyPoints">T50,374.0,274.66797,377.0,174.46875,B50</property>
+         name="sdm:polyPoints">R34,82.07946,45.26953,336.0,120.46875,L50</property>
+   </ControlFlowCase>
+   <WildcardControlFlowRule
+      id="WildcardControlFlowRule11">
+      <property
+         name="activityId">*</property>
+      <property
+         name="srcid">__1</property>
+      <property
+         name="x">40.0</property>
+      <property
+         name="y">55.335938</property>
+   </WildcardControlFlowRule>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase13"
+      from="WildcardControlFlowRule11"
+      to="View4">
+      <property
+         name="tosrcid">__18</property>
+      <property
+         name="fromOutcome">#{loginBean.doLogout}</property>
+      <property
+         name="fromsrcid">__1</property>
+      <property
+         name="sdm:polyPoints">R55,78.238304,59.26953,648.0,465.93637,T50</property>
+   </ControlFlowCase>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase14"
+      from="WildcardControlFlowRule11"
+      to="View4">
+      <property
+         name="tosrcid">__19</property>
+      <property
+         name="fromOutcome">#{loginBean.onLogout}</property>
+      <property
+         name="fromsrcid">__1</property>
+      <property
+         name="sdm:polyPoints">R45,80.469574,52.26953,655.0,462.3477,T61</property>
+   </ControlFlowCase>
+   <View
+      id="View15">
+      <property
+         name="activityId">settings</property>
+      <property
+         name="x">115.5</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>settings&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="y">368.3672</property>
+      <property
+         name="page">/settings.jspx</property>
+      <property
+         name="exceptionHandler">false</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase16"
+      from="WildcardControlFlowRule11"
+      to="View15">
+      <property
+         name="fromOutcome">toSettings</property>
+      <property
+         name="sdm:polyPoints">B50,40.0,100.15443,115.5,314.30078,T50</property>
    </ControlFlowCase>
 </SDM>
