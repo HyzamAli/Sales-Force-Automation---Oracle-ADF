@@ -210,6 +210,12 @@
         Value="IsPrimary"
         Type="notify"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="CustomerSearch"
