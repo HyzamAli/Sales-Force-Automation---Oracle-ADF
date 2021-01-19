@@ -41,7 +41,7 @@
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t2">
-            <af:button text="Add Contact" id="b1" inlineStyle=" background-color:Green; color:White;"
+            <af:button text="Create Contact" id="b1" inlineStyle=" background-color:Green; color:White;"
                                            selected="true">
               <af:showPopupBehavior popupId="p1"/>
             </af:button>
@@ -85,7 +85,7 @@
         </af:table>
         <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="b2"
                   resetEditableValues="whenCanceled">
-          <af:dialog id="d1" title="Create Contact" type="none" binding="#{DialogHandler.dialogComponent}">
+          <af:dialog id="d1" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
             <f:facet name="buttonBar">
               <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
                          disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>

@@ -46,12 +46,6 @@
                           shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3" inlineStyle="width:60%;">
               <f:validator binding="#{bindings.ContactEmail.validator}"/>
             </af:inputText>
-            <af:selectOneChoice value="#{bindings.CustomerId.inputValue}" label="#{bindings.CustomerId.label}"
-                                required="#{bindings.CustomerId.hints.mandatory}"
-                                shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc1">
-              <f:selectItems value="#{bindings.CustomerId.items}" id="si1"/>
-              <f:validator binding="#{bindings.CustomerId.validator}"/>
-            </af:selectOneChoice>
             <af:selectOneChoice label="Influence Level" id="soc12" value="#{bindings.InfluenceLevel.inputValue}">
               <af:selectItem label="Weak" value="1" id="si12"/>
               <af:selectItem label="Medium" value="2" id="si13"/>
@@ -62,7 +56,8 @@
               <af:selectItem label="No" value="0" id="si7"/>
             </af:selectOneRadio>
             <f:facet name="footer">
-              <af:button text="Submit" id="b1" action="#{ContactsBean.commitData}" inlineStyle=" background-color:Green; color:White;"
+              <af:button text="Submit" id="b1" action="#{ContactsBean.commitData}"
+                         inlineStyle="background-color:Green; color:White; margin-left:500px;"
                                            selected="true"/>
             </f:facet>
           </af:panelFormLayout>

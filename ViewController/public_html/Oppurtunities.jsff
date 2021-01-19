@@ -40,11 +40,13 @@
         <f:facet name="menus"/>
         <f:facet name="toolbar">
           <af:toolbar id="t1">
-            <af:button text="Add Oppurtunity" id="b1">
+            <af:button text="Create" id="b1" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
               <af:showPopupBehavior popupId="::p1"/>
             </af:button>
             <af:button text="Delete" id="b2" 
-                       >
+                       inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
               <af:showPopupBehavior popupId="::p3"/>
             </af:button>
           </af:toolbar>
@@ -99,7 +101,8 @@
         <f:facet name="statusbar"/>
       </af:panelCollection>
     </af:panelBox>
-    <af:popup childCreation="deferred" autoCancel="disabled" id="p1" partialTriggers="b3">
+    <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="b3"
+              resetEditableValues="whenCanceled">
       <af:dialog id="d1" title="Create Oppurtunity" binding="#{DialogHandler.dialogComponent}" type="cancel">
         <f:facet name="buttonBar">
           <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
