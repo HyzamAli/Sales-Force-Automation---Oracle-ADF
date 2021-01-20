@@ -808,12 +808,12 @@
                         summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
                         partialTriggers=":::b8 :::b28"
                         width="1150">
-                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="1200"
+                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="600"
                            align="left">
                   <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                  id="ot6"/>
                 </af:column>
-                <af:column id="c17" headerText=" " width="400">
+                <af:column id="c17" headerText=" " width="600">
                   <af:link text="Download File" id="l6">
                     <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
                   </af:link>
