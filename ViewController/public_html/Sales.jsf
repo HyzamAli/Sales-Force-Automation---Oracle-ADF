@@ -8,7 +8,7 @@
                     <af:gridCell width="100%" halign="stretch" valign="stretch" columnSpan="2" id="gc3">
                         <!-- Header -->
                         <af:panelBox text="Sales Assist #{viewScope.tabText}" id="pb1" showDisclosure="false"
-                                     inlineStyle="margin-bottom:20px; background-origin:padding-box;" partialTriggers="cmi1 cmi2 cmi3 cmi4">
+                                     inlineStyle=" background-origin:padding-box;" partialTriggers="cmi1 cmi2 cmi3 cmi4">
                             <f:facet name="toolbar">
                                 <af:menuBar id="mb1">
                                     <af:commandMenuItem text="Dashboard" id="cmi1"
