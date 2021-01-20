@@ -4,7 +4,7 @@
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
         <af:document title="RolesPage.jspx" id="d1"
-                     inlineStyle='background-image:url("bg_pic1.jpg"); background-size:100.0%;'>
+                     inlineStyle='background-image:url("bg_pic1.jpg"); background-size:120% auto; background-repeat:no-repeat;'>
             <af:messages id="m1"/>
             <af:form id="f1">
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
@@ -25,7 +25,8 @@
                                     <f:facet name="menus"/>
                                     <f:facet name="toolbar">
                                         <af:toolbar id="t3">
-                                            <af:button text="Create" id="b1" inlineStyle=" background-color:Green; color:White;"
+                                            <af:button text="Create" id="b1"
+                                                       inlineStyle="background-color:Green; color:White; background-repeat:no-repeat; background-size:auto ;"
                                            selected="true">
                                                 <af:showPopupBehavior popupId="p1" triggerType="action"/>
                                             </af:button>

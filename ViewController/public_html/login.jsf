@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <!DOCTYPE html>
 <f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
-    <af:document title="login.jsf" id="d1">
+    <af:document title="login.jsf" id="d1"
+                 inlineStyle="background-repeat:no-repeat; background-size:155% auto; background-image:url(&quot;bg_pic_2.png&quot;);">
         <af:form id="f2">
             <af:pageTemplate viewId="/oracle/templates/responsiveTemplate.jspx" id="pt1">
                 <f:facet name="header"/>

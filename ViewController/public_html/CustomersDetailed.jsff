@@ -4,14 +4,15 @@
                 xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces" xmlns:c="http://java.sun.com/jsp/jstl/core">
   <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
   <f:view locale="#{LocaleBean.userLocale}">
-    <af:panelGroupLayout id="pgl5">
+    <af:panelGroupLayout id="pgl5"
+                         inlineStyle="background-repeat:no-repeat; background-size:110% auto; background-image:url(&quot;bg_pic1.jpg&quot;);">
       <af:panelBox text="#{bindings.AccName.inputValue}" id="pb9"
-                   inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:40px;"
-                   showDisclosure="false" background="dark">
+                   inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;"
+                   showDisclosure="false">
         <f:facet name="toolbar"/>
       </af:panelBox>
       <af:panelDrawer position="start" id="pd1" width="100%"
-                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:75px;">
+                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
         <af:showDetailItem id="dr1" shortDesc="Overview" icon="#{resource['images:document.png']}" disclosed="true"
                            inlineStyle="padding-left:0px;">
           <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"

@@ -23,7 +23,8 @@
       <f:facet name="start"/>
       <f:facet name="end"/>
       <f:facet name="top">
-        <af:panelBox text="Sales Assist - #{attrs.PanelText}" id="pt_pb1" showHeader="always" showDisclosure="false" background="dark">
+        <af:panelBox text="Sales Assist - #{attrs.PanelText}" id="pt_pb1" showHeader="always" showDisclosure="false"
+                     background="default">
           
           
           <f:facet name="toolbar">

@@ -1,7 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core">
-  <af:panelGroupLayout layout="vertical" id="pgl1">
+  <af:panelGroupLayout layout="vertical" id="pgl1"
+                       inlineStyle="background-size:110% auto; background-repeat:no-repeat; background-image:url(&quot;bg_pic1.jpg&quot;);">
     <af:panelBox text="PanelBox1" id="pb2" showHeader="never" showDisclosure="false"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;">
       <f:facet name="toolbar"/>
