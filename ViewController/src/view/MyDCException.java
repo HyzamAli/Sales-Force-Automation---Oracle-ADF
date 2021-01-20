@@ -22,7 +22,13 @@ public class MyDCException extends DCErrorHandlerImpl {
     public void reportException(DCBindingContainer dCBindingContainer, Exception exception) {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
-        if (error_message.startsWith("JBO-26048: Constraint \"CONTACTSOPS_UK1\" is violated")) {
+        if (error_message.startsWith("JBO-26048: Constraint \"PRODUCTS_PER_OPPURTUNITY_UK1\" is violated")) {
+            error_message="Product is already added, try  a different product or change quantity"; 
+        }
+        if (error_message.startsWith("JBO-26048: Constraint \"SALES_TEAM_UK1\" is violated")) {
+            error_message="Employee is already added, try  a different employee"; 
+        }
+        else if (error_message.startsWith("JBO-26048: Constraint \"CONTACTSOPS_UK1\" is violated")) {
             error_message="Contact is already added, try  a different contact"; 
         }
         if (error_message.startsWith("JBO-26048: Constraint \"ROLES_PER_EMPLOYEES_UK1\" is violated")) {

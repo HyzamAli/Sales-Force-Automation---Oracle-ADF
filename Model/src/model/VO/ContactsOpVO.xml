@@ -54,12 +54,6 @@
     EntityAttrName="Id"
     EntityUsage="ContactsOpEO"
     AliasName="ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="ContactId"
@@ -85,12 +79,6 @@
     EntityAttrName="OpNumber"
     EntityUsage="ContactsOpEO"
     AliasName="OP_NUMBER">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
   </ViewAttribute>
   <ViewAttribute
     Name="Name"
@@ -132,7 +120,7 @@
       <CustomProperties>
         <Property
           Name="autoExecute"
-          Value="false"/>
+          Value="true"/>
         <Property
           Name="mode"
           Value="Basic"/>

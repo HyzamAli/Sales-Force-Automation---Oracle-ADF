@@ -15,7 +15,9 @@
             <af:panelBox text="Overview" id="pb1" showDisclosure="false" icon="#{resource['images:document.png']}">
               <f:facet name="toolbar">
                 <af:toolbar id="t1" rendered="true">
-                  <af:button text="Go Back" id="b12" action="goBack"/>
+                  <af:button text="Submit" id="b1" action="#{OppurtunityBean.commitData}"
+                             inlineStyle="background-color:Green; color:White; margin-left:500px;" selected="true"/>
+                  <af:button text="Back" id="b12" action="goBack"/>
                   <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                              disabled="#{!bindings.Commit.enabled}" id="b2" rendered="false"/>
                   <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -128,48 +130,12 @@
                   <af:selectItem label="Manager" value="Manager" id="si22"/>
                   <af:selectItem label="Buyer" value="Buyer" id="si23"/>
                 </af:selectOneChoice>
-                <f:facet name="footer">
-                  <af:button text="Submit" id="b1" action="#{OppurtunityBean.commitData}"
-                             inlineStyle="background-color:Green; color:White; margin-left:500px;"
-                                           selected="true"/>
-                </f:facet>
+                <f:facet name="footer"/>
               </af:panelFormLayout>
             </af:panelBox>
             <af:spacer id="s7" height="20px"/>
             <af:spacer id="s4" height="20px"/>
             <af:spacer id="s6" height="35px"/>
-            <af:panelBox text="Attatchments" id="pb10" showDisclosure="false">
-              <f:facet name="toolbar"/>
-              <af:panelCollection id="pc5" inlineStyle="padding-left:50px; padding:0px 50px 0px 0px;">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                  <af:toolbar id="t8">
-                    <af:button text="Add File" id="b7">
-                      <af:showPopupBehavior popupId="::p10"/>
-                    </af:button>
-                  </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.FilesVO2.collectionModel}" var="row" rows="#{bindings.FilesVO2.rangeSize}"
-                          emptyText="#{bindings.FilesVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
-                          summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t6"
-                          partialTriggers=":::b8 :::b28"
-                          width="650">
-                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c3" rowHeader="true" width="250"
-                             align="left">
-                    <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
-                                   id="ot10"/>
-                  </af:column>
-                  <af:column id="c4" headerText=" " width="400">
-                    <af:link text="Download File" id="l3">
-                      <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
-                    </af:link>
-                  </af:column>
-                </af:table>
-              </af:panelCollection>
-            </af:panelBox>
             <af:panelBox text="Products" id="pb4" showDisclosure="false">
               <af:panelGroupLayout id="pgl3" layout="vertical">
                 <af:query id="qryId3" headerText="Search" disclosed="true"
@@ -314,6 +280,40 @@
             <af:panelBox text="Contact" id="pb7" showHeader="always" showDisclosure="false" disclosed="true">
               <f:facet name="toolbar"/>
               <af:panelCollection id="pc6" inlineStyle="padding-left:100px;">
+                <af:table value="#{bindings.ContactsOpVO2.collectionModel}" var="row"
+                          rows="#{bindings.ContactsOpVO2.rangeSize}"
+                          emptyText="#{bindings.ContactsOpVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.ContactsOpVO2.rangeSize}" id="t12"
+                          partialTriggers="::b25 ::b26" columnStretching="last">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.ContactId.label}" id="c12" rendered="false"
+                             rowHeader="true">
+                    <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
+                                        label="#{row.bindings.ContactId.label}"
+                                        required="#{bindings.ContactsOpVO2.hints.ContactId.mandatory}"
+                                        shortDesc="#{bindings.ContactsOpVO2.hints.ContactId.tooltip}" readOnly="true"
+                                        id="soc3">
+                      <f:selectItems value="#{row.bindings.ContactId.items}" id="si3"/>
+                      <f:validator binding="#{row.bindings.ContactId.validator}"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c19" rowHeader="true">
+                    <af:link text="" id="l5" action="toContactDetailed">
+                      <af:outputText value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"
+                                     id="ot16"/>
+                      <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
+                    </af:link>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c20">
+                    <af:outputText value="#{row.Email}" shortDesc="#{bindings.ContactsOpVO2.hints.Email.tooltip}"
+                                   id="ot17"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c21">
+                    <af:outputText value="#{row.Phone}" shortDesc="#{bindings.ContactsOpVO2.hints.Phone.tooltip}"
+                                   id="ot18"/>
+                  </af:column>
+                </af:table>
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t13">
@@ -329,28 +329,6 @@
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
-                <af:table value="#{bindings.ContactsOpVO2.collectionModel}" var="row"
-                          rows="#{bindings.ContactsOpVO2.rangeSize}"
-                          summary="List"
-                          emptyText="#{bindings.ContactsOpVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.ContactsOpVO2.rangeSize}" id="t12"
-                          partialTriggers="::b25 ::b27" width="1100">
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c8" rowHeader="true"
-                             width="500">
-                    <af:link text="" id="l5" action="toContactDetailed">
-                    <af:outputText id="ot111" value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"/>
-                      <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
-                    </af:link>
-                  </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c12" width="200">
-                    <af:outputText id="ot112" value="#{row.Phone}" shortDesc="#{bindings.ContactsOpVO2.hints.Phone.tooltip}"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c15" width="400">
-                    <af:outputText id="ot113" value="#{row.Email}" shortDesc="#{bindings.ContactsOpVO2.hints.Email.tooltip}"/>
-                  </af:column>
-                </af:table>
                 <af:popup childCreation="deferred" id="p12" partialTriggers="b25" resetEditableValues="whenCanceled"
                           autoCancel="enabled">
                   <af:dialog id="d12" type="cancel" title="Add Contact" binding="#{ContactsPerOpBean.component}">
@@ -424,7 +402,7 @@
                           summary="oppurtunity nores list" columnStretching="last"
                           partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13 :::pc6:b26" width="1100">
                   <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
-                             align="left" width="900">
+                             align="left" width="150">
                     <af:link id="l1">
                       <af:outputText id="ot21" value="#{row.NotesTitle}"
                                      shortDesc="#{bindings.CustomerNotesVO7.hints.NotesTitle.tooltip}"/>
@@ -436,6 +414,15 @@
                                    shortDesc="#{bindings.CustomerNotesVO7.hints.CreatedOn.tooltip}">
                       <af:convertDateTime pattern="#{bindings.CustomerNotesVO7.hints.CreatedOn.format}"/>
                     </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustomerId.label}" id="c3">
+                    <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}"
+                                        label="#{row.bindings.CustomerId.label}"
+                                        required="#{bindings.CustomerNotesVO7.hints.CustomerId.mandatory}"
+                                        shortDesc="#{bindings.CustomerNotesVO7.hints.CustomerId.tooltip}" id="soc4">
+                      <f:selectItems value="#{row.bindings.CustomerId.items}" id="si4"/>
+                      <f:validator binding="#{row.bindings.CustomerId.validator}"/>
+                    </af:selectOneChoice>
                   </af:column>
                 </af:table>
               </af:panelCollection>
@@ -807,8 +794,8 @@
                         selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
                         summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
                         partialTriggers=":::b8 :::b28"
-                        width="1150">
-                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="1200"
+                        width="1150" columnStretching="last">
+                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="120"
                            align="left">
                   <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                  id="ot6"/>
