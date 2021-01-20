@@ -69,7 +69,7 @@
               <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
             </af:link>
           </af:column>
-          <af:column headerText="Primary" id="c4" width="60" align="center">
+          <af:column headerText="Primary" id="c4" width="60" align="center" rendered="false">
             <af:selectBooleanCheckbox text=" " label=" " id="sbc1" value="#{row.checked}"
                                       shortDesc="#{bindings.CustomerContactsVO1.hints.checked.tooltip}"
                                       rendered="#{row.checked}" readOnly="true"/>

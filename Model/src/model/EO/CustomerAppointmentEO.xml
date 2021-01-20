@@ -152,6 +152,37 @@
       </SchemaBasedProperties>
     </Properties>
   </Attribute>
+  <Attribute
+    Name="OpId"
+    ColumnName="OP_ID"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="CUSTOMER_APPOINTMENTS"/>
+  <Attribute
+    Name="CustName"
+    Precision="30"
+    ColumnName="CUST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
+  <Attribute
+    Name="OpName"
+    Precision="30"
+    ColumnName="OP_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_APPOINTMENTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="AppointmentAttendeeEO"
     Association="model.EO.SysC0011004Assoc"
