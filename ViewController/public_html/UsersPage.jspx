@@ -62,7 +62,8 @@
                                               selectedRowKeys="#{bindings.UserProfilesVO1.collectionModel.selectedRow}"
                                               selectionListener="#{bindings.UserProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.UserProfilesVO1.rangeSize}"
-                                              id="t1" summary="Users List" partialTriggers="::b3 ::::b2 ::::p2 ::::d2"
+                                              id="t1" summary="Users List"
+                                              partialTriggers="::b3 ::::b2 ::::p2 ::::d2"
                                               inlineStyle="min-width:100%;" styleClass="AFStretchWidth" width="1175">
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameFirst.label}"
                                                    id="c1" rowHeader="true" width="175" align="left">

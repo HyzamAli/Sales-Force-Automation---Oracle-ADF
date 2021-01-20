@@ -33,7 +33,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="ROLES_PER_EMPLOYEES"/>
+    TableName="ROLES_PER_EMPLOYEES"
+    IsNotNull="true"/>
   <Attribute
     Name="EmployeeId"
     IsUpdateable="while_insert"
@@ -78,6 +79,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.RolesPerEmployee.Id"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="RolesPerEmployeesRoleIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ROLE_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ROLES_PER_EMPLOYEES_ROLE_ID_CH"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.RolesPerEmployee.RoleId"/>
     </AttrArray>
   </Key>
   <Key
