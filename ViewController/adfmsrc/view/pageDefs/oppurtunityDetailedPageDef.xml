@@ -35,6 +35,11 @@
               id="AppointmentAttendeesVO6Iterator"/>
     <iterator Binds="AppointmentCustomersVO3" RangeSize="25" DataControl="AppsModuleDataControl"
               id="AppointmentCustomersVO3Iterator"/>
+    <iterator Binds="CustomerAppointmentsVO3" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerAppointmentsVO3Iterator"/>
+    <searchRegion Criteria="CustomerAppointmentsVOCriteria"
+                  Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
+                  Binds="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVOCriteriaQuery"/>
   </executables>
   <bindings>
         <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustomerId1">

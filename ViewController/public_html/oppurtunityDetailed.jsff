@@ -855,8 +855,24 @@
           </af:panelBox>
         </af:showDetailItem>
         <af:showDetailItem text="Appointments" id="sdi4">
+         <af:outputText value="Appointments" id="ot29"
+                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+            <af:spacer id="s9" height="20px"/>
+          <af:panelBox id="pb15">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout layout="vertical" id="pgl10">
+              <af:query id="qryId5" headerText="Search" disclosed="true"
+                        value="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryDescriptor}"
+                        model="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryModel}"
+                        queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
+                        queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
+                        rows="1" maxColumns="2"/>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          
+            <af:spacer id="s12" height="20px"/>
           <af:panelGroupLayout id="pgl9">
-            <af:panelBox text="Appointments" id="pb10" showHeader="never" showDisclosure="false">
+            <af:panelBox text="Appointments" id="pb10" showHeader="always" showDisclosure="false">
               <af:panelCollection id="pc5" inlineStyle="margin-left:50px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
@@ -1016,7 +1032,9 @@
               </af:panelCollection>
               <f:facet name="toolbar"/>
             </af:panelBox>
-            <af:panelDashboard id="pd2" columns="2" rowHeight="300px">
+            
+            <af:spacer id="s11" height="20px"/>
+            <af:panelDashboard id="pd2" columns="2" rowHeight="250px">
               <af:panelBox text="Employees Attending" id="pb13" showDisclosure="false">
                 <f:facet name="toolbar"/>
                 <af:panelCollection id="pc8" inlineStyle="padding-left:50px; margin-left:50px;">

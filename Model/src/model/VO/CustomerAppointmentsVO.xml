@@ -117,7 +117,14 @@
     EntityAttrName="AppId"
     EntityUsage="CustomerAppointmentEO"
     AliasName="APP_ID"
-    IsUpdateable="while_insert"/>
+    IsUpdateable="while_insert">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.AppId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
