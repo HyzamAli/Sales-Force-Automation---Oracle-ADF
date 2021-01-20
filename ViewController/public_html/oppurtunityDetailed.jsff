@@ -857,15 +857,17 @@
         <af:showDetailItem text="Appointments" id="sdi4">
           <af:panelGroupLayout id="pgl9">
             <af:panelBox text="Appointments" id="pb10" showHeader="never" showDisclosure="false">
-              <af:panelCollection id="pc5">
+              <af:panelCollection id="pc5" inlineStyle="margin-left:50px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t8">
-                    <af:button text="Create" id="b7">
+                    <af:button text="Create" id="b7" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="p14"/>
                     </af:button>
                     <af:button text="Delete"
-                               disabled="#{!bindings.Delete5.enabled}" id="b29">
+                               disabled="#{!bindings.Delete5.enabled}" id="b29" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="p15"/>
                     </af:button>
                   </af:toolbar>
@@ -879,19 +881,21 @@
                           selectedRowKeys="#{bindings.CustomerAppointmentsVO5.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerAppointmentsVO5.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO5.rangeSize}" id="t6"
-                          partialTriggers="::b29 ::b30">
-                  <af:column rowHeader="true" headerText="#{bindings.CustomerAppointmentsVO5.hints.AppName.label}" id="c22">
+                          partialTriggers="::b29 ::b30" width="1200">
+                  <af:column rowHeader="true" headerText="#{bindings.CustomerAppointmentsVO5.hints.AppName.label}" id="c22"
+                             width="300">
                     <af:outputText value="#{row.AppName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppName.tooltip}" id="ot15"/>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23" width="200">
                     <af:link text="" id="l8" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO5.hints.CustName.tooltip}" id="ot20"/>
                                      <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.StartTime.label}" id="c24">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.StartTime.label}" id="c24"
+                             width="200">
                     <af:outputText value="#{row.StartTime}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO5.hints.StartTime.tooltip}" id="ot22">
                       <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO5.hints.StartTime.format}"/>
@@ -907,7 +911,8 @@
                                    shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppointmentDirection.tooltip}"
                                    id="ot25"/>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustomerId.label}" id="c27">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustomerId.label}" id="c27"
+                             width="300">
                     <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}"
                                         label="#{row.bindings.CustomerId.label}"
                                         required="#{bindings.CustomerAppointmentsVO5.hints.CustomerId.mandatory}"
@@ -1011,134 +1016,139 @@
               </af:panelCollection>
               <f:facet name="toolbar"/>
             </af:panelBox>
-            <af:panelBox text="Employees Attending" id="pb13" showDisclosure="false">
-              <f:facet name="toolbar"/>
-              <af:panelCollection id="pc8">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                  <af:toolbar id="t17">
-                    <af:button text="Add" id="b33">
-                      <af:showPopupBehavior popupId="p16"/>
-                    </af:button>
-                    <af:button text="Remove"
-                               disabled="#{!bindings.Delete6.enabled}" id="b35">
-                      <af:showPopupBehavior popupId="p18"/>
-                    </af:button>
-                  </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.AppointmentAttendeesVO6.collectionModel}" var="row"
-                          rows="#{bindings.AppointmentAttendeesVO6.rangeSize}"
-                          emptyText="#{bindings.AppointmentAttendeesVO6.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.AppointmentAttendeesVO6.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.AppointmentAttendeesVO6.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO6.rangeSize}" id="t16"
-                          partialTriggers="::b32 ::b35 :::pc5:b34 :::pc9:b37">
-                  <af:column headerText="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.label}" id="c29">
-                    <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
-                                        label="#{row.bindings.EmployeeId.label}"
-                                        required="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.mandatory}"
-                                        shortDesc="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.tooltip}"
-                                        readOnly="true" id="soc11">
-                      <f:selectItems value="#{row.bindings.EmployeeId.items}" id="si25"/>
-                      <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
-                    </af:selectOneChoice>
-                  </af:column>
-                </af:table>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p16" resetEditableValues="whenCanceled"
-                          partialTriggers="t16">
-                  <af:dialog id="d17" type="cancel" title="Add Attendee" binding="#{AttendeeBean.component}">
-                    <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.CreateWithParams6.execute}" text="Add"
-                                 action="#{AttendeeBean.closeDialog}" disabled="#{!bindings.CreateWithParams6.enabled}"
-                                 id="b32"/>
-                    </f:facet>
-                    <af:panelFormLayout id="pfl12">
-                      <af:selectOneChoice value="#{AttendeeBean.employeeId}"
-                                          label="#{bindings.EmployeeId1.label}"
-                                          required="#{bindings.EmployeeId1.hints.mandatory}"
-                                          shortDesc="#{bindings.EmployeeId1.hints.tooltip}" id="soc17">
-                        <f:selectItems value="#{bindings.EmployeeId1.items}" id="si31"/>
-                        <f:validator binding="#{bindings.EmployeeId1.validator}"/>
+            <af:panelDashboard id="pd2" columns="2" rowHeight="300px">
+              <af:panelBox text="Employees Attending" id="pb13" showDisclosure="false">
+                <f:facet name="toolbar"/>
+                <af:panelCollection id="pc8" inlineStyle="padding-left:50px; margin-left:50px;">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t17">
+                      <af:button text="Add" id="b33" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
+                        <af:showPopupBehavior popupId="p16"/>
+                      </af:button>
+                      <af:button text="Remove" disabled="#{!bindings.Delete6.enabled}" id="b35" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
+                        <af:showPopupBehavior popupId="p18"/>
+                      </af:button>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.AppointmentAttendeesVO6.collectionModel}" var="row"
+                            rows="#{bindings.AppointmentAttendeesVO6.rangeSize}"
+                            emptyText="#{bindings.AppointmentAttendeesVO6.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.AppointmentAttendeesVO6.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.AppointmentAttendeesVO6.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO6.rangeSize}" id="t16"
+                            partialTriggers="::b32 ::b35 :::pc5:b34 :::pc9:b37" width="500">
+                    <af:column headerText="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.label}" id="c29"
+                               width="500">
+                      <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
+                                          label="#{row.bindings.EmployeeId.label}"
+                                          required="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.mandatory}"
+                                          shortDesc="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.tooltip}"
+                                          readOnly="true" id="soc11">
+                        <f:selectItems value="#{row.bindings.EmployeeId.items}" id="si25"/>
+                        <f:validator binding="#{row.bindings.EmployeeId.validator}"/>
                       </af:selectOneChoice>
-                    </af:panelFormLayout>
-                  </af:dialog>
-                </af:popup>
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p18" partialTriggers="t16">
-                  <af:dialog id="d16" title="Remove" type="cancel" binding="#{AttendeeBean.deleteComponent}">
-                    <af:outputText value="Confirm Action" id="ot26" inlineStyle="margin-right:50px;"/>
-                    <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete6.execute}" text="Delete"
-                                 action="#{AttendeeBean.closeDeleteDialog}" disabled="#{!bindings.Delete6.enabled}"
-                                 id="b31"/>
-                    </f:facet>
-                  </af:dialog>
-                </af:popup>
-              </af:panelCollection>
-            </af:panelBox>
-            <af:panelBox text="Contacts Attending" id="pb14" showDisclosure="false">
-              <f:facet name="toolbar"/>
-              <af:panelCollection id="pc9">
-                <f:facet name="menus"/>
-                <f:facet name="toolbar">
-                  <af:toolbar id="t19">
-                    <af:button text="Add" id="b39">
-                      <af:showPopupBehavior popupId="p17"/>
-                    </af:button>
-                    <af:button text="Remove"
-                               disabled="#{!bindings.Delete7.enabled}" id="b38">
-                      <af:showPopupBehavior popupId="p19"/>
-                    </af:button>
-                  </af:toolbar>
-                </f:facet>
-                <f:facet name="statusbar"/>
-                <af:table value="#{bindings.AppointmentCustomersVO3.collectionModel}" var="row"
-                          rows="#{bindings.AppointmentCustomersVO3.rangeSize}"
-                          emptyText="#{bindings.AppointmentCustomersVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.AppointmentCustomersVO3.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.AppointmentCustomersVO3.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO3.rangeSize}" id="t18"
-                          partialTriggers="::b36 ::b38">
-                  <af:column headerText="#{bindings.AppointmentCustomersVO3.hints.CustId.label}" id="c30">
-                    <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
-                                        required="#{bindings.AppointmentCustomersVO3.hints.CustId.mandatory}"
-                                        shortDesc="#{bindings.AppointmentCustomersVO3.hints.CustId.tooltip}"
-                                        readOnly="true" id="soc22">
-                      <f:selectItems value="#{row.bindings.CustId.items}" id="si36"/>
-                      <f:validator binding="#{row.bindings.CustId.validator}"/>
-                    </af:selectOneChoice>
-                  </af:column>
-                </af:table>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p17" resetEditableValues="whenCanceled">
-                  <af:dialog id="d19" type="cancel" title="Add Contact" binding="#{AttendeeCustomerBean.component}">
-                    <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.CreateWithParams7.execute}" text="Add" action="#{AttendeeCustomerBean.closeDialog}"
-                                 disabled="#{!bindings.CreateWithParams7.enabled}" id="b36"/>
-                    </f:facet>
-                    <af:panelFormLayout id="pfl13">
-                      <af:selectOneChoice value="#{AttendeeCustomerBean.contactId}" label="#{bindings.CustId.label}"
-                                          required="#{bindings.CustId.hints.mandatory}"
-                                          shortDesc="#{bindings.CustId.hints.tooltip}" id="soc21">
-                        <f:selectItems value="#{bindings.CustId.items}" id="si35"/>
-                        <f:validator binding="#{bindings.CustId.validator}"/>
+                    </af:column>
+                  </af:table>
+                  <af:popup childCreation="deferred" autoCancel="enabled" id="p16" resetEditableValues="whenCanceled"
+                            partialTriggers="t16">
+                    <af:dialog id="d17" type="cancel" title="Add Attendee" binding="#{AttendeeBean.component}">
+                      <f:facet name="buttonBar">
+                        <af:button actionListener="#{bindings.CreateWithParams6.execute}" text="Add"
+                                   action="#{AttendeeBean.closeDialog}"
+                                   disabled="#{!bindings.CreateWithParams6.enabled}" id="b32"/>
+                      </f:facet>
+                      <af:panelFormLayout id="pfl12">
+                        <af:selectOneChoice value="#{AttendeeBean.employeeId}" label="#{bindings.EmployeeId1.label}"
+                                            required="#{bindings.EmployeeId1.hints.mandatory}"
+                                            shortDesc="#{bindings.EmployeeId1.hints.tooltip}" id="soc17">
+                          <f:selectItems value="#{bindings.EmployeeId1.items}" id="si31"/>
+                          <f:validator binding="#{bindings.EmployeeId1.validator}"/>
+                        </af:selectOneChoice>
+                      </af:panelFormLayout>
+                    </af:dialog>
+                  </af:popup>
+                  <af:popup childCreation="deferred" autoCancel="disabled" id="p18" partialTriggers="t16">
+                    <af:dialog id="d16" title="Remove" type="cancel" binding="#{AttendeeBean.deleteComponent}">
+                      <af:outputText value="Confirm Action" id="ot26" inlineStyle="margin-right:50px;"/>
+                      <f:facet name="buttonBar">
+                        <af:button actionListener="#{bindings.Delete6.execute}" text="Delete"
+                                   action="#{AttendeeBean.closeDeleteDialog}" disabled="#{!bindings.Delete6.enabled}"
+                                   id="b31"/>
+                      </f:facet>
+                    </af:dialog>
+                  </af:popup>
+                </af:panelCollection>
+              </af:panelBox>
+              <af:panelBox text="Contacts Attending" id="pb14" showDisclosure="false" inlineStyle="margin-left:50px;">
+                <f:facet name="toolbar"/>
+                <af:panelCollection id="pc9" inlineStyle="padding-left:50px; margin-left:50px;">
+                  <f:facet name="menus"/>
+                  <f:facet name="toolbar">
+                    <af:toolbar id="t19">
+                      <af:button text="Add" id="b39" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
+                        <af:showPopupBehavior popupId="p17"/>
+                      </af:button>
+                      <af:button text="Remove" disabled="#{!bindings.Delete7.enabled}" id="b38" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
+                        <af:showPopupBehavior popupId="p19"/>
+                      </af:button>
+                    </af:toolbar>
+                  </f:facet>
+                  <f:facet name="statusbar"/>
+                  <af:table value="#{bindings.AppointmentCustomersVO3.collectionModel}" var="row"
+                            rows="#{bindings.AppointmentCustomersVO3.rangeSize}"
+                            emptyText="#{bindings.AppointmentCustomersVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                            rowBandingInterval="0"
+                            selectedRowKeys="#{bindings.AppointmentCustomersVO3.collectionModel.selectedRow}"
+                            selectionListener="#{bindings.AppointmentCustomersVO3.collectionModel.makeCurrent}"
+                            rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO3.rangeSize}" id="t18"
+                            partialTriggers="::b36 ::b38" width="500">
+                    <af:column headerText="Contacts" id="c30" width="500">
+                      <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
+                                          required="#{bindings.AppointmentCustomersVO3.hints.CustId.mandatory}"
+                                          shortDesc="#{bindings.AppointmentCustomersVO3.hints.CustId.tooltip}"
+                                          readOnly="true" id="soc22">
+                        <f:selectItems value="#{row.bindings.CustId.items}" id="si36"/>
+                        <f:validator binding="#{row.bindings.CustId.validator}"/>
                       </af:selectOneChoice>
-                    </af:panelFormLayout>
-                  </af:dialog>
-                </af:popup>
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p19" partialTriggers="t18">
-                  <af:dialog id="d20" title="Remove" type="cancel" binding="#{AttendeeCustomerBean.deleteComponent}">
-                    <af:outputText value="Are you sure?" id="ot28" inlineStyle="margin-right:50px;"/>
-                    <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete7.execute}" text="Delete"
-                                 action="#{AttendeeCustomerBean.closeDeleteDialog}" disabled="#{!bindings.Delete7.enabled}"
-                                 id="b37"/>
-                    </f:facet>
-                  </af:dialog>
-                </af:popup>
-              </af:panelCollection>
-            </af:panelBox>
+                    </af:column>
+                  </af:table>
+                  <af:popup childCreation="deferred" autoCancel="enabled" id="p17" resetEditableValues="whenCanceled">
+                    <af:dialog id="d19" type="cancel" title="Add Contact" binding="#{AttendeeCustomerBean.component}">
+                      <f:facet name="buttonBar">
+                        <af:button actionListener="#{bindings.CreateWithParams7.execute}" text="Add"
+                                   action="#{AttendeeCustomerBean.closeDialog}"
+                                   disabled="#{!bindings.CreateWithParams7.enabled}" id="b36"/>
+                      </f:facet>
+                      <af:panelFormLayout id="pfl13">
+                        <af:selectOneChoice value="#{AttendeeCustomerBean.contactId}" label="#{bindings.CustId.label}"
+                                            required="#{bindings.CustId.hints.mandatory}"
+                                            shortDesc="#{bindings.CustId.hints.tooltip}" id="soc21">
+                          <f:selectItems value="#{bindings.CustId.items}" id="si35"/>
+                          <f:validator binding="#{bindings.CustId.validator}"/>
+                        </af:selectOneChoice>
+                      </af:panelFormLayout>
+                    </af:dialog>
+                  </af:popup>
+                  <af:popup childCreation="deferred" autoCancel="disabled" id="p19" partialTriggers="t18">
+                    <af:dialog id="d20" title="Remove" type="cancel" binding="#{AttendeeCustomerBean.deleteComponent}">
+                      <af:outputText value="Are you sure?" id="ot28" inlineStyle="margin-right:50px;"/>
+                      <f:facet name="buttonBar">
+                        <af:button actionListener="#{bindings.Delete7.execute}" text="Delete"
+                                   action="#{AttendeeCustomerBean.closeDeleteDialog}"
+                                   disabled="#{!bindings.Delete7.enabled}" id="b37"/>
+                      </f:facet>
+                    </af:dialog>
+                  </af:popup>
+                </af:panelCollection>
+              </af:panelBox>
+            </af:panelDashboard>
           </af:panelGroupLayout>
         </af:showDetailItem>
       </af:panelDrawer>

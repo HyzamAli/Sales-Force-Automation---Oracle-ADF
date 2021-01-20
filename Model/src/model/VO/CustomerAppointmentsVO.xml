@@ -117,12 +117,7 @@
     EntityAttrName="AppId"
     EntityUsage="CustomerAppointmentEO"
     AliasName="APP_ID"
-    IsUpdateable="while_insert">
-    <Properties>
-      <SchemaBasedProperties>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -314,6 +309,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.OpId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
