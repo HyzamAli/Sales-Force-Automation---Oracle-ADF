@@ -28,6 +28,11 @@
                   Binds="ContactsOpVO2Iterator" id="ContactsOpVOCriteriaQuery"/>
   </executables>
   <bindings>
+        <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustomerId1">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+      </attributeValues>
       <attributeValues IterBinding="OppurtunityByID1Iterator" id="OppurtunityId">
       <AttrNames>
         <Item Value="OppurtunityId"/>
@@ -97,9 +102,6 @@
       <nodeDefinition DefName="model.VO.CustomerNotesVO" Name="CustomerNotesVO70">
         <AttrNames>
           <Item Value="NotesTitle"/>
-          <Item Value="NotesDescription"/>
-          <Item Value="ContactId"/>
-          <Item Value="RepId"/>
           <Item Value="CreatedOn"/>
           <Item Value="CustomerId"/>
         </AttrNames>
@@ -243,16 +245,6 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <tree IterBinding="ContactsOpVO2Iterator" id="ContactsOpVO2">
-      <nodeDefinition DefName="model.VO.ContactsOpVO" Name="ContactsOpVO20">
-        <AttrNames>
-          <Item Value="ContactId"/>
-          <Item Value="Name"/>
-          <Item Value="Phone"/>
-          <Item Value="Email"/>
-        </AttrNames>
-      </nodeDefinition>
-    </tree>
     <list IterBinding="ContactsOpVO2Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId2"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
     <action IterBinding="ContactsOpVO2Iterator" id="CreateWithParams4" RequiresUpdateModel="true"
@@ -273,5 +265,17 @@
         <Item Value="ContactEmail"/>
       </AttrNames>
     </table>
+    <tree IterBinding="ContactsOpVO2Iterator" id="ContactsOpVO2">
+      <nodeDefinition DefName="model.VO.ContactsOpVO" Name="ContactsOpVO20">
+        <AttrNames>
+          <Item Value="Id"/>
+          <Item Value="ContactId"/>
+          <Item Value="OpNumber"/>
+          <Item Value="Name"/>
+          <Item Value="Email"/>
+          <Item Value="Phone"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
   </bindings>
 </pageDefinition>
