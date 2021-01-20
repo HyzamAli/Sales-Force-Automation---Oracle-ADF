@@ -800,7 +800,7 @@
                   <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                  id="ot6"/>
                 </af:column>
-                <af:column id="c17" headerText=" " width="400">
+                <af:column id="c17" headerText=" " width="600">
                   <af:link text="Download File" id="l6">
                     <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
                   </af:link>
