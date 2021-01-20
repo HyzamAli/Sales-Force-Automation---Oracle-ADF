@@ -2,13 +2,14 @@
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
                 xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <f:view locale="#{LocaleBean.userLocale}">
-    <af:panelGroupLayout id="pgl1" layout="vertical">
+    <af:panelGroupLayout id="pgl1" layout="vertical"
+                         inlineStyle="background-size:110% auto; background-repeat:no-repeat; background-image:url(&quot;bg_pic1.jpg&quot;);">
       <af:panelBox id="pb8" showDisclosure="false" text="Oppurtunity- #{bindings.OpName.inputValue}"
-                   inlineStyle="margin-left:20px; margin-right:50px; margin-bottom:40px;" background="dark">
+                   inlineStyle="margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;" background="default">
         <f:facet name="toolbar"/>
       </af:panelBox>
       <af:panelDrawer position="left" id="pd1" width="100%"
-                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:70px;">
+                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
         <af:showDetailItem id="Overview" shortDesc="Drawer 1" icon="#{resource['images:document.png']}" text="Overview"
                            disclosed="true" inlineStyle="margin-left:0px; margin-right:0px; margin-top:0px;">
           <af:panelGroupLayout layout="vertical" id="pgl6">

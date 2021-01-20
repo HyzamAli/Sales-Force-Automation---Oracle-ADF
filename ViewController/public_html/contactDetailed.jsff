@@ -1,14 +1,16 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <jsp:root xmlns:jsp="http://java.sun.com/JSP/Page" version="2.1" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
           xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
-  <af:panelGroupLayout id="pgl3" layout="vertical">
-    <af:panelBox id="pb6" showDisclosure="false" inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px;" background="dark"
+  <af:panelGroupLayout id="pgl3" layout="vertical"
+                       inlineStyle="background-repeat:no-repeat; background-size:110% auto; background-image:url(&quot;bg_pic1.jpg&quot;);">
+    <af:panelBox id="pb6" showDisclosure="false"
+                 inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px; margin-top:20px;"
                  text="Contact - #{bindings.ContactName.inputValue}">
       <f:facet name="toolbar"/>
     </af:panelBox>
     <af:spacer id="s5" height="150px"/>
     <af:panelDrawer position="start" id="pd1" width="100%"
-                    inlineStyle="padding-top:70px; padding-left:20px; padding-right:10px;">
+                    inlineStyle="padding-top:100px; padding-left:20px; padding-right:10px;">
       <af:showDetailItem id="Overview" shortDesc="Drawer 1" disclosed="true" text="Overview"
                          icon="#{resource['images:document.png']}">
         <af:panelBox text="Overview" id="pb1" showDisclosure="false">
