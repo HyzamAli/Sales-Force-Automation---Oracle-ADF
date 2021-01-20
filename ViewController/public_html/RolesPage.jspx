@@ -134,7 +134,7 @@
                                            
                                     <af:outputText value="Are you sure?" id="ot3" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="Yes" action="#{DeleteDialogHandler.closeDialogSave}"
                                                    disabled="#{!bindings.Delete.enabled}" id="b4"/>
                                     </f:facet>
                                 </af:dialog>

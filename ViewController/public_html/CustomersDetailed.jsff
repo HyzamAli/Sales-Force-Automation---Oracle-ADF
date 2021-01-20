@@ -6,7 +6,7 @@
   <f:view locale="#{LocaleBean.userLocale}">
     <af:panelGroupLayout id="pgl5"
                          inlineStyle="background-repeat:no-repeat; background-size:110% auto; background-image:url(&quot;bg_pic1.jpg&quot;);">
-      <af:panelBox text="#{bindings.AccName.inputValue}" id="pb9"
+      <af:panelBox text="Customer - #{bindings.AccName.inputValue}" id="pb9"
                    inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;"
                    showDisclosure="false">
         <f:facet name="toolbar"/>
@@ -286,16 +286,17 @@
                           selectedRowKeys="#{bindings.CustomerNotesVO61.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerNotesVO61.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
-                          partialTriggers=":::b4 ::b17 :::p1 :::d5 :::b37" summary="Notes List" width="1100">
+                          partialTriggers=":::b4 ::b17 :::p1 :::d5 :::b37" summary="Notes List" width="1100"
+                          columnStretching="last">
                   <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true"
-                             width="500" minimumWidth="300" align="left">
+                             width="250" minimumWidth="300" align="left">
                     <af:link id="l2">
                       <af:outputText value="#{row.NotesTitle}"
                                      shortDesc="#{bindings.CustomerNotesVO61.hints.NotesTitle.tooltip}" id="ot6"/>
                       <af:showPopupBehavior popupId=":::p1"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO61.hints.OpName.label}" id="c6">
+                  <af:column headerText="#{bindings.CustomerNotesVO61.hints.OpName.label}" id="c6" width="250">
                     <af:link text="" id="l7" action="toOpDetailed">
                       <af:outputText value="#{row.OpName}"
                                      shortDesc="#{bindings.CustomerNotesVO61.hints.OpName.tooltip}" id="ot11"/>
@@ -681,14 +682,14 @@
                         <af:setActionListener from="#{row.OpId}" to="#{pageFlowScope.OpId}"/>
                       </af:link>
                     </af:column>
-                    <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7"
-                               width="175">
+                    <af:column headerText="#{viewcontrollerBundle.START_TIME}" id="c7"
+                               width="130">
                       <af:outputText value="#{row.StartTime}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO31.hints.StartTime.tooltip}" id="ot12">
                         <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
                       </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.EndDate.label}" id="c17"
+                    <af:column headerText="#{viewcontrollerBundle.END_DATE}" id="c17"
                                width="175">
                       <af:outputText value="#{row.EndDate}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
@@ -785,7 +786,7 @@
                           <f:selectItems value="#{bindings.CustomerId1.items}" id="si38"/>
                           <f:validator binding="#{bindings.CustomerId1.validator}"/>
                         </af:selectOneChoice>
-                        <af:selectOneChoice value="#{AppointmentsBean.oppurtunityID}" label="#{bindings.OpId.label}"
+                        <af:selectOneChoice value="#{AppointmentsBean.oppurtunityID}" label="Oppurtunity"
                                             required="#{bindings.OpId.hints.mandatory}"
                                             shortDesc="#{bindings.OpId.hints.tooltip}" id="soc10">
                           <f:selectItems value="#{bindings.OpId.items}" id="si15"/>
