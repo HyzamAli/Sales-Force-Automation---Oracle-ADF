@@ -15,8 +15,7 @@
       </af:panelGroupLayout>
     </af:panelBox>
     <af:panelBox text="Quarterly Revenues" id="pb1" showDisclosure="false"
-                 inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; margin-bottom:15px; margin-left:15px; margin-right:75px; margin-top:150px; padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                 background="dark">
+                 inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; margin-bottom:15px; margin-left:15px; margin-right:75px; margin-top:150px; padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;">
       <f:facet name="toolbar"/>
       <dvt:pieChart id="pieChart1" var="row" value="#{bindings.RevenueChartVO1.collectionModel}" innerRadius="0">
         <dvt:chartLegend id="cl1"/>
