@@ -50,6 +50,10 @@
     Name="CustomersVO1"
     ViewObjectName="model.VO.CustomersVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="OppurtunitiesVO1"
+    ViewObjectName="model.VO.OppurtunitiesVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContactId"
     ListVOName="CustomerContactsVO1"
@@ -85,6 +89,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_OpId"
+    ListVOName="OppurtunitiesVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="OpId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="OppurtunityId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="OpName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerAppointmentEO"
     Entity="model.EO.CustomerAppointmentEO"/>
@@ -98,8 +120,6 @@
     IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -280,6 +300,46 @@
           ResId="model.VO.CustomerAppointmentsVO.ContactId_LABEL"/>
         <LABEL_PLURAL
           ResId="model.VO.CustomerAppointmentsVO.ContactId_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OpId"
+    PrecisionRule="true"
+    EntityAttrName="OpId"
+    EntityUsage="CustomerAppointmentEO"
+    AliasName="OP_ID"
+    LOVName="LOV_OpId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustName"
+    PrecisionRule="true"
+    EntityAttrName="CustName"
+    EntityUsage="CustomerAppointmentEO"
+    AliasName="CUST_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.CustName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="OpName"
+    PrecisionRule="true"
+    EntityAttrName="OpName"
+    EntityUsage="CustomerAppointmentEO"
+    AliasName="OP_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerAppointmentsVO.OpName_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

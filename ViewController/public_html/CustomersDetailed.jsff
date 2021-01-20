@@ -19,7 +19,10 @@
                        icon="#{resource['images:document.png']}">
             <f:facet name="toolbar">
               <af:toolbar id="t2" rendered="true">
-                <af:button text="Go Back" id="b10" action="goBack"/>
+                <af:button text="Submit" id="b3"
+                           inlineStyle="padding-left:0px; background-color:Green; color:White; margin-left:500px;"
+                           selected="true" action="#{CustomersBean.commitData}"/>
+                <af:button text="Back" id="b10" action="goBack"/>
                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                            disabled="#{!bindings.Commit.enabled}" id="b1" rendered="false"/>
                 <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -96,11 +99,7 @@
                 <f:selectItems value="#{bindings.ParentAcc.items}" id="si3"/>
                 <f:validator binding="#{bindings.ParentAcc.validator}"/>
               </af:selectOneChoice>
-              <f:facet name="footer">
-                <af:button text="Submit" id="b3"
-                           inlineStyle="padding-left:0px; background-color:Green; color:White; margin-left:500px;"
-                                           selected="true" action="#{CustomersBean.commitData}"/>
-              </f:facet>
+              <f:facet name="footer"/>
             </af:panelFormLayout>
           </af:panelBox>
         </af:showDetailItem>
@@ -156,16 +155,19 @@
                       <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO31.hints.IsPrimary.label}" id="c15" width="100">
+                  <af:column headerText="Primary" id="c9" align="center">
+                    <af:selectBooleanCheckbox text=" " label=" " id="sbc1" value="#{row.checked}"
+                                              shortDesc="#{bindings.CustomerContactsVO3.hints.checked.tooltip}"
+                                              rendered="#{row.checked}" readOnly="true"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.IsPrimary.label}" id="c15" width="100"
+                             rendered="false">
                     <af:outputText value="#{row.IsPrimary}"
                                    shortDesc="#{bindings.CustomerContactsVO31.hints.IsPrimary.tooltip}" id="ot23">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.CustomerContactsVO31.hints.IsPrimary.format}"/>
                     </af:outputText>
                   </af:column>
-                  
-                     
-                     
                   <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
                              inlineStyle="width:200pt;" width="150" minimumWidth="200">
                     <af:outputText value="#{row.ContactPhone}"
@@ -671,6 +673,13 @@
                         <af:showPopupBehavior popupId=":::p9"/>
                       </af:link>
                     </af:column>
+                    <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.OpName.label}" id="c18">
+                      <af:link text="" id="l6" action="toOpDetailed">
+                        <af:outputText value="#{row.OpName}"
+                                       shortDesc="#{bindings.CustomerAppointmentsVO31.hints.OpName.tooltip}" id="ot25"/>
+                        <af:setActionListener from="#{row.OpId}" to="#{pageFlowScope.OpId}"/>
+                      </af:link>
+                    </af:column>
                     <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.StartTime.label}" id="c7"
                                width="175">
                       <af:outputText value="#{row.StartTime}"
@@ -678,7 +687,7 @@
                         <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
                       </af:outputText>
                     </af:column>
-                    <af:column headerText="#{bindings.CustomerAppointmentsVO3.hints.EndDate.label}" id="c17"
+                    <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.EndDate.label}" id="c17"
                                width="175">
                       <af:outputText value="#{row.EndDate}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
@@ -691,6 +700,16 @@
                                      shortDesc="#{bindings.CustomerAppointmentsVO31.hints.AppointmentType.tooltip}"
                                      id="ot13"/>
                     </af:column>
+                    <af:column headerText="#{bindings.CustomerAppointmentsVO31.hints.OpId.label}" id="c16"
+                               rendered="false">
+                      <af:selectOneChoice value="#{row.bindings.OpId.inputValue}" label="#{row.bindings.OpId.label}"
+                                          required="#{bindings.CustomerAppointmentsVO31.hints.OpId.mandatory}"
+                                          shortDesc="#{bindings.CustomerAppointmentsVO31.hints.OpId.tooltip}"
+                                          id="soc12">
+                        <f:selectItems value="#{row.bindings.OpId.items}" id="si16"/>
+                        <f:validator binding="#{row.bindings.OpId.validator}"/>
+                      </af:selectOneChoice>
+                    </af:column>
                   </af:table>
                   <af:popup childCreation="deferred" autoCancel="enabled" id="p7" partialTriggers="b19"
                             resetEditableValues="whenCanceled">
@@ -698,7 +717,9 @@
                       <f:facet name="buttonBar">
                         <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create "
                                    action="#{AppointmentsBean.closeDialog}"
-                                   disabled="#{!bindings.CreateWithParams3.enabled}" id="b19"/>
+                                   disabled="#{!bindings.CreateWithParams3.enabled}" id="b19">
+                          <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{AppointmentsBean.customerID}"/>
+                        </af:button>
                       </f:facet>
                       <af:panelFormLayout id="pfl8">
                         <af:inputText value="#{AppointmentsBean.name}" label="#{bindings.AppName.hints.label}"
@@ -762,6 +783,12 @@
                                             shortDesc="#{bindings.CustomerId1.hints.tooltip}" id="soc23">
                           <f:selectItems value="#{bindings.CustomerId1.items}" id="si38"/>
                           <f:validator binding="#{bindings.CustomerId1.validator}"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{AppointmentsBean.oppurtunityID}" label="#{bindings.OpId.label}"
+                                            required="#{bindings.OpId.hints.mandatory}"
+                                            shortDesc="#{bindings.OpId.hints.tooltip}" id="soc10">
+                          <f:selectItems value="#{bindings.OpId.items}" id="si15"/>
+                          <f:validator binding="#{bindings.OpId.validator}"/>
                         </af:selectOneChoice>
                       </af:panelFormLayout>
                     </af:dialog>

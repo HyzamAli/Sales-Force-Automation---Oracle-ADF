@@ -4,10 +4,15 @@ import java.sql.Date;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichDialog;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
 import oracle.binding.OperationBinding;
+
+import oracle.jbo.Key;
+import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
 
 public class AppointmentsBean {
     private String name;
@@ -21,6 +26,10 @@ public class AppointmentsBean {
     private String contactID;
     private RichDialog component;
     private RichDialog deleteComponent;
+    private String customerID;
+    private String oppurtunityID;
+    private String customerName;
+    private String opName;
 
     public AppointmentsBean() {
     }
@@ -127,5 +136,59 @@ public class AppointmentsBean {
         operationBinding.execute();
         RichPopup rp = (RichPopup) deleteComponent.getParent();
         rp.hide();
+    }
+
+    public void setCustomerID(String customerID) {
+        this.customerID = customerID;
+        if (customerID != null) findCustNameById();
+    }
+
+    public String getCustomerID() {
+        return customerID;
+    }
+
+    public void setOppurtunityID(String oppurtunityID) {
+        this.oppurtunityID = oppurtunityID;
+        if (oppurtunityID != null) findOpNameById();
+    }
+
+    public String getOppurtunityID() {
+        return oppurtunityID;
+    }
+
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
+    }
+
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    public void setOpName(String opName) {
+        this.opName = opName;
+    }
+
+    public String getOpName() {
+        return opName;
+    }
+
+    private void findOpNameById() {
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iter =
+              (DCIteratorBinding)bc.findIteratorBinding("OppurtunitiesVO1Iterator");
+        RowSetIterator rsi = iter.getRowSetIterator();
+        Key key = new Key(new Object[] { oppurtunityID});
+        Row row = rsi.findByKey(key, 1)[0];
+        opName = (String) row.getAttribute("OpName");
+    }
+
+    private void findCustNameById() {
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iter =
+              (DCIteratorBinding)bc.findIteratorBinding("CustomersVO1Iterator");
+        RowSetIterator rsi = iter.getRowSetIterator();
+        Key key = new Key(new Object[] { customerID});
+        Row row = rsi.findByKey(key, 1)[0];
+        customerName = (String) row.getAttribute("AccName");
     }
 }

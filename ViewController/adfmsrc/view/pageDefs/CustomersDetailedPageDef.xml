@@ -40,12 +40,13 @@
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
       <nodeDefinition DefName="model.VO.CustomerContactsVO" Name="CustomerContactsVO30">
         <AttrNames>
+          <Item Value="CcId"/>
           <Item Value="ContactName"/>
           <Item Value="IsPrimary"/>
           <Item Value="ContactPhone"/>
           <Item Value="ContactEmail"/>
           <Item Value="InfluenceLevel"/>
-          <Item Value="CcId"/>
+          <Item Value="checked"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -75,15 +76,12 @@
     <tree IterBinding="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVO31">
       <nodeDefinition DefName="model.VO.CustomerAppointmentsVO" Name="CustomerAppointmentsVO310">
         <AttrNames>
-          <Item Value="AppId"/>
           <Item Value="AppName"/>
-          <Item Value="AppDescription"/>
           <Item Value="StartTime"/>
-          <Item Value="AppointmentType"/>
-          <Item Value="AppointmentDirection"/>
           <Item Value="EndDate"/>
-          <Item Value="Location"/>
-          <Item Value="Resolution"/>
+          <Item Value="AppointmentType"/>
+          <Item Value="OpId"/>
+          <Item Value="OpName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -302,6 +300,9 @@
       <NamedData NDName="Location" NDValue="#{AppointmentsBean.location}" NDType="java.lang.String"/>
       <NamedData NDName="Resolution" NDValue="#{AppointmentsBean.resolution}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{AppointmentsBean.contactID}" NDType="java.lang.String"/>
+      <NamedData NDName="OpId" NDValue="#{AppointmentsBean.oppurtunityID}" NDType="java.lang.String"/>
+      <NamedData NDName="CustName" NDValue="#{AppointmentsBean.customerName}" NDType="java.lang.String"/>
+      <NamedData NDName="OpName" NDValue="#{AppointmentsBean.opName}" NDType="java.lang.String"/>
     </action>
     <tree IterBinding="AppointmentAttendeesVO5Iterator" id="AppointmentAttendeesVO5">
       <nodeDefinition DefName="model.VO.AppointmentAttendeesVO" Name="AppointmentAttendeesVO50">
@@ -381,6 +382,8 @@
       </AttrNames>
     </table>
     <list IterBinding="CustomerTasksVO6Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerAppointmentsVO3Iterator" StaticList="false" Uses="LOV_OpId" id="OpId"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
   </bindings>
 </pageDefinition>

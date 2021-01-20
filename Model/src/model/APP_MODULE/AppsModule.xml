@@ -202,6 +202,15 @@
   <ViewUsage
     Name="ContactsOpVO2"
     ViewObjectName="model.VO.ContactsOpVO"/>
+  <ViewUsage
+    Name="CustomerAppointmentsVO5"
+    ViewObjectName="model.VO.CustomerAppointmentsVO"/>
+  <ViewUsage
+    Name="AppointmentAttendeesVO6"
+    ViewObjectName="model.VO.AppointmentAttendeesVO"/>
+  <ViewUsage
+    Name="AppointmentCustomersVO3"
+    ViewObjectName="model.VO.AppointmentCustomersVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -429,5 +438,23 @@
     ViewLinkObjectName="model.APP_MODULE.ContactsByOpurtunity"
     SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
     DstViewUsageName="model.APP_MODULE.AppsModule.ContactsOpVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AppointmentByOp1"
+    ViewLinkObjectName="model.APP_MODULE.AppointmentByOp"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.OppurtunityByID1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO5"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AttendeesByAppointment2"
+    ViewLinkObjectName="model.APP_MODULE.AttendeesByAppointment"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO5"
+    DstViewUsageName="model.APP_MODULE.AppsModule.AppointmentAttendeesVO6"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AppointmentCustomersLink2"
+    ViewLinkObjectName="model.VO.AppointmentCustomersLink"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerAppointmentsVO5"
+    DstViewUsageName="model.APP_MODULE.AppsModule.AppointmentCustomersVO3"
     Reversed="false"/>
 </AppModule>

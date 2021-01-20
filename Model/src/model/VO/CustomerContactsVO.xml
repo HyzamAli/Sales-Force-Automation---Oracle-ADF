@@ -212,8 +212,6 @@
     </Dependencies>
     <Properties>
       <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

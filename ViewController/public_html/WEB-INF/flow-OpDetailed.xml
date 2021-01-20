@@ -51,6 +51,21 @@
       <managed-bean-class>view.ContactsPerOpBean</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__18">
+      <managed-bean-name>AppointmentsBean</managed-bean-name>
+      <managed-bean-class>view.AppointmentsBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__19">
+      <managed-bean-name>AttendeeBean</managed-bean-name>
+      <managed-bean-class>view.AttendeeBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean id="__20">
+      <managed-bean-name>AttendeeCustomerBean</managed-bean-name>
+      <managed-bean-class>view.AttendeeCustomerBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>
