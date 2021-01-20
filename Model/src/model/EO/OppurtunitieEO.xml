@@ -113,7 +113,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPURTUNITIES">
+    TableName="OPPURTUNITIES"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -127,14 +128,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPURTUNITIES"/>
+    TableName="OPPURTUNITIES"
+    DefaultValue="0"/>
   <Attribute
     Name="WorstCaseRevenue"
     ColumnName="WORST_CASE_REVENUE"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPURTUNITIES"/>
+    TableName="OPPURTUNITIES"
+    DefaultValue="0"/>
   <Attribute
     Name="EstimatedDuration"
     ColumnName="ESTIMATED_DURATION"

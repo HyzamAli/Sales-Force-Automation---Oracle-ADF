@@ -165,6 +165,11 @@
     ViewLink="model.VO.TasksByContactVO"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AppointmentCustomersVO"
+    ViewLink="model.APP_MODULE.AppByContact"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

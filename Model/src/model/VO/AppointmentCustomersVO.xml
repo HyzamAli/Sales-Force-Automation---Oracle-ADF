@@ -102,4 +102,9 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewLinkAccessor
+    Name="CustomerAppointmentsVO"
+    ViewLink="model.APP_MODULE.AppByContact2"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
 </ViewObject>

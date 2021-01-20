@@ -16,6 +16,8 @@
     <iterator id="OppurtunitiesVO1Iterator" Binds="OppurtunitiesVO1" DataControl="AppsModuleDataControl"
               RangeSize="25"/>
     <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
+    <iterator Binds="CustomerAppointmentsVO6" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerAppointmentsVO6Iterator"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="ContactByIdVO1Iterator" id="CcId">
@@ -160,5 +162,58 @@
         <Item Value="OppurtunityId"/>
       </AttrNames>
     </table>
+    <tree IterBinding="CustomerAppointmentsVO6Iterator" id="CustomerAppointmentsVO6">
+      <nodeDefinition DefName="model.VO.CustomerAppointmentsVO" Name="CustomerAppointmentsVO60">
+        <AttrNames>
+          <Item Value="AppId"/>
+          <Item Value="AppName"/>
+          <Item Value="OpName"/>
+          <Item Value="CustName"/>
+          <Item Value="AppointmentType"/>
+          <Item Value="OpId"/>
+          <Item Value="CustomerId"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="AppName">
+      <AttrNames>
+        <Item Value="AppName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="AppDescription">
+      <AttrNames>
+        <Item Value="AppDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="Location">
+      <AttrNames>
+        <Item Value="Location"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="Resolution">
+      <AttrNames>
+        <Item Value="Resolution"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="StartTime">
+      <AttrNames>
+        <Item Value="StartTime"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="AppointmentType">
+      <AttrNames>
+        <Item Value="AppointmentType"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="AppointmentDirection">
+      <AttrNames>
+        <Item Value="AppointmentDirection"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
