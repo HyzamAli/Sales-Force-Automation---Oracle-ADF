@@ -1,6 +1,8 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces"
+                xmlns:c="http://java.sun.com/jsp/jstl/core">
+  <c:set var="viewcontrollerBundle" value="#{adfBundle['view.ViewControllerBundle']}"/>
   <f:view locale="#{LocaleBean.userLocale}">
     <af:panelGroupLayout id="pgl1" layout="vertical">
       <af:panelBox id="pb8" showDisclosure="false" text="Oppurtunity- #{bindings.OpName.inputValue}"
@@ -34,7 +36,7 @@
                               shortDesc="#{bindings.OpName.hints.tooltip}" id="it16" inlineStyle="width:23%;">
                   <f:validator binding="#{bindings.OpName.validator}"/>
                 </af:inputText>
-                <af:inputText value="#{bindings.Revenue.inputValue}" label="#{bindings.Revenue.hints.label}"
+                <af:inputText value="#{bindings.Revenue.inputValue}" label="#{viewcontrollerBundle.REVENUE}"
                               required="#{bindings.Revenue.hints.mandatory}"
                               columns="#{bindings.Revenue.hints.displayWidth}"
                               maximumLength="#{bindings.Revenue.hints.precision}"
@@ -43,16 +45,16 @@
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.Revenue.format}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.BestCaseRevenue.inputValue}"
-                              label="#{bindings.BestCaseRevenue.hints.label}"
                               required="#{bindings.BestCaseRevenue.hints.mandatory}"
                               columns="#{bindings.BestCaseRevenue.hints.displayWidth}"
                               maximumLength="#{bindings.BestCaseRevenue.hints.precision}"
-                              shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it5">
+                              shortDesc="#{bindings.BestCaseRevenue.hints.tooltip}" id="it5"
+                              label="#{viewcontrollerBundle.BEST_CASE_REVENUE}">
                   <f:validator binding="#{bindings.BestCaseRevenue.validator}"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.BestCaseRevenue.format}"/>
                 </af:inputText>
                 <af:inputText value="#{bindings.WorstCaseRevenue.inputValue}"
-                              label="#{bindings.WorstCaseRevenue.hints.label}"
+                              label="#{viewcontrollerBundle.WORST_CASE_REVENUE__USD_}"
                               required="#{bindings.WorstCaseRevenue.hints.mandatory}"
                               columns="#{bindings.WorstCaseRevenue.hints.displayWidth}"
                               maximumLength="#{bindings.WorstCaseRevenue.hints.precision}"
@@ -65,7 +67,8 @@
                               required="#{bindings.BudgetedAmount.hints.mandatory}"
                               columns="#{bindings.BudgetedAmount.hints.displayWidth}"
                               maximumLength="#{bindings.BudgetedAmount.hints.precision}"
-                              shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it7" inlineStyle="width:23%;">
+                              shortDesc="#{bindings.BudgetedAmount.hints.tooltip}" id="it7" inlineStyle="width:23%;"
+                              rendered="false">
                   <f:validator binding="#{bindings.BudgetedAmount.validator}"/>
                 </af:inputText>
                 <af:inputDate value="#{bindings.CloseDate.inputValue}" label="#{bindings.CloseDate.hints.label}"
@@ -157,6 +160,9 @@
                                  inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="::p11"/>
                       </af:button>
+                      <af:button text="Update" id="b42">
+                        <af:showPopupBehavior popupId="p22"/>
+                      </af:button>
                     </af:toolbar>
                   </f:facet>
                   <f:facet name="statusbar"/>
@@ -168,7 +174,7 @@
                             selectionListener="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
                             summary="products by oppurtunity list" columnStretching="last"
-                            partialTriggers=":::b14 ::b16" width="1100" contentDelivery="lazy">
+                            partialTriggers=":::b14 ::b16 :::b43" width="1100" contentDelivery="lazy">
                     <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
                                rowHeader="true" width="600" align="left">
                       <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
@@ -200,9 +206,39 @@
                       </af:outputText>
                     </af:column>
                   </af:table>
+                  <af:popup childCreation="deferred" autoCancel="enabled" id="p22" resetEditableValues="whenCanceled"
+                            partialTriggers="t4">
+                    <af:dialog id="d23" title="Edit" type="yesNo" affirmativeTextAndAccessKey="Ok"
+                               noTextAndAccessKey="Cancel" dialogListener="#{ProductsOpBean.onUpdate}">
+                      <af:panelFormLayout id="pfl15">
+                        <af:selectOneChoice value="#{bindings.ProductId.inputValue}" label="#{bindings.ProductId.label}"
+                                            required="#{bindings.ProductId.hints.mandatory}"
+                                            shortDesc="#{bindings.ProductId.hints.tooltip}" id="soc23" readOnly="true">
+                          <f:selectItems value="#{bindings.ProductId.items}" id="si37"/>
+                          <f:validator binding="#{bindings.ProductId.validator}"/>
+                        </af:selectOneChoice>
+                        <af:inputText value="#{bindings.ProductQuantity1.inputValue}"
+                                      label="#{bindings.ProductQuantity1.hints.label}"
+                                      required="#{bindings.ProductQuantity1.hints.mandatory}"
+                                      columns="#{bindings.ProductQuantity1.hints.displayWidth}"
+                                      maximumLength="#{bindings.ProductQuantity1.hints.precision}"
+                                      shortDesc="#{bindings.ProductQuantity1.hints.tooltip}" id="it28">
+                          <f:validator binding="#{bindings.ProductQuantity1.validator}"/>
+                          <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity1.format}"/>
+                        </af:inputText>
+                      </af:panelFormLayout>
+                      <f:facet name="buttonBar"/>
+                    </af:dialog>
+                  </af:popup>
                 </af:panelCollection>
               </af:panelGroupLayout>
-              <f:facet name="toolbar"/>
+              <f:facet name="toolbar">
+                <af:toolbar id="t20" rendered="false">
+                  <af:button actionListener="#{bindings.Execute.execute}" text="Execute" id="b43"/>
+                  <af:button actionListener="#{bindings.Execute1.execute}" text="Execute1"
+                             disabled="#{!bindings.Execute1.enabled}" id="b44"/>
+                </af:toolbar>
+              </f:facet>
               <af:popup childCreation="deferred" autoCancel="enabled" id="p3" partialTriggers="b14"
                         resetEditableValues="whenCanceled">
                 <af:dialog id="d3" title="Add Product to Oppurtunity" type="cancel"
@@ -231,11 +267,11 @@
                 </af:dialog>
               </af:popup>
               <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
-                <af:dialog id="d11" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                <af:dialog id="d11" title="Delete" type="cancel" binding="#{ProductsOpBean.deleteComponent}">
                   <af:outputText value="Are you sure?" id="ot11" inlineStyle="margin-right:50px;"/>
                   <f:facet name="buttonBar">
                     <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
-                               action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete2.enabled}"
+                               action="#{ProductsOpBean.closeDeleteDialog}" disabled="#{!bindings.Delete2.enabled}"
                                id="b13"/>
                   </f:facet>
                 </af:dialog>
@@ -522,7 +558,7 @@
                   </af:panelFormLayout>
                 </af:dialog>
               </af:popup>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p7">
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p7" partialTriggers="pc1:t2">
                 <af:dialog id="d7" title="Delete" type="cancel" binding="#{NotesBean.deleteComponent}">
                   <af:outputText value="Confirm Action" id="ot7" inlineStyle="margin-right:50px;"/>
                   <f:facet name="buttonBar">
@@ -720,7 +756,7 @@
                   </af:panelFormLayout>
                 </af:dialog>
               </af:popup>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p8">
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p8" partialTriggers="pc2:t3">
                 <af:dialog id="d8" title="Delete" type="cancel" binding="#{TasksBean.deleteComponent}">
                   <af:outputText value="Confirm Action" id="ot8" inlineStyle="margin-right:50px;"/>
                   <f:facet name="buttonBar">
@@ -789,7 +825,7 @@
                   </af:panelFormLayout>
                 </af:dialog>
               </af:popup>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p9">
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p9" partialTriggers="pc4:t10">
                 <af:dialog id="d9" title="Delete" type="cancel" binding="#{SalesTeamBean.deleteComponent}">
                   <af:outputText value="Confirm Action" id="ot9" inlineStyle="margin-right:50px;"/>
                   <f:facet name="buttonBar">
@@ -802,7 +838,7 @@
             </af:panelBox>
           </af:panelGroupLayout>
         </af:showDetailItem>
-        <af:showDetailItem id="sdi3" shortDesc="Drawer 6" icon="#{resource['images:thumbs-up-2.png']}"
+        <af:showDetailItem id="sdi3" shortDesc="Drawer 6" icon="#{resource['images:attachment.png']}"
                            text="Attachments">
           <af:panelBox text="Attatchments" id="pb12" showDisclosure="false">
             <f:facet name="toolbar"/>
@@ -814,6 +850,10 @@
                                            selected="true">
                     <af:showPopupBehavior popupId="::p140"/>
                   </af:button>
+                  <af:button text="Delete"
+                             disabled="#{!bindings.Delete8.enabled}" id="b41">
+                    <af:showPopupBehavior popupId="p21"/>
+                  </af:button>
                 </af:toolbar>
               </f:facet>
               <f:facet name="statusbar"/>
@@ -822,7 +862,7 @@
                         rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
                         selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
                         summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
-                        partialTriggers=":::b8 :::b28"
+                        partialTriggers=":::b8 :::b28 ::b41"
                         width="1150" columnStretching="last">
                 <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="120"
                            align="left">
@@ -835,6 +875,16 @@
                   </af:link>
                 </af:column>
               </af:table>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p21" partialTriggers="t15">
+                <af:dialog id="d22" title="Remove" type="cancel" binding="#{FilesBean.deleteComponent}">
+                  <af:outputText value="Confirm Action" id="ot30" inlineStyle="margin-right:50px;"/>
+                  <f:facet name="buttonBar">
+                    <af:button actionListener="#{bindings.Delete8.execute}" text="Delete"
+                               action="#{FilesBean.closeDeleteDialog}" disabled="#{!bindings.Delete8.enabled}"
+                               id="b40"/>
+                  </f:facet>
+                </af:dialog>
+              </af:popup>
             </af:panelCollection>
             <af:popup childCreation="deferred" autoCancel="enabled" id="p140" partialTriggers="b8"
                       resetEditableValues="whenCanceled">
@@ -854,7 +904,7 @@
             </af:popup>
           </af:panelBox>
         </af:showDetailItem>
-        <af:showDetailItem text="Appointments" id="sdi4">
+        <af:showDetailItem text="Appointments" id="sdi4" icon="#{resource['images:calendar.png']}">
          <af:outputText value="Appointments" id="ot29"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
             <af:spacer id="s9" height="20px"/>
@@ -866,7 +916,8 @@
                         model="#{bindings.CustomerAppointmentsVOCriteriaQuery.queryModel}"
                         queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
-                        rows="1" maxColumns="2"/>
+                        rows="1" maxColumns="2"
+                        inlineStyle="padding-bottom:15px; padding-left:15px; padding-right:15px; padding-top:15px;"/>
             </af:panelGroupLayout>
           </af:panelBox>
           
@@ -899,9 +950,12 @@
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO5.rangeSize}" id="t6"
                           partialTriggers="::b29 ::b30" width="1200">
                   <af:column rowHeader="true" headerText="#{bindings.CustomerAppointmentsVO5.hints.AppName.label}" id="c22"
-                             width="300">
-                    <af:outputText value="#{row.AppName}"
-                                   shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppName.tooltip}" id="ot15"/>
+                             width="300" align="left">
+                    <af:link text="" id="l9">
+                      <af:outputText value="#{row.AppName}"
+                                     shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppName.tooltip}" id="ot15"/>
+                      <af:showPopupBehavior popupId="::p20"/>
+                    </af:link>
                   </af:column>
                   <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23" width="200">
                     <af:link text="" id="l8" action="toCustomerDetailed">
@@ -928,7 +982,7 @@
                                    id="ot25"/>
                   </af:column>
                   <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustomerId.label}" id="c27"
-                             width="300">
+                             width="300" rendered="false">
                     <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}"
                                         label="#{row.bindings.CustomerId.label}"
                                         required="#{bindings.CustomerAppointmentsVO5.hints.CustomerId.mandatory}"
@@ -1029,6 +1083,74 @@
                     </f:facet>
                   </af:dialog>
                 </af:popup>
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p20" partialTriggers="t6"
+                          resetEditableValues="whenCanceled">
+                  <af:dialog id="d21" type="yesNo" affirmativeTextAndAccessKey="Ok" dialogListener="#{DialogHandler.onUpdate}" noTextAndAccessKey="Cancel"
+                             title="Update Appointment">
+                    <f:facet name="buttonBar"/>
+                    <af:panelFormLayout id="pfl14">
+                      <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"
+                                    required="#{bindings.AppName.hints.mandatory}"
+                                    columns="#{bindings.AppName.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppName.hints.precision}"
+                                    shortDesc="#{bindings.AppName.hints.tooltip}" id="it22">
+                        <f:validator binding="#{bindings.AppName.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.AppDescription.inputValue}"
+                                    label="#{bindings.AppDescription.hints.label}"
+                                    required="#{bindings.AppDescription.hints.mandatory}"
+                                    columns="#{bindings.AppDescription.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppDescription.hints.precision}"
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it23">
+                        <f:validator binding="#{bindings.AppDescription.validator}"/>
+                      </af:inputText>
+                      <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
+                                    required="#{bindings.StartTime.hints.mandatory}"
+                                    columns="#{bindings.StartTime.hints.displayWidth}"
+                                    shortDesc="#{bindings.StartTime.hints.tooltip}" id="id8">
+                        <f:validator binding="#{bindings.StartTime.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.StartTime.format}"/>
+                      </af:inputDate>
+                      <af:inputDate value="#{bindings.EndDate.inputValue}" label="#{bindings.EndDate.hints.label}"
+                                    required="#{bindings.EndDate.hints.mandatory}"
+                                    columns="#{bindings.EndDate.hints.displayWidth}"
+                                    shortDesc="#{bindings.EndDate.hints.tooltip}" id="id9">
+                        <f:validator binding="#{bindings.EndDate.validator}"/>
+                        <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                      </af:inputDate>
+                      <af:inputText value="#{bindings.AppointmentType.inputValue}"
+                                    label="#{bindings.AppointmentType.hints.label}"
+                                    required="#{bindings.AppointmentType.hints.mandatory}"
+                                    columns="#{bindings.AppointmentType.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppointmentType.hints.precision}"
+                                    shortDesc="#{bindings.AppointmentType.hints.tooltip}" id="it24">
+                        <f:validator binding="#{bindings.AppointmentType.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.AppointmentDirection.inputValue}"
+                                    label="#{bindings.AppointmentDirection.hints.label}"
+                                    required="#{bindings.AppointmentDirection.hints.mandatory}"
+                                    columns="#{bindings.AppointmentDirection.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppointmentDirection.hints.precision}"
+                                    shortDesc="#{bindings.AppointmentDirection.hints.tooltip}" id="it25">
+                        <f:validator binding="#{bindings.AppointmentDirection.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"
+                                    required="#{bindings.Location.hints.mandatory}"
+                                    columns="#{bindings.Location.hints.displayWidth}"
+                                    maximumLength="#{bindings.Location.hints.precision}"
+                                    shortDesc="#{bindings.Location.hints.tooltip}" id="it26">
+                        <f:validator binding="#{bindings.Location.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.Resolution.inputValue}" label="#{bindings.Resolution.hints.label}"
+                                    required="#{bindings.Resolution.hints.mandatory}"
+                                    columns="#{bindings.Resolution.hints.displayWidth}"
+                                    maximumLength="#{bindings.Resolution.hints.precision}"
+                                    shortDesc="#{bindings.Resolution.hints.tooltip}" id="it27">
+                        <f:validator binding="#{bindings.Resolution.validator}"/>
+                      </af:inputText>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
               </af:panelCollection>
               <f:facet name="toolbar"/>
             </af:panelBox>
@@ -1059,7 +1181,7 @@
                             selectedRowKeys="#{bindings.AppointmentAttendeesVO6.collectionModel.selectedRow}"
                             selectionListener="#{bindings.AppointmentAttendeesVO6.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO6.rangeSize}" id="t16"
-                            partialTriggers="::b32 ::b35 :::pc5:b34 :::pc9:b37" width="500">
+                            partialTriggers="::b32 ::b35 :::pc5:b34 :::pc9:b37 :::pc7:b40" width="500">
                     <af:column headerText="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.label}" id="c29"
                                width="500">
                       <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"

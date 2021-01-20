@@ -418,5 +418,9 @@
     </action>
     <action IterBinding="AppointmentCustomersVO3Iterator" id="Delete7" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <action IterBinding="FilesVO2Iterator" id="Delete8" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <action IterBinding="OppurtunityByID1Iterator" id="Execute1" RequiresUpdateModel="true" Action="iteratorExecute"/>
   </bindings>
 </pageDefinition>

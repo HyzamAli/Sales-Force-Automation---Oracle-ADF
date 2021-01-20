@@ -34,6 +34,7 @@ public class FilesBean {
     private UploadedFile file;
     private String OpId;
     private RichDialog component;
+    private RichDialog deleteComponent;
     private List<UploadedFile> list;
 
     public FilesBean() {
@@ -137,5 +138,21 @@ public class FilesBean {
 
     public List<UploadedFile> getList() {
         return list;
+    }
+
+    public void setDeleteComponent(RichDialog deleteComponent) {
+        this.deleteComponent = deleteComponent;
+    }
+
+    public RichDialog getDeleteComponent() {
+        return deleteComponent;
+    }
+    
+    public void closeDeleteDialog() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) deleteComponent.getParent();
+        rp.hide();
     }
 }
