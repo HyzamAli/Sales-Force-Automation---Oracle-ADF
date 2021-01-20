@@ -3,7 +3,8 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="RolesPage.jspx" id="d1">
+        <af:document title="RolesPage.jspx" id="d1"
+                     inlineStyle='background-image:url("bg_pic1.jpg"); background-size:100.0%;'>
             <af:messages id="m1"/>
             <af:form id="f1">
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">

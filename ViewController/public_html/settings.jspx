@@ -3,7 +3,8 @@
           xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
     <jsp:directive.page contentType="text/html;charset=UTF-8"/>
     <f:view>
-        <af:document title="settings.jspx" id="d1">
+        <af:document title="settings.jspx" id="d1"
+                     inlineStyle="background-size:100.0% auto; background-image:url(&quot;bg_pic1.jpg&quot;); background-repeat:no-repeat; background-position:0% 0%;">
             <af:form id="f1">
                 <af:pageTemplate viewId="/AdminTemplate.jspx" id="pt1">
                     <f:facet name="body">
