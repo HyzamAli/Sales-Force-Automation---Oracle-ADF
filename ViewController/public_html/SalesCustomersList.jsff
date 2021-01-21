@@ -14,7 +14,7 @@
                   queryListener="#{bindings.CustomersVOCriteriaQuery.processQuery}"
                   queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"
                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                  maxColumns="2" rows="2"/>
+                  maxColumns="2" rows="1"/>
       </af:panelBox>
       <af:panelBox text="Customers" id="pb1"
                    inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
@@ -133,12 +133,16 @@
                         maximumLength="#{bindings.Email.hints.precision}" shortDesc="#{bindings.Email.hints.tooltip}"
                         id="it7">
             <f:validator binding="#{bindings.Email.validator}"/>
+            <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
+                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
           </af:inputText>
           <af:inputText value="#{CustomersBean.phone}" label="#{bindings.Phone.hints.label}"
                         required="#{bindings.Phone.hints.mandatory}" columns="#{bindings.Phone.hints.displayWidth}"
                         maximumLength="#{bindings.Phone.hints.precision}" shortDesc="#{bindings.Phone.hints.tooltip}"
                         id="it8">
             <f:validator binding="#{bindings.Phone.validator}"/>
+            <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                                   messageDetailNoMatch="Invalid Phone number"/>
           </af:inputText>
           <af:selectOneChoice value="#{CustomersBean.industry}" label="#{bindings.Industry.label}"
                               required="#{bindings.Industry.hints.mandatory}"

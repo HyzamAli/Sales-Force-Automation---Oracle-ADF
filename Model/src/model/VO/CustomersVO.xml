@@ -333,14 +333,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="CustomersVOCriteria_CustomersVOCriteria_row_0_AccUrl"
-        ViewAttribute="AccUrl"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":p4"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="Email"
         ViewAttribute="Email"
         Operator="STARTSWITH"

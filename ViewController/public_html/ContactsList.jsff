@@ -94,7 +94,7 @@
             <af:panelFormLayout id="pfl1">
               <af:selectOneChoice value="#{ContactsBean.customerId}" label="#{bindings.CustomerId.label}"
                                   required="#{bindings.CustomerId.hints.mandatory}"
-                                  shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc1">
+                                  shortDesc="#{bindings.CustomerId.hints.tooltip}" id="soc1" rendered="false">
                 <f:selectItems value="#{bindings.CustomerId.items}" id="si1"/>
                 <f:validator binding="#{bindings.CustomerId.validator}"/>
               </af:selectOneChoice>
@@ -129,7 +129,7 @@
                 <af:selectItem label="Strong" value="3" id="si6"/>
               </af:selectOneChoice>
               <af:selectOneRadio label="Primary Contact" value="#{ContactsBean.isPrimary}" id="sor1"
-                                 layout="horizontal" showRequired="true">
+                                 layout="horizontal" showRequired="true" rendered="false">
                 <af:selectItem label="Yes" value="1" id="si3"/>
                 <af:selectItem label="No" value="0" id="si9"/>
               </af:selectOneRadio>
