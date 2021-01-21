@@ -14,6 +14,14 @@
   SelectAllAttributes="false"
   PageIterMode="Full"
   AccessMode="DEFAULT">
+  <Variable
+    Name="nm"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
+  <Variable
+    Name="nb"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -44,7 +52,14 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="ContactsByCustomerEO"
-    AliasName="ID"/>
+    AliasName="ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="ContactId"
     IsNotNull="true"
@@ -57,6 +72,8 @@
       <SchemaBasedProperties>
         <CONTROLTYPE
           Value="choice"/>
+        <LABEL
+          ResId="model.VO.ContactsByCustomersVO.ContactId_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -66,19 +83,40 @@
     PrecisionRule="true"
     EntityAttrName="CustId"
     EntityUsage="ContactsByCustomerEO"
-    AliasName="CUST_ID"/>
+    AliasName="CUST_ID">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ContactsByCustomersVO.CustId_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Name"
     PrecisionRule="true"
     EntityAttrName="Name"
     EntityUsage="ContactsByCustomerEO"
-    AliasName="NAME"/>
+    AliasName="NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="35"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Email"
     PrecisionRule="true"
     EntityAttrName="Email"
     EntityUsage="ContactsByCustomerEO"
-    AliasName="EMAIL"/>
+    AliasName="EMAIL">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="55"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Phone"
     PrecisionRule="true"
@@ -90,7 +128,14 @@
     PrecisionRule="true"
     EntityAttrName="IsPrimary"
     EntityUsage="ContactsByCustomerEO"
-    AliasName="IS_PRIMARY"/>
+    AliasName="IS_PRIMARY">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ContactsByCustomersVO.IsPrimary_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Checked"
     IsUpdateable="false"
@@ -110,10 +155,67 @@
         Value="IsPrimary"
         Type="notify"/>
     </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYHINT
+          Value="Hide"/>
+      </SchemaBasedProperties>
+    </Properties>
   </ViewAttribute>
+  <ViewCriteria
+    Name="ContactsByCustomersVOCriteria"
+    ViewObjectName="model.VO.ContactsByCustomersVO"
+    Conjunction="AND">
+    <Properties Name="_Props">
+      <CustomProperties>
+        <Property
+          Name="autoExecute"
+          Value="true"/>
+        <Property
+          Name="mode"
+          Value="Basic"/>
+        <Property
+          Name="allowConjunctionOverride"
+          Value="true"/>
+        <Property
+          Name="showInList"
+          Value="true"/>
+        <Property
+          Name="displayName"
+          ResId="model.VO.ContactsByCustomersVO.ContactsByCustomersVOCriteria_displayName"/>
+        <Property
+          Name="displayOperators"
+          Value="InAdvancedMode"/>
+      </CustomProperties>
+    </Properties>
+    <ViewCriteriaRow
+      Name="ContactsByCustomersVOCriteria_row_0"
+      UpperColumns="1">
+      <ViewCriteriaItem
+        Name="Name"
+        ViewAttribute="Name"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":nb"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
+        Name="Email"
+        ViewAttribute="Email"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":nm"
+        IsBindVarValue="true"
+        Required="Optional"/>
+    </ViewCriteriaRow>
+  </ViewCriteria>
   <ViewLinkAccessor
     Name="CustomerContactsVO"
     ViewLink="model.APP_MODULE.ContactCustomerLink2"
     Type="oracle.jbo.Row"
     IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
