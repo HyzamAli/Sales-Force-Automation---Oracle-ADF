@@ -51,6 +51,11 @@
       <managed-bean-class>view.LocaleBean</managed-bean-class>
       <managed-bean-scope>application</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__18">
+      <managed-bean-name>ContactsPerCust</managed-bean-name>
+      <managed-bean-class>view.ContactsPerCust</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>

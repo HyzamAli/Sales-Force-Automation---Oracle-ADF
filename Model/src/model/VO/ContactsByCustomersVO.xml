@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ContactsByCustomersVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectListFlags="1"
+  FromListFlags="1"
+  WhereFlags="1"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  SelectAllAttributes="false"
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
+  <ViewAccessor
+    Name="CustomerContactsVO1"
+    ViewObjectName="model.VO.CustomerContactsVO"
+    RowLevelBinds="true"/>
+  <ListBinding
+    Name="LOV_ContactId"
+    ListVOName="CustomerContactsVO1"
+    NullValueFlag="none"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="CcId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="ContactName"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
+  <EntityUsage
+    Name="ContactsByCustomerEO"
+    Entity="model.EO.ContactsByCustomerEO"/>
+  <ViewAttribute
+    Name="Id"
+    IsUpdateable="while_insert"
+    PrecisionRule="true"
+    EntityAttrName="Id"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="ID"/>
+  <ViewAttribute
+    Name="ContactId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ContactId"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="CONTACT_ID"
+    LOVName="LOV_ContactId">
+    <Properties>
+      <SchemaBasedProperties>
+        <CONTROLTYPE
+          Value="choice"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CustId"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CustId"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="CUST_ID"/>
+  <ViewAttribute
+    Name="Name"
+    PrecisionRule="true"
+    EntityAttrName="Name"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="NAME"/>
+  <ViewAttribute
+    Name="Email"
+    PrecisionRule="true"
+    EntityAttrName="Email"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="EMAIL"/>
+  <ViewAttribute
+    Name="Phone"
+    PrecisionRule="true"
+    EntityAttrName="Phone"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="PHONE"/>
+  <ViewAttribute
+    Name="IsPrimary"
+    PrecisionRule="true"
+    EntityAttrName="IsPrimary"
+    EntityUsage="ContactsByCustomerEO"
+    AliasName="IS_PRIMARY"/>
+  <ViewAttribute
+    Name="Checked"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.Boolean"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="ContactsByCustomersVORow"/>
+    <Dependencies>
+      <Item
+        Value="IsPrimary"
+        Type="notify"/>
+    </Dependencies>
+  </ViewAttribute>
+  <ViewLinkAccessor
+    Name="CustomerContactsVO"
+    ViewLink="model.APP_MODULE.ContactCustomerLink2"
+    Type="oracle.jbo.Row"
+    IsUpdateable="false"/>
+</ViewObject>

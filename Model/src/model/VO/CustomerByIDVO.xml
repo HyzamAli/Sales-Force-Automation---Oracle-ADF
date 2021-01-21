@@ -290,6 +290,11 @@
     ViewLink="model.VO.CustomerContactByID"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="ContactsByCustomersVO"
+    ViewLink="model.APP_MODULE.ContactCustomersLink"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

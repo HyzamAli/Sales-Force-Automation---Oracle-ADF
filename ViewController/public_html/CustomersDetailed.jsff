@@ -104,143 +104,92 @@
             </af:panelFormLayout>
           </af:panelBox>
         </af:showDetailItem>
-        <af:showDetailItem id="dr2" shortDesc="Contact" icon="#{resource['images:telephone.png']}">
-          <af:panelGroupLayout id="pgl1">
-            <af:outputText value="Customer Contacts" id="ot19"
-                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:spacer id="s3" height="20px"/>
-            <af:panelBox text="PanelBox7" id="pb7" showHeader="never">
-              <f:facet name="toolbar"/>
-              <af:query id="qryId4" headerText="Search" disclosed="true"
-                        value="#{bindings.CustomerContactsVOCriteriaQuery1.queryDescriptor}"
-                        model="#{bindings.CustomerContactsVOCriteriaQuery1.queryModel}"
-                        queryListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQuery}"
-                        queryOperationListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQueryOperation}"
-                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                        maxColumns="2" rows="2"/>
-            </af:panelBox>
-            <af:spacer id="s4" height="35px"/>
-            <af:panelBox text="Contacts" id="pb5">
-              <f:facet name="toolbar"/>
-              <af:panelCollection id="pc2"
-                                  inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
+        <af:showDetailItem text="Contacts" id="ContactsNew" icon="#{resource['images:telephone.png']}">
+          <af:panelGroupLayout id="pgl6">
+            <af:panelBox text="Contacts" id="pb12" showHeader="never" showDisclosure="false">
+              <af:panelCollection id="pc7">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
-                  <af:toolbar id="t8">
-                    <af:button text="Create " id="b9" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
-                      <af:showPopupBehavior popupId="::p3"/>
+                  <af:toolbar id="t10">
+                    <af:button text="Add" id="b13">
+                      <af:showPopupBehavior popupId="p5"/>
                     </af:button>
-                    <af:button text="Delete" disabled="#{!bindings.Delete.enabled}" id="b16" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
-                      <af:showPopupBehavior popupId="::p11"/>
+                    <af:button text="Remove"
+                               disabled="#{!bindings.Delete6.enabled}" id="b14">
+                      <af:showPopupBehavior popupId="p17"/>
                     </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
-                <af:table value="#{bindings.CustomerContactsVO3.collectionModel}" var="row"
-                          rows="#{bindings.CustomerContactsVO3.rangeSize}"
-                          emptyText="#{bindings.CustomerContactsVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          selectedRowKeys="#{bindings.CustomerContactsVO3.collectionModel.selectedRow}"
-                          selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
-                          rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
-                          columnStretching="last" summary="Customer Notes List"
-                          partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4" width="1100">
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
-                             rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="250"
-                             align="left">
-                    <af:link id="l1" action="toContactDetailed">
-                      <af:outputText value="#{row.ContactName}"
-                                     shortDesc="#{bindings.CustomerContactsVO3.hints.ContactName.tooltip}" id="ot2"/>
-                      <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
+                <af:table value="#{bindings.ContactsByCustomersVO2.collectionModel}" var="row"
+                          rows="#{bindings.ContactsByCustomersVO2.rangeSize}"
+                          emptyText="#{bindings.ContactsByCustomersVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" list="summary"
+                          selectedRowKeys="#{bindings.ContactsByCustomersVO2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.ContactsByCustomersVO2.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.ContactsByCustomersVO2.rangeSize}" id="t9"
+                          partialTriggers="::b11 ::b14" columnStretching="last">
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Name.label}" id="c19" rowHeader="true">
+                    <af:link text="" id="l8" action="toContactDetailed">
+                      <af:outputText value="#{row.Name}"
+                                     shortDesc="#{bindings.ContactsByCustomersVO2.hints.Name.tooltip}" id="ot26"/>
+                      <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="Primary" id="c9" align="center">
-                    <af:selectBooleanCheckbox text=" " label=" " id="sbc1" value="#{row.checked}"
-                                              shortDesc="#{bindings.CustomerContactsVO3.hints.checked.tooltip}"
-                                              rendered="#{row.checked}" readOnly="true"/>
+                  <af:column headerText="Primary" id="c23" align="center">
+                    <af:selectBooleanCheckbox text="" label=" " id="sbc2" value="#{row.Checked}"
+                                              rendered="#{row.Checked}"/>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.IsPrimary.label}" id="c15" width="100"
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Email.label}" id="c20">
+                    <af:outputText value="#{row.Email}"
+                                   shortDesc="#{bindings.ContactsByCustomersVO2.hints.Email.tooltip}" id="ot27"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Phone.label}" id="c21">
+                    <af:outputText value="#{row.Phone}"
+                                   shortDesc="#{bindings.ContactsByCustomersVO2.hints.Phone.tooltip}" id="ot28"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.ContactId.label}" id="c22"
                              rendered="false">
-                    <af:outputText value="#{row.IsPrimary}"
-                                   shortDesc="#{bindings.CustomerContactsVO31.hints.IsPrimary.tooltip}" id="ot23">
+                    <af:outputText value="#{row.ContactId}"
+                                   shortDesc="#{bindings.ContactsByCustomersVO2.hints.ContactId.tooltip}" id="ot29">
                       <af:convertNumber groupingUsed="false"
-                                        pattern="#{bindings.CustomerContactsVO31.hints.IsPrimary.format}"/>
+                                        pattern="#{bindings.ContactsByCustomersVO2.hints.ContactId.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
-                             inlineStyle="width:200pt;" width="150" minimumWidth="200">
-                    <af:outputText value="#{row.ContactPhone}"
-                                   shortDesc="#{bindings.CustomerContactsVO3.hints.ContactPhone.tooltip}" id="ot3"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="300"
-                             minimumWidth="250">
-                    <af:outputText value="#{row.ContactEmail}"
-                                   shortDesc="#{bindings.CustomerContactsVO3.hints.ContactEmail.tooltip}" id="ot4"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.InfluenceLevel.label}" id="c33"
-                             width="100">
-                    <af:selectOneChoice value="#{row.InfluenceLevel}" label="Influence Level" id="soc6" readOnly="true">
-                      <af:selectItem label="Weak" value="1" id="si9"/>
-                      <af:selectItem label="Medium" value="2" id="si10"/>
-                      <af:selectItem label="Strong" value="3" id="si11"/>
-                    </af:selectOneChoice>
-                  </af:column>
                 </af:table>
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p5" resetEditableValues="whenCanceled">
+                  <af:dialog id="d4" title="Add Contact" type="cancel" binding="#{ContactsPerCust.component}">
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.CreateWithParams6.execute}" text="Add"
+                                 disabled="#{!bindings.CreateWithParams6.enabled}" id="b11"
+                                 action="#{ContactsPerCust.closeDialog}"/>
+                    </f:facet>
+                    <af:panelFormLayout id="pfl5">
+                      <af:selectOneChoice value="#{ContactsPerCust.contactId}" label="#{bindings.ContactId.label}"
+                                          required="#{bindings.ContactId.hints.mandatory}"
+                                          shortDesc="#{bindings.ContactId.hints.tooltip}" id="soc13">
+                        <f:selectItems value="#{bindings.ContactId.items}" id="si17"/>
+                        <f:validator binding="#{bindings.ContactId.validator}"/>
+                      </af:selectOneChoice>
+                      <af:selectOneRadio label="Primary" value="#{ContactsPerCust.isPrimary}" id="sor1">
+                        <af:selectItem label="Yes" value="1" id="si18"/>
+                        <af:selectItem label="No" value="0" id="si20"/>
+                      </af:selectOneRadio>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p17" partialTriggers="t9">
+                  <af:dialog id="d17" title="Remove" type="cancel" binding="#{ContactsPerCust.deleteComponent}">
+                    <af:outputText value="Are you sure?" id="ot30" inlineStyle="margin-right:50px;"/>
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.Delete6.execute}" text="Delete"
+                                 action="#{ContactsPerCust.closeDeleteDialog}" disabled="#{!bindings.Delete6.enabled}"
+                                 id="b22"/>
+                    </f:facet>
+                  </af:dialog>
+                </af:popup>
               </af:panelCollection>
-              <af:popup childCreation="deferred" autoCancel="enabled" id="p3" partialTriggers="b8"
-                        resetEditableValues="whenCanceled">
-                <af:dialog id="d2" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
-                  <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create "
-                               action="#{DialogHandler.closeDialog}" disabled="#{!bindings.CreateWithParams1.enabled}"
-                               id="b8"/>
-                  </f:facet>
-                  <af:panelFormLayout id="pfl3">
-                    <af:inputText value="#{ContactsBean.name}" label="#{bindings.ContactName.hints.label}"
-                                  required="#{bindings.ContactName.hints.mandatory}"
-                                  columns="#{bindings.ContactName.hints.displayWidth}"
-                                  maximumLength="#{bindings.ContactName.hints.precision}"
-                                  shortDesc="#{bindings.ContactName.hints.tooltip}" id="it18">
-                      <f:validator binding="#{bindings.ContactName.validator}"/>
-                    </af:inputText>
-                    <af:inputText value="#{ContactsBean.phone}" label="#{bindings.ContactPhone.hints.label}"
-                                  required="#{bindings.ContactPhone.hints.mandatory}"
-                                  columns="#{bindings.ContactPhone.hints.displayWidth}"
-                                  maximumLength="#{bindings.ContactPhone.hints.precision}"
-                                  shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it19">
-                      <f:validator binding="#{bindings.ContactPhone.validator}"/>
-                    </af:inputText>
-                    <af:inputText value="#{ContactsBean.email}" label="#{bindings.ContactEmail.hints.label}"
-                                  required="#{bindings.ContactEmail.hints.mandatory}"
-                                  columns="#{bindings.ContactEmail.hints.displayWidth}"
-                                  maximumLength="#{bindings.ContactEmail.hints.precision}"
-                                  shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it20">
-                      <f:validator binding="#{bindings.ContactEmail.validator}"/>
-                    </af:inputText>
-                    <af:selectOneChoice label="Influence Level" id="soc4" value="#{ContactsBean.influenceLevel}">
-                      <af:selectItem label="Weak" value="1" id="si4"/>
-                      <af:selectItem label="Medium" value="2" id="si5"/>
-                      <af:selectItem label="Strong" value="3" id="si6"/>
-                    </af:selectOneChoice>
-                    <af:selectOneChoice label="Primary Contact" id="soc5" value="#{ContactsBean.isPrimary}">
-                      <af:selectItem label="Yes" value="1" id="si7"/>
-                      <af:selectItem label="No" value="0" id="si8"/>
-                    </af:selectOneChoice>
-                  </af:panelFormLayout>
-                </af:dialog>
-              </af:popup>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
-                <af:dialog id="d11" title="Delete" type="cancel" binding="#{ContactsBean.contactComponent}">
-                  <af:outputText value="Confirm Action" id="ot9" inlineStyle="margin-right:50px;"/>
-                  <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                               action="#{ContactsBean.closeDeleteDialog}" disabled="#{!bindings.Delete.enabled}"
-                               id="b4"/>
-                  </f:facet>
-                </af:dialog>
-              </af:popup>
+              <f:facet name="toolbar"/>
             </af:panelBox>
           </af:panelGroupLayout>
         </af:showDetailItem>
@@ -463,7 +412,7 @@
                           selectedRowKeys="#{bindings.CustomerTasksVO61.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerTasksVO61.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
-                          partialTriggers="::b18 :::b12 :::p6 :::d6" summary="Tasks List"
+                          partialTriggers="::b18 :::b12 :::p6 :::d6 :::pc7:b22" summary="Tasks List"
                           inlineStyle="min-width:800pt; width:800pt;">
                   <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
                              inlineStyle="min-width:200pt; width:200pt;" width="400" minimumWidth="200" align="left">
@@ -1015,6 +964,146 @@
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
+          </af:panelGroupLayout>
+        </af:showDetailItem>
+        <af:showDetailItem id="dr2" shortDesc="Contact" icon="#{resource['images:telephone.png']}" rendered="false">
+          <af:panelGroupLayout id="pgl1">
+            <af:outputText value="Customer Contacts" id="ot19"
+                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+            <af:spacer id="s3" height="20px"/>
+            <af:panelBox text="PanelBox7" id="pb7" showHeader="never">
+              <f:facet name="toolbar"/>
+              <af:query id="qryId4" headerText="Search" disclosed="true"
+                        value="#{bindings.CustomerContactsVOCriteriaQuery1.queryDescriptor}"
+                        model="#{bindings.CustomerContactsVOCriteriaQuery1.queryModel}"
+                        queryListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQuery}"
+                        queryOperationListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQueryOperation}"
+                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
+                        maxColumns="2" rows="2"/>
+            </af:panelBox>
+            <af:spacer id="s4" height="35px"/>
+            <af:panelBox text="Contacts" id="pb5">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc2"
+                                  inlineStyle="padding-bottom:10px; padding-left:100px; padding-right:10px; padding-top:10px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t8">
+                    <af:button text="Create " id="b9" inlineStyle=" background-color:Green; color:White;"
+                               selected="true">
+                      <af:showPopupBehavior popupId="::p3"/>
+                    </af:button>
+                    <af:button text="Delete" disabled="#{!bindings.Delete.enabled}" id="b16"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
+                      <af:showPopupBehavior popupId="::p11"/>
+                    </af:button>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.CustomerContactsVO3.collectionModel}" var="row"
+                          rows="#{bindings.CustomerContactsVO3.rangeSize}"
+                          emptyText="#{bindings.CustomerContactsVO3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0"
+                          selectedRowKeys="#{bindings.CustomerContactsVO3.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.CustomerContactsVO3.collectionModel.makeCurrent}"
+                          rowSelection="single" fetchSize="#{bindings.CustomerContactsVO3.rangeSize}" id="t4"
+                          columnStretching="last" summary="Customer Notes List"
+                          partialTriggers=":::b8 ::b16 :::b32 :::b33 :::b34 :::b35 :::b36 :::b4" width="1100">
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactName.label}" id="c30"
+                             rowHeader="true" inlineStyle="min-width:200pt; width:200pt;" minimumWidth="200" width="250"
+                             align="left">
+                    <af:link id="l1" action="toContactDetailed">
+                      <af:outputText value="#{row.ContactName}"
+                                     shortDesc="#{bindings.CustomerContactsVO3.hints.ContactName.tooltip}" id="ot2"/>
+                      <af:setActionListener from="#{row.CcId}" to="#{pageFlowScope.ContactId}"/>
+                    </af:link>
+                  </af:column>
+                  <af:column headerText="Primary" id="c9" align="center">
+                    <af:selectBooleanCheckbox text=" " label=" " id="sbc1" value="#{row.checked}"
+                                              shortDesc="#{bindings.CustomerContactsVO3.hints.checked.tooltip}"
+                                              rendered="#{row.checked}" readOnly="true"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.IsPrimary.label}" id="c15" width="100"
+                             rendered="false">
+                    <af:outputText value="#{row.IsPrimary}"
+                                   shortDesc="#{bindings.CustomerContactsVO31.hints.IsPrimary.tooltip}" id="ot23">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.CustomerContactsVO31.hints.IsPrimary.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactPhone.label}" id="c31"
+                             inlineStyle="width:200pt;" width="150" minimumWidth="200">
+                    <af:outputText value="#{row.ContactPhone}"
+                                   shortDesc="#{bindings.CustomerContactsVO3.hints.ContactPhone.tooltip}" id="ot3"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.ContactEmail.label}" id="c32" width="300"
+                             minimumWidth="250">
+                    <af:outputText value="#{row.ContactEmail}"
+                                   shortDesc="#{bindings.CustomerContactsVO3.hints.ContactEmail.tooltip}" id="ot4"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerContactsVO3.hints.InfluenceLevel.label}" id="c33"
+                             width="100">
+                    <af:selectOneChoice value="#{row.InfluenceLevel}" label="Influence Level" id="soc6" readOnly="true">
+                      <af:selectItem label="Weak" value="1" id="si9"/>
+                      <af:selectItem label="Medium" value="2" id="si10"/>
+                      <af:selectItem label="Strong" value="3" id="si11"/>
+                    </af:selectOneChoice>
+                  </af:column>
+                </af:table>
+              </af:panelCollection>
+              <af:popup childCreation="deferred" autoCancel="enabled" id="p3" partialTriggers="b8"
+                        resetEditableValues="whenCanceled">
+                <af:dialog id="d2" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
+                  <f:facet name="buttonBar">
+                    <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create "
+                               action="#{DialogHandler.closeDialog}" disabled="#{!bindings.CreateWithParams1.enabled}"
+                               id="b8"/>
+                  </f:facet>
+                  <af:panelFormLayout id="pfl3">
+                    <af:inputText value="#{ContactsBean.name}" label="#{bindings.ContactName.hints.label}"
+                                  required="#{bindings.ContactName.hints.mandatory}"
+                                  columns="#{bindings.ContactName.hints.displayWidth}"
+                                  maximumLength="#{bindings.ContactName.hints.precision}"
+                                  shortDesc="#{bindings.ContactName.hints.tooltip}" id="it18">
+                      <f:validator binding="#{bindings.ContactName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{ContactsBean.phone}" label="#{bindings.ContactPhone.hints.label}"
+                                  required="#{bindings.ContactPhone.hints.mandatory}"
+                                  columns="#{bindings.ContactPhone.hints.displayWidth}"
+                                  maximumLength="#{bindings.ContactPhone.hints.precision}"
+                                  shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it19">
+                      <f:validator binding="#{bindings.ContactPhone.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{ContactsBean.email}" label="#{bindings.ContactEmail.hints.label}"
+                                  required="#{bindings.ContactEmail.hints.mandatory}"
+                                  columns="#{bindings.ContactEmail.hints.displayWidth}"
+                                  maximumLength="#{bindings.ContactEmail.hints.precision}"
+                                  shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it20">
+                      <f:validator binding="#{bindings.ContactEmail.validator}"/>
+                    </af:inputText>
+                    <af:selectOneChoice label="Influence Level" id="soc4" value="#{ContactsBean.influenceLevel}">
+                      <af:selectItem label="Weak" value="1" id="si4"/>
+                      <af:selectItem label="Medium" value="2" id="si5"/>
+                      <af:selectItem label="Strong" value="3" id="si6"/>
+                    </af:selectOneChoice>
+                    <af:selectOneChoice label="Primary Contact" id="soc5" value="#{ContactsBean.isPrimary}">
+                      <af:selectItem label="Yes" value="1" id="si7"/>
+                      <af:selectItem label="No" value="0" id="si8"/>
+                    </af:selectOneChoice>
+                  </af:panelFormLayout>
+                </af:dialog>
+              </af:popup>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
+                <af:dialog id="d11" title="Delete" type="cancel" binding="#{ContactsBean.contactComponent}">
+                  <af:outputText value="Confirm Action" id="ot9" inlineStyle="margin-right:50px;"/>
+                  <f:facet name="buttonBar">
+                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                               action="#{ContactsBean.closeDeleteDialog}" disabled="#{!bindings.Delete.enabled}"
+                               id="b4"/>
+                  </f:facet>
+                </af:dialog>
+              </af:popup>
+            </af:panelBox>
           </af:panelGroupLayout>
         </af:showDetailItem>
       </af:panelDrawer>
