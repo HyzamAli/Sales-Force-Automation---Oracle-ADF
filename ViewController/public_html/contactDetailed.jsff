@@ -42,6 +42,8 @@
                           shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it2"
                           inlineStyle="width:60%; column-width:100px;">
               <f:validator binding="#{bindings.ContactPhone.validator}"/>
+              <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                                   messageDetailNoMatch="Invalid Phone number"/>
             </af:inputText>
             <af:inputText value="#{bindings.ContactEmail.inputValue}" label="#{bindings.ContactEmail.hints.label}"
                           required="#{bindings.ContactEmail.hints.mandatory}"
@@ -49,6 +51,8 @@
                           maximumLength="#{bindings.ContactEmail.hints.precision}"
                           shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3" inlineStyle="width:60%;">
               <f:validator binding="#{bindings.ContactEmail.validator}"/>
+              <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
+                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
             </af:inputText>
             <af:selectOneChoice label="Influence Level" id="soc12" value="#{bindings.InfluenceLevel.inputValue}">
               <af:selectItem label="Weak" value="1" id="si12"/>

@@ -324,9 +324,9 @@
                           rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsOpVO2.rangeSize}" id="t12"
-                          partialTriggers="::b25 ::b26" columnStretching="last">
+                          partialTriggers="::b25 ::b26" columnStretching="last" width="1100">
                   <af:column headerText="#{bindings.ContactsOpVO2.hints.ContactId.label}" id="c12" rendered="false"
-                             >
+                             width="400">
                     <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
                                         label="#{row.bindings.ContactId.label}"
                                         required="#{bindings.ContactsOpVO2.hints.ContactId.mandatory}"
@@ -336,18 +336,19 @@
                       <f:validator binding="#{row.bindings.ContactId.validator}"/>
                     </af:selectOneChoice>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c19" rowHeader="true">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c19" rowHeader="true"
+                             width="400">
                     <af:link text="" id="l5" action="toContactDetailed">
                       <af:outputText value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"
                                      id="ot16"/>
                       <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c20">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Email.label}" id="c20" width="400">
                     <af:outputText value="#{row.Email}" shortDesc="#{bindings.ContactsOpVO2.hints.Email.tooltip}"
                                    id="ot17"/>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c21">
+                  <af:column headerText="#{bindings.ContactsOpVO2.hints.Phone.label}" id="c21" width="50">
                     <af:outputText value="#{row.Phone}" shortDesc="#{bindings.ContactsOpVO2.hints.Phone.tooltip}"
                                    id="ot18"/>
                   </af:column>
@@ -440,21 +441,21 @@
                           summary="oppurtunity nores list" columnStretching="last"
                           partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13 :::pc6:b26" width="1100">
                   <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
-                             align="left" width="210">
+                             align="left" width="300">
                     <af:link id="l1">
                       <af:outputText id="ot21" value="#{row.NotesTitle}"
                                      shortDesc="#{bindings.CustomerNotesVO7.hints.NotesTitle.tooltip}"/>
                       <af:showPopupBehavior popupId=":::p4"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustName.label}" id="c8" width="160">
+                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustName.label}" id="c8" width="300">
                     <af:link text="" id="l7" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerNotesVO7.hints.CustName.tooltip}" id="ot14"/>
                       <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.ContactId.label}" id="c15" width="160">
+                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.ContactId.label}" id="c15" width="300">
                     <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
                                         label="#{row.bindings.ContactId.label}"
                                         required="#{bindings.CustomerNotesVO7.hints.ContactId.mandatory}"
@@ -852,7 +853,8 @@
                     <af:showPopupBehavior popupId="::p140"/>
                   </af:button>
                   <af:button text="Delete"
-                             disabled="#{!bindings.Delete8.enabled}" id="b41">
+                             disabled="#{!bindings.Delete8.enabled}" id="b41" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                     <af:showPopupBehavior popupId="p21"/>
                   </af:button>
                 </af:toolbar>
@@ -865,7 +867,7 @@
                         summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
                         partialTriggers=":::b8 :::b28 ::b41"
                         width="1150" columnStretching="last">
-                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="120"
+                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="300"
                            align="left">
                   <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                  id="ot6"/>
@@ -958,7 +960,7 @@
                       <af:showPopupBehavior popupId="::p20"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23" width="200">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23" width="300">
                     <af:link text="" id="l8" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO5.hints.CustName.tooltip}" id="ot20"/>
@@ -972,12 +974,14 @@
                       <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO5.hints.StartTime.format}"/>
                     </af:outputText>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.AppointmentType.label}" id="c25">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.AppointmentType.label}" id="c25"
+                             width="175">
                     <af:outputText value="#{row.AppointmentType}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppointmentType.tooltip}"
                                    id="ot24"/>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.AppointmentDirection.label}" id="c26">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.AppointmentDirection.label}" id="c26"
+                             width="175">
                     <af:outputText value="#{row.AppointmentDirection}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppointmentDirection.tooltip}"
                                    id="ot25"/>
