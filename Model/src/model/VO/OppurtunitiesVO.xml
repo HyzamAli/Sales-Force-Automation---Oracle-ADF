@@ -78,6 +78,10 @@
     Name="ManagerEmployeesVO1"
     ViewObjectName="model.VO.ManagerEmployeesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SupervisorsVO1"
+    ViewObjectName="model.VO.SupervisorsVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_CustomerId"
     ListVOName="CustomersVO1"
@@ -114,9 +118,10 @@
   </ListBinding>
   <ListBinding
     Name="LOV_ManagerId"
-    ListVOName="ManagerEmployeesVO1"
-    NullValueFlag="none"
-    MRUCount="0">
+    ListVOName="SupervisorsVO1"
+    NullValueFlag="start"
+    MRUCount="0"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}">
     <AttrArray Name="AttrNames">
       <Item Value="ManagerId"/>
     </AttrArray>
@@ -319,10 +324,10 @@
     IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.VO.OppurtunitiesVO.ManagerId_LABEL"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

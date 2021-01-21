@@ -27,7 +27,7 @@ import org.apache.myfaces.trinidad.model.UploadedFile;
 public class OppurtunityBean {
     private String customerId;
     private String refId;
-    private String win_prob;
+    private String win_prob = "50";
     private Date close_Date;
     private String salesStage = "Oppurtunity";
     private String salesMethod = "Standard Process";

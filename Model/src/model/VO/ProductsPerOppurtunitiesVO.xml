@@ -142,6 +142,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="ProductName"
+    PrecisionRule="true"
+    EntityAttrName="ProductName"
+    EntityUsage="ProductsPerOppurtunityEO"
+    AliasName="PRODUCT_NAME"/>
   <ViewCriteria
     Name="ProductsPerOppurtunitiesVOCriteria"
     ViewObjectName="model.VO.ProductsPerOppurtunitiesVO"

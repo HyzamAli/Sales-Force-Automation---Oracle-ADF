@@ -2,6 +2,7 @@ package view;
 
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
+import oracle.adf.model.binding.DCIteratorBinding;
 import oracle.adf.view.rich.component.rich.RichDialog;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
@@ -9,18 +10,24 @@ import oracle.adf.view.rich.event.DialogEvent;
 
 import oracle.binding.OperationBinding;
 
+import oracle.jbo.Key;
+import oracle.jbo.Row;
+import oracle.jbo.RowSetIterator;
+
 public class ProductsOpBean {
     private String prodId;
     private String quantity;
     private String category;
     private RichDialog component;
     private RichDialog deleteComponent;
+    private String propName;
 
     public ProductsOpBean() {
     }
 
     public void setProdId(String prodId) {
         this.prodId = prodId;
+        if (prodId != null) findNameById();
     }
 
     public String getProdId() {
@@ -98,5 +105,23 @@ public class ProductsOpBean {
 
     public RichDialog getDeleteComponent() {
         return deleteComponent;
+    }
+
+    private void findNameById() {
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iter =
+              (DCIteratorBinding)bc.findIteratorBinding("ProductsVO1Iterator");
+        RowSetIterator rsi = iter.getRowSetIterator();
+        Key key = new Key(new Object[] { prodId});
+        Row row = rsi.findByKey(key, 1)[0];
+        propName = (String) row.getAttribute("ProductName");
+    }
+
+    public void setPropName(String propName) {
+        this.propName = propName;
+    }
+
+    public String getPropName() {
+        return propName;
     }
 }

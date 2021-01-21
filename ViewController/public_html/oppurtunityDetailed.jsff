@@ -86,6 +86,8 @@
                               maximumLength="#{bindings.WinProbability.hints.precision}"
                               shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it8">
                   <f:validator binding="#{bindings.WinProbability.validator}"/>
+                  <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
+                                    messageDetailMaximum="Should be less than 100"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.SaleStage.inputValue}" label="#{bindings.SaleStage.hints.label}"

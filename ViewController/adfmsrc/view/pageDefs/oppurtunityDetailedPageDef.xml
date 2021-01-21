@@ -40,6 +40,7 @@
     <searchRegion Criteria="CustomerAppointmentsVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVOCriteriaQuery"/>
+    <iterator id="ProductsVO1Iterator" Binds="ProductsVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
         <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustomerId1">
@@ -229,6 +230,7 @@
       <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="ProductId" NDValue="#{ProductsOpBean.prodId}" NDType="java.lang.String"/>
       <NamedData NDName="ProductQuantity" NDValue="#{ProductsOpBean.quantity}" NDType="java.lang.String"/>
+      <NamedData NDName="ProductName" NDValue="#{ProductsOpBean.propName}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="Delete2" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
@@ -422,5 +424,11 @@
     <action IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="Execute" RequiresUpdateModel="true"
             Action="iteratorExecute"/>
     <action IterBinding="OppurtunityByID1Iterator" id="Execute1" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <table IterBinding="ProductsVO1Iterator" id="ProductsVO1">
+      <AttrNames>
+        <Item Value="ProductId"/>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </table>
   </bindings>
 </pageDefinition>

@@ -50,8 +50,8 @@
                           columns="#{bindings.ContactEmail.hints.displayWidth}"
                           maximumLength="#{bindings.ContactEmail.hints.precision}"
                           shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3" inlineStyle="width:60%;">
-              <f:validator binding="#{bindings.ContactEmail.validator}"/>
-              <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
+              <f:validator binding="#{bindings.ContactEmail.validator}" validatorId="javax.faces.RegularExpression"/>
+              <af:validateRegExp pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
                                                    hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
             </af:inputText>
             <af:selectOneChoice label="Influence Level" id="soc12" value="#{bindings.InfluenceLevel.inputValue}">

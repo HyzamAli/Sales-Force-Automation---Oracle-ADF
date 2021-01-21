@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
-                xmlns:f="http://java.sun.com/jsf/core">
+                xmlns:f="http://java.sun.com/jsf/core" xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
   <af:panelGroupLayout id="pgl1" layout="vertical"
                        inlineStyle="background-size:110% auto; background-repeat:no-repeat; background-image:url(&quot;bg_pic1.jpg&quot;);">
     <af:panelBox text="PanelBox2" id="pb3"
@@ -76,12 +76,19 @@
               <f:validator binding="#{row.bindings.CustomerId.validator}"/>
             </af:selectOneChoice>
           </af:column>
-          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3" width="200">
+          <af:column headerText="#{bindings.OppurtunitiesVO1.hints.WinProbability.label}" id="c3" width="200"
+                     align="center">
             <af:outputText value="#{row.WinProbability}"
-                           shortDesc="#{bindings.OppurtunitiesVO1.hints.WinProbability.tooltip}" id="ot2">
+                           shortDesc="#{bindings.OppurtunitiesVO1.hints.WinProbability.tooltip}" id="ot2"
+                           rendered="false">
               <af:convertNumber groupingUsed="false"
                                 pattern="#{bindings.OppurtunitiesVO1.hints.WinProbability.format}"/>
             </af:outputText>
+            <dvt:statusMeterGauge value="#{row.WinProbability}" id="statusMeterGauge1" orientation="circular" inlineStyle="width:45px;height:45px"
+                                  >
+              <dvt:gaugeThreshold id="thr1" color="#d62800"/>
+              <dvt:gaugeMetricLabel rendered="true" id="gml1" textType="percent"/>
+            </dvt:statusMeterGauge>
           </af:column>
           <af:column headerText="#{bindings.OppurtunitiesVO1.hints.SaleStage.label}" id="c4" width="150">
             <af:outputText value="#{row.SaleStage}" shortDesc="#{bindings.OppurtunitiesVO1.hints.SaleStage.tooltip}"
@@ -179,6 +186,13 @@
             <af:selectItem label="Manager" value="Manager" id="si22"/>
             <af:selectItem label="Buyer" value="Buyer" id="si23"/>
           </af:selectOneChoice>
+          <af:inputDate value="#{OppurtunityBean.close_Date}" label="#{bindings.CloseDate.hints.label}"
+                        required="#{bindings.CloseDate.hints.mandatory}"
+                        columns="#{bindings.CloseDate.hints.displayWidth}"
+                        shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id1">
+            <f:validator binding="#{bindings.CloseDate.validator}"/>
+            <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
+          </af:inputDate>
           <af:inputText value="#{OppurtunityBean.duration}" label="#{bindings.EstimatedDuration.hints.label}"
                         required="#{bindings.EstimatedDuration.hints.mandatory}"
                         columns="#{bindings.EstimatedDuration.hints.displayWidth}"
@@ -191,23 +205,18 @@
                         required="#{bindings.ProductQuantity.hints.mandatory}"
                         columns="#{bindings.ProductQuantity.hints.displayWidth}"
                         maximumLength="#{bindings.ProductQuantity.hints.precision}"
-                        shortDesc="#{bindings.ProductQuantity.hints.tooltip}" id="it10">
+                        shortDesc="#{bindings.ProductQuantity.hints.tooltip}" id="it10" rendered="false">
             <f:validator binding="#{bindings.ProductQuantity.validator}"/>
             <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductQuantity.format}"/>
           </af:inputText>
-          <af:inputDate value="#{OppurtunityBean.close_Date}" label="#{bindings.CloseDate.hints.label}"
-                        required="#{bindings.CloseDate.hints.mandatory}"
-                        columns="#{bindings.CloseDate.hints.displayWidth}"
-                        shortDesc="#{bindings.CloseDate.hints.tooltip}" id="id1">
-            <f:validator binding="#{bindings.CloseDate.validator}"/>
-            <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
-          </af:inputDate>
           <af:inputText value="#{OppurtunityBean.win_prob}" label="#{bindings.WinProbability.hints.label}"
                         required="#{bindings.WinProbability.hints.mandatory}"
                         columns="#{bindings.WinProbability.hints.displayWidth}"
                         maximumLength="#{bindings.WinProbability.hints.precision}"
                         shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it2">
             <f:validator binding="#{bindings.WinProbability.validator}"/>
+            <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
+                                    messageDetailMaximum="Should be less than 100"/>
             <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
           </af:inputText>
         </af:panelFormLayout>
