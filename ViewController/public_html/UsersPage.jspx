@@ -22,7 +22,7 @@
                                                   model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
                                                   queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
                                                   queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
-                                                  maxColumns="3" rows="2"/>
+                                                  maxColumns="3" rows="1"/>
                                     
                                 </af:panelGroupLayout>
                             </af:panelBox>
@@ -391,6 +391,8 @@
                                           maximumLength="#{bindings.Email.hints.precision}"
                                           shortDesc="#{bindings.Email.hints.tooltip}" id="it10">
                                 <f:validator binding="#{bindings.Email.validator}"/>
+                                <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
+                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
                             </af:inputText>
                             <af:inputText value="#{bindings.PhoneNumber.inputValue}"
                                           label="#{bindings.PhoneNumber.hints.label}"
@@ -399,6 +401,8 @@
                                           maximumLength="#{bindings.PhoneNumber.hints.precision}"
                                           shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it11">
                                 <f:validator binding="#{bindings.PhoneNumber.validator}"/>
+                                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                                   messageDetailNoMatch="Invalid Phone number"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>
