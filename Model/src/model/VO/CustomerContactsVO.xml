@@ -250,14 +250,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="ContactPhone"
-        ViewAttribute="ContactPhone"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":c"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="ContactEmail"
         ViewAttribute="ContactEmail"
         Operator="STARTSWITH"
@@ -302,14 +294,6 @@
         Operator="STARTSWITH"
         Conjunction="AND"
         Value=":a1"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="ContactPhone"
-        ViewAttribute="ContactPhone"
-        Operator="STARTSWITH"
-        Conjunction="AND"
-        Value=":b1"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem

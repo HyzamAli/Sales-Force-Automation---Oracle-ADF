@@ -81,12 +81,16 @@
                             maximumLength="#{bindings.Email.hints.precision}"
                             shortDesc="#{bindings.Email.hints.tooltip}" id="it7">
                 <f:validator binding="#{bindings.Email.validator}"/>
+                <af:validateRegExp pattern= "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
+                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
               </af:inputText>
               <af:inputText value="#{bindings.Phone.inputValue}" label="#{bindings.Phone.hints.label}"
                             required="#{bindings.Phone.hints.mandatory}" columns="#{bindings.Phone.hints.displayWidth}"
                             maximumLength="#{bindings.Phone.hints.precision}"
                             shortDesc="#{bindings.Phone.hints.tooltip}" id="it8">
                 <f:validator binding="#{bindings.Phone.validator}"/>
+                 <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" hint="Enter the 10 digit number only. Eg: 9999988888"
+                                                   messageDetailNoMatch="Invalid Phone number"/>
               </af:inputText>
               <af:selectOneChoice value="#{bindings.Industry.inputValue}" label="#{bindings.Industry.label}"
                                   required="#{bindings.Industry.hints.mandatory}"
@@ -105,17 +109,35 @@
           </af:panelBox>
         </af:showDetailItem>
         <af:showDetailItem text="Contacts" id="ContactsNew" icon="#{resource['images:telephone.png']}">
+          <af:outputText value="Customer Contacts" id="ot18"
+                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+            <af:spacer id="s2" height="20px"/>
+          <af:panelBox id="pb13" disclosed="true" showDisclosure="false">
+            <f:facet name="toolbar"/>
+            <af:panelGroupLayout layout="vertical" id="pgl7">
+              <af:query id="qryId5" headerText="Search" disclosed="true"
+                        value="#{bindings.ContactsByCustomersVOCriteriaQuery.queryDescriptor}"
+                        model="#{bindings.ContactsByCustomersVOCriteriaQuery.queryModel}"
+                        queryListener="#{bindings.ContactsByCustomersVOCriteriaQuery.processQuery}"
+                        queryOperationListener="#{bindings.ContactsByCustomersVOCriteriaQuery.processQueryOperation}"
+                        rows="1" maxColumns="1"/>
+            </af:panelGroupLayout>
+          </af:panelBox>
+          <af:spacer id="s200" height="35px"/>
+          
           <af:panelGroupLayout id="pgl6">
             <af:panelBox text="Contacts" id="pb12" showHeader="never" showDisclosure="false">
-              <af:panelCollection id="pc7">
+              <af:panelCollection id="pc7" inlineStyle="padding-left:100px; margin-left:0px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t10">
-                    <af:button text="Add" id="b13">
+                    <af:button text="Add" id="b13" inlineStyle=" background-color:Green; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="p5"/>
                     </af:button>
                     <af:button text="Remove"
-                               disabled="#{!bindings.Delete6.enabled}" id="b14">
+                               disabled="#{!bindings.Delete6.enabled}" id="b14" inlineStyle=" background-color:Red; color:White;"
+                                           selected="true">
                       <af:showPopupBehavior popupId="p17"/>
                     </af:button>
                   </af:toolbar>
@@ -128,23 +150,24 @@
                           selectedRowKeys="#{bindings.ContactsByCustomersVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsByCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsByCustomersVO2.rangeSize}" id="t9"
-                          partialTriggers="::b11 ::b14" columnStretching="last">
-                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Name.label}" id="c19" rowHeader="true">
+                          partialTriggers="::b11 ::b14" columnStretching="last" width="1100">
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Name.label}" id="c19" rowHeader="true"
+                             width="300">
                     <af:link text="" id="l8" action="toContactDetailed">
                       <af:outputText value="#{row.Name}"
                                      shortDesc="#{bindings.ContactsByCustomersVO2.hints.Name.tooltip}" id="ot26"/>
                       <af:setActionListener from="#{row.ContactId}" to="#{pageFlowScope.ContactId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="Primary" id="c23" align="center">
+                  <af:column headerText="Primary" id="c23" align="center" width="100">
                     <af:selectBooleanCheckbox text="" label=" " id="sbc2" value="#{row.Checked}"
                                               rendered="#{row.Checked}"/>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Email.label}" id="c20">
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Email.label}" id="c20" width="400">
                     <af:outputText value="#{row.Email}"
                                    shortDesc="#{bindings.ContactsByCustomersVO2.hints.Email.tooltip}" id="ot27"/>
                   </af:column>
-                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Phone.label}" id="c21">
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Phone.label}" id="c21" width="200">
                     <af:outputText value="#{row.Phone}"
                                    shortDesc="#{bindings.ContactsByCustomersVO2.hints.Phone.tooltip}" id="ot28"/>
                   </af:column>
@@ -195,9 +218,9 @@
         </af:showDetailItem>
         <af:showDetailItem id="dr3" shortDesc="Notes" icon="#{resource['images:attachment.png']}">
           <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="background-color:White;">
-            <af:outputText value="Customer Notes" id="ot18"
+            <af:outputText value="Customer Notes" id="ot31"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:spacer id="s2" height="20px"/>
+            <af:spacer id="s11" height="20px"/>
             <af:panelBox text="PanelBox6" id="pb6" showHeader="never" showDisclosure="false">
               <f:facet name="toolbar"/>
               <af:query id="qryId1" headerText="Search" disclosed="true"
