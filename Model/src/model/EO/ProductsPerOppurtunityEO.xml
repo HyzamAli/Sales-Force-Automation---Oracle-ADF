@@ -69,6 +69,24 @@
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="PRODUCTS_PER_OPPURTUNITY"/>
+  <Attribute
+    Name="ProductName"
+    Precision="30"
+    ColumnName="PRODUCT_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="PRODUCTS_PER_OPPURTUNITY">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="30"/>
+    </DesignTime>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.ProductsPerOppurtunityEO.ProductName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
   <AccessorAttribute
     Name="OppurtunitieEO"
     Association="model.EO.SysC0011005Assoc"
@@ -115,4 +133,8 @@
       <Item Value="model.EO.ProductsPerOppurtunityEO.ProductId"/>
     </AttrArray>
   </Key>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </Entity>

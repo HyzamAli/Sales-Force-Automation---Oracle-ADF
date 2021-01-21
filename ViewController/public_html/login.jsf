@@ -11,23 +11,26 @@
                 <f:facet name="globalLinks"/>
                 <f:facet name="footer"/>
                 <f:facet name="center">
-                    <af:panelBox text="Login" id="pb1" showDisclosure="false" titleHalign="center"
-                                 inlineStyle="margin-top:15%; margin-left:30%; margin-right:30%;" showHeader="never">
-                        <f:facet name="toolbar"/>
-                        <af:panelFormLayout id="pfl1"
-                                            inlineStyle="padding-top:15%; padding-bottom:15%; margin-left:4%;">
-                            <af:outputText value="Sales Assist" id="ot1"
-                                           inlineStyle="font-weight:bold; margin-bottom:15px;"/>
-                            <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
-                            <af:inputText label="Password" id="it2" required="true" secret="true"
-                                          value="#{loginBean.password}"/>
-                            <f:facet name="footer">
-                                <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"
-                                           inlineStyle="padding-right:38%; padding-left:39%; margin-top:15px; padding-top:5px; padding-bottom:5px; background-color:Navy; color:White;"
-                                           selected="true"/>
-                            </f:facet>
-                        </af:panelFormLayout>
-                    </af:panelBox>
+                    <af:panelDashboard id="pd1" columns="1" rowHeight="350px">
+                        <af:panelBox text="Login" id="pb1" showDisclosure="false" titleHalign="center"
+                                     inlineStyle="border-radius:10px 10px 10px 10px / 10px 10px 10px 10px ; margin-top:15%; margin-left:30%; margin-right:30%;"
+                                     showHeader="never">
+                            <f:facet name="toolbar"/>
+                            <af:panelFormLayout id="pfl1"
+                                                inlineStyle="padding-top:15%; padding-bottom:15%; margin-left:4%;">
+                                <af:outputText value="Sales Assist" id="ot1"
+                                               inlineStyle="font-weight:bold; margin-bottom:15px;"/>
+                                <af:inputText label="Username" id="it1" required="true" value="#{loginBean.username}"/>
+                                <af:inputText label="Password" id="it2" required="true" secret="true"
+                                              value="#{loginBean.password}"/>
+                                <f:facet name="footer">
+                                    <af:button text="Login" id="b1" actionListener="#{loginBean.doLogin}"
+                                               inlineStyle="padding-right:38%; padding-left:39%; margin-top:15px; padding-top:5px; padding-bottom:5px; background-color:Navy; color:White;"
+                                               selected="true"/>
+                                </f:facet>
+                            </af:panelFormLayout>
+                        </af:panelBox>
+                    </af:panelDashboard>
                 </f:facet>
                 <f:facet name="start"/>
                 <f:facet name="end"/>

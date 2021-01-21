@@ -5,6 +5,8 @@
   <executables>
     <variableIterator id="variables"/>
     <iterator Binds="RevenueChartVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="RevenueChartVO1Iterator"/>
+    <iterator id="ProductsPerOppurtunitiesVO1Iterator" Binds="ProductsPerOppurtunitiesVO1"
+              DataControl="AppsModuleDataControl" RangeSize="25"/>
   </executables>
   <bindings>
     <tree IterBinding="RevenueChartVO1Iterator" id="RevenueChartVO1" ChangeEventPolicy="ppr">
@@ -12,6 +14,15 @@
         <AttrNames>
           <Item Value="RevenueInQtr"/>
           <Item Value="Quarter"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="ProductsPerOppurtunitiesVO1Iterator" id="ProductsPerOppurtunitiesVO1">
+      <nodeDefinition DefName="model.VO.ProductsPerOppurtunitiesVO" Name="ProductsPerOppurtunitiesVO10">
+        <AttrNames>
+          <Item Value="ProductId"/>
+          <Item Value="TotalPrice"/>
+          <Item Value="ProductName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

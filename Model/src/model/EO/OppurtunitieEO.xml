@@ -52,7 +52,8 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="OPPURTUNITIES"/>
+    TableName="OPPURTUNITIES"
+    DefaultValue="0"/>
   <Attribute
     Name="SaleStage"
     Precision="1000"

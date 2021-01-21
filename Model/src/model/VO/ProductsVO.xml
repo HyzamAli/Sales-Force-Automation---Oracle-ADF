@@ -138,7 +138,8 @@
     EntityAttrName="CategoryId"
     EntityUsage="ProductEO"
     AliasName="CATEGORY_ID"
-    LOVName="LOV_CategoryId">
+    LOVName="LOV_CategoryId"
+    IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
         <CONTROLTYPE
