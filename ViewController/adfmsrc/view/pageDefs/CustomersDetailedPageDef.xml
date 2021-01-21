@@ -35,6 +35,10 @@
     <iterator id="OppurtunitiesVO1Iterator" Binds="OppurtunitiesVO1" DataControl="AppsModuleDataControl"
               RangeSize="25"/>
     <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
+    <iterator Binds="ContactsByCustomersVO2" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="ContactsByCustomersVO2Iterator"/>
+    <iterator id="CustomerContactsVO1Iterator" Binds="CustomerContactsVO1" DataControl="AppsModuleDataControl"
+              RangeSize="25"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
@@ -385,5 +389,39 @@
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
     <list IterBinding="CustomerAppointmentsVO3Iterator" StaticList="false" Uses="LOV_OpId" id="OpId"
           DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <tree IterBinding="ContactsByCustomersVO2Iterator" id="ContactsByCustomersVO2">
+      <nodeDefinition DefName="model.VO.ContactsByCustomersVO" Name="ContactsByCustomersVO20">
+        <AttrNames>
+          <Item Value="Name"/>
+          <Item Value="Email"/>
+          <Item Value="Phone"/>
+          <Item Value="ContactId"/>
+          <Item Value="Checked"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <table IterBinding="CustomerContactsVO1Iterator" id="CustomerContactsVO1">
+      <AttrNames>
+        <Item Value="CcId"/>
+        <Item Value="CustomerId"/>
+        <Item Value="ContactName"/>
+        <Item Value="ContactPhone"/>
+        <Item Value="ContactEmail"/>
+        <Item Value="IsPrimary"/>
+      </AttrNames>
+    </table>
+    <list IterBinding="ContactsByCustomersVO2Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <action IterBinding="ContactsByCustomersVO2Iterator" id="CreateWithParams6" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="ContactId" NDValue="#{ContactsPerCust.contactId}" NDType="java.lang.String"/>
+      <NamedData NDName="CustId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="Name" NDValue="#{ContactsPerCust.contactName}" NDType="java.lang.String"/>
+      <NamedData NDName="Phone" NDValue="#{ContactsPerCust.phone}" NDType="java.lang.String"/>
+      <NamedData NDName="Email" NDValue="#{ContactsPerCust.email}" NDType="java.lang.String"/>
+      <NamedData NDName="IsPrimary" NDValue="#{ContactsPerCust.isPrimary}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="ContactsByCustomersVO2Iterator" id="Delete6" RequiresUpdateModel="false"
+            Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>

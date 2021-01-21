@@ -23,7 +23,10 @@ public class MyDCException extends DCErrorHandlerImpl {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
     
-        if (error_message.startsWith("JBO-26048: Constraint \"ATTENDEES_CUSTOMERS_UK1\" is violated")) {
+        if (error_message.startsWith("JBO-26048: Constraint \"CONTACT_CUST_UK1\" is violated")) {
+            error_message="Contact is already added, try  adding a different contact"; 
+        }
+        else if (error_message.startsWith("JBO-26048: Constraint \"ATTENDEES_CUSTOMERS_UK1\" is violated")) {
             error_message="Contact is already added, try  adding a different contact"; 
         }
         else if (error_message.startsWith("JBO-26048: Constraint \"APPOINTMENT_ATTENDEES_UK1\" is violated")) {

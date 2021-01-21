@@ -29,8 +29,7 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="CUSTOMER_CONTACTS"
-    IsNotNull="true"/>
+    TableName="CUSTOMER_CONTACTS"/>
   <Attribute
     Name="IsPrimary"
     ColumnName="IS_PRIMARY"
@@ -166,18 +165,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.CustomerContactEO.ContactName"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="CustomerContactsCustomerIdCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"CUSTOMER_ID" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="CUSTOMER_CONTACTS_CUSTOMER_ID_"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EO.CustomerContactEO.CustomerId"/>
     </AttrArray>
   </Key>
   <Key
