@@ -302,22 +302,6 @@
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="StartDate"
-        ViewAttribute="StartDate"
-        Operator="="
-        Conjunction="AND"
-        Value=":pSD"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="EndDate"
-        ViewAttribute="EndDate"
-        Operator="="
-        Conjunction="AND"
-        Value=":pED"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="Email"
         ViewAttribute="Email"
         Operator="CONTAINS"

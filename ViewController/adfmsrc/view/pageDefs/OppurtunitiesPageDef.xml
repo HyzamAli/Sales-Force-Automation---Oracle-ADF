@@ -34,24 +34,9 @@
         <Item Value="CloseDate"/>
       </AttrNames>
     </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="Revenue">
-      <AttrNames>
-        <Item Value="Revenue"/>
-      </AttrNames>
-    </attributeValues>
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="WinProbability">
       <AttrNames>
         <Item Value="WinProbability"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="BestCaseRevenue">
-      <AttrNames>
-        <Item Value="BestCaseRevenue"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="WorstCaseRevenue">
-      <AttrNames>
-        <Item Value="WorstCaseRevenue"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="EstimatedDuration">
@@ -72,11 +57,6 @@
         <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="SalesChannel">
       <AttrNames>
         <Item Value="SalesChannel"/>
-      </AttrNames>
-    </attributeValues>
-    <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="BudgetedAmount">
-      <AttrNames>
-        <Item Value="BudgetedAmount"/>
       </AttrNames>
     </attributeValues>
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="ProductQuantity">
