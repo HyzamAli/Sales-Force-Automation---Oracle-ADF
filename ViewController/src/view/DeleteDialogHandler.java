@@ -1,5 +1,7 @@
 package view;
 
+import javax.faces.event.ActionEvent;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.RichDialog;

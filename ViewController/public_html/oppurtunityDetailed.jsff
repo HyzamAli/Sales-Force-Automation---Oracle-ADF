@@ -20,7 +20,7 @@
                 <af:toolbar id="t1" rendered="true">
                   <af:button text="Submit" id="b1" action="#{OppurtunityBean.commitData}"
                              inlineStyle="background-color:Green; color:White; margin-left:500px;" selected="true"/>
-                  <af:button text="Back" id="b12" action="goBack"/>
+                  <af:button text="Back" id="b12" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
                   <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                              disabled="#{!bindings.Commit.enabled}" id="b2" rendered="false"/>
                   <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -80,7 +80,7 @@
                   <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
                 </af:inputDate>
                 <af:inputText value="#{bindings.WinProbability.inputValue}"
-                              label="#{bindings.WinProbability.hints.label}"
+                              label="Win Probability (%)"
                               required="#{bindings.WinProbability.hints.mandatory}"
                               columns="#{bindings.WinProbability.hints.displayWidth}"
                               maximumLength="#{bindings.WinProbability.hints.precision}"
@@ -163,9 +163,6 @@
                                  inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="::p11"/>
                       </af:button>
-                      <af:button text="Update" id="b42">
-                        <af:showPopupBehavior popupId="p22"/>
-                      </af:button>
                     </af:toolbar>
                   </f:facet>
                   <f:facet name="statusbar"/>
@@ -178,8 +175,17 @@
                             rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
                             summary="products by oppurtunity list" columnStretching="last"
                             partialTriggers=":::b14 ::b16 :::b43" width="1100" contentDelivery="lazy">
+                    <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductName.label}" id="c28"
+                               width="600">
+                      <af:link id="l10">
+                        <af:outputText value="#{row.ProductName}"
+                                       shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductName.tooltip}"
+                                       id="ot31"/>
+                        <af:showPopupBehavior popupId="::p22"/>
+                      </af:link>
+                    </af:column>
                     <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductId.label}" id="c13"
-                               rowHeader="true" width="600" align="left">
+                               rowHeader="true" width="600" align="left" rendered="false">
                       <?audit suppress oracle.adf.faces.tablerowheader-badinputcomponent?>
                       <af:selectOneChoice value="#{row.bindings.ProductId.inputValue}"
                                           label="#{row.bindings.ProductId.label}"
@@ -269,7 +275,7 @@
                   </af:panelFormLayout>
                 </af:dialog>
               </af:popup>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p11">
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p11" partialTriggers="pc3:t4">
                 <af:dialog id="d11" title="Delete" type="cancel" binding="#{ProductsOpBean.deleteComponent}">
                   <af:outputText value="Are you sure?" id="ot11" inlineStyle="margin-right:50px;"/>
                   <f:facet name="buttonBar">
@@ -339,7 +345,7 @@
                     </af:selectOneChoice>
                   </af:column>
                   <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c19" rowHeader="true"
-                             width="400">
+                             width="400" align="left">
                     <af:link text="" id="l5" action="toContactDetailed">
                       <af:outputText value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"
                                      id="ot16"/>
@@ -1000,7 +1006,8 @@
                     </af:selectOneChoice>
                   </af:column>
                 </af:table>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p14" resetEditableValues="whenCanceled">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p14" resetEditableValues="whenCanceled"
+                          partialTriggers="b30">
                   <af:dialog id="d15" type="cancel" title="Create Appointment" binding="#{AppointmentsBean.component}">
                     <f:facet name="buttonBar">
                       <af:button actionListener="#{bindings.CreateWithParams5.execute}" text="Create"

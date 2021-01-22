@@ -322,14 +322,6 @@
       Name="CustomerTasksVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
-        Name="Priority1"
-        ViewAttribute="Priority1"
-        Operator="="
-        Conjunction="AND"
-        Value=":pP"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
         Name="DueDate"
         ViewAttribute="DueDate"
         Operator="="

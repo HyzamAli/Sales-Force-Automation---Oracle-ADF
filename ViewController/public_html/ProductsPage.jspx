@@ -150,7 +150,8 @@
                         </af:panelGroupLayout>
                     </f:facet>
                 </af:pageTemplate>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p2" resetEditableValues="whenCanceled">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p2" resetEditableValues="whenCanceled"
+                          partialTriggers="pt1:pc2:t4 b2">
                     <af:dialog title="Create Product" id="d2" type="cancel" binding="#{DialogHandler.dialogComponent}">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create " action="#{DialogHandler.closeDialog}"
@@ -180,6 +181,7 @@
                                           maximumLength="#{bindings.ProductPrice.hints.precision}"
                                           shortDesc="#{bindings.ProductPrice.hints.tooltip}" id="it3">
                                 <f:validator binding="#{bindings.ProductPrice.validator}"/>
+                                <af:validateDoubleRange minimum="1.0" messageDetailMinimum="Should be greater than 0"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductPrice.format}"/>
                             </af:inputText>
                             <af:selectOneChoice value="#{ProductsBean.productCategory}"
@@ -217,7 +219,8 @@
                             <af:selectOneChoice value="#{bindings.CategoryId1.inputValue}"
                                                 label="#{bindings.CategoryId1.label}"
                                                 required="#{bindings.CategoryId1.hints.mandatory}"
-                                                shortDesc="#{bindings.CategoryId1.hints.tooltip}" id="soc3">
+                                                shortDesc="#{bindings.CategoryId1.hints.tooltip}" id="soc3"
+                                                rendered="false">
                                 <f:selectItems value="#{bindings.CategoryId1.items}" id="si3"/>
                                 <f:validator binding="#{bindings.CategoryId1.validator}"/>
                             </af:selectOneChoice>
@@ -228,12 +231,14 @@
                                           maximumLength="#{bindings.ProductPrice.hints.precision}"
                                           shortDesc="#{bindings.ProductPrice.hints.tooltip}" id="it6">
                                 <f:validator binding="#{bindings.ProductPrice.validator}"/>
+                                <af:validateDoubleRange minimum="1.0" messageDetailMinimum="Should be greater than 0"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductPrice.format}"/>
                             </af:inputText>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p4" resetEditableValues="whenCanceled">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p4" resetEditableValues="whenCanceled"
+                          partialTriggers="b6">
                     <af:dialog id="d4" title="Create Product Category" type="cancel"
                                binding="#{ProductCategoriesBean.component}">
                         <f:facet name="buttonBar">

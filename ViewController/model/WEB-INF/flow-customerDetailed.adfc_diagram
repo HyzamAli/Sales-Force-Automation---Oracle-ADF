@@ -121,6 +121,6 @@
       <property
          name="fromOutcome">toOpDetailed</property>
       <property
-         name="sdm:polyPoints">T50,673.3037,299.03516,511.08496,210.23438,B50</property>
+         name="sdm:polyPoints">T50,673.3037,299.03516,511.08496,210.10156,B50</property>
    </ControlFlowCase>
 </SDM>
