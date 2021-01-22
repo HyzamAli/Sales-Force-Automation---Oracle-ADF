@@ -141,8 +141,8 @@
         <AttrNames>
           <Item Value="ProductId"/>
           <Item Value="ProductQuantity"/>
-          <Item Value="ProductPrice"/>
           <Item Value="TotalPrice"/>
+          <Item Value="ProductName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -430,5 +430,10 @@
         <Item Value="ProductName"/>
       </AttrNames>
     </table>
+    <attributeValues IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="ProductName">
+      <AttrNames>
+        <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

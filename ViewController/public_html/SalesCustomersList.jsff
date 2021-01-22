@@ -89,7 +89,7 @@
           <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
         </f:facet>
-        <af:panelFormLayout id="pfl1">
+        <af:panelFormLayout id="pfl1" maxColumns="2" rows="5">
           <af:inputText value="#{CustomersBean.accName}" label="#{bindings.AccName.hints.label}"
                         required="#{bindings.AccName.hints.mandatory}" columns="#{bindings.AccName.hints.displayWidth}"
                         maximumLength="#{bindings.AccName.hints.precision}"
@@ -158,7 +158,7 @@
           </af:selectOneChoice>
           <af:selectOneChoice value="#{CustomersBean.refID}" label="#{bindings.ReferencePt.label}"
                               required="#{bindings.ReferencePt.hints.mandatory}"
-                              shortDesc="#{bindings.ReferencePt.hints.tooltip}" id="soc2">
+                              shortDesc="#{bindings.ReferencePt.hints.tooltip}" id="soc2" rendered="false">
             <f:selectItems value="#{bindings.ReferencePt.items}" id="si2"/>
             <f:validator binding="#{bindings.ReferencePt.validator}"/>
           </af:selectOneChoice>

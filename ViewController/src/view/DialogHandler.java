@@ -46,4 +46,18 @@ public class DialogHandler {
         operationBinding.execute();
 
     }
+    
+    public void rollbackTrans() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding;
+        operationBinding = bindings.getOperationBinding("Rollback");
+        operationBinding.execute();
+    }
+
+    public void rollbackTrans(ActionEvent actionEvent) {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding;
+        operationBinding = bindings.getOperationBinding("Rollback");
+        operationBinding.execute();
+    }
 }

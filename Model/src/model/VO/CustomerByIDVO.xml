@@ -121,7 +121,7 @@
         <LABEL_PLURAL
           ResId="model.VO.CustomerByIDVO.AccUrl_LABEL_PLURAL"/>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="50"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -192,7 +192,7 @@
         <LABEL
           ResId="model.VO.CustomerByIDVO.Email_LABEL"/>
         <DISPLAYWIDTH
-          Value="50"/>
+          Value="45"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -231,7 +231,7 @@
         <CONTROLTYPE
           Value="choice"/>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="50"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

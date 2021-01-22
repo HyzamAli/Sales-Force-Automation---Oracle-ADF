@@ -236,7 +236,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="80"/>
+          Value="45"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
@@ -265,7 +265,7 @@
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
-          Value="60"/>
+          Value="45"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

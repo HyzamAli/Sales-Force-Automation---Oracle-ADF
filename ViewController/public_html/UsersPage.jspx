@@ -326,7 +326,7 @@
                                           maximumLength="#{bindings.PhoneNumber.hints.precision}"
                                           shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it9">
                                 <f:validator binding="#{bindings.PhoneNumber.validator}"/>
-                                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" hint="Enter the 10 digit number only. Eg: 9999988888"
                                                    messageDetailNoMatch="Invalid Phone number"/>
                             </af:inputText>
                         </af:panelFormLayout>
@@ -401,7 +401,7 @@
                                           maximumLength="#{bindings.PhoneNumber.hints.precision}"
                                           shortDesc="#{bindings.PhoneNumber.hints.tooltip}" id="it11">
                                 <f:validator binding="#{bindings.PhoneNumber.validator}"/>
-                                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" hint="Enter the 10 digit number only. Eg: 9999988888"
                                                    messageDetailNoMatch="Invalid Phone number"/>
                             </af:inputText>
                         </af:panelFormLayout>

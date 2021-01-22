@@ -21,15 +21,14 @@
                                                         >
                                                         <af:setActionListener from="- Customers" to="#{viewScope.tabText}"/>
                                     </af:commandMenuItem>
+                                    <af:commandMenuItem text="Contacts" id="cmi4"
+                                                        action="#{viewScope.SalesDynamicRegionBean.salesflowcontact}">
+                                        <af:setActionListener from="- Contacts" to="#{viewScope.tabText}"/>
+                                    </af:commandMenuItem>
                                     <af:commandMenuItem text="Oppurtunities" id="cmi3"
                                                         action="#{viewScope.SalesDynamicRegionBean.salesflowoppurtunities}"
                                                         >  
                                                         <af:setActionListener from="- Oppurtunities" to="#{viewScope.tabText}"/>
-                                    </af:commandMenuItem>
-                                    <af:commandMenuItem text="Contacts" id="cmi4"
-                                                        action="#{viewScope.SalesDynamicRegionBean.salesflowcontact}"
-                                                        >
-                                                        <af:setActionListener from="- Contacts" to="#{viewScope.tabText}"/>
                                     </af:commandMenuItem>
                                     <af:commandMenuItem text="Logout" id="gmi1"
                                                    action="#{LoginBean.onLogout}"/>
