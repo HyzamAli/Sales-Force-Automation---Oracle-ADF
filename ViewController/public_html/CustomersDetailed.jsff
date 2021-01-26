@@ -120,7 +120,7 @@
                         model="#{bindings.ContactsByCustomersVOCriteriaQuery.queryModel}"
                         queryListener="#{bindings.ContactsByCustomersVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.ContactsByCustomersVOCriteriaQuery.processQueryOperation}"
-                        rows="1" maxColumns="1"/>
+                        rows="1" maxColumns="1" saveQueryMode="hidden"/>
             </af:panelGroupLayout>
           </af:panelBox>
           <af:spacer id="s200" height="35px"/>
@@ -146,7 +146,7 @@
                 <af:table value="#{bindings.ContactsByCustomersVO2.collectionModel}" var="row"
                           rows="#{bindings.ContactsByCustomersVO2.rangeSize}"
                           emptyText="#{bindings.ContactsByCustomersVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0" list="summary"
+                          rowBandingInterval="0" summary="list"
                           selectedRowKeys="#{bindings.ContactsByCustomersVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsByCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsByCustomersVO2.rangeSize}" id="t9"
@@ -180,7 +180,8 @@
                     </af:outputText>
                   </af:column>
                 </af:table>
-                <af:popup childCreation="deferred" autoCancel="enabled" id="p5" resetEditableValues="whenCanceled">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p5" resetEditableValues="whenCanceled"
+                          partialTriggers="b11">
                   <af:dialog id="d4" title="Add Contact" type="cancel" binding="#{ContactsPerCust.component}">
                     <f:facet name="buttonBar">
                       <af:button actionListener="#{bindings.CreateWithParams6.execute}" text="Add"
@@ -205,7 +206,7 @@
                   <af:dialog id="d17" title="Remove" type="cancel" binding="#{ContactsPerCust.deleteComponent}">
                     <af:outputText value="Are you sure?" id="ot30" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete6.execute}" text="Delete"
+                      <af:button actionListener="#{bindings.Delete6.execute}" text="Remove"
                                  action="#{ContactsPerCust.closeDeleteDialog}" disabled="#{!bindings.Delete6.enabled}"
                                  id="b22"/>
                     </f:facet>
@@ -229,7 +230,7 @@
                         queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="border-color:#848484; margin-bottom:20px; margin-left:20px; margin-right:020px; margin-top:020px; border-left-color:#848484; border-right-color:#848484; border-top-color:#848484; border-bottom-color:#848484;"
-                        maxColumns="2" rows="1"/>
+                        maxColumns="2" rows="1" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s1" height="35px"/>
             <af:panelBox text="Notes" id="pb2"
@@ -295,7 +296,7 @@
                 </af:table>
               </af:panelCollection>
             </af:panelBox>
-            <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="b4"
+            <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="b4 b37"
                       resetEditableValues="whenCanceled">
               <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
                 <f:facet name="buttonBar">
@@ -333,7 +334,7 @@
                     <f:selectItems value="#{bindings.RepId2.items}" id="si22"/>
                     <f:validator binding="#{bindings.RepId2.validator}"/>
                   </af:selectOneChoice>
-                  <af:selectOneChoice value="#{NotesBean.oppurtunityID}" label="#{bindings.OppurtunityId.label}"
+                  <af:selectOneChoice value="#{NotesBean.oppurtunityID}" label="Oppurtunity"
                                       required="#{bindings.OppurtunityId.hints.mandatory}"
                                       shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc9">
                     <f:selectItems value="#{bindings.OppurtunityId.items}" id="si14"/>
@@ -409,7 +410,7 @@
                         queryListener="#{bindings.CustomerTasksVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerTasksVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                        rows="1" maxColumns="3"/>
+                        rows="1" maxColumns="3" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s6" height="35px"/>
             <af:panelBox text="Tasks" id="pb4"
@@ -530,11 +531,11 @@
                     <af:selectItem label="Medium" value="Medium" id="si24"/>
                     <af:selectItem label="High" value="High" id="si25"/>
                   </af:selectOneChoice>
-                  <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="#{bindings.OppurtunityId1.label}"
+                  <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="Oppurtunity"
                                       required="#{bindings.OppurtunityId1.hints.mandatory}"
                                       shortDesc="#{bindings.OppurtunityId1.hints.tooltip}" id="soc7">
-                    <f:selectItems value="#{bindings.OppurtunityId1.items}" id="si12"/>
-                    <f:validator binding="#{bindings.OppurtunityId1.validator}"/>
+                    <f:selectItems value="#{bindings.OppurtunityId.items}" id="si12"/>
+                    <f:validator binding="#{bindings.OppurtunityId.validator}"/>
                   </af:selectOneChoice>
                   <af:selectOneChoice value="#{TasksBean.repID}" label="#{bindings.RepId2.label}"
                                       required="#{bindings.RepId2.hints.mandatory}"
@@ -615,7 +616,7 @@
                         queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                        rows="1" maxColumns="2"/>
+                        rows="1" maxColumns="2" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s8" height="35px"/>
             <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
@@ -748,7 +749,7 @@
                         <af:selectOneChoice value="#{AppointmentsBean.oppurtunityID}" label="Oppurtunity"
                                             required="#{bindings.OpId.hints.mandatory}"
                                             shortDesc="#{bindings.OpId.hints.tooltip}" id="soc10">
-                          <f:selectItems value="#{bindings.OpId.items}" id="si15"/>
+                          <f:selectItems value="#{bindings.OppurtunityId.items}" id="si15"/>
                           <f:validator binding="#{bindings.OpId.validator}"/>
                         </af:selectOneChoice>
                         <af:inputDate value="#{AppointmentsBean.start}" label="#{viewcontrollerBundle.START_TIME}"
@@ -780,7 +781,8 @@
                     </af:dialog>
                   </af:popup>
                 </af:panelCollection>
-                <af:popup childCreation="deferred" autoCancel="disabled" id="p14" partialTriggers="pc4:t3">
+                <af:popup childCreation="deferred" autoCancel="enabled" id="p14" partialTriggers="pc4:t3"
+                          resetEditableValues="whenCanceled">
                   <af:dialog id="d14" title="Delete" type="cancel" binding="#{AppointmentsBean.deleteComponent}">
                     <af:outputText value="Confirm Action" id="ot20" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
@@ -873,20 +875,20 @@
                   </af:table>
                 </af:panelCollection>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p15">
-                  <af:dialog id="d15" title="Delete" type="cancel" binding="#{AttendeeBean.deleteComponent}">
+                  <af:dialog id="d15" title="Remove" type="cancel" binding="#{AttendeeBean.deleteComponent}">
                     <af:outputText value="Confirm Action" id="ot21" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete3.execute}" text="Delete"
+                      <af:button actionListener="#{bindings.Delete3.execute}" text="Remove"
                                  action="#{AttendeeBean.closeDeleteDialog}" disabled="#{!bindings.Delete3.enabled}"
                                  id="b35"/>
                     </f:facet>
                   </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p16">
-                  <af:dialog id="d16" title="Delete" type="cancel" binding="#{AttendeeCustomerBean.deleteComponent}">
+                  <af:dialog id="d16" title="Remove" type="cancel" binding="#{AttendeeCustomerBean.deleteComponent}">
                     <af:outputText value="Confirm Action" id="ot22" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete5.execute}" text="Delete"
+                      <af:button actionListener="#{bindings.Delete5.execute}" text="Remove"
                                  action="#{AttendeeCustomerBean.closeDeleteDialog}"
                                  disabled="#{!bindings.Delete5.enabled}" id="b36"/>
                     </f:facet>
@@ -989,10 +991,10 @@
                              disabled="#{!bindings.CreateWithParams5.enabled}" id="b27"/>
                 </f:facet>
                 <af:panelFormLayout id="pfl11">
-                  <af:selectOneChoice value="#{AttendeeCustomerBean.contactId}" label="#{bindings.CustId.label}"
+                  <af:selectOneChoice value="#{AttendeeCustomerBean.contactId}" label="Contact"
                                       required="#{bindings.CustId.hints.mandatory}"
                                       shortDesc="#{bindings.CustId.hints.tooltip}" id="soc26">
-                    <f:selectItems value="#{bindings.CustId.items}" id="si41"/>
+                    <f:selectItems value="#{bindings.CustomerId1.items}" id="si41"/>
                     <f:validator binding="#{bindings.CustId.validator}"/>
                   </af:selectOneChoice>
                 </af:panelFormLayout>
@@ -1013,7 +1015,7 @@
                         queryListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQuery}"
                         queryOperationListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQueryOperation}"
                         inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                        maxColumns="2" rows="2"/>
+                        maxColumns="2" rows="2" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s4" height="35px"/>
             <af:panelBox text="Contacts" id="pb5">

@@ -14,10 +14,11 @@
     <searchRegion Criteria="CustomerTasksVOCriteria1" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerTasksVO8Iterator" id="CustomerTasksVOCriteria1Query"/>
     <iterator id="OppurtunitiesVO1Iterator" Binds="OppurtunitiesVO1" DataControl="AppsModuleDataControl"
-              RangeSize="25"/>
+              RangeSize="-1"/>
     <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
     <iterator Binds="CustomerAppointmentsVO6" RangeSize="25" DataControl="AppsModuleDataControl"
               id="CustomerAppointmentsVO6Iterator"/>
+    <iterator Binds="UserProfilesVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
   </executables>
   <bindings>
       <attributeValues IterBinding="ContactByIdVO1Iterator" id="CcId">
@@ -95,8 +96,18 @@
         <Item Value="CreatedOn"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" id="OppurtunityId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="OppurtunitiesVO1Iterator">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OppurtunityId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OpName"/>
+      </ListDisplayAttrNames>
+    </list>
     <attributeValues IterBinding="CustomerTasksVO8Iterator" id="TaskDetails">
       <AttrNames>
         <Item Value="TaskDetails"/>
@@ -117,8 +128,18 @@
         <Item Value="PercentageCompletion"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" Uses="LOV_RepId" id="RepId" DTSupportsMRU="false"
-          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO8Iterator" StaticList="false" id="RepId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject" ListIter="UserProfilesVO1Iterator">
+      <AttrNames>
+        <Item Value="RepId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="UserId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="NameFirst"/>
+      </ListDisplayAttrNames>
+    </list>
     <action IterBinding="CustomerNotesVO8Iterator" id="CreateWithParams" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>

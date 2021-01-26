@@ -33,15 +33,16 @@
     <iterator Binds="CustomerAppointmentsVO1" RangeSize="25" DataControl="AppsModuleDataControl"
               id="CustomerAppointmentsVO1Iterator"/>
     <iterator id="OppurtunitiesVO1Iterator" Binds="OppurtunitiesVO1" DataControl="AppsModuleDataControl"
-              RangeSize="25"/>
+              RangeSize="-1"/>
     <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
-    <iterator Binds="ContactsByCustomersVO2" RangeSize="25" DataControl="AppsModuleDataControl"
+    <iterator Binds="ContactsByCustomersVO2" RangeSize="-1" DataControl="AppsModuleDataControl"
               id="ContactsByCustomersVO2Iterator"/>
     <iterator id="CustomerContactsVO1Iterator" Binds="CustomerContactsVO1" DataControl="AppsModuleDataControl"
-              RangeSize="25"/>
+              RangeSize="-1"/>
     <searchRegion Criteria="ContactsByCustomersVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="ContactsByCustomersVO2Iterator"
                   id="ContactsByCustomersVOCriteriaQuery"/>
+    <iterator Binds="UserProfilesVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
@@ -230,19 +231,29 @@
     <action IterBinding="CustomerContactsVO3Iterator" id="Delete" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <list IterBinding="CustomerNotesVO6Iterator" id="CustomerId1" DTSupportsMRU="true" SelectItemValueMode="ListObject"
-          StaticList="false" ListIter="CustomerContactsVO3Iterator">
+          StaticList="false" ListIter="ContactsByCustomersVO2Iterator">
       <AttrNames>
         <Item Value="ContactId"/>
       </AttrNames>
       <ListAttrNames>
-        <Item Value="CcId"/>
+        <Item Value="ContactId"/>
       </ListAttrNames>
       <ListDisplayAttrNames>
-        <Item Value="ContactName"/>
+        <Item Value="Name"/>
       </ListDisplayAttrNames>
     </list>
-    <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" Uses="LOV_RepId" id="RepId2" DTSupportsMRU="true"
-          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" id="RepId2" DTSupportsMRU="true"
+          SelectItemValueMode="ListObject" ListIter="UserProfilesVO1Iterator">
+      <AttrNames>
+        <Item Value="RepId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="UserId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="NameFirst"/>
+      </ListDisplayAttrNames>
+    </list>
     <action IterBinding="CustomerNotesVO6Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <action IterBinding="CustomerTasksVO6Iterator" id="Delete2" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <attributeValues IterBinding="CustomerAppointmentsVO3Iterator" id="AppId">
@@ -374,8 +385,18 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" Uses="LOV_OppurtunityId" id="OppurtunityId"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO6Iterator" StaticList="false" id="OppurtunityId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject" ListIter="OppurtunitiesVO1Iterator">
+      <AttrNames>
+        <Item Value="OppurtunityId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="OppurtunityId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="OpName"/>
+      </ListDisplayAttrNames>
+    </list>
     <table IterBinding="OppurtunitiesVO1Iterator" id="OppurtunitiesVO1">
       <AttrNames>
         <Item Value="OppurtunityId"/>
@@ -413,8 +434,18 @@
         <Item Value="IsPrimary"/>
       </AttrNames>
     </table>
-    <list IterBinding="ContactsByCustomersVO2Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ContactsByCustomersVO2Iterator" StaticList="false" id="ContactId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="CustomerContactsVO1Iterator">
+      <AttrNames>
+        <Item Value="ContactId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="CcId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ContactName"/>
+      </ListDisplayAttrNames>
+    </list>
     <action IterBinding="ContactsByCustomersVO2Iterator" id="CreateWithParams6" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="ContactId" NDValue="#{ContactsPerCust.contactId}" NDType="java.lang.String"/>

@@ -80,7 +80,7 @@
                       queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                       queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
                       inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                      rows="1" maxColumns="1"/>
+                      rows="1" maxColumns="1" saveQueryMode="hidden"/>
           </af:panelBox>
           <af:spacer id="s1" height="35px"/>
           <af:panelBox text="Notes" id="pb2" showDisclosure="false"
@@ -121,14 +121,14 @@
                     <af:showPopupBehavior popupId=":::p1"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO8.hints.CustName.label}" id="c2" width="135">
+                <af:column headerText="#{bindings.CustomerNotesVO8.hints.CustName.label}" id="c2" width="160">
                   <af:link text="" id="l1" action="toCustomerDetailed">
                     <af:outputText value="#{row.CustName}"
                                    shortDesc="#{bindings.CustomerNotesVO8.hints.CustName.tooltip}" id="ot1"/>
                     <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerNotesVO8.hints.OpName.label}" id="c12" width="135">
+                <af:column headerText="#{bindings.CustomerNotesVO8.hints.OpName.label}" id="c12" width="160">
                   <af:link text="" id="l7" action="toOpDetailed">
                     <af:outputText value="#{row.OpName}" shortDesc="#{bindings.CustomerNotesVO8.hints.OpName.tooltip}"
                                    id="ot8"/>
@@ -200,7 +200,7 @@
                   <f:validator binding="#{bindings.CreatedOn.validator}"/>
                   <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                 </af:inputDate>
-                <af:selectOneChoice value="#{NotesBean.oppurtunityID}" label="#{bindings.OppurtunityId.label}"
+                <af:selectOneChoice value="#{NotesBean.oppurtunityID}" label="Oppurtunity"
                                     required="#{bindings.OppurtunityId.hints.mandatory}"
                                     shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc8">
                   <f:selectItems value="#{bindings.OppurtunityId.items}" id="si8"/>
@@ -281,7 +281,7 @@
                       queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
                       queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"
                       inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                      maxColumns="2" rows="2"/>
+                      maxColumns="2" rows="2" saveQueryMode="hidden"/>
           </af:panelBox>
           <af:spacer id="s2" height="35px"/>
           <af:panelBox text="Tasks" id="pb4" showDisclosure="false"
@@ -391,17 +391,17 @@
                     <af:selectItem label="Medium" value="Medium" id="si24"/>
                     <af:selectItem label="High" value="High" id="si25"/>
                   </af:selectOneChoice>
-                <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="#{bindings.OppurtunityId1.label}"
-                                    required="#{bindings.OppurtunityId1.hints.mandatory}"
-                                    shortDesc="#{bindings.OppurtunityId1.hints.tooltip}" id="soc10">
-                  <f:selectItems value="#{bindings.OppurtunityId1.items}" id="si10"/>
-                  <f:validator binding="#{bindings.OppurtunityId1.validator}"/>
+                <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="Oppurtunity"
+                                    required="#{bindings.OppurtunityId.hints.mandatory}"
+                                    shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc10">
+                  <f:selectItems value="#{bindings.OppurtunityId.items}" id="si10"/>
+                  <f:validator binding="#{bindings.OppurtunityId.validator}"/>
                 </af:selectOneChoice>
                 <af:selectOneChoice value="#{TasksBean.repID}" label="#{bindings.RepId1.label}"
-                                    required="#{bindings.RepId1.hints.mandatory}"
-                                    shortDesc="#{bindings.RepId1.hints.tooltip}" id="soc11">
-                  <f:selectItems value="#{bindings.RepId1.items}" id="si11"/>
-                  <f:validator binding="#{bindings.RepId1.validator}"/>
+                                    required="#{bindings.RepId.hints.mandatory}"
+                                    shortDesc="#{bindings.RepId.hints.tooltip}" id="soc11">
+                  <f:selectItems value="#{bindings.RepId.items}" id="si11"/>
+                  <f:validator binding="#{bindings.RepId.validator}"/>
                 </af:selectOneChoice>
                 <af:inputText value="#{TasksBean.percentageDone}" label="#{bindings.PercentageCompletion.hints.label}"
                               required="#{bindings.PercentageCompletion.hints.mandatory}"
@@ -493,7 +493,7 @@
         <af:panelGroupLayout id="pgl4">
           <af:panelBox text="Appointments" id="pb7" showDisclosure="false">
             <f:facet name="toolbar"/>
-            <af:panelCollection id="pc3">
+            <af:panelCollection id="pc3" inlineStyle="padding-left:100px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar"/>
               <f:facet name="statusbar"/>
@@ -503,41 +503,44 @@
                         rowBandingInterval="0"
                         selectedRowKeys="#{bindings.CustomerAppointmentsVO6.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerAppointmentsVO6.collectionModel.makeCurrent}"
-                        rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO6.rangeSize}" id="t6">
-                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppId.label}" id="c15" rendered="false">
+                        rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO6.rangeSize}" id="t6"
+                        inlineStyle="width:1100px;">
+                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppId.label}" id="c15" rendered="false"
+                           width="275">
                   <af:outputText value="#{row.AppId}"
                                  shortDesc="#{bindings.CustomerAppointmentsVO6.hints.AppId.tooltip}" id="ot11">
                     <af:convertNumber groupingUsed="false"
                                       pattern="#{bindings.CustomerAppointmentsVO6.hints.AppId.format}"/>
                   </af:outputText>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppName.label}" id="c16">
+                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppName.label}" id="c16" width="275">
                   <af:link text="" id="l10">
                     <af:outputText value="#{row.AppName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO6.hints.AppName.tooltip}" id="ot12"/>
                     <af:showPopupBehavior popupId="::p7"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="Oppurtunity" id="c17">
+                <af:column headerText="Oppurtunity" id="c17" width="275">
                   <af:link text="" id="l11" action="toOpDetailed">
                     <af:outputText value="#{row.OpName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO6.hints.OpName.tooltip}" id="ot13"/>
                     <af:setActionListener from="#{row.OpId}" to="#{pageFlowScope.OpId}"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="Customer" id="c18">
+                <af:column headerText="Customer" id="c18" width="275">
                   <af:link text="" id="l12" action="toCustomerDetailed">
                     <af:outputText value="#{row.CustName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO6.hints.CustName.tooltip}" id="ot14"/>
                         <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                   </af:link>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppointmentType.label}" id="c19">
+                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppointmentType.label}" id="c19"
+                           width="275">
                   <af:outputText value="#{row.AppointmentType}"
                                  shortDesc="#{bindings.CustomerAppointmentsVO6.hints.AppointmentType.tooltip}"
                                  id="ot15"/>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.OpId.label}" id="c20">
+                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.OpId.label}" id="c20" rendered="false">
                   <af:selectOneChoice value="#{row.bindings.OpId.inputValue}" label="#{row.bindings.OpId.label}"
                                       required="#{bindings.CustomerAppointmentsVO6.hints.OpId.mandatory}"
                                       shortDesc="#{bindings.CustomerAppointmentsVO6.hints.OpId.tooltip}" readOnly="true"
@@ -546,7 +549,8 @@
                     <f:validator binding="#{row.bindings.OpId.validator}"/>
                   </af:selectOneChoice>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.CustomerId.label}" id="c21">
+                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.CustomerId.label}" id="c21"
+                           rendered="false">
                   <af:selectOneChoice value="#{row.bindings.CustomerId.inputValue}"
                                       label="#{row.bindings.CustomerId.label}"
                                       required="#{bindings.CustomerAppointmentsVO6.hints.CustomerId.mandatory}"

@@ -14,7 +14,7 @@
                   queryListener="#{bindings.CustomersVOCriteriaQuery.processQuery}"
                   queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"
                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                  maxColumns="2" rows="1"/>
+                  maxColumns="2" rows="1" saveQueryMode="hidden"/>
       </af:panelBox>
       <af:panelBox text="Customers" id="pb1"
                    inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
@@ -51,7 +51,7 @@
                     rowBandingInterval="0" selectedRowKeys="#{bindings.CustomersVO1.collectionModel.selectedRow}"
                     selectionListener="#{bindings.CustomersVO1.collectionModel.makeCurrent}" rowSelection="single"
                     fetchSize="#{bindings.CustomersVO1.rangeSize}" id="t3" summary="Customers List"
-                    partialTriggers=":::b4 ::b2" inlineStyle="padding-left:0px;" width="1100">
+                    partialTriggers=":::b4 ::b2 :::b6" inlineStyle="padding-left:0px;" width="1100">
             <af:column headerText="#{bindings.CustomersVO1.hints.AccName.label}" id="c2" rowHeader="true" width="200"
                        align="left">
               <af:link text="" id="l1" action="toDetailed">
@@ -171,7 +171,8 @@
                                     <af:outputText value="Confirm Action" id="ot1" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
                                         <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b6"/>
+                                                   disabled="#{!bindings.Delete.enabled}" id="b6"
+                                                   partialSubmit="false"/>
                                     </f:facet>
                                 </af:dialog>
                             </af:popup>

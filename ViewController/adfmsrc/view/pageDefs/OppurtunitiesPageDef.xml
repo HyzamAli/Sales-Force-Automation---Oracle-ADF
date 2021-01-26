@@ -85,12 +85,9 @@
       <NamedData NDName="CustomerId" NDValue="#{OppurtunityBean.customerId}" NDType="java.lang.String"/>
       <NamedData NDName="RefContact" NDValue="#{OppurtunityBean.refId}" NDType="java.lang.String"/>
       <NamedData NDName="ManagerId" NDValue="#{OppurtunityBean.managerId}" NDType="java.lang.String"/>
-      <NamedData NDName="Revenue" NDValue="#{OppurtunityBean.salesRevenue}" NDType="java.lang.String"/>
       <NamedData NDName="SaleStage" NDValue="#{OppurtunityBean.salesStage}" NDType="java.lang.String"/>
       <NamedData NDName="SaleMethod" NDValue="#{OppurtunityBean.salesMethod}" NDType="java.lang.String"/>
       <NamedData NDName="SalesChannel" NDValue="#{OppurtunityBean.salesChannel}" NDType="java.lang.String"/>
-      <NamedData NDName="BestCaseRevenue" NDValue="#{OppurtunityBean.bestCase}" NDType="java.lang.String"/>
-      <NamedData NDName="WorstCaseRevenue" NDValue="#{OppurtunityBean.worstCase}" NDType="java.lang.String"/>
       <NamedData NDName="RiskLevel" NDValue="#{OppurtunityBean.riskLevel}" NDType="java.lang.String"/>
       <NamedData NDName="DecisionLevel" NDValue="#{OppurtunityBean.decisionLevel}" NDType="java.lang.String"/>
       <NamedData NDName="ProductQuantity" NDValue="#{OppurtunityBean.quantity}" NDType="java.lang.String"/>

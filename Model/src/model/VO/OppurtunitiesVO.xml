@@ -147,10 +147,7 @@
     AliasName="OPPURTUNITY_ID"
     IsUpdateable="while_insert">
     <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
+      <SchemaBasedProperties/>
     </Properties>
   </ViewAttribute>
   <ViewAttribute
@@ -246,7 +243,8 @@
     PrecisionRule="true"
     EntityAttrName="Revenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="REVENUE">
+    AliasName="REVENUE"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <DISPLAYWIDTH
@@ -259,7 +257,8 @@
     PrecisionRule="true"
     EntityAttrName="BestCaseRevenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="BEST_CASE_REVENUE">
+    AliasName="BEST_CASE_REVENUE"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <LABEL
@@ -274,7 +273,8 @@
     PrecisionRule="true"
     EntityAttrName="WorstCaseRevenue"
     EntityUsage="OppurtunitieEO"
-    AliasName="WORST_CASE_REVENUE">
+    AliasName="WORST_CASE_REVENUE"
+    DefaultValue="0">
     <Properties>
       <SchemaBasedProperties>
         <LABEL

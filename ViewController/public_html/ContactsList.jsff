@@ -12,7 +12,7 @@
                 queryListener="#{bindings.ContactsListVOCriteriaQuery.processQuery}"
                 queryOperationListener="#{bindings.ContactsListVOCriteriaQuery.processQueryOperation}"
                 inlineStyle="padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:010px;"
-                maxColumns="2" rows="2"/>
+                maxColumns="2" rows="2" saveQueryMode="hidden"/>
     </af:panelBox>
     <af:panelBox id="pb1" text="Contacts"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"
@@ -22,7 +22,8 @@
           <af:outputText value="Are you sure?" id="ot4" inlineStyle="margin-right:50px;"/>
           <f:facet name="buttonBar">
             <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                       action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b6"/>
+                       action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b6"
+                       partialSubmit="false"/>
           </f:facet>
         </af:dialog>
       </af:popup>

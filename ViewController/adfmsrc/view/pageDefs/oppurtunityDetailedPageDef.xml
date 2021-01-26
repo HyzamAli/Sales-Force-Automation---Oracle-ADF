@@ -21,9 +21,9 @@
                   Binds="ProductsPerOppurtunitiesVO4Iterator" id="ProductsPerOppurtunitiesVOCriteriaQuery"/>
     <iterator Binds="SalesTeamsVO4" RangeSize="25" DataControl="AppsModuleDataControl" id="SalesTeamsVO4Iterator"/>
     <iterator Binds="FilesVO2" RangeSize="25" DataControl="AppsModuleDataControl" id="FilesVO2Iterator"/>
-    <iterator Binds="ContactsOpVO2" RangeSize="25" DataControl="AppsModuleDataControl" id="ContactsOpVO2Iterator"/>
+    <iterator Binds="ContactsOpVO2" RangeSize="-1" DataControl="AppsModuleDataControl" id="ContactsOpVO2Iterator"/>
     <iterator id="CustomerContactsVO1Iterator" Binds="CustomerContactsVO1" DataControl="AppsModuleDataControl"
-              RangeSize="25"/>
+              RangeSize="-1"/>
     <searchRegion Criteria="ContactsOpVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="ContactsOpVO2Iterator" id="ContactsOpVOCriteriaQuery"/>
     <iterator id="CustomersVO1Iterator" Binds="CustomersVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
@@ -40,7 +40,8 @@
     <searchRegion Criteria="CustomerAppointmentsVOCriteria"
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVOCriteriaQuery"/>
-    <iterator id="ProductsVO1Iterator" Binds="ProductsVO1" DataControl="AppsModuleDataControl" RangeSize="25"/>
+    <iterator id="ProductsVO1Iterator" Binds="ProductsVO1" DataControl="AppsModuleDataControl" RangeSize="-1"/>
+    <iterator Binds="UserProfilesVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
   </executables>
   <bindings>
         <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustomerId1">
@@ -158,10 +159,30 @@
     </attributeValues>
     <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" Uses="LOV_RepId" id="RepId" DTSupportsMRU="false"
-          SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" id="ContactId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="ContactsOpVO2Iterator">
+      <AttrNames>
+        <Item Value="ContactId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="ContactId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Name"/>
+      </ListDisplayAttrNames>
+    </list>
+    <list IterBinding="CustomerNotesVO7Iterator" StaticList="false" id="RepId" DTSupportsMRU="false"
+          SelectItemValueMode="ListObject" ListIter="UserProfilesVO1Iterator">
+      <AttrNames>
+        <Item Value="RepId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="UserId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="NameFirst"/>
+      </ListDisplayAttrNames>
+    </list>
     <attributeValues IterBinding="CustomerNotesVO7Iterator" id="CreatedOn">
       <AttrNames>
         <Item Value="CreatedOn"/>
@@ -218,8 +239,18 @@
       <NamedData NDName="OpName" NDValue="#{TasksBean.opName}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="CustomerTasksVO7Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
-    <list IterBinding="ProductsPerOppurtunitiesVO4Iterator" StaticList="false" Uses="LOV_ProductId12" id="ProductId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ProductsPerOppurtunitiesVO4Iterator" StaticList="false" id="ProductId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="ProductsVO1Iterator">
+      <AttrNames>
+        <Item Value="ProductId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="ProductId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ProductName"/>
+      </ListDisplayAttrNames>
+    </list>
     <attributeValues IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="ProductQuantity1">
       <AttrNames>
         <Item Value="ProductQuantity"/>
@@ -266,8 +297,18 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="ContactsOpVO2Iterator" StaticList="false" Uses="LOV_ContactId" id="ContactId2"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ContactsOpVO2Iterator" StaticList="false" id="ContactId2"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="CustomerContactsVO1Iterator">
+      <AttrNames>
+        <Item Value="ContactId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="CcId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="ContactName"/>
+      </ListDisplayAttrNames>
+    </list>
     <action IterBinding="ContactsOpVO2Iterator" id="CreateWithParams4" RequiresUpdateModel="true"
             Action="createWithParams">
       <NamedData NDName="ContactId" NDValue="#{ContactsPerOpBean.contactId}" NDType="java.lang.String"/>
@@ -380,7 +421,7 @@
       <NamedData NDName="Location" NDValue="#{AppointmentsBean.location}" NDType="java.lang.String"/>
       <NamedData NDName="Resolution" NDValue="#{AppointmentsBean.resolution}" NDType="java.lang.String"/>
       <NamedData NDName="OpId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
-      <NamedData NDName="CustomerId" NDValue="#{AppointmentsBean.customerID}" NDType="java.lang.String"/>
+      <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId1.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="OpName" NDValue="#{AppointmentsBean.opName}" NDType="java.lang.String"/>
       <NamedData NDName="CustName" NDValue="#{AppointmentsBean.customerName}" NDType="java.lang.String"/>
       <NamedData NDName="AppointmentType" NDValue="#{AppointmentsBean.type}" NDType="java.lang.String"/>

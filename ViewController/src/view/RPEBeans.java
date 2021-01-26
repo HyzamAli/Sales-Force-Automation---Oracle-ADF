@@ -14,6 +14,8 @@ public class RPEBeans {
     private Date startDate;
     private Date endDate;
     private RichDialog component;
+    private RichDialog deleteComponent;
+    
 
     public RPEBeans() {
     }
@@ -54,7 +56,28 @@ public class RPEBeans {
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
         OperationBinding operationBinding = bindings.getOperationBinding("Commit");
         operationBinding.execute();
+        operationBinding = bindings.getOperationBinding("Execute");
+        operationBinding.execute();
         RichPopup rp = (RichPopup) component.getParent();
         rp.hide();
+    }
+    
+    public String closeDialogSave() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        operationBinding = bindings.getOperationBinding("Execute");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) deleteComponent.getParent();
+        rp.hide();
+        return null;
+    }
+
+    public void setDeleteComponent(RichDialog deleteComponent) {
+        this.deleteComponent = deleteComponent;
+    }
+
+    public RichDialog getDeleteComponent() {
+        return deleteComponent;
     }
 }

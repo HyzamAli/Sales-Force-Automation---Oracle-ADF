@@ -22,7 +22,7 @@
                                                   model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
                                                   queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
                                                   queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
-                                                  maxColumns="3" rows="1"/>
+                                                  maxColumns="3" rows="1" saveQueryMode="hidden"/>
                                     
                                 </af:panelGroupLayout>
                             </af:panelBox>
@@ -31,9 +31,9 @@
                                 <f:facet name="toolbar">
                                     <af:toolbar id="t4" rendered="false">
                                         <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
-                                                   disabled="#{!bindings.Commit.enabled}" id="b5"/>
+                                                    id="b5"/>
                                         <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
-                                                   disabled="#{!bindings.Rollback.enabled}" immediate="true" id="b10">
+                                                    immediate="true" id="b10">
                                             <af:resetActionListener/>
                                         </af:button>
                                     </af:toolbar>
@@ -52,6 +52,8 @@
                                            selected="true">
                                                 <af:showPopupBehavior popupId="::p4"/>
                                             </af:button>
+                                            <af:button actionListener="#{bindings.Execute.execute}" text="Execute"
+                                                        id="b11" rendered="false"/>
                                         </af:toolbar>
                                     </f:facet>
                                     <f:facet name="statusbar"/>
@@ -63,7 +65,7 @@
                                               selectionListener="#{bindings.UserProfilesVO1.collectionModel.makeCurrent}"
                                               rowSelection="single" fetchSize="#{bindings.UserProfilesVO1.rangeSize}"
                                               id="t1" summary="Users List"
-                                              partialTriggers="::b3 ::::b2 ::::p2 ::::d2"
+                                              partialTriggers="::b3 ::::b2 ::::p2 ::::d2 :::b4"
                                               inlineStyle="min-width:100%;" styleClass="AFStretchWidth" width="1175">
                                         <af:column headerText="#{bindings.UserProfilesVO1.hints.NameFirst.label}"
                                                    id="c1" rowHeader="true" width="175" align="left">
@@ -123,7 +125,7 @@
                                         <f:facet name="buttonBar">
                                             <af:button actionListener="#{bindings.Delete.execute}"
                                                        action="#{UsersBean.closeDialogSave}" text="Yes"
-                                                       id="b4"/>
+                                                       id="b4" partialSubmit="false"/>
                                         </f:facet>
                                     </af:dialog>
                                 </af:popup>
@@ -157,7 +159,7 @@
                                               selectionListener="#{bindings.RolesPerEmployeeVO2.collectionModel.makeCurrent}"
                                               rowSelection="single"
                                               fetchSize="#{bindings.RolesPerEmployeeVO2.rangeSize}" id="t2"
-                                              columnStretching="last" partialTriggers="::b7 ::b8 :::b4" width="1175">
+                                              columnStretching="last" partialTriggers="::b7 ::b8 :::b4 :::b9" width="1175">
                                         <af:column headerText="#{bindings.RolesPerEmployeeVO2.hints.RoleId.label}"
                                                    id="c6" rowHeader="true" align="left" width="775">
                                             <af:selectOneChoice value="#{row.bindings.RoleId.inputValue}"
@@ -199,7 +201,8 @@
                                             <f:facet name="buttonBar">
                                                 <af:button actionListener="#{bindings.CreateWithParams1.execute}"
                                                            action="#{RPEBeans.closeDialog}" text="Add"
-                                                           disabled="#{!bindings.CreateWithParams1.enabled}" id="b8"/>
+                                                           disabled="#{!bindings.CreateWithParams1.enabled}" id="b8"
+                                                           partialSubmit="false"/>
                                             </f:facet>
                                             <af:panelFormLayout id="pfl3">
                                                 <af:selectOneChoice value="#{RPEBeans.roleId}"
@@ -233,11 +236,12 @@
                             </af:panelBox>
                             
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
-                                <af:dialog id="d6" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
+                                <af:dialog id="d6" title="Delete" type="cancel" binding="#{RPEBeans.deleteComponent}">
                                     <af:outputText value="Are you sure?" id="ot7" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
                                         <af:button actionListener="#{bindings.Delete1.execute}"
-                                                   action="#{DeleteDialogHandler.closeDialogSave}" text="Yes" id="b9"/>
+                                                   action="#{RPEBeans.closeDialogSave}" text="Yes" id="b9"
+                                                   partialSubmit="false"/>
                                     </f:facet>
                                 </af:dialog>
                             </af:popup>
@@ -246,11 +250,11 @@
                 </af:pageTemplate>
                 <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="b2"
                           resetEditableValues="whenCanceled">
-                    <af:dialog id="d4" title="Create User" type="cancel" binding="#{DialogHandler.dialogComponent}">
+                    <af:dialog id="d4" title="Create User" type="cancel" binding="#{UsersBean.createComponent}">
                         <f:facet name="buttonBar">
                             <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create "
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"
-                                       action="#{DialogHandler.closeDialog}"/>
+                                       action="#{UsersBean.closeDialog}" partialSubmit="false"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl1">
                             <af:inputText value="#{UsersBean.fname}" label="#{bindings.NameFirst.hints.label}"
@@ -277,13 +281,14 @@
                             <af:selectOneChoice value="#{UsersBean.supervisor}" label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
                                                 shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc2"
-                                                partialTriggers="pt1:pc2:t2 pt1:b9 pt1:pc2:b8">
+                                                partialTriggers="pt1:pc1:t1">
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si2"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
                             <af:selectOneChoice value="#{UsersBean.role}" label="#{bindings.RolesId.label}"
                                                 required="#{bindings.RolesId.hints.mandatory}"
-                                                shortDesc="#{bindings.RolesId.hints.tooltip}" id="soc1">
+                                                shortDesc="#{bindings.RolesId.hints.tooltip}" id="soc1"
+                                                showRequired="true">
                                 <f:selectItems value="#{bindings.RolesId.items}" id="si1"/>
                                 <f:validator binding="#{bindings.RolesId.validator}"/>
                             </af:selectOneChoice>

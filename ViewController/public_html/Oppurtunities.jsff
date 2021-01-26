@@ -21,7 +21,8 @@
                 model="#{bindings.OppurtunitiesVOCriteriaQuery.queryModel}"
                 queryListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQuery}"
                 queryOperationListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQueryOperation}"
-                inlineStyle="margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:0px; padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:0010px;"/>
+                inlineStyle="margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:0px; padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:0010px;"
+                saveQueryMode="hidden"/>
     </af:panelBox>
     <af:panelBox text="Oppurtunities" id="pb2"
                  inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
@@ -142,7 +143,7 @@
           </af:selectOneChoice>
           <af:selectOneChoice value="#{OppurtunityBean.refId}" label="#{bindings.RefContact.label}"
                               required="#{bindings.RefContact.hints.mandatory}"
-                              shortDesc="#{bindings.RefContact.hints.tooltip}" id="soc3">
+                              shortDesc="#{bindings.RefContact.hints.tooltip}" id="soc3" rendered="false">
             <f:selectItems value="#{bindings.RefContact.items}" id="si3"/>
             <f:validator binding="#{bindings.RefContact.validator}"/>
           </af:selectOneChoice>
@@ -227,7 +228,8 @@
         <af:outputText value="Confirm Action" id="ot6" inlineStyle="margin-right:50px;"/>
         <f:facet name="buttonBar">
           <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
-                     action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b8"/>
+                     action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b8"
+                     partialSubmit="false"/>
         </f:facet>
       </af:dialog>
     </af:popup>
