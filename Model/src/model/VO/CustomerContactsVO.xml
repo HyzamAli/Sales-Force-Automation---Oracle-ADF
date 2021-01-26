@@ -75,10 +75,7 @@
     AliasName="CC_ID"
     IsUpdateable="while_insert">
     <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
+      <SchemaBasedProperties/>
     </Properties>
   </ViewAttribute>
   <ViewAttribute

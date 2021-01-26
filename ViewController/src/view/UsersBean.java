@@ -21,6 +21,7 @@ public class UsersBean {
     private String email;
     private String phone;
     private RichDialog component;
+    private RichDialog createComponent;
 
     public void setEmail(String email) {
         this.email = email;
@@ -109,7 +110,20 @@ public class UsersBean {
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
         OperationBinding operationBinding = bindings.getOperationBinding("Commit");
         operationBinding.execute();
+        operationBinding = bindings.getOperationBinding("Execute");
+        operationBinding.execute();
         RichPopup rp = (RichPopup) component.getParent();
+        rp.hide();
+        return null;
+    }
+    
+    public String closeDialog() {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        operationBinding = bindings.getOperationBinding("Execute");
+        operationBinding.execute();
+        RichPopup rp = (RichPopup) createComponent.getParent();
         rp.hide();
         return null;
     }
@@ -120,5 +134,13 @@ public class UsersBean {
 
     public RichDialog getComponent() {
         return component;
+    }
+
+    public void setCreateComponent(RichDialog createComponent) {
+        this.createComponent = createComponent;
+    }
+
+    public RichDialog getCreateComponent() {
+        return createComponent;
     }
 }

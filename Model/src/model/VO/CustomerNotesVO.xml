@@ -38,6 +38,10 @@
     Name="OppurtunitiesVO1"
     ViewObjectName="model.VO.OppurtunitiesVO"
     RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="ContactsByCustomersVO1"
+    ViewObjectName="model.VO.ContactsByCustomersVO"
+    RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_ContactId"
     ListVOName="CustomerContactsVO1"
@@ -111,6 +115,24 @@
     </AttrArray>
     <DisplayCriteria/>
   </ListBinding>
+  <ListBinding
+    Name="LOV_ContactId1"
+    ListVOName="ContactsByCustomersVO1"
+    NullValueFlag="start"
+    NullValueId="${adfBundle['oracle.javatools.resourcebundle.SystemBundle']['NULL_VALUE_RESID']}"
+    MRUCount="0">
+    <AttrArray Name="AttrNames">
+      <Item Value="ContactId"/>
+    </AttrArray>
+    <AttrArray Name="AttrExpressions"/>
+    <AttrArray Name="ListAttrNames">
+      <Item Value="ContactId"/>
+    </AttrArray>
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="Name"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </ListBinding>
   <EntityUsage
     Name="CustomerNoteEO"
     Entity="model.EO.CustomerNoteEO"/>
@@ -152,16 +174,16 @@
     EntityAttrName="ContactId"
     EntityUsage="CustomerNoteEO"
     AliasName="CONTACT_ID"
-    LOVName="LOV_ContactId"
+    LOVName="LOV_ContactId1"
     IsUpdateable="while_insert">
     <Properties>
       <SchemaBasedProperties>
-        <CONTROLTYPE
-          Value="choice"/>
         <LABEL
           ResId="model.VO.CustomerNotesVO.ContactId_LABEL"/>
         <DISPLAYWIDTH
           Value="150"/>
+        <CONTROLTYPE
+          Value="choice"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

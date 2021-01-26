@@ -149,7 +149,8 @@
                           model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
                           queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
                           queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
-                          inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"/>
+                          inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
+                          saveQueryMode="hidden"/>
                 <af:panelCollection id="pc3"
                                     inlineStyle="padding-bottom:010px; padding-right:010px; padding-top:010px; padding-left:100px;">
                   <f:facet name="menus"/>
@@ -316,7 +317,8 @@
                             value="#{bindings.ContactsOpVOCriteriaQuery.queryDescriptor}"
                             model="#{bindings.ContactsOpVOCriteriaQuery.queryModel}"
                             queryListener="#{bindings.ContactsOpVOCriteriaQuery.processQuery}"
-                            queryOperationListener="#{bindings.ContactsOpVOCriteriaQuery.processQueryOperation}"/>
+                            queryOperationListener="#{bindings.ContactsOpVOCriteriaQuery.processQueryOperation}"
+                            saveQueryMode="hidden"/>
                 
                 
               </af:panelGroupLayout>
@@ -421,7 +423,7 @@
                         queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                        rows="1" maxColumns="1"/>
+                        rows="1" maxColumns="1" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s1" height="35px"/>
             <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
@@ -540,7 +542,7 @@
               <af:popup childCreation="deferred" autoCancel="enabled" id="p4" partialTriggers="pc1:t2"
                         resetEditableValues="whenCanceled">
                 <af:dialog id="d4" title="Edit" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
-                           affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
+                           affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel" partialTriggers="pc1:t2">
                   <f:facet name="buttonBar"/>
                   <af:panelFormLayout id="pfl5">
                     <af:inputText value="#{bindings.NotesTitle.inputValue}" label="#{bindings.NotesTitle.hints.label}"
@@ -593,7 +595,7 @@
                         queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
                         queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"
                         inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                        maxColumns="2" rows="2"/>
+                        maxColumns="2" rows="2" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s5" height="35px"/>
             <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
@@ -692,14 +694,13 @@
                     <af:selectOneChoice value="#{TasksBean.contactID}" label="#{bindings.ContactId1.label}"
                                         required="#{bindings.ContactId1.hints.mandatory}"
                                         shortDesc="#{bindings.ContactId1.hints.tooltip}" id="soc18">
-                      <f:selectItems value="#{bindings.ContactId1.items}" id="si32"/>
-                      <f:validator binding="#{bindings.ContactId1.validator}"/>
+                      <f:selectItems value="#{bindings.ContactId.items}" id="si32"/>
                     </af:selectOneChoice>
                     <af:selectOneChoice value="#{TasksBean.repID}" label="#{bindings.RepId1.label}"
-                                        required="#{bindings.RepId1.hints.mandatory}"
-                                        shortDesc="#{bindings.RepId1.hints.tooltip}" id="soc19">
-                      <f:selectItems value="#{bindings.RepId1.items}" id="si33"/>
-                      <f:validator binding="#{bindings.RepId1.validator}"/>
+                                        required="#{bindings.RepId.hints.mandatory}"
+                                        shortDesc="#{bindings.RepId.hints.tooltip}" id="soc19">
+                      <f:selectItems value="#{bindings.RepId.items}" id="si33"/>
+                      <f:validator binding="#{bindings.RepId.validator}"/>
                     </af:selectOneChoice>
                     <af:selectOneChoice value="#{TasksBean.priority}" label="Priority" id="soc315">
                       <f:validator binding="#{bindings.Priority1.validator}"/>
@@ -827,10 +828,10 @@
                   </f:facet>
                   <af:panelFormLayout id="pfl7">
                     <af:selectOneChoice value="#{SalesTeamBean.empId}" label="#{bindings.EmployeeId.label}"
-                                        required="#{bindings.EmployeeId.hints.mandatory}"
-                                        shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="soc14">
-                      <f:selectItems value="#{bindings.EmployeeId.items}" id="si28"/>
-                      <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                                        required="#{bindings.RepId.hints.mandatory}"
+                                        shortDesc="#{bindings.RepId.hints.tooltip}" id="soc14">
+                      <f:selectItems value="#{bindings.RepId.items}" id="si28"/>
+                      <f:validator binding="#{bindings.RepId.validator}"/>
                     </af:selectOneChoice>
                   </af:panelFormLayout>
                 </af:dialog>
@@ -928,7 +929,8 @@
                         queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
                         rows="1" maxColumns="2"
-                        inlineStyle="padding-bottom:15px; padding-left:15px; padding-right:15px; padding-top:15px;"/>
+                        inlineStyle="padding-bottom:15px; padding-left:15px; padding-right:15px; padding-top:15px;"
+                        saveQueryMode="hidden"/>
             </af:panelGroupLayout>
           </af:panelBox>
           
@@ -1015,9 +1017,11 @@
                                  action="#{AppointmentsBean.closeDialog}">
                         <af:setActionListener from="#{bindings.OppurtunityId.inputValue}"
                                               to="#{AppointmentsBean.oppurtunityID}"/>
+                        <af:setActionListener from="#{bindings.CustomerId1.inputValue}"
+                                              to="#{AppointmentsBean.customerID}"/>
                       </af:button>
                     </f:facet>
-                    <af:panelFormLayout id="pfl11">
+                    <af:panelFormLayout id="pfl11" maxColumns="2" rows="4">
                       <af:inputText value="#{AppointmentsBean.name}" label="#{bindings.AppName.hints.label}"
                                     required="#{bindings.AppName.hints.mandatory}"
                                     columns="#{bindings.AppName.hints.displayWidth}"
@@ -1025,30 +1029,19 @@
                                     shortDesc="#{bindings.AppName.hints.tooltip}" id="it9">
                         <f:validator binding="#{bindings.AppName.validator}"/>
                       </af:inputText>
-                      <af:inputText value="#{AppointmentsBean.description}"
-                                    label="#{bindings.AppDescription.hints.label}"
-                                    required="#{bindings.AppDescription.hints.mandatory}"
-                                    columns="#{bindings.AppDescription.hints.displayWidth}"
-                                    maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it10">
-                        <f:validator binding="#{bindings.AppDescription.validator}"/>
-                      </af:inputText>
-                      <af:inputText value="#{AppointmentsBean.type}"
-                                    label="#{bindings.AppointmentType.hints.label}"
-                                    required="#{bindings.AppointmentType.hints.mandatory}"
-                                    columns="#{bindings.AppointmentType.hints.displayWidth}"
-                                    maximumLength="#{bindings.AppointmentType.hints.precision}"
-                                    shortDesc="#{bindings.AppointmentType.hints.tooltip}" id="it18">
-                        <f:validator binding="#{bindings.AppointmentType.validator}"/>
-                      </af:inputText>
-                      <af:inputText value="#{AppointmentsBean.direction}"
-                                    label="#{bindings.AppointmentDirection.hints.label}"
-                                    required="#{bindings.AppointmentDirection.hints.mandatory}"
-                                    columns="#{bindings.AppointmentDirection.hints.displayWidth}"
-                                    maximumLength="#{bindings.AppointmentDirection.hints.precision}"
-                                    shortDesc="#{bindings.AppointmentDirection.hints.tooltip}" id="it19">
-                        <f:validator binding="#{bindings.AppointmentDirection.validator}"/>
-                      </af:inputText>
+                             <af:selectOneChoice value="#{AppointmentsBean.type}"
+                                            label="#{bindings.AppointmentType.hints.label}"
+                                            required="#{bindings.AppointmentType.hints.mandatory}" id="soc191">
+                          <af:selectItem label="Phone" value="Phone" id="si311"/>
+                          <af:selectItem label="Video " value="Video" id="si321"/>
+                          <af:selectItem label="Direct" value="Direct" id="si331"/>
+                        </af:selectOneChoice>
+                        <af:selectOneChoice value="#{AppointmentsBean.direction}"
+                                            label="#{bindings.AppointmentDirection.hints.label}"
+                                            required="#{bindings.AppointmentDirection.hints.mandatory}" id="soc201">
+                          <af:selectItem label="Inwards" value="Inwards" id="si341"/>
+                          <af:selectItem label="Outwards" value="Outwards" id="si35"/>
+                      </af:selectOneChoice>
                       <af:inputText value="#{AppointmentsBean.location}" label="#{bindings.Location.hints.label}"
                                     required="#{bindings.Location.hints.mandatory}"
                                     columns="#{bindings.Location.hints.displayWidth}"
@@ -1063,14 +1056,14 @@
                                     shortDesc="#{bindings.Resolution.hints.tooltip}" id="it21">
                         <f:validator binding="#{bindings.Resolution.validator}"/>
                       </af:inputText>
-                      <af:inputDate value="#{AppointmentsBean.start}" label="#{bindings.StartTime.hints.label}"
+                      <af:inputDate value="#{AppointmentsBean.start}" label="#{viewcontrollerBundle.START_TIME}"
                                     required="#{bindings.StartTime.hints.mandatory}"
                                     columns="#{bindings.StartTime.hints.displayWidth}"
                                     shortDesc="#{bindings.StartTime.hints.tooltip}" id="id6">
                         <f:validator binding="#{bindings.StartTime.validator}"/>
                         <af:convertDateTime pattern="#{bindings.StartTime.format}"/>
                       </af:inputDate>
-                      <af:inputDate value="#{AppointmentsBean.end}" label="#{bindings.EndDate.hints.label}"
+                      <af:inputDate value="#{AppointmentsBean.end}" label="#{viewcontrollerBundle.END_DATE}"
                                     required="#{bindings.EndDate.hints.mandatory}"
                                     columns="#{bindings.EndDate.hints.displayWidth}"
                                     shortDesc="#{bindings.EndDate.hints.tooltip}" id="id7">
@@ -1080,10 +1073,21 @@
                       <af:selectOneChoice value="#{AppointmentsBean.customerID}"
                                           label="#{bindings.CustomerId2.label}"
                                           required="#{bindings.CustomerId2.hints.mandatory}"
-                                          shortDesc="#{bindings.CustomerId2.hints.tooltip}" id="soc12">
+                                          shortDesc="#{bindings.CustomerId2.hints.tooltip}" id="soc12" rendered="false">
                         <f:selectItems value="#{bindings.CustomerId2.items}" id="si26"/>
                         <f:validator binding="#{bindings.CustomerId2.validator}"/>
                       </af:selectOneChoice>
+                    </af:panelFormLayout>
+                    <af:panelFormLayout id="pfl17">
+                      <f:facet name="footer"/>
+                      <af:inputText value="#{AppointmentsBean.description}"
+                                    label="#{bindings.AppDescription.hints.label}"
+                                    required="#{bindings.AppDescription.hints.mandatory}"
+                                    columns="#{bindings.AppDescription.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppDescription.hints.precision}"
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it10" rows="8">
+                        <f:validator binding="#{bindings.AppDescription.validator}"/>
+                      </af:inputText>
                     </af:panelFormLayout>
                   </af:dialog>
                 </af:popup>
@@ -1102,21 +1106,13 @@
                   <af:dialog id="d21" type="yesNo" affirmativeTextAndAccessKey="Ok" dialogListener="#{DialogHandler.onUpdate}" noTextAndAccessKey="Cancel"
                              title="Update Appointment">
                     <f:facet name="buttonBar"/>
-                    <af:panelFormLayout id="pfl14">
+                    <af:panelFormLayout id="pfl14" maxColumns="2" rows="4">
                       <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"
                                     required="#{bindings.AppName.hints.mandatory}"
                                     columns="#{bindings.AppName.hints.displayWidth}"
                                     maximumLength="#{bindings.AppName.hints.precision}"
                                     shortDesc="#{bindings.AppName.hints.tooltip}" id="it22">
                         <f:validator binding="#{bindings.AppName.validator}"/>
-                      </af:inputText>
-                      <af:inputText value="#{bindings.AppDescription.inputValue}"
-                                    label="#{bindings.AppDescription.hints.label}"
-                                    required="#{bindings.AppDescription.hints.mandatory}"
-                                    columns="#{bindings.AppDescription.hints.displayWidth}"
-                                    maximumLength="#{bindings.AppDescription.hints.precision}"
-                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it23">
-                        <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                       <af:inputDate value="#{bindings.StartTime.inputValue}" label="#{bindings.StartTime.hints.label}"
                                     required="#{bindings.StartTime.hints.mandatory}"
@@ -1161,6 +1157,17 @@
                                     maximumLength="#{bindings.Resolution.hints.precision}"
                                     shortDesc="#{bindings.Resolution.hints.tooltip}" id="it27">
                         <f:validator binding="#{bindings.Resolution.validator}"/>
+                      </af:inputText>
+                    </af:panelFormLayout>
+                    <af:panelFormLayout id="pfl16">
+                      <f:facet name="footer"/>
+                      <af:inputText value="#{bindings.AppDescription.inputValue}"
+                                    label="#{bindings.AppDescription.hints.label}"
+                                    required="#{bindings.AppDescription.hints.mandatory}"
+                                    columns="#{bindings.AppDescription.hints.displayWidth}"
+                                    maximumLength="#{bindings.AppDescription.hints.precision}"
+                                    shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it23" rows="8">
+                        <f:validator binding="#{bindings.AppDescription.validator}"/>
                       </af:inputText>
                     </af:panelFormLayout>
                   </af:dialog>
@@ -1220,8 +1227,8 @@
                         <af:selectOneChoice value="#{AttendeeBean.employeeId}" label="#{bindings.EmployeeId1.label}"
                                             required="#{bindings.EmployeeId1.hints.mandatory}"
                                             shortDesc="#{bindings.EmployeeId1.hints.tooltip}" id="soc17">
-                          <f:selectItems value="#{bindings.EmployeeId1.items}" id="si31"/>
-                          <f:validator binding="#{bindings.EmployeeId1.validator}"/>
+                          <f:selectItems value="#{bindings.RepId.items}" id="si31"/>
+                          <f:validator binding="#{bindings.RepId.validator}"/>
                         </af:selectOneChoice>
                       </af:panelFormLayout>
                     </af:dialog>
@@ -1284,8 +1291,7 @@
                         <af:selectOneChoice value="#{AttendeeCustomerBean.contactId}" label="#{bindings.CustId.label}"
                                             required="#{bindings.CustId.hints.mandatory}"
                                             shortDesc="#{bindings.CustId.hints.tooltip}" id="soc21">
-                          <f:selectItems value="#{bindings.CustId.items}" id="si35"/>
-                          <f:validator binding="#{bindings.CustId.validator}"/>
+                          <f:selectItems value="#{bindings.ContactId.items}" id="si35"/>
                         </af:selectOneChoice>
                       </af:panelFormLayout>
                     </af:dialog>

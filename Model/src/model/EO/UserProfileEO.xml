@@ -38,7 +38,8 @@
     SQLType="NUMERIC"
     Type="oracle.jbo.domain.Number"
     ColumnType="NUMBER"
-    TableName="USER_PROFILES"/>
+    TableName="USER_PROFILES"
+    IsNotNull="true"/>
   <Attribute
     Name="NameFirst"
     Precision="1000"
@@ -280,6 +281,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.UserProfileEO.Password1"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesRolesIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ROLES_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_ROLES_ID_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.RolesId"/>
     </AttrArray>
   </Key>
   <Key
