@@ -9,10 +9,13 @@
       <af:panelBox text="Customer - #{bindings.AccName.inputValue}" id="pb9"
                    inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;"
                    showDisclosure="false">
-        <f:facet name="toolbar"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t14">
+            <af:button text="Back" id="b10" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
+          </af:toolbar>
+        </f:facet>
       </af:panelBox>
-      <af:panelDrawer position="start" id="pd1" width="100%"
-                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
+      <af:panelTabbed position="end" id="pt1" inlineStyle="margin-left:20px;">
         <af:showDetailItem id="dr1" shortDesc="Overview" icon="#{resource['images:document.png']}" disclosed="true"
                            inlineStyle="padding-left:0px;">
           <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"
@@ -23,7 +26,6 @@
                 <af:button text="Submit" id="b3"
                            inlineStyle="padding-left:0px; background-color:Green; color:White; margin-left:500px;"
                            selected="true" action="#{CustomersBean.commitData}"/>
-                <af:button text="Back" id="b10" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                            disabled="#{!bindings.Commit.enabled}" id="b1" rendered="false"/>
                 <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -81,16 +83,17 @@
                             maximumLength="#{bindings.Email.hints.precision}"
                             shortDesc="#{bindings.Email.hints.tooltip}" id="it7">
                 <f:validator binding="#{bindings.Email.validator}"/>
-                <af:validateRegExp pattern= "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
+                <af:validateRegExp pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" hint="Eg: name@company.com"
+                                   messageDetailNoMatch="Not a Valid Email"/>
               </af:inputText>
               <af:inputText value="#{bindings.Phone.inputValue}" label="#{bindings.Phone.hints.label}"
                             required="#{bindings.Phone.hints.mandatory}" columns="#{bindings.Phone.hints.displayWidth}"
                             maximumLength="#{bindings.Phone.hints.precision}"
                             shortDesc="#{bindings.Phone.hints.tooltip}" id="it8">
                 <f:validator binding="#{bindings.Phone.validator}"/>
-                 <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" hint="Enter the 10 digit number only. Eg: 9999988888"
-                                                   messageDetailNoMatch="Invalid Phone number"/>
+                <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                   hint="Enter the 10 digit number only. Eg: 9999988888"
+                                   messageDetailNoMatch="Invalid Phone number"/>
               </af:inputText>
               <af:selectOneChoice value="#{bindings.Industry.inputValue}" label="#{bindings.Industry.label}"
                                   required="#{bindings.Industry.hints.mandatory}"
@@ -110,8 +113,8 @@
         </af:showDetailItem>
         <af:showDetailItem text="Contacts" id="ContactsNew" icon="#{resource['images:telephone.png']}">
           <af:outputText value="Customer Contacts" id="ot18"
-                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:spacer id="s2" height="20px"/>
+                         inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+          <af:spacer id="s2" height="20px"/>
           <af:panelBox id="pb13" disclosed="true" showDisclosure="false">
             <f:facet name="toolbar"/>
             <af:panelGroupLayout layout="vertical" id="pgl7">
@@ -124,20 +127,17 @@
             </af:panelGroupLayout>
           </af:panelBox>
           <af:spacer id="s200" height="35px"/>
-          
           <af:panelGroupLayout id="pgl6">
             <af:panelBox text="Contacts" id="pb12" showHeader="never" showDisclosure="false">
               <af:panelCollection id="pc7" inlineStyle="padding-left:100px; margin-left:0px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t10">
-                    <af:button text="Add" id="b13" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                    <af:button text="Add" id="b13" inlineStyle=" background-color:Green; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p5"/>
                     </af:button>
-                    <af:button text="Remove"
-                               disabled="#{!bindings.Delete6.enabled}" id="b14" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Remove" disabled="#{!bindings.Delete6.enabled}" id="b14"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p17"/>
                     </af:button>
                   </af:toolbar>
@@ -161,7 +161,7 @@
                   </af:column>
                   <af:column headerText="Primary" id="c23" align="center" width="100">
                     <af:selectBooleanCheckbox text="" label=" " id="sbc2" value="#{row.Checked}"
-                                              rendered="#{row.Checked}"/>
+                                              rendered="#{row.Checked}" readOnly="true"/>
                   </af:column>
                   <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Email.label}" id="c20" width="400">
                     <af:outputText value="#{row.Email}"
@@ -242,11 +242,11 @@
                 <f:facet name="toolbar">
                   <af:toolbar id="t7">
                     <af:button text="Create" id="b7" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                               selected="true">
                       <af:showPopupBehavior popupId="::p2"/>
                     </af:button>
-                    <af:button text="Delete" disabled="#{!bindings.Delete1.enabled}" id="b17" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Delete" disabled="#{!bindings.Delete1.enabled}" id="b17"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="::p12"/>
                     </af:button>
                   </af:toolbar>
@@ -422,11 +422,11 @@
                 <f:facet name="toolbar">
                   <af:toolbar id="t11">
                     <af:button text="Create" id="b15" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                               selected="true">
                       <af:showPopupBehavior popupId="::p4"/>
                     </af:button>
-                    <af:button text="Delete" disabled="#{!bindings.Delete2.enabled}" id="b18" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Delete" disabled="#{!bindings.Delete2.enabled}" id="b18"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="::p13"/>
                     </af:button>
                   </af:toolbar>
@@ -467,7 +467,7 @@
                                           shortDesc="#{bindings.CustomerTasksVO61.hints.PercentageCompletion.tooltip}"
                                           value="#{row.bindings.PercentageCompletion.inputValue}" maximum="100"
                                           minimum="0">
-                        <dvt:gaugeThreshold id="thr1" color="#d62800"/>
+                      <dvt:gaugeThreshold id="thr1" color="#d62800"/>
                       <dvt:gaugeMetricLabel id="ot43" rendered="true" textType="percent"/>
                     </dvt:statusMeterGauge>
                   </af:column>
@@ -521,8 +521,9 @@
                                 maximumLength="#{bindings.PercentageCompletion.hints.precision}"
                                 shortDesc="#{bindings.PercentageCompletion.hints.tooltip}" id="it21">
                     <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
-                    <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
-                                    messageDetailMaximum="Should be less than 100"/>
+                    <af:validateDoubleRange minimum="0.0" maximum="100.0"
+                                            messageDetailMinimum="Should be greater than 0"
+                                            messageDetailMaximum="Should be less than 100"/>
                     <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
                   </af:inputText>
                   <af:selectOneChoice value="#{TasksBean.priority}" label="Priority" id="soc15">
@@ -579,8 +580,9 @@
                                 maximumLength="#{bindings.PercentageCompletion.hints.precision}"
                                 shortDesc="#{bindings.PercentageCompletion.hints.tooltip}" id="it26">
                     <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
-                    <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
-                                    messageDetailMaximum="Should be less than 100"/>
+                    <af:validateDoubleRange minimum="0.0" maximum="100.0"
+                                            messageDetailMinimum="Should be greater than 0"
+                                            messageDetailMaximum="Should be less than 100"/>
                     <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
                   </af:inputText>
                   <af:selectOneChoice value="#{bindings.Priority1.inputValue}" label="Priority" id="soc18">
@@ -629,11 +631,11 @@
                   <f:facet name="toolbar">
                     <af:toolbar id="t6">
                       <af:button text="Create" id="b5" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                                 selected="true">
                         <af:showPopupBehavior popupId="p7"/>
                       </af:button>
-                      <af:button text="Delete" disabled="#{!bindings.Delete4.enabled}" id="b6" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                      <af:button text="Delete" disabled="#{!bindings.Delete4.enabled}" id="b6"
+                                 inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="::p14"/>
                       </af:button>
                     </af:toolbar>
@@ -663,15 +665,13 @@
                         <af:setActionListener from="#{row.OpId}" to="#{pageFlowScope.OpId}"/>
                       </af:link>
                     </af:column>
-                    <af:column headerText="#{viewcontrollerBundle.START_TIME}" id="c7"
-                               width="130">
+                    <af:column headerText="#{viewcontrollerBundle.START_TIME}" id="c7" width="130">
                       <af:outputText value="#{row.StartTime}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO31.hints.StartTime.tooltip}" id="ot12">
                         <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO31.hints.StartTime.format}"/>
                       </af:outputText>
                     </af:column>
-                    <af:column headerText="#{viewcontrollerBundle.END_DATE}" id="c17"
-                               width="175">
+                    <af:column headerText="#{viewcontrollerBundle.END_DATE}" id="c17" width="175">
                       <af:outputText value="#{row.EndDate}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO3.hints.EndDate.tooltip}" id="ot24">
                         <af:convertDateTime pattern="#{bindings.CustomerAppointmentsVO3.hints.EndDate.format}"/>
@@ -701,7 +701,8 @@
                         <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create "
                                    action="#{AppointmentsBean.closeDialog}"
                                    disabled="#{!bindings.CreateWithParams3.enabled}" id="b19">
-                          <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{AppointmentsBean.customerID}"/>
+                          <af:setActionListener from="#{bindings.CustomerId.inputValue}"
+                                                to="#{AppointmentsBean.customerID}"/>
                         </af:button>
                       </f:facet>
                       <af:panelFormLayout id="pfl8" maxColumns="2" rows="4">
@@ -805,11 +806,11 @@
                   <f:facet name="toolbar">
                     <af:toolbar id="t15">
                       <af:button text="Add Employee" id="b24" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                                 selected="true">
                         <af:showPopupBehavior popupId="::p8"/>
                       </af:button>
-                      <af:button text="Remove" disabled="#{!bindings.Delete3.enabled}" id="b25" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                      <af:button text="Remove" disabled="#{!bindings.Delete3.enabled}" id="b25"
+                                 inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="::p15"/>
                       </af:button>
                     </af:toolbar>
@@ -843,11 +844,11 @@
                   <f:facet name="toolbar">
                     <af:toolbar id="t17">
                       <af:button text="Add Contact" id="b28" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                                 selected="true">
                         <af:showPopupBehavior popupId="::p10"/>
                       </af:button>
-                      <af:button text="Remove" disabled="#{!bindings.Delete5.enabled}" id="b29" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                      <af:button text="Remove" disabled="#{!bindings.Delete5.enabled}" id="b29"
+                                 inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="::p16"/>
                       </af:button>
                     </af:toolbar>
@@ -934,7 +935,8 @@
                                 shortDesc="#{bindings.Location.hints.tooltip}" id="it37">
                     <f:validator binding="#{bindings.Location.validator}"/>
                   </af:inputText>
-                  <af:selectOneChoice value="#{bindings.AppointmentType.inputValue}" label="#{bindings.AppointmentType.hints.label}"
+                  <af:selectOneChoice value="#{bindings.AppointmentType.inputValue}"
+                                      label="#{bindings.AppointmentType.hints.label}"
                                       required="#{bindings.AppointmentType.hints.mandatory}" id="soc17">
                     <af:selectItem label="Phone" value="Phone" id="si21"/>
                     <af:selectItem label="Video " value="Video" id="si27"/>
@@ -1142,7 +1144,7 @@
             </af:panelBox>
           </af:panelGroupLayout>
         </af:showDetailItem>
-      </af:panelDrawer>
+      </af:panelTabbed>
     </af:panelGroupLayout>
   </f:view>
 </ui:composition>

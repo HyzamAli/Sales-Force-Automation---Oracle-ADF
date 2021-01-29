@@ -6,14 +6,23 @@
   Name="UserProfilesVO"
   Version="12.2.1.22.48"
   InheritPersonalization="merge"
-  SelectListFlags="1"
-  FromListFlags="1"
-  WhereFlags="1"
   BindingStyle="OracleName"
   CustomQuery="false"
-  SelectAllAttributes="false"
   PageIterMode="Full"
-  AccessMode="DEFAULT">
+  AccessMode="DEFAULT"
+  SelectList="UserProfileEO.USER_ID, 
+       UserProfileEO.ROLES_ID, 
+       UserProfileEO.NAME_FIRST, 
+       UserProfileEO.NAME_LAST, 
+       UserProfileEO.NAME_MIDDLE, 
+       UserProfileEO.PASSWORD1, 
+       UserProfileEO.START_DATE, 
+       UserProfileEO.END_DATE, 
+       UserProfileEO.SUPERVISOR_ID, 
+       UserProfileEO.EMAIL, 
+       UserProfileEO.PHONE_NUMBER"
+  FromList="USER_PROFILES UserProfileEO"
+  Where="UserProfileEO.END_DATE is null or CURRENT_DATE &lt;= UserProfileEO.END_DATE">
   <Variable
     Name="pNF"
     Kind="viewcriteria"
@@ -343,6 +352,15 @@
     ViewLink="model.VO.RolesWithEmps"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <LOVUIHints
+    ListType="105"
+    MRUCount="0"
+    NullValueFlag="none">
+    <AttrArray Name="ListDisplayAttrNames">
+      <Item Value="NameFirst"/>
+    </AttrArray>
+    <DisplayCriteria/>
+  </LOVUIHints>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

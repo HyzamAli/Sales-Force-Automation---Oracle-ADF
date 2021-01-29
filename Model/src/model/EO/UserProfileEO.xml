@@ -137,7 +137,7 @@
     Name="SupervisorId"
     ColumnName="SUPERVISOR_ID"
     SQLType="NUMERIC"
-    Type="java.lang.String"
+    Type="java.math.BigDecimal"
     ColumnType="NUMBER"
     TableName="USER_PROFILES"/>
   <Attribute

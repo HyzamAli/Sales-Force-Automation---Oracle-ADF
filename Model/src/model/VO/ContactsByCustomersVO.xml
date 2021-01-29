@@ -138,7 +138,6 @@
   </ViewAttribute>
   <ViewAttribute
     Name="Checked"
-    IsUpdateable="false"
     IsSelected="false"
     IsPersistent="false"
     PrecisionRule="true"

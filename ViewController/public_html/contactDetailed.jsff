@@ -6,11 +6,13 @@
     <af:panelBox id="pb6" showDisclosure="false"
                  inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px; margin-top:20px;"
                  text="Contact - #{bindings.ContactName.inputValue}">
-      <f:facet name="toolbar"/>
+      <f:facet name="toolbar">
+        <af:toolbar id="t7">
+          <af:button text="Back" id="b7" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
+        </af:toolbar>
+      </f:facet>
     </af:panelBox>
-    <af:spacer id="s5" height="150px"/>
-    <af:panelDrawer position="start" id="pd1" width="100%"
-                    inlineStyle="padding-top:100px; padding-left:20px; padding-right:10px;">
+    <af:panelTabbed position="end" id="pt1" inlineStyle="margin-left:20px; background-color:transparent;">
       <af:showDetailItem id="Overview" shortDesc="Drawer 1" disclosed="true" text="Overview"
                          icon="#{resource['images:document.png']}">
         <af:panelBox text="Overview" id="pb1" showDisclosure="false">
@@ -18,7 +20,6 @@
             <af:toolbar id="t5" rendered="true">
               <af:button text="Submit" id="b1" action="#{ContactsBean.commitData}"
                          inlineStyle="background-color:Green; color:White; margin-left:500px;" selected="true"/>
-              <af:button text="Back" id="b7" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
               <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                          disabled="#{!bindings.Commit.enabled}" id="b4" rendered="false"/>
               <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -42,8 +43,9 @@
                           shortDesc="#{bindings.ContactPhone.hints.tooltip}" id="it2"
                           inlineStyle="width:60%; column-width:100px;">
               <f:validator binding="#{bindings.ContactPhone.validator}"/>
-              <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}" hint="Enter the 10 digit number only. Eg: 9999988888"
-                                                   messageDetailNoMatch="Invalid Phone number"/>
+              <af:validateRegExp pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
+                                 hint="Enter the 10 digit number only. Eg: 9999988888"
+                                 messageDetailNoMatch="Invalid Phone number"/>
             </af:inputText>
             <af:inputText value="#{bindings.ContactEmail.inputValue}" label="#{bindings.ContactEmail.hints.label}"
                           required="#{bindings.ContactEmail.hints.mandatory}"
@@ -51,8 +53,8 @@
                           maximumLength="#{bindings.ContactEmail.hints.precision}"
                           shortDesc="#{bindings.ContactEmail.hints.tooltip}" id="it3" inlineStyle="width:60%;">
               <f:validator binding="#{bindings.ContactEmail.validator}"/>
-              <af:validateRegExp pattern= "^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$"
-                                                   hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
+              <af:validateRegExp pattern="^[a-zA-Z0-9+_.-]+@[a-zA-Z0-9.-]+$" hint="Eg: name@company.com"
+                                 messageDetailNoMatch="Not a Valid Email"/>
             </af:inputText>
             <af:selectOneChoice label="Influence Level" id="soc12" value="#{bindings.InfluenceLevel.inputValue}">
               <af:selectItem label="Weak" value="1" id="si12"/>
@@ -91,13 +93,11 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t4">
-                  <af:button text="Create" id="b10" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                  <af:button text="Create" id="b10" inlineStyle=" background-color:Green; color:White;" selected="true">
                     <af:showPopupBehavior popupId="::p3"/>
                   </af:button>
-                  <af:button  text="Delete"
-                             disabled="#{!bindings.Delete1.enabled}" id="b3" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                  <af:button text="Delete" disabled="#{!bindings.Delete1.enabled}" id="b3"
+                             inlineStyle=" background-color:Red; color:White;" selected="true">
                     <af:showPopupBehavior popupId="::p5"/>
                   </af:button>
                 </af:toolbar>
@@ -111,8 +111,7 @@
                         selectionListener="#{bindings.CustomerNotesVO8.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerNotesVO8.rangeSize}" id="t1"
                         columnStretching="last" summary="Notes by Contacts List"
-                        partialTriggers="::b3 :::b8 :::p1 :::d1"
-                        width="1100">
+                        partialTriggers="::b3 :::b8 :::p1 :::d1" width="1100">
                 <af:column headerText="#{bindings.CustomerNotesVO8.hints.NotesTitle.label}" id="c1" rowHeader="true"
                            width="280" align="left">
                   <af:link text="" id="l13">
@@ -257,15 +256,14 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
-                                <af:dialog id="d4" title="Delete" type="cancel" binding="#{NotesBean.deleteComponent}">
-                                           
-                                    <af:outputText value="Confirm Action" id="ot2" inlineStyle="margin-right:50px;"/>
-                                    <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Delete" action="#{NotesBean.closeDeleteDialog}"
-                                                   disabled="#{!bindings.Delete1.enabled}" id="b14"/>
-                                    </f:facet>
-                                </af:dialog>
-                            </af:popup>
+            <af:dialog id="d4" title="Delete" type="cancel" binding="#{NotesBean.deleteComponent}">
+              <af:outputText value="Confirm Action" id="ot2" inlineStyle="margin-right:50px;"/>
+              <f:facet name="buttonBar">
+                <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                           action="#{NotesBean.closeDeleteDialog}" disabled="#{!bindings.Delete1.enabled}" id="b14"/>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
         </af:panelGroupLayout>
       </af:showDetailItem>
       <af:showDetailItem id="Tasks" shortDesc="Drawer 3" icon="#{resource['images:paper-list-2.png']}" text="Tasks">
@@ -292,13 +290,11 @@
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t3">
-                  <af:button text="Create" id="b11" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                  <af:button text="Create" id="b11" inlineStyle=" background-color:Green; color:White;" selected="true">
                     <af:showPopupBehavior popupId="::p4"/>
                   </af:button>
-                  <af:button  text="Delete"
-                             disabled="#{!bindings.Delete.enabled}" id="b2" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                  <af:button text="Delete" disabled="#{!bindings.Delete.enabled}" id="b2"
+                             inlineStyle=" background-color:Red; color:White;" selected="true">
                     <af:showPopupBehavior popupId="::p6"/>
                   </af:button>
                 </af:toolbar>
@@ -312,8 +308,7 @@
                         selectionListener="#{bindings.CustomerTasksVO8.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO8.rangeSize}" id="t2"
                         columnStretching="last" summary="Tasks by contacts list"
-                        partialTriggers=":::b14 ::b2 :::b9 :::b15 :::p2 :::d2"
-                        width="1100">
+                        partialTriggers=":::b14 ::b2 :::b9 :::b15 :::p2 :::d2" width="1100">
                 <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="true"
                            width="350" align="left">
                   <af:link id="l2">
@@ -386,11 +381,11 @@
               </f:facet>
               <af:panelFormLayout id="pfl5" maxColumns="2" rows="3">
                 <af:selectOneChoice value="#{TasksBean.priority}" label="Priority" id="soc15">
-                    <f:validator binding="#{bindings.Priority1.validator}"/>
-                    <af:selectItem label="Low" value="Low" id="si23"/>
-                    <af:selectItem label="Medium" value="Medium" id="si24"/>
-                    <af:selectItem label="High" value="High" id="si25"/>
-                  </af:selectOneChoice>
+                  <f:validator binding="#{bindings.Priority1.validator}"/>
+                  <af:selectItem label="Low" value="Low" id="si23"/>
+                  <af:selectItem label="Medium" value="Medium" id="si24"/>
+                  <af:selectItem label="High" value="High" id="si25"/>
+                </af:selectOneChoice>
                 <af:selectOneChoice value="#{TasksBean.oppurtunityID}" label="Oppurtunity"
                                     required="#{bindings.OppurtunityId.hints.mandatory}"
                                     shortDesc="#{bindings.OppurtunityId.hints.tooltip}" id="soc10">
@@ -410,7 +405,7 @@
                               shortDesc="#{bindings.PercentageCompletion.hints.tooltip}" id="it15">
                   <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
                   <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
-                                    messageDetailMaximum="Should be less than 100"/>
+                                          messageDetailMaximum="Should be less than 100"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
                 </af:inputText>
                 <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
@@ -420,7 +415,6 @@
                   <f:validator binding="#{bindings.DueDate.validator}"/>
                   <af:convertDateTime pattern="#{bindings.DueDate.format}"/>
                 </af:inputDate>
-                
               </af:panelFormLayout>
               <af:panelFormLayout id="pfl8">
                 <f:facet name="footer"/>
@@ -461,7 +455,7 @@
                               shortDesc="#{bindings.PercentageCompletion.hints.tooltip}" id="it10">
                   <f:validator binding="#{bindings.PercentageCompletion.validator}"/>
                   <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
-                                    messageDetailMaximum="Should be less than 100"/>
+                                          messageDetailMaximum="Should be less than 100"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.PercentageCompletion.format}"/>
                 </af:inputText>
               </af:panelFormLayout>
@@ -478,15 +472,14 @@
             </af:dialog>
           </af:popup>
           <af:popup childCreation="deferred" autoCancel="disabled" id="p6" partialTriggers="pc2:t2">
-                                <af:dialog id="d5" title="Delete" type="cancel" binding="#{TasksBean.deleteComponent}">
-                                           
-                                    <af:outputText value="Confirm Action" id="ot7" inlineStyle="margin-right:50px;"/>
-                                    <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{TasksBean.closeDeleteDialog}"
-                                                   disabled="#{!bindings.Delete.enabled}" id="b15"/>
-                                    </f:facet>
-                                </af:dialog>
-                            </af:popup>
+            <af:dialog id="d5" title="Delete" type="cancel" binding="#{TasksBean.deleteComponent}">
+              <af:outputText value="Confirm Action" id="ot7" inlineStyle="margin-right:50px;"/>
+              <f:facet name="buttonBar">
+                <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                           action="#{TasksBean.closeDeleteDialog}" disabled="#{!bindings.Delete.enabled}" id="b15"/>
+              </f:facet>
+            </af:dialog>
+          </af:popup>
         </af:panelGroupLayout>
       </af:showDetailItem>
       <af:showDetailItem text="Appointments" id="Appointments" icon="#{resource['images:calendar.png']}">
@@ -531,7 +524,7 @@
                   <af:link text="" id="l12" action="toCustomerDetailed">
                     <af:outputText value="#{row.CustName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO6.hints.CustName.tooltip}" id="ot14"/>
-                        <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
+                    <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                   </af:link>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppointmentType.label}" id="c19"
@@ -633,6 +626,6 @@
           </af:panelBox>
         </af:panelGroupLayout>
       </af:showDetailItem>
-    </af:panelDrawer>
+    </af:panelTabbed>
   </af:panelGroupLayout>
 </jsp:root>
