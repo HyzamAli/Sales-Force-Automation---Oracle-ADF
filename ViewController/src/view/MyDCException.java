@@ -22,8 +22,14 @@ public class MyDCException extends DCErrorHandlerImpl {
     public void reportException(DCBindingContainer dCBindingContainer, Exception exception) {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
-    
-        if (error_message.startsWith("JBO-26048: Constraint \"CONTACT_CUST_UK1\" is violated")) {
+
+        if (error_message.startsWith("JBO-model.EO.UserProfileEO.EndDate_Rule")) {
+            error_message="Ensure End date is before start date"; 
+        }
+        else if (error_message.startsWith("JBO-27024: Failed to validate")) {
+            error_message="Ensure End date is before start date"; 
+        }
+        else if (error_message.startsWith("JBO-26048: Constraint \"CONTACT_CUST_UK1\" is violated")) {
             error_message="Contact is already added, try  adding a different contact"; 
         }
         else if (error_message.startsWith("JBO-26048: Constraint \"ATTENDEES_CUSTOMERS_UK1\" is violated")) {
