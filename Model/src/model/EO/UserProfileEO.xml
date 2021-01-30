@@ -123,16 +123,7 @@
     SQLType="DATE"
     Type="java.sql.Timestamp"
     ColumnType="DATE"
-    TableName="USER_PROFILES">
-    <validation:CompareValidationBean
-      Name="EndDateRule0"
-      ResId="model.EO.UserProfileEO.EndDate_Rule_0"
-      OnAttribute="EndDate"
-      OperandType="JBO"
-      Inverse="false"
-      CompareType="GREATERTHAN"
-      CompareValue="model.VO.UserProfilesVO.StartDate"/>
-  </Attribute>
+    TableName="USER_PROFILES"/>
   <Attribute
     Name="SupervisorId"
     ColumnName="SUPERVISOR_ID"

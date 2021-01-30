@@ -7,6 +7,7 @@
     <iterator Binds="CustomersVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="CustomersVO1Iterator"/>
     <searchRegion Criteria="CustomersSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="CustomersVO1Iterator" id="CustomersVOCriteriaQuery"/>
+    <iterator Binds="IndustryLovsVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="IndustryLovsVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomersVO1Iterator" id="CustomersVO1">
@@ -55,8 +56,18 @@
         <Item Value="AccUrl"/>
       </AttrNames>
     </attributeValues>
-    <list IterBinding="CustomersVO1Iterator" StaticList="false" Uses="LOV_Industry" id="Industry"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="CustomersVO1Iterator" StaticList="false" id="Industry"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="IndustryLovsVO1Iterator">
+      <AttrNames>
+        <Item Value="Industry"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="IndustryName"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="IndustryName"/>
+      </ListDisplayAttrNames>
+    </list>
     <attributeValues IterBinding="CustomersVO1Iterator" id="Email">
       <AttrNames>
         <Item Value="Email"/>

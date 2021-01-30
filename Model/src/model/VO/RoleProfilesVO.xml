@@ -33,6 +33,8 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.RoleProfilesVO.RolesId_LABEL"/>
+        <DISPLAYHINT
+          Value="Display"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
