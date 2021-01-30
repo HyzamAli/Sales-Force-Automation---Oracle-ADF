@@ -21,7 +21,7 @@
   </Properties>
   <SQLQuery><![CDATA[select USER_PROFILES.*
 from USER_PROFILES,ROLES_PER_EMPLOYEES
-where user_profiles.user_id = roles_per_employees.employee_id and roles_per_employees.role_id = 5]]></SQLQuery>
+where user_profiles.user_id = roles_per_employees.employee_id and roles_per_employees.role_id = 2]]></SQLQuery>
   <ViewAttribute
     Name="UserId"
     IsUpdateable="false"

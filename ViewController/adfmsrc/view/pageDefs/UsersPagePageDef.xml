@@ -10,6 +10,7 @@
     <searchRegion Criteria="UsersSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery1"/>
     <iterator Binds="SupervisorsVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="SupervisorsVO1Iterator"/>
+    <iterator id="RoleProfilesVO1Iterator" Binds="RoleProfilesVO1" DataControl="AppsModuleDataControl" RangeSize="-1"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameFirst">
@@ -67,6 +68,8 @@
           <Item Value="NameLast"/>
           <Item Value="StartDate"/>
           <Item Value="EndDate"/>
+          <Item Value="Email"/>
+          <Item Value="PhoneNumber"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -127,8 +130,18 @@
       </AttrNames>
     </attributeValues>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
-    <list IterBinding="UserProfilesVO1Iterator" StaticList="false" Uses="LOV_RolesId" id="RolesId"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="UserProfilesVO1Iterator" StaticList="false" id="RolesId"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject" ListIter="RoleProfilesVO1Iterator">
+      <AttrNames>
+        <Item Value="RolesId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="RolesId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="RolesName"/>
+      </ListDisplayAttrNames>
+    </list>
     <tree IterBinding="UserProfilesVO1Iterator" id="UserProfilesVO11">
       <nodeDefinition DefName="model.VO.UserProfilesVO" Name="UserProfilesVO110">
         <AttrNames>

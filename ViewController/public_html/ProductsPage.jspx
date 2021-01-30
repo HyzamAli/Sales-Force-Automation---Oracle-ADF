@@ -115,7 +115,7 @@
                                               fetchSize="#{bindings.ProductCategoriesVO1.rangeSize}" id="t4"
                                               columnStretching="last" summary="product ategories List"
                                               partialTriggers="::::b6 :::b10" inlineStyle="padding-left:0px;"
-                                              width="1100">
+                                              width="1100" rowSelection="single">
                                         <af:column headerText="#{bindings.ProductCategoriesVO1.hints.Category.label}"
                                                    id="c5" rowHeader="true" width="1100" align="left">
                                             <af:outputText value="#{row.Category}"
@@ -140,7 +140,7 @@
                             </af:panelBox>
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p3" partialTriggers="pc2:t4">
                                 <af:dialog id="d5" title="Delete" type="cancel"
-                                           binding="#{ProductCategoriesBean.deleteComponent}">
+                                           binding="#{ProductCategoriesBean.deleteComponent}" partialTriggers="pc2:t4">
                                     <af:outputText value="Are you sure? " id="ot2" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
                                         <af:button actionListener="#{bindings.Delete1.execute}" text="Yes" action="#{ProductCategoriesBean.closeSaveDialog}"

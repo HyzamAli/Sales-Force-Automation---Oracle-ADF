@@ -8,6 +8,8 @@
               id="OppurtunitiesVO1Iterator"/>
     <searchRegion Criteria="OppurtunitiesVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="OppurtunitiesVO1Iterator" id="OppurtunitiesVOCriteriaQuery"/>
+    <iterator Binds="CustomersVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="CustomersVO1Iterator"/>
+    <iterator Binds="SupervisorsVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="SupervisorsVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="OppurtunitiesVO1Iterator" id="OppurtunitiesVO1">
@@ -23,12 +25,32 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" Uses="LOV_CustomerId" id="CustomerId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" id="CustomerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="CustomersVO1Iterator">
+      <AttrNames>
+        <Item Value="CustomerId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="CustomerId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="AccName"/>
+      </ListDisplayAttrNames>
+    </list>
     <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" Uses="LOV_RefContact" id="RefContact"
           DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
-    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" Uses="LOV_ManagerId" id="ManagerId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject"/>
+    <list IterBinding="OppurtunitiesVO1Iterator" StaticList="false" id="ManagerId"
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="SupervisorsVO1Iterator">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="UserId"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="NameFirst"/>
+      </ListDisplayAttrNames>
+    </list>
     <attributeValues IterBinding="OppurtunitiesVO1Iterator" id="CloseDate">
       <AttrNames>
         <Item Value="CloseDate"/>

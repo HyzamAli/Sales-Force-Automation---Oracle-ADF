@@ -8,7 +8,7 @@
                   Binds="ProductsVO1Iterator" id="ProductsVOCriteriaQuery"/>
     <searchRegion Criteria="ProductsVOCriteria" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="ProductsVO1Iterator" id="ProductsVOCriteriaQuery1"/>
-    <iterator Binds="ProductCategoriesVO1" RangeSize="25" DataControl="AppsModuleDataControl"
+    <iterator Binds="ProductCategoriesVO1" RangeSize="-1" DataControl="AppsModuleDataControl"
               id="ProductCategoriesVO1Iterator"/>
   </executables>
   <bindings>
@@ -75,7 +75,17 @@
     <action IterBinding="ProductCategoriesVO1Iterator" id="Delete1" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <listOfValues IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_CategoryId" id="CategoryId"/>
-    <list IterBinding="ProductsVO1Iterator" StaticList="false" Uses="LOV_CategoryId" id="CategoryId1"
-          DTSupportsMRU="true" SelectItemValueMode="ListObject"/>
+    <list IterBinding="ProductsVO1Iterator" StaticList="false" id="CategoryId1"
+          DTSupportsMRU="true" SelectItemValueMode="ListObject" ListIter="ProductCategoriesVO1Iterator">
+      <AttrNames>
+        <Item Value="CategoryId"/>
+      </AttrNames>
+      <ListAttrNames>
+        <Item Value="Id"/>
+      </ListAttrNames>
+      <ListDisplayAttrNames>
+        <Item Value="Category"/>
+      </ListDisplayAttrNames>
+    </list>
   </bindings>
 </pageDefinition>
