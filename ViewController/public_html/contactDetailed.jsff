@@ -571,7 +571,7 @@
                                   required="#{bindings.AppDescription.hints.mandatory}"
                                   columns="#{bindings.AppDescription.hints.displayWidth}"
                                   maximumLength="#{bindings.AppDescription.hints.precision}"
-                                  shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it5">
+                                  shortDesc="#{bindings.AppDescription.hints.tooltip}" id="it5" rows="8">
                       <f:validator binding="#{bindings.AppDescription.validator}"/>
                     </af:inputText>
                     <af:inputText value="#{bindings.Location.inputValue}" label="#{bindings.Location.hints.label}"

@@ -1291,7 +1291,7 @@
                         <af:selectOneChoice value="#{AttendeeCustomerBean.contactId}" label="#{bindings.CustId.label}"
                                             required="#{bindings.CustId.hints.mandatory}"
                                             shortDesc="#{bindings.CustId.hints.tooltip}" id="soc21">
-                          <f:selectItems value="#{bindings.ContactId.items}" id="si35"/>
+                          <f:selectItems value="#{bindings.ContactId.items}" id="si39"/>
                         </af:selectOneChoice>
                       </af:panelFormLayout>
                     </af:dialog>
