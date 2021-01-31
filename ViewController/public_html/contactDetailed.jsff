@@ -4,7 +4,7 @@
   <af:panelGroupLayout id="pgl3" layout="vertical"
                        inlineStyle="background-repeat:no-repeat; background-size:110% auto; background-image:url(&quot;bg_pic1.jpg&quot;);">
     <af:panelBox id="pb6" showDisclosure="false"
-                 inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:40px; margin-top:20px;"
+                 inlineStyle="margin-left:20px; margin-right:57px; margin-bottom:20px; margin-top:20px;"
                  text="Contact - #{bindings.ContactName.inputValue}">
       <f:facet name="toolbar">
         <af:toolbar id="t7">
@@ -90,7 +90,7 @@
                        inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
             <f:facet name="toolbar"/>
             <af:panelCollection id="pc1"
-                                inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:010px; padding-top:010px;">
+                                inlineStyle="padding-bottom:010px; padding-left:50px; padding-right:010px; padding-top:010px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t4">
@@ -112,9 +112,9 @@
                         selectionListener="#{bindings.CustomerNotesVO8.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerNotesVO8.rangeSize}" id="t1"
                         columnStretching="last" summary="Notes by Contacts List"
-                        partialTriggers="::b3 :::b8 :::p1 :::d1 :::b14" width="1100">
+                        partialTriggers="::b3 :::b8 :::p1 :::d1 :::b14" width="1000">
                 <af:column headerText="#{bindings.CustomerNotesVO8.hints.NotesTitle.label}" id="c1" rowHeader="true"
-                           width="280" align="left">
+                           width="180" align="left">
                   <af:link text="" id="l13">
                     <af:outputText value="#{row.NotesTitle}"
                                    shortDesc="#{bindings.CustomerNotesVO8.hints.NotesTitle.tooltip}" id="c35"/>
@@ -287,7 +287,7 @@
                        inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;">
             <f:facet name="toolbar"/>
             <af:panelCollection id="pc2"
-                                inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px; margin-left:100px;">
+                                inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px; margin-left:50px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar">
                 <af:toolbar id="t3">
@@ -309,9 +309,9 @@
                         selectionListener="#{bindings.CustomerTasksVO8.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO8.rangeSize}" id="t2"
                         columnStretching="last" summary="Tasks by contacts list"
-                        partialTriggers=":::b14 ::b2 :::b9 :::b15 :::p2 :::d2" width="1100">
+                        partialTriggers=":::b14 ::b2 :::b9 :::b15 :::p2 :::d2" width="1000">
                 <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="true"
-                           width="350" align="left">
+                           width="250" align="left">
                   <af:link id="l2">
                     <af:outputText value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO8.hints.TaskDetails.tooltip}" id="ot4"/>
@@ -490,7 +490,7 @@
           <af:spacer id="s5" height="20px"/>
           <af:panelBox text="Appointments" id="pb7" showDisclosure="false" showHeader="never">
             <f:facet name="toolbar"/>
-            <af:panelCollection id="pc3" inlineStyle="padding-left:100px;">
+            <af:panelCollection id="pc3" inlineStyle="padding-left:50px;">
               <f:facet name="menus"/>
               <f:facet name="toolbar"/>
               <f:facet name="statusbar"/>
@@ -501,7 +501,7 @@
                         selectedRowKeys="#{bindings.CustomerAppointmentsVO6.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerAppointmentsVO6.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO6.rangeSize}" id="t6"
-                        inlineStyle="width:1100px;">
+                        inlineStyle="width:1100px;" width="1000">
                 <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppId.label}" id="c15" rendered="false"
                            width="275">
                   <af:outputText value="#{row.AppId}"
@@ -533,7 +533,7 @@
                   </af:link>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppointmentType.label}" id="c19"
-                           width="275">
+                           width="175">
                   <af:outputText value="#{row.AppointmentType}"
                                  shortDesc="#{bindings.CustomerAppointmentsVO6.hints.AppointmentType.tooltip}"
                                  id="ot15"/>
