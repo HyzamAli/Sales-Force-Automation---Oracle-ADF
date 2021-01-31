@@ -86,7 +86,7 @@
               resetEditableValues="whenCanceled">
       <af:dialog id="d1" title="Create Customer" type="cancel" binding="#{DialogHandler.dialogComponent}">
         <f:facet name="buttonBar">
-          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
+          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK" action="#{DialogHandler.closeDialog}"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b4"/>
         </f:facet>
         <af:panelFormLayout id="pfl1" maxColumns="2" rows="5">
@@ -170,7 +170,7 @@
                                            
                                     <af:outputText value="Confirm Action" id="ot1" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="OK" action="#{DeleteDialogHandler.closeDialogSave}"
                                                    disabled="#{!bindings.Delete.enabled}" id="b6"
                                                    partialSubmit="false"/>
                                     </f:facet>
