@@ -14,7 +14,7 @@
                   queryListener="#{bindings.CustomersVOCriteriaQuery.processQuery}"
                   queryOperationListener="#{bindings.CustomersVOCriteriaQuery.processQueryOperation}"
                   inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                  maxColumns="2" rows="1" saveQueryMode="hidden"/>
+                  maxColumns="2" rows="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
       </af:panelBox>
       <af:panelBox text="Customers" id="pb1"
                    inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"

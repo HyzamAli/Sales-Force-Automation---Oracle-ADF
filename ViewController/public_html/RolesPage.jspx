@@ -17,7 +17,7 @@
                                       queryListener="#{bindings.RoleProfilesVOCriteriaQuery.processQuery}"
                                       queryOperationListener="#{bindings.RoleProfilesVOCriteriaQuery.processQueryOperation}"
                                       inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"
-                                      saveQueryMode="hidden"/>
+                                      styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
                             <af:panelBox text="Roles" id="pb1"
                                          inlineStyle="margin-top:20px; font-size:large; margin-bottom:20px; margin-left:20px; margin-right:20px;">
                                 <f:facet name="toolbar"/>

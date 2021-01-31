@@ -367,7 +367,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="InBasicMode"/>
         <Property
           Name="displayName"
           ResId="model.VO.CustomerAppointmentsVO.CustomerAppointmentsVOCriteria_displayName"/>
@@ -387,7 +387,7 @@
       <ViewCriteriaItem
         Name="StartTime"
         ViewAttribute="StartTime"
-        Operator="="
+        Operator="ONORAFTER"
         Conjunction="AND"
         Value=":pST"
         IsBindVarValue="true"

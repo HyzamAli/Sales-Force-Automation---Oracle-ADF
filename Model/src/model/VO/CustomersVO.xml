@@ -315,7 +315,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="InBasicMode"/>
         <Property
           Name="displayName"
           ResId="model.VO.CustomersVO.CustomersSearch_displayName"/>

@@ -26,6 +26,10 @@
     Name="pPC"
     Kind="viewcriteria"
     Type="java.math.BigDecimal"/>
+  <Variable
+    Name="po"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AppsModule_CustomerContactsVO3_1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -292,6 +296,32 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="IsCompleted"
+    IsUpdateable="false"
+    IsSelected="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.lang.String"
+    ColumnType="NUMBER"
+    AliasName="VIEW_ATTR"
+    SQLType="BIT">
+    <TransientExpression
+      Name="ExpressionScript"
+      trustMode="untrusted"
+      CodeSourceName="CustomerTasksVORow"/>
+    <Dependencies>
+      <Item
+        Value="PercentageCompletion"
+        Type="notify"/>
+    </Dependencies>
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.IsCompleted_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerTasksVOCriteria"
     ViewObjectName="model.VO.CustomerTasksVO"
@@ -324,17 +354,17 @@
       <ViewCriteriaItem
         Name="DueDate"
         ViewAttribute="DueDate"
-        Operator="="
+        Operator="ONORAFTER"
         Conjunction="AND"
         Value=":pDue"
         IsBindVarValue="true"
         Required="Optional"/>
       <ViewCriteriaItem
-        Name="PercentageCompletion"
-        ViewAttribute="PercentageCompletion"
-        Operator="="
+        Name="IsCompleted"
+        ViewAttribute="IsCompleted"
+        Operator="STARTSWITH"
         Conjunction="AND"
-        Value=":pPC"
+        Value=":po"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>
