@@ -367,7 +367,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InBasicMode"/>
+          Value="Never"/>
         <Property
           Name="displayName"
           ResId="model.VO.CustomerAppointmentsVO.CustomerAppointmentsVOCriteria_displayName"/>

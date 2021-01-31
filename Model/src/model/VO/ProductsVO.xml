@@ -169,7 +169,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="displayName"
           ResId="model.VO.ProductsVO.ProductsVOCriteria_displayName"/>
@@ -206,6 +206,10 @@
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>
   </ResourceBundle>
+  <SortCriteria>
+    <Sort
+      Attribute="ProductId"/>
+  </SortCriteria>
   <SortCriteria>
     <Sort
       Attribute="ProductId"/>

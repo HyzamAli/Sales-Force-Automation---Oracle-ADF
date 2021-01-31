@@ -91,7 +91,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="displayName"
           ResId="model.VO.RoleProfilesVO.RoleProfilesVOCriteria_displayName"/>
