@@ -145,11 +145,7 @@
     EntityAttrName="OppurtunityId"
     EntityUsage="OppurtunitieEO"
     AliasName="OPPURTUNITY_ID"
-    IsUpdateable="while_insert">
-    <Properties>
-      <SchemaBasedProperties/>
-    </Properties>
-  </ViewAttribute>
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -439,7 +435,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="displayName"
           ResId="model.VO.OppurtunitiesVO.OppurtunitiesVOCriteria_displayName"/>

@@ -305,7 +305,7 @@
     Type="java.lang.String"
     ColumnType="NUMBER"
     AliasName="VIEW_ATTR"
-    SQLType="BIT">
+    SQLType="VARCHAR">
     <TransientExpression
       Name="ExpressionScript"
       trustMode="untrusted"
@@ -342,7 +342,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="displayName"
           ResId="model.VO.CustomerTasksVO.CustomerTasksVOCriteria_displayName"/>

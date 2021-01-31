@@ -168,7 +168,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="Never"/>
         <Property
           Name="displayName"
           ResId="model.VO.ProductsPerOppurtunitiesVO.ProductsPerOppurtunitiesVOCriteria_displayName"/>
