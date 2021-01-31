@@ -43,6 +43,7 @@
                   Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer" Binds="ContactsByCustomersVO2Iterator"
                   id="ContactsByCustomersVOCriteriaQuery"/>
     <iterator Binds="UserProfilesVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
+    <iterator Binds="AddressesVO1" RangeSize="25" DataControl="AppsModuleDataControl" id="AddressesVO1Iterator"/>
   </executables>
   <bindings>
     <tree IterBinding="CustomerContactsVO3Iterator" id="CustomerContactsVO3">
@@ -457,5 +458,49 @@
     </action>
     <action IterBinding="ContactsByCustomersVO2Iterator" id="Delete6" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
+    <tree IterBinding="AddressesVO1Iterator" id="AddressesVO1">
+      <nodeDefinition DefName="model.VO.AddressesVO" Name="AddressesVO10">
+        <AttrNames>
+          <Item Value="AddressLine1"/>
+          <Item Value="Country"/>
+          <Item Value="AddressType"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="AddressLine1">
+      <AttrNames>
+        <Item Value="AddressLine1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="AddressLine2">
+      <AttrNames>
+        <Item Value="AddressLine2"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="Pin">
+      <AttrNames>
+        <Item Value="Pin"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="Country1">
+      <AttrNames>
+        <Item Value="Country"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="AddressesVO1Iterator" id="AddressType">
+      <AttrNames>
+        <Item Value="AddressType"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="AddressesVO1Iterator" id="CreateWithParams7" RequiresUpdateModel="true"
+            Action="createWithParams">
+      <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="AddressLine1" NDValue="#{AddressBean.addressLine1}" NDType="java.lang.String"/>
+      <NamedData NDName="AddressLine2" NDValue="#{AddressBean.addressLine2}" NDType="java.lang.String"/>
+      <NamedData NDName="Pin" NDValue="#{AddressBean.pin}" NDType="java.lang.String"/>
+      <NamedData NDName="Country" NDValue="#{AddressBean.country}" NDType="java.lang.String"/>
+      <NamedData NDName="AddressType" NDValue="#{AddressBean.type}" NDType="java.lang.String"/>
+    </action>
+    <action IterBinding="AddressesVO1Iterator" id="Delete7" RequiresUpdateModel="false" Action="removeCurrentRow"/>
   </bindings>
 </pageDefinition>
