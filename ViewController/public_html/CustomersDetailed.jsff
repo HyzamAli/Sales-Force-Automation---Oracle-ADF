@@ -7,7 +7,7 @@
     <af:panelGroupLayout id="pgl5"
                          inlineStyle="background-repeat:no-repeat; background-size:110% auto; background-image:url(&quot;bg_pic1.jpg&quot;);">
       <af:panelBox text="Customer - #{bindings.AccName.inputValue}" id="pb9"
-                   inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;"
+                   inlineStyle="padding-left:0px; padding-right:0px; margin-left:20px; margin-right:50px; margin-bottom:20px; margin-top:20px;"
                    showDisclosure="false">
         <f:facet name="toolbar">
           <af:toolbar id="t14">
@@ -80,7 +80,7 @@
                             shortDesc="#{bindings.AccUrl.hints.tooltip}" id="it6">
                 <f:validator binding="#{bindings.AccUrl.validator}"/>
                 <af:validateRegExp pattern="^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" hint="Eg: www.webpage.com"
-                                   messageDetailNoMatch="Not a Valid URL"/>
+                                   messageDetailNoMatch="Not a Valid URL"/>            
               </af:inputText>
               <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
                             required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
