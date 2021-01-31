@@ -21,7 +21,7 @@ public class NotesBean {
     private String contactID;
     private String repID;
     private String oppurtunityID;
-    private Date createdOn;
+    private Date createdOn=new Date(System.currentTimeMillis());
     private String customerId;   
     private String customerName;
     private String opName;
@@ -74,6 +74,7 @@ public class NotesBean {
     }
 
     public void setCreatedOn(Date createdOn) {
+        
         this.createdOn = createdOn;
     }
 

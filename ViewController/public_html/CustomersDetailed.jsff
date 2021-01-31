@@ -466,7 +466,7 @@
                   <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
                                 required="#{bindings.CreatedOn.hints.mandatory}"
                                 columns="#{bindings.CreatedOn.hints.displayWidth}"
-                                shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id2">
+                                shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id2" readOnly="true">
                     <f:validator binding="#{bindings.CreatedOn.validator}"/>
                     <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                   </af:inputDate>
