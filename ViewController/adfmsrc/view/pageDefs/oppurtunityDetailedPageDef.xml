@@ -42,6 +42,8 @@
                   Binds="CustomerAppointmentsVO3Iterator" id="CustomerAppointmentsVOCriteriaQuery"/>
     <iterator id="ProductsVO1Iterator" Binds="ProductsVO1" DataControl="AppsModuleDataControl" RangeSize="-1"/>
     <iterator Binds="UserProfilesVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
+    <iterator Binds="CustomerTasksVO1" RangeSize="25" DataControl="AppsModuleDataControl"
+              id="CustomerTasksVO1Iterator"/>
   </executables>
   <bindings>
         <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustomerId1">
@@ -128,12 +130,13 @@
     <tree IterBinding="CustomerTasksVO7Iterator" id="CustomerTasksVO7">
       <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO70">
         <AttrNames>
+          <Item Value="TaskName"/>
           <Item Value="TaskDetails"/>
+          <Item Value="CustName"/>
           <Item Value="Priority1"/>
           <Item Value="PercentageCompletion"/>
           <Item Value="DueDate"/>
           <Item Value="CustomerId"/>
-          <Item Value="CustName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -227,6 +230,7 @@
     </attributeValues>
     <action IterBinding="CustomerTasksVO7Iterator" id="CreateWithParams1" RequiresUpdateModel="true"
             Action="createWithParams">
+      <NamedData NDName="TaskName" NDValue="#{TasksBean.taskName}" NDType="java.lang.String"/>
       <NamedData NDName="OppurtunityId" NDValue="#{bindings.OppurtunityId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{TasksBean.contactID}" NDType="java.lang.String"/>
@@ -474,6 +478,21 @@
     <attributeValues IterBinding="ProductsPerOppurtunitiesVO4Iterator" id="ProductName">
       <AttrNames>
         <Item Value="ProductName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilesVO2Iterator" id="FileDescription">
+      <AttrNames>
+        <Item Value="FileDescription"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="FilesVO2Iterator" id="FileName">
+      <AttrNames>
+        <Item Value="FileName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO7Iterator" id="TaskName">
+      <AttrNames>
+        <Item Value="TaskName"/>
       </AttrNames>
     </attributeValues>
   </bindings>

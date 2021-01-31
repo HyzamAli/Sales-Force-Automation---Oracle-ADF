@@ -33,7 +33,6 @@
     TableName="OPPURTUNITY_FILES"/>
   <Attribute
     Name="FileName"
-    IsUpdateable="while_insert"
     IsNotNull="true"
     Precision="20"
     ColumnName="FILE_NAME"
@@ -55,6 +54,18 @@
     Type="oracle.jbo.domain.BlobDomain"
     ColumnType="BLOB"
     TableName="OPPURTUNITY_FILES"/>
+  <Attribute
+    Name="FileDescription"
+    Precision="100"
+    ColumnName="FILE_DESCRIPTION"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPURTUNITY_FILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="100"/>
+    </DesignTime>
+  </Attribute>
   <Key
     Name="OppurtunityFilesFileContentCheck">
     <DesignTime>

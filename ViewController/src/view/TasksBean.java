@@ -15,6 +15,7 @@ import oracle.jbo.Row;
 import oracle.jbo.RowSetIterator;
 
 public class TasksBean {
+    private String taskName;
     private String contactID;
     private String repID;
     private String priority;
@@ -163,5 +164,13 @@ public class TasksBean {
         Key key = new Key(new Object[] { oppurtunityID});
         Row row = rsi.findByKey(key, 1)[0];
         opName = (String) row.getAttribute("OpName");
+    }
+
+    public void setTaskName(String taskName) {
+        this.taskName = taskName;
+    }
+
+    public String getTaskName() {
+        return taskName;
     }
 }
