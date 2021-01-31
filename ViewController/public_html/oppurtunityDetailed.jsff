@@ -7,7 +7,7 @@
     <af:panelGroupLayout id="pgl1" layout="vertical"
                          inlineStyle="background-size:110% auto; background-repeat:no-repeat; background-image:url(&quot;bg_pic1.jpg&quot;);">
       <af:panelBox id="pb8" showDisclosure="false" text="Oppurtunity- #{bindings.OpName.inputValue}"
-                   inlineStyle="margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;" background="default">
+                   inlineStyle="margin-left:20px; margin-right:50px; margin-bottom:20px; margin-top:20px;" background="default">
         <f:facet name="toolbar">
           <af:toolbar id="t21">
             <af:button text="Back" id="b12" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
@@ -156,7 +156,7 @@
                           inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
                           saveQueryMode="hidden"/>
                 <af:panelCollection id="pc3"
-                                    inlineStyle="padding-bottom:010px; padding-right:010px; padding-top:010px; padding-left:100px;">
+                                    inlineStyle="padding-bottom:010px; padding-right:010px; padding-top:010px; padding-left:50px;">
                   <f:facet name="menus"/>
                   <f:facet name="toolbar">
                     <af:toolbar id="t9">
@@ -179,9 +179,9 @@
                             selectionListener="#{bindings.ProductsPerOppurtunitiesVO4.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.ProductsPerOppurtunitiesVO4.rangeSize}" id="t4"
                             summary="products by oppurtunity list" columnStretching="last"
-                            partialTriggers=":::b14 ::b16 :::b43" width="1100" contentDelivery="lazy">
+                            partialTriggers=":::b14 ::b16 :::b43" width="1000" contentDelivery="lazy">
                     <af:column headerText="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductName.label}" id="c28"
-                               width="600">
+                               width="500">
                       <af:link id="l10">
                         <af:outputText value="#{row.ProductName}"
                                        shortDesc="#{bindings.ProductsPerOppurtunitiesVO4.hints.ProductName.tooltip}"
@@ -327,14 +327,14 @@
             <af:spacer id="s10" height="35px"/>
             <af:panelBox text="Contact" id="pb7" showHeader="always" showDisclosure="false" disclosed="true">
               <f:facet name="toolbar"/>
-              <af:panelCollection id="pc6" inlineStyle="padding-left:100px;">
+              <af:panelCollection id="pc6" inlineStyle="padding-left:50px;">
                 <af:table value="#{bindings.ContactsOpVO2.collectionModel}" var="row"
                           rows="#{bindings.ContactsOpVO2.rangeSize}" summary="list"
                           emptyText="#{bindings.ContactsOpVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsOpVO2.rangeSize}" id="t12"
-                          partialTriggers="::b25 ::b26" columnStretching="last" width="1100">
+                          partialTriggers="::b25 ::b26" columnStretching="last" width="1000">
                   <af:column headerText="#{bindings.ContactsOpVO2.hints.ContactId.label}" id="c12" rendered="false"
                              width="400">
                     <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
@@ -347,7 +347,7 @@
                     </af:selectOneChoice>
                   </af:column>
                   <af:column headerText="#{bindings.ContactsOpVO2.hints.Name.label}" id="c19" rowHeader="true"
-                             width="400" align="left">
+                             width="300" align="left">
                     <af:link text="" id="l5" action="toContactDetailed">
                       <af:outputText value="#{row.Name}" shortDesc="#{bindings.ContactsOpVO2.hints.Name.tooltip}"
                                      id="ot16"/>
@@ -428,7 +428,7 @@
             <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
               <f:facet name="toolbar"/>
               <af:panelCollection id="pc1"
-                                  inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:010px; padding-top:010px;">
+                                  inlineStyle="padding-bottom:010px; padding-left:50px; padding-right:010px; padding-top:010px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t5">
@@ -447,7 +447,7 @@
                           emptyText="#{bindings.CustomerNotesVO7.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" fetchSize="#{bindings.CustomerNotesVO7.rangeSize}" id="t2"
                           summary="oppurtunity nores list" columnStretching="last"
-                          partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13 :::pc6:b26 :::b22" width="1100">
+                          partialTriggers="::b6 :::b4 :::b23 :::b24 :::p4 :::d4 :::b13 :::pc6:b26 :::b22" width="1000">
                   <af:column headerText="#{bindings.CustomerNotesVO7.hints.NotesTitle.label}" id="c1" rowHeader="true"
                              align="left" width="300">
                     <af:link id="l1">
@@ -456,14 +456,14 @@
                       <af:showPopupBehavior popupId=":::p4"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustName.label}" id="c8" width="300">
+                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CustName.label}" id="c8" width="250">
                     <af:link text="" id="l7" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerNotesVO7.hints.CustName.tooltip}" id="ot14"/>
                       <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.ContactId.label}" id="c15" width="300">
+                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.ContactId.label}" id="c15" width="250">
                     <af:selectOneChoice value="#{row.bindings.ContactId.inputValue}"
                                         label="#{row.bindings.ContactId.label}"
                                         required="#{bindings.CustomerNotesVO7.hints.ContactId.mandatory}"
@@ -472,7 +472,7 @@
                       <f:validator binding="#{row.bindings.ContactId.validator}"/>
                     </af:selectOneChoice>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CreatedOn.label}" id="c5" width="200">
+                  <af:column headerText="#{bindings.CustomerNotesVO7.hints.CreatedOn.label}" id="c5" width="100">
                     <af:outputText id="ot23" value="#{row.CreatedOn}"
                                    shortDesc="#{bindings.CustomerNotesVO7.hints.CreatedOn.tooltip}">
                       <af:convertDateTime pattern="#{bindings.CustomerNotesVO7.hints.CreatedOn.format}"/>
@@ -601,7 +601,7 @@
             <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
               <f:facet name="toolbar"/>
               <af:panelCollection id="pc2"
-                                  inlineStyle="padding-bottom:010px; padding-left:100px; padding-right:010px; padding-top:010px;">
+                                  inlineStyle="padding-bottom:010px; padding-left:50px; padding-right:010px; padding-top:010px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t7">
@@ -622,17 +622,17 @@
                           selectedRowKeys="#{bindings.CustomerTasksVO7.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerTasksVO7.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerTasksVO7.rangeSize}" id="t3"
-                          summary="oppurtunity taks list" width="1100"
+                          summary="oppurtunity taks list" width="1000"
                           partialTriggers=":::b22 ::b11 :::b10 :::p5 :::d5 :::b23" columnStretching="last">
                   <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskDetails.label}" id="c6" rowHeader="true"
-                             align="left" width="350">
+                             align="left" width="250">
                     <af:link id="l2">
                       <af:outputText value="#{row.TaskDetails}"
                                      shortDesc="#{bindings.CustomerTasksVO7.hints.TaskDetails.tooltip}" id="ot1"/>
                       <af:showPopupBehavior popupId=":::p5"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustName.label}" id="c4">
+                  <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustName.label}" id="c4" width="200">
                     <af:link text="" id="l3" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerTasksVO7.hints.CustName.tooltip}" id="ot10"/>
@@ -788,7 +788,7 @@
             <af:spacer id="s13" height="20px"/>
             <af:panelBox id="pb9" showHeader="never" showDisclosure="false" text="Sales Team">
               <f:facet name="toolbar"/>
-              <af:panelCollection id="pc4" inlineStyle="padding-left:100px;">
+              <af:panelCollection id="pc4" inlineStyle="padding-left:50px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t11">
@@ -806,7 +806,7 @@
                           emptyText="#{bindings.SalesTeamsVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" fetchSize="#{bindings.SalesTeamsVO4.rangeSize}" id="t10"
                           columnStretching="last" summary="summary" partialTriggers="::b18 :::b19 :::pc8:b31 :::b24"
-                          inlineStyle="padding-left:0px;" width="1100">
+                          inlineStyle="padding-left:0px;" width="1000">
                   <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true"
                              align="left" width="1100">
                     <af:selectOneChoice id="sc1" value="#{row.bindings.EmployeeId.inputValue}"
@@ -858,7 +858,7 @@
             <af:spacer id="s14" height="20px"/>
             <af:panelBox text="Attatchments" id="pb12" showDisclosure="false" showHeader="never">
               <f:facet name="toolbar"/>
-              <af:panelCollection id="pc7" inlineStyle="padding-left:100px; padding:0px 50px;">
+              <af:panelCollection id="pc7" inlineStyle="padding-left:50px; padding:0px 50px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t14">
@@ -878,13 +878,13 @@
                           rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
                           summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
-                          partialTriggers=":::b8 :::b28 ::b41" width="1150" columnStretching="last">
-                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="300"
+                          partialTriggers=":::b8 :::b28 ::b41" width="1000" columnStretching="last">
+                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="500"
                              align="left">
                     <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
                                    id="ot6"/>
                   </af:column>
-                  <af:column id="c17" headerText=" " width="600">
+                  <af:column id="c17" headerText=" " width="450">
                     <af:link text="Download File" id="l6">
                       <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
                     </af:link>
@@ -962,16 +962,16 @@
                           selectedRowKeys="#{bindings.CustomerAppointmentsVO5.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerAppointmentsVO5.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO5.rangeSize}" id="t6"
-                          partialTriggers="::b29 ::b30 ::b34" width="1200">
+                          partialTriggers="::b29 ::b30 ::b34" width="1000">
                   <af:column rowHeader="true" headerText="#{bindings.CustomerAppointmentsVO5.hints.AppName.label}"
-                             id="c22" width="300" align="left">
+                             id="c22" width="200" align="left">
                     <af:link text="" id="l9">
                       <af:outputText value="#{row.AppName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppName.tooltip}" id="ot15"/>
                       <af:showPopupBehavior popupId="::p20"/>
                     </af:link>
                   </af:column>
-                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23" width="300">
+                  <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.CustName.label}" id="c23" width="200">
                     <af:link text="" id="l8" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO5.hints.CustName.tooltip}" id="ot20"/>
@@ -1203,7 +1203,7 @@
                             selectedRowKeys="#{bindings.AppointmentAttendeesVO6.collectionModel.selectedRow}"
                             selectionListener="#{bindings.AppointmentAttendeesVO6.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.AppointmentAttendeesVO6.rangeSize}" id="t16"
-                            partialTriggers="::b32 ::b35 :::pc5:b34 :::pc9:b37 :::pc7:b40 ::b31" width="500">
+                            partialTriggers="::b32 ::b35 :::pc5:b34 :::pc9:b37 :::pc7:b40 ::b31" width="350">
                     <af:column headerText="#{bindings.AppointmentAttendeesVO6.hints.EmployeeId.label}" id="c29"
                                width="500">
                       <af:selectOneChoice value="#{row.bindings.EmployeeId.inputValue}"
@@ -1270,7 +1270,7 @@
                             selectedRowKeys="#{bindings.AppointmentCustomersVO3.collectionModel.selectedRow}"
                             selectionListener="#{bindings.AppointmentCustomersVO3.collectionModel.makeCurrent}"
                             rowSelection="single" fetchSize="#{bindings.AppointmentCustomersVO3.rangeSize}" id="t18"
-                            partialTriggers="::b36 ::b38 ::b37" width="500">
+                            partialTriggers="::b36 ::b38 ::b37" width="350">
                     <af:column headerText="Contacts" id="c30" width="500">
                       <af:selectOneChoice value="#{row.bindings.CustId.inputValue}" label="#{row.bindings.CustId.label}"
                                           required="#{bindings.AppointmentCustomersVO3.hints.CustId.mandatory}"
