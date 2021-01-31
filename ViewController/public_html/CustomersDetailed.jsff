@@ -79,6 +79,8 @@
                             maximumLength="#{bindings.AccUrl.hints.precision}"
                             shortDesc="#{bindings.AccUrl.hints.tooltip}" id="it6">
                 <f:validator binding="#{bindings.AccUrl.validator}"/>
+                <af:validateRegExp pattern="^((https?|ftp|smtp):\/\/)?(www.)?[a-z0-9]+\.[a-z]+(\/[a-zA-Z0-9#]+\/?)*$" hint="Eg: www.webpage.com"
+                                   messageDetailNoMatch="Not a Valid URL"/>
               </af:inputText>
               <af:inputText value="#{bindings.Email.inputValue}" label="#{bindings.Email.hints.label}"
                             required="#{bindings.Email.hints.mandatory}" columns="#{bindings.Email.hints.displayWidth}"
@@ -940,7 +942,7 @@
               <af:spacer id="s9" height="35px"/>
               <af:spacer id="s10" height="35px"/>
             </af:panelBox>
-            <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
+            <af:panelDashboard id="pd2" columns="2" rowHeight="200px">
               <af:panelBox text="Employees Attending" id="pb15">
                 <f:facet name="toolbar"/>
                 <af:panelCollection id="pc5"
