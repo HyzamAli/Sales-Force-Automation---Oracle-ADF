@@ -12,7 +12,8 @@
         </af:toolbar>
       </f:facet>
     </af:panelBox>
-    <af:panelTabbed position="end" id="pt1" inlineStyle="margin-left:20px; background-color:transparent;">
+    <af:panelTabbed position="start" id="pt1" inlineStyle="margin-left:20px; background-color:White; margin-right:45px;"
+                    verticalTabMode="iconAndText">
       <af:showDetailItem id="Overview" shortDesc="Drawer 1" disclosed="true" text="Overview"
                          icon="#{resource['images:document.png']}">
         <af:panelBox text="Overview" id="pb1" showDisclosure="false">
@@ -484,7 +485,10 @@
       </af:showDetailItem>
       <af:showDetailItem text="Appointments" id="Appointments" icon="#{resource['images:calendar.png']}">
         <af:panelGroupLayout id="pgl4">
-          <af:panelBox text="Appointments" id="pb7" showDisclosure="false">
+          <af:outputText value="Appointments" id="ot16"
+                         inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+          <af:spacer id="s5" height="20px"/>
+          <af:panelBox text="Appointments" id="pb7" showDisclosure="false" showHeader="never">
             <f:facet name="toolbar"/>
             <af:panelCollection id="pc3" inlineStyle="padding-left:100px;">
               <f:facet name="menus"/>
@@ -493,7 +497,7 @@
               <af:table value="#{bindings.CustomerAppointmentsVO6.collectionModel}" var="row"
                         rows="#{bindings.CustomerAppointmentsVO6.rangeSize}"
                         emptyText="#{bindings.CustomerAppointmentsVO6.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        rowBandingInterval="0"
+                        rowBandingInterval="0" summary="list"
                         selectedRowKeys="#{bindings.CustomerAppointmentsVO6.collectionModel.selectedRow}"
                         selectionListener="#{bindings.CustomerAppointmentsVO6.collectionModel.makeCurrent}"
                         rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO6.rangeSize}" id="t6"
@@ -506,7 +510,8 @@
                                       pattern="#{bindings.CustomerAppointmentsVO6.hints.AppId.format}"/>
                   </af:outputText>
                 </af:column>
-                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppName.label}" id="c16" width="275">
+                <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppName.label}" id="c16" width="275"
+                           rowHeader="true">
                   <af:link text="" id="l10">
                     <af:outputText value="#{row.AppName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO6.hints.AppName.tooltip}" id="ot12"/>
@@ -557,7 +562,7 @@
               <af:popup childCreation="deferred" autoCancel="enabled" id="p7" partialTriggers="t6"
                         resetEditableValues="whenCanceled">
                 <af:dialog id="d7" type="yesNo" affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel"
-                           dialogListener="#{DialogHandler.onUpdate}">
+                           dialogListener="#{DialogHandler.onUpdate}" title="Edit">
                   <af:panelFormLayout id="pfl6">
                     <af:inputText value="#{bindings.AppName.inputValue}" label="#{bindings.AppName.hints.label}"
                                   required="#{bindings.AppName.hints.mandatory}"

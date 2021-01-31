@@ -8,10 +8,16 @@
                          inlineStyle="background-size:110% auto; background-repeat:no-repeat; background-image:url(&quot;bg_pic1.jpg&quot;);">
       <af:panelBox id="pb8" showDisclosure="false" text="Oppurtunity- #{bindings.OpName.inputValue}"
                    inlineStyle="margin-left:20px; margin-right:50px; margin-bottom:40px; margin-top:20px;" background="default">
-        <f:facet name="toolbar"/>
+        <f:facet name="toolbar">
+          <af:toolbar id="t21">
+            <af:button text="Back" id="b12" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
+          </af:toolbar>
+        </f:facet>
       </af:panelBox>
       <af:panelDrawer position="left" id="pd1" width="100%"
-                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;">
+                      inlineStyle="padding-left:20px; padding-right:10px; padding-top:100px;" rendered="false"/>
+      <af:panelTabbed position="start" id="pt1" verticalTabMode="iconAndText"
+                      inlineStyle="margin-right:45px; margin-left:20px; background-color:White;">
         <af:showDetailItem id="Overview" shortDesc="Drawer 1" icon="#{resource['images:document.png']}" text="Overview"
                            disclosed="true" inlineStyle="margin-left:0px; margin-right:0px; margin-top:0px;">
           <af:panelGroupLayout layout="vertical" id="pgl6">
@@ -20,7 +26,6 @@
                 <af:toolbar id="t1" rendered="true">
                   <af:button text="OK" id="b1" action="#{OppurtunityBean.commitData}"
                              inlineStyle="background-color:Green; color:White; margin-left:500px;" selected="true"/>
-                  <af:button text="Back" id="b12" action="goBack" actionListener="#{DialogHandler.rollbackTrans}"/>
                   <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
                              disabled="#{!bindings.Commit.enabled}" id="b2" rendered="false"/>
                   <af:button actionListener="#{bindings.Rollback.execute}" text="Rollback"
@@ -79,15 +84,14 @@
                   <f:validator binding="#{bindings.CloseDate.validator}"/>
                   <af:convertDateTime pattern="#{bindings.CloseDate.format}"/>
                 </af:inputDate>
-                <af:inputText value="#{bindings.WinProbability.inputValue}"
-                              label="Win Probability (%)"
+                <af:inputText value="#{bindings.WinProbability.inputValue}" label="Win Probability (%)"
                               required="#{bindings.WinProbability.hints.mandatory}"
                               columns="#{bindings.WinProbability.hints.displayWidth}"
                               maximumLength="#{bindings.WinProbability.hints.precision}"
                               shortDesc="#{bindings.WinProbability.hints.tooltip}" id="it8">
                   <f:validator binding="#{bindings.WinProbability.validator}"/>
                   <af:validateDoubleRange minimum="0.0" maximum="100.0" messageDetailMinimum="Should be greater than 0"
-                                    messageDetailMaximum="Should be less than 100"/>
+                                          messageDetailMaximum="Should be less than 100"/>
                   <af:convertNumber groupingUsed="false" pattern="#{bindings.WinProbability.format}"/>
                 </af:inputText>
                 <af:selectOneChoice value="#{bindings.SaleStage.inputValue}" label="#{bindings.SaleStage.hints.label}"
@@ -306,21 +310,18 @@
         </af:showDetailItem>
         <af:showDetailItem text="Contacts" id="sdi2" icon="#{resource['images:telephone.png']}">
           <af:panelGroupLayout id="pgl7">
-          <af:outputText value="Contacts" id="ot19"
+            <af:outputText value="Contacts" id="ot19"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
             <af:spacer id="s3" height="20px"/>
             <af:panelBox id="pb11" showDisclosure="false">
               <f:facet name="toolbar"/>
               <af:panelGroupLayout layout="vertical" id="pgl8">
-                
-                  <af:query id="qryId4" headerText="Search" disclosed="true"
-                            value="#{bindings.ContactsOpVOCriteriaQuery.queryDescriptor}"
-                            model="#{bindings.ContactsOpVOCriteriaQuery.queryModel}"
-                            queryListener="#{bindings.ContactsOpVOCriteriaQuery.processQuery}"
-                            queryOperationListener="#{bindings.ContactsOpVOCriteriaQuery.processQueryOperation}"
-                            styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
-                
-                
+                <af:query id="qryId4" headerText="Search" disclosed="true"
+                          value="#{bindings.ContactsOpVOCriteriaQuery.queryDescriptor}"
+                          model="#{bindings.ContactsOpVOCriteriaQuery.queryModel}"
+                          queryListener="#{bindings.ContactsOpVOCriteriaQuery.processQuery}"
+                          queryOperationListener="#{bindings.ContactsOpVOCriteriaQuery.processQueryOperation}"
+                          styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
               </af:panelGroupLayout>
             </af:panelBox>
             <af:spacer id="s10" height="35px"/>
@@ -328,8 +329,7 @@
               <f:facet name="toolbar"/>
               <af:panelCollection id="pc6" inlineStyle="padding-left:100px;">
                 <af:table value="#{bindings.ContactsOpVO2.collectionModel}" var="row"
-                          rows="#{bindings.ContactsOpVO2.rangeSize}"
-                          summary="list"
+                          rows="#{bindings.ContactsOpVO2.rangeSize}" summary="list"
                           emptyText="#{bindings.ContactsOpVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" selectedRowKeys="#{bindings.ContactsOpVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsOpVO2.collectionModel.makeCurrent}"
@@ -366,13 +366,11 @@
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t13">
-                    <af:button text="Add" id="b20" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                    <af:button text="Add" id="b20" inlineStyle=" background-color:Green; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p12"/>
                     </af:button>
-                    <af:button text="Remove"
-                               disabled="#{!bindings.Delete4.enabled}" id="b27" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Remove" disabled="#{!bindings.Delete4.enabled}" id="b27"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p13"/>
                     </af:button>
                   </af:toolbar>
@@ -423,7 +421,8 @@
                         queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                        rows="1" maxColumns="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
+                        rows="1" maxColumns="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false"
+                        saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s1" height="35px"/>
             <af:panelBox id="pb2" showDisclosure="false" showHeader="always" text="Notes">
@@ -434,11 +433,10 @@
                 <f:facet name="toolbar">
                   <af:toolbar id="t5">
                     <af:button text="Create" id="b5" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                               selected="true">
                       <af:showPopupBehavior popupId="::p1"/>
                     </af:button>
-                    <af:button text="Delete" id="b6" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Delete" id="b6" inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="::p7"/>
                     </af:button>
                   </af:toolbar>
@@ -498,7 +496,8 @@
                     <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK"
                                disabled="#{!bindings.CreateWithParams.enabled}" id="b4"
                                action="#{NotesBean.closeDialog}">
-                      <af:setActionListener from="#{bindings.OppurtunityId.inputValue}" to="#{NotesBean.oppurtunityID}"/>
+                      <af:setActionListener from="#{bindings.OppurtunityId.inputValue}"
+                                            to="#{NotesBean.oppurtunityID}"/>
                       <af:setActionListener from="#{bindings.CustomerId1.inputValue}" to="#{NotesBean.customerId}"/>
                     </af:button>
                   </f:facet>
@@ -595,7 +594,8 @@
                         queryListener="#{bindings.CustomerTasksVOCriteria1Query.processQuery}"
                         queryOperationListener="#{bindings.CustomerTasksVOCriteria1Query.processQueryOperation}"
                         inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                        maxColumns="2" rows="2" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
+                        maxColumns="2" rows="2" styleClass="AFQueryHideAddFields" modeChangeVisible="false"
+                        saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s5" height="35px"/>
             <af:panelBox text="Tasks" id="pb3" showDisclosure="false">
@@ -606,11 +606,10 @@
                 <f:facet name="toolbar">
                   <af:toolbar id="t7">
                     <af:button text="Create" id="b9" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                               selected="true">
                       <af:showPopupBehavior popupId="::p2"/>
                     </af:button>
-                    <af:button text="Delete" id="b11" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Delete" id="b11" inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="::p8"/>
                     </af:button>
                   </af:toolbar>
@@ -679,9 +678,10 @@
                     <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="OK"
                                disabled="#{!bindings.CreateWithParams1.enabled}" id="b10"
                                action="#{TasksBean.closeDialog}">
-                                <af:setActionListener from="#{bindings.OppurtunityId.inputValue}" to="#{TasksBean.oppurtunityID}"/>
-                                <af:setActionListener from="#{bindings.CustomerId1.inputValue}" to="#{TasksBean.customerId}"/>
-                      </af:button>
+                      <af:setActionListener from="#{bindings.OppurtunityId.inputValue}"
+                                            to="#{TasksBean.oppurtunityID}"/>
+                      <af:setActionListener from="#{bindings.CustomerId1.inputValue}" to="#{TasksBean.customerId}"/>
+                    </af:button>
                   </f:facet>
                   <af:panelFormLayout id="pfl3">
                     <af:inputText value="#{TasksBean.details}" label="#{bindings.TaskDetails.hints.label}"
@@ -783,18 +783,19 @@
         <af:showDetailItem id="sdi1" shortDesc="Drawer 3" icon="#{resource['images:thumbs-up-2.png']}"
                            text="Sales Team">
           <af:panelGroupLayout layout="vertical" id="pgl2">
-            <af:panelBox id="pb9" showHeader="ifNeeded" showDisclosure="false" text="Sales Team">
+            <af:outputText value="Sales Team" id="ot32"
+                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+            <af:spacer id="s13" height="20px"/>
+            <af:panelBox id="pb9" showHeader="never" showDisclosure="false" text="Sales Team">
               <f:facet name="toolbar"/>
               <af:panelCollection id="pc4" inlineStyle="padding-left:100px;">
                 <f:facet name="menus"/>
                 <f:facet name="toolbar">
                   <af:toolbar id="t11">
-                    <af:button text="Add" id="b17" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                    <af:button text="Add" id="b17" inlineStyle=" background-color:Green; color:White;" selected="true">
                       <af:showPopupBehavior popupId="::p6"/>
                     </af:button>
-                    <af:button text="Delete" id="b18" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Delete" id="b18" inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="::p9"/>
                     </af:button>
                   </af:toolbar>
@@ -851,75 +852,78 @@
         </af:showDetailItem>
         <af:showDetailItem id="sdi3" shortDesc="Drawer 6" icon="#{resource['images:attachment.png']}"
                            text="Attachments">
-          <af:panelBox text="Attatchments" id="pb12" showDisclosure="false">
-            <f:facet name="toolbar"/>
-            <af:panelCollection id="pc7" inlineStyle="padding-left:100px; padding:0px 50px;">
-              <f:facet name="menus"/>
-              <f:facet name="toolbar">
-                <af:toolbar id="t14">
-                  <af:button text="Add File" id="b21" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
-                    <af:showPopupBehavior popupId="::p140"/>
-                  </af:button>
-                  <af:button text="Delete"
-                             disabled="#{!bindings.Delete8.enabled}" id="b41" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
-                    <af:showPopupBehavior popupId="p21"/>
-                  </af:button>
-                </af:toolbar>
-              </f:facet>
-              <f:facet name="statusbar"/>
-              <af:table value="#{bindings.FilesVO2.collectionModel}" var="row" rows="#{bindings.FilesVO2.rangeSize}"
-                        emptyText="#{bindings.FilesVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
-                        rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
-                        selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
-                        summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
-                        partialTriggers=":::b8 :::b28 ::b41"
-                        width="1150" columnStretching="last">
-                <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="300"
-                           align="left">
-                  <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
-                                 id="ot6"/>
-                </af:column>
-                <af:column id="c17" headerText=" " width="600">
-                  <af:link text="Download File" id="l6">
-                    <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
-                  </af:link>
-                </af:column>
-              </af:table>
-              <af:popup childCreation="deferred" autoCancel="disabled" id="p21" partialTriggers="t15">
-                <af:dialog id="d22" title="Remove" type="cancel" binding="#{FilesBean.deleteComponent}">
-                  <af:outputText value="Confirm Action" id="ot30" inlineStyle="margin-right:50px;"/>
+          <af:panelGroupLayout id="pgl11">
+            <af:outputText value="Attatchments" id="ot33"
+                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+            <af:spacer id="s14" height="20px"/>
+            <af:panelBox text="Attatchments" id="pb12" showDisclosure="false" showHeader="never">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc7" inlineStyle="padding-left:100px; padding:0px 50px;">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t14">
+                    <af:button text="Add File" id="b21" inlineStyle=" background-color:Green; color:White;"
+                               selected="true">
+                      <af:showPopupBehavior popupId="::p140"/>
+                    </af:button>
+                    <af:button text="Delete" disabled="#{!bindings.Delete8.enabled}" id="b41"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
+                      <af:showPopupBehavior popupId="p21"/>
+                    </af:button>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.FilesVO2.collectionModel}" var="row" rows="#{bindings.FilesVO2.rangeSize}"
+                          emptyText="#{bindings.FilesVO2.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.FilesVO2.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.FilesVO2.collectionModel.makeCurrent}" rowSelection="single"
+                          summary="list" fetchSize="#{bindings.FilesVO2.rangeSize}" id="t15"
+                          partialTriggers=":::b8 :::b28 ::b41" width="1150" columnStretching="last">
+                  <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="300"
+                             align="left">
+                    <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
+                                   id="ot6"/>
+                  </af:column>
+                  <af:column id="c17" headerText=" " width="600">
+                    <af:link text="Download File" id="l6">
+                      <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
+                    </af:link>
+                  </af:column>
+                </af:table>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="p21" partialTriggers="t15">
+                  <af:dialog id="d22" title="Remove" type="cancel" binding="#{FilesBean.deleteComponent}">
+                    <af:outputText value="Confirm Action" id="ot30" inlineStyle="margin-right:50px;"/>
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.Delete8.execute}" text="Delete"
+                                 action="#{FilesBean.closeDeleteDialog}" disabled="#{!bindings.Delete8.enabled}"
+                                 id="b40"/>
+                    </f:facet>
+                  </af:dialog>
+                </af:popup>
+              </af:panelCollection>
+              <af:popup childCreation="deferred" autoCancel="enabled" id="p140" partialTriggers="b8"
+                        resetEditableValues="whenCanceled">
+                <af:dialog id="d14" title="Add Attatchment" type="cancel" binding="#{FilesBean.component}">
                   <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.Delete8.execute}" text="Delete"
-                               action="#{FilesBean.closeDeleteDialog}" disabled="#{!bindings.Delete8.enabled}"
-                               id="b40"/>
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="OK"
+                               disabled="#{!bindings.CreateInsert.enabled}" id="b28" action="#{FilesBean.uploadAttach}"
+                               partialSubmit="true">
+                      <af:setActionListener from="#{bindings.OppurtunityId.inputValue}" to="#{FilesBean.opId}"/>
+                    </af:button>
                   </f:facet>
+                  <af:panelFormLayout id="pfl10">
+                    <af:inputFile label="File" id="if1" value="#{FilesBean.list}" uploadType="auto"/>
+                    <f:facet name="footer"/>
+                  </af:panelFormLayout>
                 </af:dialog>
               </af:popup>
-            </af:panelCollection>
-            <af:popup childCreation="deferred" autoCancel="enabled" id="p140" partialTriggers="b8"
-                      resetEditableValues="whenCanceled">
-              <af:dialog id="d14" title="Add Attatchment" type="cancel" binding="#{FilesBean.component}">
-                <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateInsert.execute}" text="OK"
-                             disabled="#{!bindings.CreateInsert.enabled}" id="b28" action="#{FilesBean.uploadAttach}"
-                             partialSubmit="true">
-                    <af:setActionListener from="#{bindings.OppurtunityId.inputValue}" to="#{FilesBean.opId}"/>
-                  </af:button>
-                </f:facet>
-                <af:panelFormLayout id="pfl10">
-                  <af:inputFile label="File" id="if1" value="#{FilesBean.list}" uploadType="auto"/>
-                  <f:facet name="footer"/>
-                </af:panelFormLayout>
-              </af:dialog>
-            </af:popup>
-          </af:panelBox>
+            </af:panelBox>
+          </af:panelGroupLayout>
         </af:showDetailItem>
         <af:showDetailItem text="Appointments" id="sdi4" icon="#{resource['images:calendar.png']}">
-         <af:outputText value="Appointments" id="ot29"
-                           inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
-            <af:spacer id="s9" height="20px"/>
+          <af:outputText value="Appointments" id="ot29"
+                         inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
+          <af:spacer id="s9" height="20px"/>
           <af:panelBox id="pb15">
             <f:facet name="toolbar"/>
             <af:panelGroupLayout layout="vertical" id="pgl10">
@@ -933,8 +937,7 @@
                         styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
             </af:panelGroupLayout>
           </af:panelBox>
-          
-            <af:spacer id="s12" height="20px"/>
+          <af:spacer id="s12" height="20px"/>
           <af:panelGroupLayout id="pgl9">
             <af:panelBox text="Appointments" id="pb10" showHeader="always" showDisclosure="false">
               <af:panelCollection id="pc5" inlineStyle="margin-left:50px;">
@@ -942,12 +945,11 @@
                 <f:facet name="toolbar">
                   <af:toolbar id="t8">
                     <af:button text="Create" id="b7" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                               selected="true">
                       <af:showPopupBehavior popupId="p14"/>
                     </af:button>
-                    <af:button text="Delete"
-                               disabled="#{!bindings.Delete5.enabled}" id="b29" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                    <af:button text="Delete" disabled="#{!bindings.Delete5.enabled}" id="b29"
+                               inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p15"/>
                     </af:button>
                   </af:toolbar>
@@ -956,14 +958,13 @@
                 <af:table value="#{bindings.CustomerAppointmentsVO5.collectionModel}" var="row"
                           rows="#{bindings.CustomerAppointmentsVO5.rangeSize}"
                           emptyText="#{bindings.CustomerAppointmentsVO5.viewable ? 'No data to display.' : 'Access Denied.'}"
-                          rowBandingInterval="0"
-                          summary="list"
+                          rowBandingInterval="0" summary="list"
                           selectedRowKeys="#{bindings.CustomerAppointmentsVO5.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerAppointmentsVO5.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerAppointmentsVO5.rangeSize}" id="t6"
                           partialTriggers="::b29 ::b30 ::b34" width="1200">
-                  <af:column rowHeader="true" headerText="#{bindings.CustomerAppointmentsVO5.hints.AppName.label}" id="c22"
-                             width="300" align="left">
+                  <af:column rowHeader="true" headerText="#{bindings.CustomerAppointmentsVO5.hints.AppName.label}"
+                             id="c22" width="300" align="left">
                     <af:link text="" id="l9">
                       <af:outputText value="#{row.AppName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO5.hints.AppName.tooltip}" id="ot15"/>
@@ -974,7 +975,7 @@
                     <af:link text="" id="l8" action="toCustomerDetailed">
                       <af:outputText value="#{row.CustName}"
                                      shortDesc="#{bindings.CustomerAppointmentsVO5.hints.CustName.tooltip}" id="ot20"/>
-                                     <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
+                      <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
                     </af:link>
                   </af:column>
                   <af:column headerText="#{bindings.CustomerAppointmentsVO5.hints.StartTime.label}" id="c24"
@@ -1029,18 +1030,18 @@
                                     shortDesc="#{bindings.AppName.hints.tooltip}" id="it9">
                         <f:validator binding="#{bindings.AppName.validator}"/>
                       </af:inputText>
-                             <af:selectOneChoice value="#{AppointmentsBean.type}"
-                                            label="#{bindings.AppointmentType.hints.label}"
-                                            required="#{bindings.AppointmentType.hints.mandatory}" id="soc191">
-                          <af:selectItem label="Phone" value="Phone" id="si311"/>
-                          <af:selectItem label="Video " value="Video" id="si321"/>
-                          <af:selectItem label="Direct" value="Direct" id="si331"/>
-                        </af:selectOneChoice>
-                        <af:selectOneChoice value="#{AppointmentsBean.direction}"
-                                            label="#{bindings.AppointmentDirection.hints.label}"
-                                            required="#{bindings.AppointmentDirection.hints.mandatory}" id="soc201">
-                          <af:selectItem label="Inwards" value="Inwards" id="si341"/>
-                          <af:selectItem label="Outwards" value="Outwards" id="si35"/>
+                      <af:selectOneChoice value="#{AppointmentsBean.type}"
+                                          label="#{bindings.AppointmentType.hints.label}"
+                                          required="#{bindings.AppointmentType.hints.mandatory}" id="soc191">
+                        <af:selectItem label="Phone" value="Phone" id="si311"/>
+                        <af:selectItem label="Video " value="Video" id="si321"/>
+                        <af:selectItem label="Direct" value="Direct" id="si331"/>
+                      </af:selectOneChoice>
+                      <af:selectOneChoice value="#{AppointmentsBean.direction}"
+                                          label="#{bindings.AppointmentDirection.hints.label}"
+                                          required="#{bindings.AppointmentDirection.hints.mandatory}" id="soc201">
+                        <af:selectItem label="Inwards" value="Inwards" id="si341"/>
+                        <af:selectItem label="Outwards" value="Outwards" id="si35"/>
                       </af:selectOneChoice>
                       <af:inputText value="#{AppointmentsBean.location}" label="#{bindings.Location.hints.label}"
                                     required="#{bindings.Location.hints.mandatory}"
@@ -1070,8 +1071,7 @@
                         <f:validator binding="#{bindings.EndDate.validator}"/>
                         <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
                       </af:inputDate>
-                      <af:selectOneChoice value="#{AppointmentsBean.customerID}"
-                                          label="#{bindings.CustomerId2.label}"
+                      <af:selectOneChoice value="#{AppointmentsBean.customerID}" label="#{bindings.CustomerId2.label}"
                                           required="#{bindings.CustomerId2.hints.mandatory}"
                                           shortDesc="#{bindings.CustomerId2.hints.tooltip}" id="soc12" rendered="false">
                         <f:selectItems value="#{bindings.CustomerId2.items}" id="si26"/>
@@ -1092,7 +1092,8 @@
                   </af:dialog>
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="disabled" id="p15" partialTriggers="t6">
-                  <af:dialog id="d18" title="Delete Appointment" type="cancel" binding="#{AppointmentsBean.deleteComponent}">
+                  <af:dialog id="d18" title="Delete Appointment" type="cancel"
+                             binding="#{AppointmentsBean.deleteComponent}">
                     <af:outputText value="Confirm Action" id="ot27" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
                       <af:button actionListener="#{bindings.Delete5.execute}" text="OK"
@@ -1103,7 +1104,8 @@
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="enabled" id="p20" partialTriggers="t6"
                           resetEditableValues="whenCanceled">
-                  <af:dialog id="d21" type="yesNo" affirmativeTextAndAccessKey="Ok" dialogListener="#{DialogHandler.onUpdate}" noTextAndAccessKey="Cancel"
+                  <af:dialog id="d21" type="yesNo" affirmativeTextAndAccessKey="Ok"
+                             dialogListener="#{DialogHandler.onUpdate}" noTextAndAccessKey="Cancel"
                              title="Update Appointment">
                     <f:facet name="buttonBar"/>
                     <af:panelFormLayout id="pfl14" maxColumns="2" rows="4">
@@ -1175,7 +1177,6 @@
               </af:panelCollection>
               <f:facet name="toolbar"/>
             </af:panelBox>
-            
             <af:spacer id="s11" height="20px"/>
             <af:panelDashboard id="pd2" columns="2" rowHeight="250px">
               <af:panelBox text="Employees Attending" id="pb13" showDisclosure="false">
@@ -1185,11 +1186,11 @@
                   <f:facet name="toolbar">
                     <af:toolbar id="t17">
                       <af:button text="Add" id="b33" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                                 selected="true">
                         <af:showPopupBehavior popupId="p16"/>
                       </af:button>
-                      <af:button text="Remove" disabled="#{!bindings.Delete6.enabled}" id="b35" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                      <af:button text="Remove" disabled="#{!bindings.Delete6.enabled}" id="b35"
+                                 inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="p18"/>
                       </af:button>
                     </af:toolbar>
@@ -1252,11 +1253,11 @@
                   <f:facet name="toolbar">
                     <af:toolbar id="t19">
                       <af:button text="Add" id="b39" inlineStyle=" background-color:Green; color:White;"
-                                           selected="true">
+                                 selected="true">
                         <af:showPopupBehavior popupId="p17"/>
                       </af:button>
-                      <af:button text="Remove" disabled="#{!bindings.Delete7.enabled}" id="b38" inlineStyle=" background-color:Red; color:White;"
-                                           selected="true">
+                      <af:button text="Remove" disabled="#{!bindings.Delete7.enabled}" id="b38"
+                                 inlineStyle=" background-color:Red; color:White;" selected="true">
                         <af:showPopupBehavior popupId="p19"/>
                       </af:button>
                     </af:toolbar>
@@ -1311,7 +1312,7 @@
             </af:panelDashboard>
           </af:panelGroupLayout>
         </af:showDetailItem>
-      </af:panelDrawer>
+      </af:panelTabbed>
     </af:panelGroupLayout>
   </f:view>
 </ui:composition>
