@@ -31,7 +31,7 @@
         <dvt:pieChart id="pieChart2" var="row" value="#{bindings.ProductsPerOppurtunitiesVO1.collectionModel}"
                       innerRadius="0">
           <dvt:pieDataItem id="di2" label="#{row.ProductName}" value="#{row.TotalPrice}"
-                           sliceLabel="#{row.ProductName}"/>
+                           sliceLabel="#{viewcontrollerBundle.CURRENCY_SYMBOL} #{row.TotalPrice}"/>
         </dvt:pieChart>
         <f:facet name="toolbar"/>
       </af:panelBox>
