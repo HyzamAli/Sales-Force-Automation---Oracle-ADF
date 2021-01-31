@@ -295,6 +295,11 @@
     ViewLink="model.APP_MODULE.ContactCustomersLink"
     Type="oracle.jbo.RowIterator"
     IsUpdateable="false"/>
+  <ViewLinkAccessor
+    Name="AddressesVO"
+    ViewLink="model.VO.AddressByCustomerKey"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
   <ResourceBundle>
     <PropertiesBundle
       PropertiesFile="model.ModelBundle"/>

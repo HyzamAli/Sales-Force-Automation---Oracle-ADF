@@ -15,9 +15,11 @@
           </af:toolbar>
         </f:facet>
       </af:panelBox>
-      <af:panelTabbed position="end" id="pt1" inlineStyle="margin-left:20px;">
+      <af:panelTabbed position="start" id="pt1"
+                      inlineStyle="margin-left:20px; background-color:White; margin-right:45px;" verticalTabMode="iconAndText"
+                      dimensionsFrom="auto">
         <af:showDetailItem id="dr1" shortDesc="Overview" icon="#{resource['images:document.png']}" disclosed="true"
-                           inlineStyle="padding-left:0px;">
+                           inlineStyle="padding-left:0px;" text="Overview">
           <af:panelBox text="Customer Overview" id="pb1" showHeader="always" showDisclosure="false"
                        inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
                        icon="#{resource['images:document.png']}">
@@ -34,7 +36,7 @@
                 </af:button>
               </af:toolbar>
             </f:facet>
-            <af:panelFormLayout id="pfl1" maxColumns="2" rows="6" inlineStyle="padding-top:50px; padding-bottom:50px;">
+            <af:panelFormLayout id="pfl1" maxColumns="3" rows="2" inlineStyle="padding-top:50px; padding-bottom:50px;">
               <af:inputText value="#{bindings.AccName.inputValue}" label="#{bindings.AccName.hints.label}"
                             required="#{bindings.AccName.hints.mandatory}"
                             columns="#{bindings.AccName.hints.displayWidth}"
@@ -47,28 +49,28 @@
                             required="#{bindings.AddLine1.hints.mandatory}"
                             columns="#{bindings.AddLine1.hints.displayWidth}"
                             maximumLength="#{bindings.AddLine1.hints.precision}"
-                            shortDesc="#{bindings.AddLine1.hints.tooltip}" id="it2">
+                            shortDesc="#{bindings.AddLine1.hints.tooltip}" id="it2" rendered="false">
                 <f:validator binding="#{bindings.AddLine1.validator}"/>
               </af:inputText>
               <af:inputText value="#{bindings.AddLine2.inputValue}" label="#{bindings.AddLine2.hints.label}"
                             required="#{bindings.AddLine2.hints.mandatory}"
                             columns="#{bindings.AddLine2.hints.displayWidth}"
                             maximumLength="#{bindings.AddLine2.hints.precision}"
-                            shortDesc="#{bindings.AddLine2.hints.tooltip}" id="it3">
+                            shortDesc="#{bindings.AddLine2.hints.tooltip}" id="it3" rendered="false">
                 <f:validator binding="#{bindings.AddLine2.validator}"/>
               </af:inputText>
               <af:inputText value="#{bindings.Country.inputValue}" label="#{bindings.Country.hints.label}"
                             required="#{bindings.Country.hints.mandatory}"
                             columns="#{bindings.Country.hints.displayWidth}"
                             maximumLength="#{bindings.Country.hints.precision}"
-                            shortDesc="#{bindings.Country.hints.tooltip}" id="it4">
+                            shortDesc="#{bindings.Country.hints.tooltip}" id="it4" rendered="false">
                 <f:validator binding="#{bindings.Country.validator}"/>
               </af:inputText>
               <af:inputText value="#{bindings.Pincode.inputValue}" label="#{bindings.Pincode.hints.label}"
                             required="#{bindings.Pincode.hints.mandatory}"
                             columns="#{bindings.Pincode.hints.displayWidth}"
                             maximumLength="#{bindings.Pincode.hints.precision}"
-                            shortDesc="#{bindings.Pincode.hints.tooltip}" id="it5">
+                            shortDesc="#{bindings.Pincode.hints.tooltip}" id="it5" rendered="false">
                 <f:validator binding="#{bindings.Pincode.validator}"/>
               </af:inputText>
               <af:inputText value="#{bindings.AccUrl.inputValue}" label="#{bindings.AccUrl.hints.label}"
@@ -217,7 +219,157 @@
             </af:panelBox>
           </af:panelGroupLayout>
         </af:showDetailItem>
-        <af:showDetailItem id="dr3" shortDesc="Notes" icon="#{resource['images:attachment.png']}">
+        <af:showDetailItem text="Addresses" id="sdi1" icon="#{resource['images:building.png']}">
+          <af:panelGroupLayout id="pgl8">
+            <af:panelBox text="Address" id="pb14" showHeader="never" showDisclosure="false">
+              <f:facet name="toolbar"/>
+              <af:panelCollection id="pc8">
+                <f:facet name="menus"/>
+                <f:facet name="toolbar">
+                  <af:toolbar id="t19">
+                    <af:button text="Create" id="b30">
+                      <af:showPopupBehavior popupId="pInsertAddress"/>
+                    </af:button>
+                    <af:button text="Delete"
+                               disabled="#{!bindings.Delete7.enabled}" id="b31">
+                      <af:showPopupBehavior popupId="pAddressDelete"/>
+                    </af:button>
+                  </af:toolbar>
+                </f:facet>
+                <f:facet name="statusbar"/>
+                <af:table value="#{bindings.AddressesVO1.collectionModel}" var="row"
+                          rows="#{bindings.AddressesVO1.rangeSize}"
+                          emptyText="#{bindings.AddressesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                          rowBandingInterval="0" selectedRowKeys="#{bindings.AddressesVO1.collectionModel.selectedRow}"
+                          selectionListener="#{bindings.AddressesVO1.collectionModel.makeCurrent}" rowSelection="single"
+                          fetchSize="#{bindings.AddressesVO1.rangeSize}" id="t18" partialTriggers="::b26 ::b31 ::b38">
+                  <af:column headerText="#{bindings.AddressesVO1.hints.AddressLine1.label}" id="c24">
+                    <af:link text="" id="l9">
+                      <af:outputText value="#{row.AddressLine1}"
+                                     shortDesc="#{bindings.AddressesVO1.hints.AddressLine1.tooltip}" id="ot32"/>
+                      <af:showPopupBehavior popupId="::pAddressUpdate"/>
+                    </af:link>
+                  </af:column>
+                  <af:column headerText="#{bindings.AddressesVO1.hints.Country.label}" id="c25">
+                    <af:outputText value="#{row.Country}" shortDesc="#{bindings.AddressesVO1.hints.Country.tooltip}"
+                                   id="ot33"/>
+                  </af:column>
+                  <af:column headerText="#{bindings.AddressesVO1.hints.AddressType.label}" id="c26">
+                    <af:outputText value="#{row.AddressType}"
+                                   shortDesc="#{bindings.AddressesVO1.hints.AddressType.tooltip}" id="ot34"/>
+                  </af:column>
+                </af:table>
+                <af:popup childCreation="deferred" autoCancel="enabled" id="pInsertAddress"
+                          resetEditableValues="whenCanceled" partialTriggers="b26">
+                  <af:dialog id="d18" title="Create Address" binding="#{AddressBean.component}" type="cancel">
+                    <f:facet name="buttonBar">
+                      <af:button actionListener="#{bindings.CreateWithParams7.execute}" text="Ok"
+                                 disabled="#{!bindings.CreateWithParams7.enabled}" id="b26"
+                                 action="#{AddressBean.closeDialog}"/>
+                    </f:facet>
+                    <af:panelFormLayout id="pfl15">
+                      <af:inputText value="#{AddressBean.addressLine1}"
+                                    label="#{bindings.AddressLine1.hints.label}"
+                                    required="#{bindings.AddressLine1.hints.mandatory}"
+                                    columns="#{bindings.AddressLine1.hints.displayWidth}"
+                                    maximumLength="#{bindings.AddressLine1.hints.precision}"
+                                    shortDesc="#{bindings.AddressLine1.hints.tooltip}" id="it9">
+                        <f:validator binding="#{bindings.AddressLine1.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{AddressBean.addressLine2}"
+                                    label="#{bindings.AddressLine2.hints.label}"
+                                    required="#{bindings.AddressLine2.hints.mandatory}"
+                                    columns="#{bindings.AddressLine2.hints.displayWidth}"
+                                    maximumLength="#{bindings.AddressLine2.hints.precision}"
+                                    shortDesc="#{bindings.AddressLine2.hints.tooltip}" id="it10">
+                        <f:validator binding="#{bindings.AddressLine2.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{AddressBean.pin}" label="#{bindings.Pin.hints.label}"
+                                    required="#{bindings.Pin.hints.mandatory}"
+                                    columns="#{bindings.Pin.hints.displayWidth}"
+                                    maximumLength="#{bindings.Pin.hints.precision}"
+                                    shortDesc="#{bindings.Pin.hints.tooltip}" id="it11">
+                        <f:validator binding="#{bindings.Pin.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{AddressBean.country}" label="#{bindings.Country1.hints.label}"
+                                    required="#{bindings.Country1.hints.mandatory}"
+                                    columns="#{bindings.Country1.hints.displayWidth}"
+                                    maximumLength="#{bindings.Country1.hints.precision}"
+                                    shortDesc="#{bindings.Country1.hints.tooltip}" id="it16">
+                        <f:validator binding="#{bindings.Country1.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{AddressBean.type}"
+                                    label="#{bindings.AddressType.hints.label}"
+                                    required="#{bindings.AddressType.hints.mandatory}"
+                                    columns="#{bindings.AddressType.hints.displayWidth}"
+                                    maximumLength="#{bindings.AddressType.hints.precision}"
+                                    shortDesc="#{bindings.AddressType.hints.tooltip}" id="it17">
+                        <f:validator binding="#{bindings.AddressType.validator}"/>
+                      </af:inputText>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="enabled" id="pAddressUpdate"
+                          resetEditableValues="whenCanceled" partialTriggers="t18">
+                  <af:dialog id="d19" title="Edit Address" type="yesNo" affirmativeTextAndAccessKey="Ok"
+                             noTextAndAccessKey="Cancel" dialogListener="#{DialogHandler.onUpdate}">
+                    <f:facet name="buttonBar"/>
+                    <af:panelFormLayout id="pfl16">
+                      <af:inputText value="#{bindings.AddressLine1.inputValue}"
+                                    label="#{bindings.AddressLine1.hints.label}"
+                                    required="#{bindings.AddressLine1.hints.mandatory}"
+                                    columns="#{bindings.AddressLine1.hints.displayWidth}"
+                                    maximumLength="#{bindings.AddressLine1.hints.precision}"
+                                    shortDesc="#{bindings.AddressLine1.hints.tooltip}" id="it23">
+                        <f:validator binding="#{bindings.AddressLine1.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.AddressLine2.inputValue}"
+                                    label="#{bindings.AddressLine2.hints.label}"
+                                    required="#{bindings.AddressLine2.hints.mandatory}"
+                                    columns="#{bindings.AddressLine2.hints.displayWidth}"
+                                    maximumLength="#{bindings.AddressLine2.hints.precision}"
+                                    shortDesc="#{bindings.AddressLine2.hints.tooltip}" id="it25">
+                        <f:validator binding="#{bindings.AddressLine2.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.Pin.inputValue}" label="#{bindings.Pin.hints.label}"
+                                    required="#{bindings.Pin.hints.mandatory}"
+                                    columns="#{bindings.Pin.hints.displayWidth}"
+                                    maximumLength="#{bindings.Pin.hints.precision}"
+                                    shortDesc="#{bindings.Pin.hints.tooltip}" id="it27">
+                        <f:validator binding="#{bindings.Pin.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.Country1.inputValue}" label="#{bindings.Country1.hints.label}"
+                                    required="#{bindings.Country1.hints.mandatory}"
+                                    columns="#{bindings.Country1.hints.displayWidth}"
+                                    maximumLength="#{bindings.Country1.hints.precision}"
+                                    shortDesc="#{bindings.Country1.hints.tooltip}" id="it30">
+                        <f:validator binding="#{bindings.Country1.validator}"/>
+                      </af:inputText>
+                      <af:inputText value="#{bindings.AddressType.inputValue}"
+                                    label="#{bindings.AddressType.hints.label}"
+                                    required="#{bindings.AddressType.hints.mandatory}"
+                                    columns="#{bindings.AddressType.hints.displayWidth}"
+                                    maximumLength="#{bindings.AddressType.hints.precision}"
+                                    shortDesc="#{bindings.AddressType.hints.tooltip}" id="it35">
+                        <f:validator binding="#{bindings.AddressType.validator}"/>
+                      </af:inputText>
+                    </af:panelFormLayout>
+                  </af:dialog>
+                </af:popup>
+                <af:popup childCreation="deferred" autoCancel="disabled" id="pAddressDelete" partialTriggers="t18">
+                  <af:dialog id="d20" title="Delete Address" binding="#{AddressBean.deleteComponent}" type="cancel">
+                    <af:outputText value="Confirm Action" id="ot35" inlineStyle="margin-right:50px;"/>
+                    <f:facet name="buttonBar">
+                      <af:button text="Delete" id="b38" actionListener="#{bindings.Delete7.execute}"
+                      disabled="#{!bindings.Delete7.enabled}" action="#{AddressBean.closeDeleteDialog}"/>
+                    </f:facet>
+                  </af:dialog>
+                </af:popup>
+              </af:panelCollection>
+            </af:panelBox>
+          </af:panelGroupLayout>
+        </af:showDetailItem>
+        <af:showDetailItem id="dr3" shortDesc="Notes" icon="#{resource['images:attachment.png']}" text="Notes">
           <af:panelGroupLayout layout="vertical" id="pgl2" inlineStyle="background-color:White;">
             <af:outputText value="Customer Notes" id="ot31"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
@@ -388,7 +540,7 @@
             </af:popup>
           </af:panelGroupLayout>
         </af:showDetailItem>
-        <af:showDetailItem id="dr4" shortDesc="Task" icon="#{resource['images:paper-list-2.png']}">
+        <af:showDetailItem id="dr4" shortDesc="Task" icon="#{resource['images:paper-list-2.png']}" text="Tasks">
           <af:panelGroupLayout layout="vertical" id="pgl3">
             <af:outputText value="Customer Tasks" id="ot1"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>
@@ -605,7 +757,8 @@
             </af:popup>
           </af:panelGroupLayout>
         </af:showDetailItem>
-        <af:showDetailItem id="dr5" shortDesc="Appointments" icon="#{resource['images:calendar.png']}">
+        <af:showDetailItem id="dr5" shortDesc="Appointments" icon="#{resource['images:calendar.png']}"
+                           text="Apointments">
           <af:panelGroupLayout layout="vertical" id="pgl4">
             <af:outputText value="Customer Appointments" id="ot5"
                            inlineStyle="font-size:large; font-weight:bold; padding-bottom:5px; padding-left:5px; padding-right:5px; padding-top:5px;"/>

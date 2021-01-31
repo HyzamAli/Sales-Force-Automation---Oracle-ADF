@@ -223,6 +223,9 @@
   <ViewUsage
     Name="ContactsByCustomersVO2"
     ViewObjectName="model.VO.ContactsByCustomersVO"/>
+  <ViewUsage
+    Name="AddressesVO1"
+    ViewObjectName="model.VO.AddressesVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"
@@ -486,5 +489,11 @@
     ViewLinkObjectName="model.APP_MODULE.ContactCustomersLink"
     SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerByIDVO1"
     DstViewUsageName="model.APP_MODULE.AppsModule.ContactsByCustomersVO2"
+    Reversed="false"/>
+  <ViewLinkUsage
+    Name="AddressByCustomerKey1"
+    ViewLinkObjectName="model.VO.AddressByCustomerKey"
+    SrcViewUsageName="model.APP_MODULE.AppsModule.CustomerByIDVO1"
+    DstViewUsageName="model.APP_MODULE.AppsModule.AddressesVO1"
     Reversed="false"/>
 </AppModule>

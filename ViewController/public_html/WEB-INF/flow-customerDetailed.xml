@@ -56,6 +56,11 @@
       <managed-bean-class>view.ContactsPerCust</managed-bean-class>
       <managed-bean-scope>request</managed-bean-scope>
     </managed-bean>
+    <managed-bean id="__19">
+      <managed-bean-name>AddressBean</managed-bean-name>
+      <managed-bean-class>view.AddressBean</managed-bean-class>
+      <managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
     <method-call id="ExecuteWithParams">
       <method>#{bindings.ExecuteWithParams.execute}</method>
       <outcome>

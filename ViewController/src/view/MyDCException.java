@@ -22,8 +22,10 @@ public class MyDCException extends DCErrorHandlerImpl {
     public void reportException(DCBindingContainer dCBindingContainer, Exception exception) {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
-
-        if (error_message.startsWith("JBO-model.EO.UserProfileEO.EndDate_Rule")) {
+        if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_UK1\" is violated")) {
+            error_message="Email is already added, try  adding a different Email"; 
+        }
+        else if (error_message.startsWith("JBO-model.EO.UserProfileEO.EndDate_Rule")) {
             error_message="Ensure End date is before start date"; 
         }
         else if (error_message.startsWith("JBO-27024: Failed to validate")) {
