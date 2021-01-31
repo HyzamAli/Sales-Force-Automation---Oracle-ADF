@@ -12,7 +12,8 @@
   BindingStyle="OracleName"
   CustomQuery="false"
   SelectAllAttributes="false"
-  PageIterMode="Full">
+  PageIterMode="Full"
+  AccessMode="DEFAULT">
   <EntityUsage
     Name="FileEO"
     Entity="model.EO.FileEO"/>
@@ -33,7 +34,6 @@
     AliasName="OPP_ID"/>
   <ViewAttribute
     Name="FileName"
-    IsUpdateable="while_insert"
     IsNotNull="true"
     PrecisionRule="true"
     EntityAttrName="FileName"
@@ -48,4 +48,21 @@
     EntityAttrName="FileContent"
     EntityUsage="FileEO"
     AliasName="FILE_CONTENT"/>
+  <ViewAttribute
+    Name="FileDescription"
+    PrecisionRule="true"
+    EntityAttrName="FileDescription"
+    EntityUsage="FileEO"
+    AliasName="FILE_DESCRIPTION">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.FilesVO.FileDescription_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>

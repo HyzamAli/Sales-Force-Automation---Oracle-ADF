@@ -322,6 +322,22 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="TaskName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="TaskName"
+    EntityUsage="CustomerTaskEO"
+    AliasName="TASK_NAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <DISPLAYWIDTH
+          Value="40"/>
+        <LABEL
+          ResId="model.VO.CustomerTasksVO.TaskName_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerTasksVOCriteria"
     ViewObjectName="model.VO.CustomerTasksVO"
@@ -362,7 +378,7 @@
       <ViewCriteriaItem
         Name="IsCompleted"
         ViewAttribute="IsCompleted"
-        Operator="STARTSWITH"
+        Operator="="
         Conjunction="AND"
         Value=":po"
         IsBindVarValue="true"

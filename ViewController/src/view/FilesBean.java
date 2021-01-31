@@ -33,6 +33,7 @@ import org.apache.myfaces.trinidad.model.UploadedFile;
 public class FilesBean {
     private UploadedFile file;
     private String OpId;
+    private String description;
     private RichDialog component;
     private RichDialog deleteComponent;
     private List<UploadedFile> list;
@@ -59,6 +60,7 @@ public class FilesBean {
             row.setAttribute("OppId",OpId);
             row.setAttribute("FileName", getFile().getFilename());
             row.setAttribute("FileContent", createBlobDomain(getFile()));
+            row.setAttribute("FileDescription", description);
            
             //Commit Transaction
             OperationBinding method = bindings.getOperationBinding("Commit");  
@@ -154,5 +156,13 @@ public class FilesBean {
         operationBinding.execute();
         RichPopup rp = (RichPopup) deleteComponent.getParent();
         rp.hide();
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public String getDescription() {
+        return description;
     }
 }

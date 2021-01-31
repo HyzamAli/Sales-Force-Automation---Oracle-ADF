@@ -512,7 +512,7 @@
                     <af:inputDate value="#{NotesBean.createdOn}" label="#{bindings.CreatedOn.hints.label}"
                                   required="#{bindings.CreatedOn.hints.mandatory}"
                                   columns="#{bindings.CreatedOn.hints.displayWidth}"
-                                  shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id2">
+                                  shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id2" readOnly="true">
                       <f:validator binding="#{bindings.CreatedOn.validator}"/>
                       <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                     </af:inputDate>
@@ -554,7 +554,7 @@
                     <af:inputDate value="#{bindings.CreatedOn.inputValue}" label="#{bindings.CreatedOn.hints.label}"
                                   required="#{bindings.CreatedOn.hints.mandatory}"
                                   columns="#{bindings.CreatedOn.hints.displayWidth}"
-                                  shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id4">
+                                  shortDesc="#{bindings.CreatedOn.hints.tooltip}" id="id4" rendered="false">
                       <f:validator binding="#{bindings.CreatedOn.validator}"/>
                       <af:convertDateTime pattern="#{bindings.CreatedOn.format}"/>
                     </af:inputDate>
@@ -624,20 +624,22 @@
                           rowSelection="single" fetchSize="#{bindings.CustomerTasksVO7.rangeSize}" id="t3"
                           summary="oppurtunity taks list" width="1000"
                           partialTriggers=":::b22 ::b11 :::b10 :::p5 :::d5 :::b23" columnStretching="last">
-                  <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskDetails.label}" id="c6" rowHeader="true"
-                             align="left" width="250">
+                  <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskName.label}" id="c31" rowHeader="true"
+                             align="start" width="170">
                     <af:link id="l2">
-                      <af:outputText value="#{row.TaskDetails}"
-                                     shortDesc="#{bindings.CustomerTasksVO7.hints.TaskDetails.tooltip}" id="ot1"/>
+                      <af:outputText value="#{row.TaskName}"
+                                     shortDesc="#{bindings.CustomerTasksVO7.hints.TaskName.tooltip}" id="ot1"/>
                       <af:showPopupBehavior popupId=":::p5"/>
                     </af:link>
                   </af:column>
+                  <af:column headerText="#{bindings.CustomerTasksVO7.hints.TaskDetails.label}" id="c6" rowHeader="false"
+                             align="left" width="250" rendered="false">
+                    <af:outputText value="#{row.TaskDetails}"
+                                   shortDesc="#{bindings.CustomerTasksVO7.hints.TaskDetails.tooltip}"/>
+                  </af:column>
                   <af:column headerText="#{bindings.CustomerTasksVO7.hints.CustName.label}" id="c4" width="200">
-                    <af:link text="" id="l3" action="toCustomerDetailed">
-                      <af:outputText value="#{row.CustName}"
-                                     shortDesc="#{bindings.CustomerTasksVO7.hints.CustName.tooltip}" id="ot10"/>
-                      <af:setActionListener from="#{row.CustomerId}" to="#{pageFlowScope.CustomerId}"/>
-                    </af:link>
+                    <af:outputText value="#{row.CustName}"
+                                   shortDesc="#{bindings.CustomerTasksVO7.hints.CustName.tooltip}"/>
                   </af:column>
                   <af:column headerText="#{bindings.CustomerTasksVO7.hints.Priority1.label}" id="c9" width="100">
                     <af:outputText value="#{row.Priority1}"
@@ -684,6 +686,13 @@
                     </af:button>
                   </f:facet>
                   <af:panelFormLayout id="pfl3">
+                    <af:inputText value="#{TasksBean.taskName}" label="#{bindings.TaskName.hints.label}"
+                                  required="#{bindings.TaskName.hints.mandatory}"
+                                  columns="#{bindings.TaskName.hints.displayWidth}"
+                                  maximumLength="#{bindings.TaskName.hints.precision}"
+                                  shortDesc="#{bindings.TaskName.hints.tooltip}" id="it30">
+                      <f:validator binding="#{bindings.TaskName.validator}"/>
+                    </af:inputText>
                     <af:inputText value="#{TasksBean.details}" label="#{bindings.TaskDetails.hints.label}"
                                   required="#{bindings.TaskDetails.hints.mandatory}"
                                   columns="#{bindings.TaskDetails.hints.displayWidth}"
@@ -733,6 +742,13 @@
                            affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                   <f:facet name="buttonBar"/>
                   <af:panelFormLayout id="pfl6">
+                    <af:inputText value="#{bindings.TaskName.inputValue}" label="#{bindings.TaskName.hints.label}"
+                                  required="#{bindings.TaskName.hints.mandatory}"
+                                  columns="#{bindings.TaskName.hints.displayWidth}"
+                                  maximumLength="#{bindings.TaskName.hints.precision}"
+                                  shortDesc="#{bindings.TaskName.hints.tooltip}" id="it31">
+                      <f:validator binding="#{bindings.TaskName.validator}"/>
+                    </af:inputText>
                     <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
                                   required="#{bindings.TaskDetails.hints.mandatory}"
                                   columns="#{bindings.TaskDetails.hints.displayWidth}"
@@ -881,8 +897,11 @@
                           partialTriggers=":::b8 :::b28 ::b41" width="1000" columnStretching="last">
                   <af:column headerText="#{bindings.FilesVO2.hints.FileName.label}" id="c2" rowHeader="true" width="500"
                              align="left">
-                    <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
-                                   id="ot6"/>
+                    <af:link text="" id="l11">
+                      <af:outputText value="#{row.FileName}" shortDesc="#{bindings.FilesVO2.hints.FileName.tooltip}"
+                                     id="ot6"/>
+                      <af:showPopupBehavior popupId=":::p23"/>
+                    </af:link>
                   </af:column>
                   <af:column id="c17" headerText=" " width="450">
                     <af:link text="Download File" id="l6">
@@ -894,7 +913,7 @@
                   <af:dialog id="d22" title="Remove" type="cancel" binding="#{FilesBean.deleteComponent}">
                     <af:outputText value="Confirm Action" id="ot30" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete8.execute}" text="Delete"
+                      <af:button actionListener="#{bindings.Delete8.execute}" text="OK"
                                  action="#{FilesBean.closeDeleteDialog}" disabled="#{!bindings.Delete8.enabled}"
                                  id="b40"/>
                     </f:facet>
@@ -905,7 +924,7 @@
                         resetEditableValues="whenCanceled">
                 <af:dialog id="d14" title="Add Attatchment" type="cancel" binding="#{FilesBean.component}">
                   <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="OK"
+                    <af:button actionListener="#{bindings.CreateInsert.execute}" text="Ok"
                                disabled="#{!bindings.CreateInsert.enabled}" id="b28" action="#{FilesBean.uploadAttach}"
                                partialSubmit="true">
                       <af:setActionListener from="#{bindings.OppurtunityId.inputValue}" to="#{FilesBean.opId}"/>
@@ -914,6 +933,37 @@
                   <af:panelFormLayout id="pfl10">
                     <af:inputFile label="File" id="if1" value="#{FilesBean.list}" uploadType="auto"/>
                     <f:facet name="footer"/>
+                    <af:inputText value="#{FilesBean.description}"
+                                  label="#{bindings.FileDescription.hints.label}"
+                                  required="#{bindings.FileDescription.hints.mandatory}"
+                                  columns="#{bindings.FileDescription.hints.displayWidth}"
+                                  maximumLength="#{bindings.FileDescription.hints.precision}"
+                                  shortDesc="#{bindings.FileDescription.hints.tooltip}" id="it18" rows="8">
+                      <f:validator binding="#{bindings.FileDescription.validator}"/>
+                    </af:inputText>
+                  </af:panelFormLayout>
+                </af:dialog>
+              </af:popup>
+              <af:popup childCreation="deferred" autoCancel="disabled" id="p23" partialTriggers="pc7:t15">
+                <af:dialog id="d24" title="Edit" affirmativeTextAndAccessKey="OK" type="yesNo"
+                           noTextAndAccessKey="Cancel" dialogListener="#{DialogHandler.onUpdate}">
+                  <f:facet name="buttonBar"/>
+                  <af:panelFormLayout id="pfl18">
+                    <af:inputText value="#{bindings.FileName.inputValue}" label="#{bindings.FileName.hints.label}"
+                                  required="#{bindings.FileName.hints.mandatory}"
+                                  columns="#{bindings.FileName.hints.displayWidth}"
+                                  maximumLength="#{bindings.FileName.hints.precision}"
+                                  shortDesc="#{bindings.FileName.hints.tooltip}" id="it19">
+                      <f:validator binding="#{bindings.FileName.validator}"/>
+                    </af:inputText>
+                    <af:inputText value="#{bindings.FileDescription.inputValue}"
+                                  label="#{bindings.FileDescription.hints.label}"
+                                  required="#{bindings.FileDescription.hints.mandatory}"
+                                  columns="#{bindings.FileDescription.hints.displayWidth}"
+                                  maximumLength="#{bindings.FileDescription.hints.precision}"
+                                  shortDesc="#{bindings.FileDescription.hints.tooltip}" id="it29" rows="8">
+                      <f:validator binding="#{bindings.FileDescription.validator}"/>
+                    </af:inputText>
                   </af:panelFormLayout>
                 </af:dialog>
               </af:popup>
