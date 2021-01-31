@@ -52,14 +52,7 @@
     PrecisionRule="true"
     EntityAttrName="Id"
     EntityUsage="ContactsByCustomerEO"
-    AliasName="ID">
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
-  </ViewAttribute>
+    AliasName="ID"/>
   <ViewAttribute
     Name="ContactId"
     IsNotNull="true"
@@ -154,12 +147,6 @@
         Value="IsPrimary"
         Type="notify"/>
     </Dependencies>
-    <Properties>
-      <SchemaBasedProperties>
-        <DISPLAYHINT
-          Value="Hide"/>
-      </SchemaBasedProperties>
-    </Properties>
   </ViewAttribute>
   <ViewCriteria
     Name="ContactsByCustomersVOCriteria"
@@ -184,7 +171,7 @@
           ResId="model.VO.ContactsByCustomersVO.ContactsByCustomersVOCriteria_displayName"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="InBasicMode"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow

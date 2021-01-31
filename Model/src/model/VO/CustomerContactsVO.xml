@@ -73,11 +73,7 @@
     EntityAttrName="CcId"
     EntityUsage="CustomerContactEO"
     AliasName="CC_ID"
-    IsUpdateable="while_insert">
-    <Properties>
-      <SchemaBasedProperties/>
-    </Properties>
-  </ViewAttribute>
+    IsUpdateable="while_insert"/>
   <ViewAttribute
     Name="CustomerId"
     PrecisionRule="true"
@@ -228,7 +224,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="InBasicMode"/>
         <Property
           Name="displayName"
           ResId="model.VO.CustomerContactsVO.CustomerSearch_displayName"/>
@@ -276,7 +272,7 @@
           Value="true"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="InBasicMode"/>
         <Property
           Name="displayName"
           ResId="model.VO.CustomerContactsVO.ContactsListVOCriteria_displayName"/>

@@ -12,7 +12,7 @@
                 queryListener="#{bindings.ContactsListVOCriteriaQuery.processQuery}"
                 queryOperationListener="#{bindings.ContactsListVOCriteriaQuery.processQueryOperation}"
                 inlineStyle="padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:010px;"
-                maxColumns="2" rows="2" saveQueryMode="hidden"/>
+                maxColumns="2" rows="2" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
     </af:panelBox>
     <af:panelBox id="pb1" text="Contacts"
                  inlineStyle="margin-bottom:020px; margin-left:0020px; margin-right:0020px; margin-top:0020px;"

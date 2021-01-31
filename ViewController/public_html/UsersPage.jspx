@@ -22,7 +22,7 @@
                                                   model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
                                                   queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
                                                   queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
-                                                  maxColumns="3" rows="1" saveQueryMode="hidden"/>
+                                                  maxColumns="3" rows="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
                                     
                                 </af:panelGroupLayout>
                             </af:panelBox>

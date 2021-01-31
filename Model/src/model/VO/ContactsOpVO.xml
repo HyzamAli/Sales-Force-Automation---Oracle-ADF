@@ -135,7 +135,7 @@
           ResId="model.VO.ContactsOpVO.ContactsOpVOCriteria_displayName"/>
         <Property
           Name="displayOperators"
-          Value="InAdvancedMode"/>
+          Value="InBasicMode"/>
       </CustomProperties>
     </Properties>
     <ViewCriteriaRow
