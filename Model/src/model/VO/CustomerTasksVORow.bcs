@@ -1,0 +1,13 @@
+//Groovy Scripts for model.VO.CustomerTasksVO
+
+package model.VO
+
+import oracle.jbo.script.annotation.TransientValueExpression;
+
+@TransientValueExpression(attributeName="IsCompleted")
+def IsCompleted_ExpressionScript_Expression()
+{
+if(PercentageCompletion==100){ return "Completed";}
+return "Incompleted";
+}
+

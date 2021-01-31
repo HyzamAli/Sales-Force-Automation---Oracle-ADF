@@ -17,7 +17,7 @@
                                       queryListener="#{bindings.RoleProfilesVOCriteriaQuery.processQuery}"
                                       queryOperationListener="#{bindings.RoleProfilesVOCriteriaQuery.processQueryOperation}"
                                       inlineStyle="padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; background-color:White;"
-                                      saveQueryMode="hidden"/>
+                                      styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
                             <af:panelBox text="Roles" id="pb1"
                                          inlineStyle="margin-top:20px; font-size:large; margin-bottom:20px; margin-left:20px; margin-right:20px;">
                                 <f:facet name="toolbar"/>
@@ -73,7 +73,7 @@
                                                    binding="#{DialogHandler.dialogComponent}">
                                             <f:facet name="buttonBar">
                                                 <af:button actionListener="#{bindings.CreateWithParams1.execute}"
-                                                           text="Create"
+                                                           text="OK"
                                                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b3"
                                                            partialSubmit="true"
                                                            action="#{DialogHandler.closeDialog}">
@@ -105,7 +105,7 @@
                                               resetEditableValues="whenCanceled">
                                         <af:dialog title="Update Role" id="d3"
                                                    dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
-                                                   affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
+                                                   affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                                             <f:facet name="buttonBar"/>
                                             <af:panelFormLayout id="pfl1">
                                                 <af:inputText value="#{bindings.RolesName.inputValue}"
@@ -135,7 +135,7 @@
                                            
                                     <af:outputText value="Are you sure?" id="ot3" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Yes" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="OK" action="#{DeleteDialogHandler.closeDialogSave}"
                                                    disabled="#{!bindings.Delete.enabled}" id="b4"/>
                                     </f:facet>
                                 </af:dialog>

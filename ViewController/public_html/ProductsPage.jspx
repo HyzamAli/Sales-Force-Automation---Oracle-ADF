@@ -18,7 +18,7 @@
                                       queryListener="#{bindings.ProductsVOCriteriaQuery1.processQuery}"
                                       queryOperationListener="#{bindings.ProductsVOCriteriaQuery1.processQueryOperation}"
                                       inlineStyle="background-color:White; padding-bottom:20px; padding-left:20px; padding-right:15px; padding-top:20px; margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px;"
-                                      saveQueryMode="hidden"/>
+                                      styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
                             <af:panelBox text="Products" id="pb1"
                                          inlineStyle="margin-bottom:20px; margin-left:20px; margin-right:20px; margin-top:20px; padding-left:0px; padding-bottom:0px; padding-right:0px; padding-top:0px;">
                                 <f:facet name="toolbar">
@@ -143,7 +143,7 @@
                                            binding="#{ProductCategoriesBean.deleteComponent}" partialTriggers="pc2:t4">
                                     <af:outputText value="Are you sure? " id="ot2" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete1.execute}" text="Yes" action="#{ProductCategoriesBean.closeSaveDialog}"
+                                        <af:button actionListener="#{bindings.Delete1.execute}" text="OK" action="#{ProductCategoriesBean.closeSaveDialog}"
                                                    disabled="#{!bindings.Delete1.enabled}" id="b10"/>
                                     </f:facet>
                                 </af:dialog>
@@ -155,7 +155,7 @@
                           partialTriggers="pt1:pc2:t4 b2">
                     <af:dialog title="Create Product" id="d2" type="cancel" binding="#{DialogHandler.dialogComponent}">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create " action="#{DialogHandler.closeDialog}"
+                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK" action="#{DialogHandler.closeDialog}"
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl1">
@@ -198,7 +198,7 @@
                 <af:popup childCreation="deferred" autoCancel="enabled" id="p1" partialTriggers="pt1:pc1:t1"
                           resetEditableValues="whenCanceled">
                     <af:dialog id="d3" title="Edit Product" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
-                               affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
+                               affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.ProductName.inputValue}"
@@ -243,7 +243,7 @@
                     <af:dialog id="d4" title="Create Product Category" type="cancel"
                                binding="#{ProductCategoriesBean.component}">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create "
+                            <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="OK"
                             action="#{ProductCategoriesBean.closeDialog}"
                                        disabled="#{!bindings.CreateWithParams1.enabled}" id="b6"/>
                         </f:facet>

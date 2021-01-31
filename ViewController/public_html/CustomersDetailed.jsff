@@ -25,7 +25,7 @@
                        icon="#{resource['images:document.png']}">
             <f:facet name="toolbar">
               <af:toolbar id="t2" rendered="true">
-                <af:button text="Submit" id="b3"
+                <af:button text="OK" id="b3"
                            inlineStyle="padding-left:0px; background-color:Green; color:White; margin-left:500px;"
                            selected="true" action="#{CustomersBean.commitData}"/>
                 <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
@@ -125,7 +125,7 @@
                         model="#{bindings.ContactsByCustomersVOCriteriaQuery.queryModel}"
                         queryListener="#{bindings.ContactsByCustomersVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.ContactsByCustomersVOCriteriaQuery.processQueryOperation}"
-                        rows="1" maxColumns="1" saveQueryMode="hidden"/>
+                        rows="1" maxColumns="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
             </af:panelGroupLayout>
           </af:panelBox>
           <af:spacer id="s200" height="35px"/>
@@ -152,7 +152,7 @@
                           selectedRowKeys="#{bindings.ContactsByCustomersVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsByCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsByCustomersVO2.rangeSize}" id="t9"
-                          partialTriggers="::b11 ::b14" columnStretching="last" width="1100">
+                          partialTriggers="::b11 ::b14 ::b22" columnStretching="last" width="1100">
                   <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Name.label}" id="c19" rowHeader="true"
                              width="300" align="start">
                     <af:link text="" id="l8" action="toContactDetailed">
@@ -186,7 +186,7 @@
                           partialTriggers="b11">
                   <af:dialog id="d4" title="Add Contact" type="cancel" binding="#{ContactsPerCust.component}">
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.CreateWithParams6.execute}" text="Add"
+                      <af:button actionListener="#{bindings.CreateWithParams6.execute}" text="OK"
                                  disabled="#{!bindings.CreateWithParams6.enabled}" id="b11"
                                  action="#{ContactsPerCust.closeDialog}"/>
                     </f:facet>
@@ -208,7 +208,7 @@
                   <af:dialog id="d17" title="Remove" type="cancel" binding="#{ContactsPerCust.deleteComponent}">
                     <af:outputText value="Are you sure?" id="ot30" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete6.execute}" text="Remove"
+                      <af:button actionListener="#{bindings.Delete6.execute}" text="OK"
                                  action="#{ContactsPerCust.closeDeleteDialog}" disabled="#{!bindings.Delete6.enabled}"
                                  id="b22"/>
                     </f:facet>
@@ -382,7 +382,7 @@
                         queryListener="#{bindings.CustomerNotesVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerNotesVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="border-color:#848484; margin-bottom:20px; margin-left:20px; margin-right:020px; margin-top:020px; border-left-color:#848484; border-right-color:#848484; border-top-color:#848484; border-bottom-color:#848484;"
-                        maxColumns="2" rows="1" saveQueryMode="hidden"/>
+                        maxColumns="2" rows="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s1" height="35px"/>
             <af:panelBox text="Notes" id="pb2"
@@ -411,7 +411,7 @@
                           selectedRowKeys="#{bindings.CustomerNotesVO61.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerNotesVO61.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerNotesVO61.rangeSize}" id="t5"
-                          partialTriggers=":::b4 ::b17 :::p1 :::d5 :::b37" summary="Notes List" width="1100"
+                          partialTriggers=":::b4 ::b17 :::p1 :::d5 :::b37 :::b32" summary="Notes List" width="1100"
                           columnStretching="column:c6">
                   <af:column headerText="#{bindings.CustomerNotesVO61.hints.NotesTitle.label}" id="c34" rowHeader="true"
                              width="400" minimumWidth="300" align="left">
@@ -452,7 +452,7 @@
                       resetEditableValues="whenCanceled">
               <af:dialog id="d1" title="Create Note" type="cancel" binding="#{NotesBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
+                  <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK"
                              action="#{NotesBean.closeDialog}" disabled="#{!bindings.CreateWithParams.enabled}"
                              id="b37">
                     <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{NotesBean.customerId}"/>
@@ -533,7 +533,7 @@
               <af:dialog id="d12" title="Delete" type="cancel" binding="#{NotesBean.deleteComponent}">
                 <af:outputText value="Confirm Action" id="ot14" inlineStyle="margin-right:50px;"/>
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.Delete1.execute}" text="Delete"
+                  <af:button actionListener="#{bindings.Delete1.execute}" text="OK"
                              action="#{NotesBean.closeDeleteDialog}" disabled="#{!bindings.Delete1.enabled}" id="b32"/>
                 </f:facet>
               </af:dialog>
@@ -562,7 +562,7 @@
                         queryListener="#{bindings.CustomerTasksVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerTasksVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                        rows="1" maxColumns="3" saveQueryMode="hidden"/>
+                        rows="1" maxColumns="3" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s6" height="35px"/>
             <af:panelBox text="Tasks" id="pb4"
@@ -591,7 +591,7 @@
                           selectedRowKeys="#{bindings.CustomerTasksVO61.collectionModel.selectedRow}"
                           selectionListener="#{bindings.CustomerTasksVO61.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
-                          partialTriggers="::b18 :::b12 :::p6 :::d6 :::pc7:b22" summary="Tasks List"
+                          partialTriggers="::b18 :::b12 :::p6 :::d6 :::pc7:b22 :::b33" summary="Tasks List"
                           inlineStyle="min-width:800pt; width:800pt;" columnStretching="last">
                   <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
                              inlineStyle="min-width:200pt; width:200pt;" width="250" minimumWidth="200" align="left">
@@ -646,7 +646,7 @@
                       resetEditableValues="whenCanceled">
               <af:dialog id="d3" title="Create Task" type="cancel" binding="#{TasksBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="Create "
+                  <af:button actionListener="#{bindings.CreateWithParams2.execute}" text="OK"
                              action="#{TasksBean.closeDialog}" disabled="#{!bindings.CreateWithParams2.enabled}"
                              id="b12">
                     <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{TasksBean.customerId}"/>
@@ -750,7 +750,7 @@
               <af:dialog id="d13" title="Delete" type="cancel" binding="#{TasksBean.deleteComponent}">
                 <af:outputText value="Confirm Action" id="ot17" inlineStyle="margin-right:50px;"/>
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.Delete2.execute}" text="Delete"
+                  <af:button actionListener="#{bindings.Delete2.execute}" text="OK"
                              action="#{TasksBean.closeDeleteDialog}" disabled="#{!bindings.Delete2.enabled}" id="b33"/>
                 </f:facet>
               </af:dialog>
@@ -771,7 +771,7 @@
                         queryListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQuery}"
                         queryOperationListener="#{bindings.CustomerAppointmentsVOCriteriaQuery.processQueryOperation}"
                         inlineStyle="padding-bottom:10px; padding-left:010px; padding-right:010px; padding-top:010px;"
-                        rows="1" maxColumns="2" saveQueryMode="hidden"/>
+                        rows="1" maxColumns="2" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s8" height="35px"/>
             <af:panelDashboard id="pd2" columns="2" rowHeight="400px">
@@ -851,7 +851,7 @@
                             resetEditableValues="whenCanceled">
                     <af:dialog id="d7" type="cancel" title="Create Appointment" binding="#{AppointmentsBean.component}">
                       <f:facet name="buttonBar">
-                        <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="Create "
+                        <af:button actionListener="#{bindings.CreateWithParams3.execute}" text="OK"
                                    action="#{AppointmentsBean.closeDialog}"
                                    disabled="#{!bindings.CreateWithParams3.enabled}" id="b19">
                           <af:setActionListener from="#{bindings.CustomerId.inputValue}"
@@ -940,7 +940,7 @@
                   <af:dialog id="d14" title="Delete" type="cancel" binding="#{AppointmentsBean.deleteComponent}">
                     <af:outputText value="Confirm Action" id="ot20" inlineStyle="margin-right:50px;"/>
                     <f:facet name="buttonBar">
-                      <af:button actionListener="#{bindings.Delete4.execute}" text="Delete"
+                      <af:button actionListener="#{bindings.Delete4.execute}" text="OK"
                                  action="#{AppointmentsBean.closeDeleteDialog}" disabled="#{!bindings.Delete4.enabled}"
                                  id="b34"/>
                     </f:facet>
@@ -1054,7 +1054,7 @@
                       resetEditableValues="whenCanceled">
               <af:dialog id="d8" title="Add Attendees" type="cancel" binding="#{AttendeeBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="Add"
+                  <af:button actionListener="#{bindings.CreateWithParams4.execute}" text="OK"
                              action="#{AttendeeBean.closeDialog}" disabled="#{!bindings.CreateWithParams4.enabled}"
                              id="b23"/>
                 </f:facet>
@@ -1141,7 +1141,7 @@
               <af:dialog id="d10" title="Add Attending Contact" type="cancel"
                          binding="#{AttendeeCustomerBean.component}">
                 <f:facet name="buttonBar">
-                  <af:button actionListener="#{bindings.CreateWithParams5.execute}" text="Add "
+                  <af:button actionListener="#{bindings.CreateWithParams5.execute}" text="OK"
                              action="#{AttendeeCustomerBean.closeDialog}"
                              disabled="#{!bindings.CreateWithParams5.enabled}" id="b27"/>
                 </f:facet>
@@ -1170,7 +1170,7 @@
                         queryListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQuery}"
                         queryOperationListener="#{bindings.CustomerContactsVOCriteriaQuery1.processQueryOperation}"
                         inlineStyle="padding-bottom:10px; padding-left:10px; padding-right:10px; padding-top:10px;"
-                        maxColumns="2" rows="2" saveQueryMode="hidden"/>
+                        maxColumns="2" rows="2" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
             </af:panelBox>
             <af:spacer id="s4" height="35px"/>
             <af:panelBox text="Contacts" id="pb5">
@@ -1246,7 +1246,7 @@
                         resetEditableValues="whenCanceled">
                 <af:dialog id="d2" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
                   <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="Create "
+                    <af:button actionListener="#{bindings.CreateWithParams1.execute}" text="OK"
                                action="#{DialogHandler.closeDialog}" disabled="#{!bindings.CreateWithParams1.enabled}"
                                id="b8"/>
                   </f:facet>
@@ -1288,7 +1288,7 @@
                 <af:dialog id="d11" title="Delete" type="cancel" binding="#{ContactsBean.contactComponent}">
                   <af:outputText value="Confirm Action" id="ot9" inlineStyle="margin-right:50px;"/>
                   <f:facet name="buttonBar">
-                    <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                    <af:button actionListener="#{bindings.Delete.execute}" text="OK"
                                action="#{ContactsBean.closeDeleteDialog}" disabled="#{!bindings.Delete.enabled}"
                                id="b4"/>
                   </f:facet>

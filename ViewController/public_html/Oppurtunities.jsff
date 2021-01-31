@@ -22,7 +22,7 @@
                 queryListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQuery}"
                 queryOperationListener="#{bindings.OppurtunitiesVOCriteriaQuery.processQueryOperation}"
                 inlineStyle="margin-bottom:0px; margin-left:0px; margin-right:0px; margin-top:0px; padding-bottom:010px; padding-left:0010px; padding-right:0010px; padding-top:0010px;"
-                saveQueryMode="hidden"/>
+                styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
     </af:panelBox>
     <af:panelBox text="Oppurtunities" id="pb2"
                  inlineStyle="padding-bottom:0px; padding-left:0px; padding-right:0px; padding-top:0px; margin-bottom:20px; margin-left:020px; margin-right:0020px; margin-top:0020px;"
@@ -114,7 +114,7 @@
               resetEditableValues="whenCanceled">
       <af:dialog id="d1" title="Create Oppurtunity" binding="#{DialogHandler.dialogComponent}" type="cancel">
         <f:facet name="buttonBar">
-          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create"
+          <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK"
                      action="#{DialogHandler.closeDialog}"
                      disabled="#{!bindings.CreateWithParams.enabled}" id="b3"/>
         </f:facet>
@@ -227,7 +227,7 @@
       <af:dialog id="d4" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
         <af:outputText value="Confirm Action" id="ot6" inlineStyle="margin-right:50px;"/>
         <f:facet name="buttonBar">
-          <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+          <af:button actionListener="#{bindings.Delete.execute}" text="OK"
                      action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b8"
                      partialSubmit="false"/>
         </f:facet>

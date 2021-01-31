@@ -22,7 +22,7 @@
                                                   model="#{bindings.UserProfilesVOCriteriaQuery1.queryModel}"
                                                   queryListener="#{bindings.UserProfilesVOCriteriaQuery1.processQuery}"
                                                   queryOperationListener="#{bindings.UserProfilesVOCriteriaQuery1.processQueryOperation}"
-                                                  maxColumns="3" rows="1" saveQueryMode="hidden"/>
+                                                  maxColumns="3" rows="1" styleClass="AFQueryHideAddFields" modeChangeVisible="false" saveQueryMode="hidden"/>
                                     
                                 </af:panelGroupLayout>
                             </af:panelBox>
@@ -240,7 +240,7 @@
                                     <af:outputText value="Are you sure?" id="ot7" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
                                         <af:button actionListener="#{bindings.Delete1.execute}"
-                                                   action="#{RPEBeans.closeDialogSave}" text="Yes" id="b9"
+                                                   action="#{RPEBeans.closeDialogSave}" text="OK" id="b9"
                                                    partialSubmit="false"/>
                                     </f:facet>
                                 </af:dialog>
@@ -252,7 +252,7 @@
                           resetEditableValues="whenCanceled">
                     <af:dialog id="d4" title="Create User" type="cancel" binding="#{UsersBean.createComponent}">
                         <f:facet name="buttonBar">
-                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create "
+                            <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK"
                                        disabled="#{!bindings.CreateWithParams.enabled}" id="b2"
                                        action="#{UsersBean.closeDialog}" partialSubmit="false"/>
                         </f:facet>
@@ -340,7 +340,7 @@
                 <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="pt1:pc1:t1"
                           resetEditableValues="whenCanceled">
                     <af:dialog id="d2" title="Edit Users" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
-                               affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
+                               affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
                             <af:inputText value="#{bindings.NameFirst.inputValue}"
