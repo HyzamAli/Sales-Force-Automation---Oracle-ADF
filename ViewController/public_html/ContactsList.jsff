@@ -21,7 +21,7 @@
         <af:dialog id="d4" title="Delete" type="cancel" binding="#{DeleteDialogHandler.component}">
           <af:outputText value="Are you sure?" id="ot4" inlineStyle="margin-right:50px;"/>
           <f:facet name="buttonBar">
-            <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+            <af:button actionListener="#{bindings.Delete.execute}" text="OK"
                        action="#{DeleteDialogHandler.closeDialogSave}" disabled="#{!bindings.Delete.enabled}" id="b6"
                        partialSubmit="false"/>
           </f:facet>
@@ -89,7 +89,7 @@
                   resetEditableValues="whenCanceled">
           <af:dialog id="d1" title="Create Contact" type="cancel" binding="#{DialogHandler.dialogComponent}">
             <f:facet name="buttonBar">
-              <af:button actionListener="#{bindings.CreateWithParams.execute}" text="Create" action="#{DialogHandler.closeDialog}"
+              <af:button actionListener="#{bindings.CreateWithParams.execute}" text="OK" action="#{DialogHandler.closeDialog}"
                          disabled="#{!bindings.CreateWithParams.enabled}" id="b2"/>
             </f:facet>
             <af:panelFormLayout id="pfl1">

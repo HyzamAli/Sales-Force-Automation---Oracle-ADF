@@ -73,7 +73,7 @@
                                                    binding="#{DialogHandler.dialogComponent}">
                                             <f:facet name="buttonBar">
                                                 <af:button actionListener="#{bindings.CreateWithParams1.execute}"
-                                                           text="Create"
+                                                           text="OK"
                                                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b3"
                                                            partialSubmit="true"
                                                            action="#{DialogHandler.closeDialog}">
@@ -105,7 +105,7 @@
                                               resetEditableValues="whenCanceled">
                                         <af:dialog title="Update Role" id="d3"
                                                    dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
-                                                   affirmativeTextAndAccessKey="Ok" noTextAndAccessKey="Cancel">
+                                                   affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                                             <f:facet name="buttonBar"/>
                                             <af:panelFormLayout id="pfl1">
                                                 <af:inputText value="#{bindings.RolesName.inputValue}"
@@ -135,7 +135,7 @@
                                            
                                     <af:outputText value="Are you sure?" id="ot3" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
-                                        <af:button actionListener="#{bindings.Delete.execute}" text="Yes" action="#{DeleteDialogHandler.closeDialogSave}"
+                                        <af:button actionListener="#{bindings.Delete.execute}" text="OK" action="#{DeleteDialogHandler.closeDialogSave}"
                                                    disabled="#{!bindings.Delete.enabled}" id="b4"/>
                                     </f:facet>
                                 </af:dialog>
