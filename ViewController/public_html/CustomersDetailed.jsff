@@ -131,22 +131,23 @@
                 </f:facet>
                 <f:facet name="statusbar"/>
                 <af:table value="#{bindings.AddressesVO1.collectionModel}" var="row"
-                          rows="#{bindings.AddressesVO1.rangeSize}"
+                          rows="#{bindings.AddressesVO1.rangeSize}" summary="list"
                           emptyText="#{bindings.AddressesVO1.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" selectedRowKeys="#{bindings.AddressesVO1.collectionModel.selectedRow}"
                           selectionListener="#{bindings.AddressesVO1.collectionModel.makeCurrent}" rowSelection="single"
                           fetchSize="#{bindings.AddressesVO1.rangeSize}" id="t18" partialTriggers="::b26 ::b31 ::b38"
                           width="1000">
-                  <af:column headerText="#{bindings.AddressesVO1.hints.AddressType.label}" id="c26" width="300">
-                    <af:outputText value="#{row.AddressType}"
-                                   shortDesc="#{bindings.AddressesVO1.hints.AddressType.tooltip}" id="ot34"/>
-                  </af:column>
-                  <af:column headerText="#{bindings.AddressesVO1.hints.AddressLine1.label}" id="c24" width="500">
+                  <af:column headerText="#{bindings.AddressesVO1.hints.AddressLine1.label}" id="c24" width="500"
+                             align="left" rowHeader="true">
                     <af:link text="" id="l9">
                       <af:outputText value="#{row.AddressLine1}"
                                      shortDesc="#{bindings.AddressesVO1.hints.AddressLine1.tooltip}" id="ot32"/>
                       <af:showPopupBehavior popupId="::pAddressUpdate"/>
                     </af:link>
+                  </af:column>
+                  <af:column headerText="#{bindings.AddressesVO1.hints.AddressType.label}" id="c26" width="300">
+                    <af:outputText value="#{row.AddressType}"
+                                   shortDesc="#{bindings.AddressesVO1.hints.AddressType.tooltip}" id="ot34"/>
                   </af:column>
                   <af:column headerText="#{bindings.AddressesVO1.hints.Country.label}" id="c25" width="200">
                     <af:outputText value="#{row.Country}" shortDesc="#{bindings.AddressesVO1.hints.Country.tooltip}"
@@ -289,6 +290,7 @@
                                inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p17"/>
                     </af:button>
+                    <af:button actionListener="#{bindings.Execute.execute}" text="Execute" id="b39"/>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -299,7 +301,7 @@
                           selectedRowKeys="#{bindings.ContactsByCustomersVO2.collectionModel.selectedRow}"
                           selectionListener="#{bindings.ContactsByCustomersVO2.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.ContactsByCustomersVO2.rangeSize}" id="t9"
-                          partialTriggers="::b11 ::b14 ::b22" columnStretching="last" width="1000">
+                          partialTriggers="::b11 ::b14 ::b22 ::b39" columnStretching="last" width="1000">
                   <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Name.label}" id="c19" rowHeader="true"
                              width="300" align="start">
                     <af:link text="" id="l8" action="toContactDetailed">
@@ -590,12 +592,21 @@
                           rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
                           partialTriggers="::b18 :::b12 :::p6 :::d6 :::pc7:b22 :::b33" summary="Tasks List"
                           inlineStyle="min-width:800pt; width:1000pt; margin-right:50px;" >
-                  <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4" rowHeader="true"
-                             inlineStyle="min-width:200pt; width:200pt;" width="250" minimumWidth="200" align="left">
+                  <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskName.label}" id="c27" rowHeader="true"
+                             width="250" minimumWidth="200" align="start">
+                    <af:link text="" id="l10">
+                      <af:outputText value="#{row.TaskName}"
+                                     shortDesc="#{bindings.CustomerTasksVO61.hints.TaskName.tooltip}" id="ot15"/>
+                      <af:showPopupBehavior popupId=":::p6"/>
+                    </af:link>
+                  </af:column>
+                  <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskDetails.label}" id="c4"
+                             rowHeader="false"
+                             inlineStyle="min-width:200pt; width:200pt;" width="250" minimumWidth="200" align="left"
+                             rendered="false">
                     <af:link id="l3">
                       <af:outputText id="ot44" value="#{row.TaskDetails}"
                                      shortDesc="#{bindings.CustomerTasksVO61.hints.TaskDetails.tooltip}"/>
-                      <af:showPopupBehavior popupId=":::p6"/>
                     </af:link>
                   </af:column>
                   <af:column headerText="#{bindings.CustomerTasksVO61.hints.OpName.label}" id="c13" width="230">
@@ -650,6 +661,13 @@
                   </af:button>
                 </f:facet>
                 <af:panelFormLayout id="pfl4">
+                  <af:inputText value="#{TasksBean.taskName}" label="#{bindings.TaskName.hints.label}"
+                                required="#{bindings.TaskName.hints.mandatory}"
+                                columns="#{bindings.TaskName.hints.displayWidth}"
+                                maximumLength="#{bindings.TaskName.hints.precision}"
+                                shortDesc="#{bindings.TaskName.hints.tooltip}" id="it36">
+                    <f:validator binding="#{bindings.TaskName.validator}"/>
+                  </af:inputText>
                   <af:inputText value="#{TasksBean.details}" label="#{bindings.TaskDetails.hints.label}"
                                 required="#{bindings.TaskDetails.hints.mandatory}"
                                 columns="#{bindings.TaskDetails.hints.displayWidth}"
@@ -708,6 +726,13 @@
                          affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                 <f:facet name="buttonBar"/>
                 <af:panelFormLayout id="pfl7">
+                  <af:inputText value="#{bindings.TaskName.inputValue}" label="#{bindings.TaskName.hints.label}"
+                                required="#{bindings.TaskName.hints.mandatory}"
+                                columns="#{bindings.TaskName.hints.displayWidth}"
+                                maximumLength="#{bindings.TaskName.hints.precision}"
+                                shortDesc="#{bindings.TaskName.hints.tooltip}" id="it39">
+                    <f:validator binding="#{bindings.TaskName.validator}"/>
+                  </af:inputText>
                   <af:inputText value="#{bindings.TaskDetails.inputValue}" label="#{bindings.TaskDetails.hints.label}"
                                 required="#{bindings.TaskDetails.hints.mandatory}"
                                 columns="#{bindings.TaskDetails.hints.displayWidth}"

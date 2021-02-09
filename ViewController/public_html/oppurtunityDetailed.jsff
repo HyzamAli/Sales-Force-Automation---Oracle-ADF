@@ -822,8 +822,8 @@
                           emptyText="#{bindings.SalesTeamsVO4.viewable ? 'No data to display.' : 'Access Denied.'}"
                           rowBandingInterval="0" fetchSize="#{bindings.SalesTeamsVO4.rangeSize}" id="t10"
                           columnStretching="last" summary="summary" partialTriggers="::b18 :::b19 :::pc8:b31 :::b24"
-                          inlineStyle="padding-left:0px;" width="1000">
-                  <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="true"
+                          inlineStyle="padding-left:0px;" width="1000" rowSelection="single">
+                  <af:column headerText="#{bindings.SalesTeamsVO4.hints.EmployeeId.label}" id="c18" rowHeader="false"
                              align="left" width="1100">
                     <af:selectOneChoice id="sc1" value="#{row.bindings.EmployeeId.inputValue}"
                                         label="#{row.bindings.EmployeeId.label}"

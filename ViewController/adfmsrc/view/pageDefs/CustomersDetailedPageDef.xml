@@ -79,6 +79,7 @@
           <Item Value="PercentageCompletion"/>
           <Item Value="DueDate"/>
           <Item Value="OppurtunityId"/>
+          <Item Value="TaskName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -179,6 +180,7 @@
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
       <NamedData NDName="CustName" NDValue="#{TasksBean.custName}" NDType="java.lang.String"/>
       <NamedData NDName="OpName" NDValue="#{TasksBean.opName}" NDType="java.lang.String"/>
+      <NamedData NDName="TaskName" NDValue="#{TasksBean.taskName}" NDType="java.lang.String"/>
     </action>
         <attributeValues IterBinding="CustomerByIDVO1Iterator" id="CustomerId">
       <AttrNames>
@@ -370,7 +372,7 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="CustomerAppointmentsVO1Iterator" id="Delete4" RequiresUpdateModel="false"
+    <action IterBinding="CustomerAppointmentsVO3Iterator" id="Delete4" RequiresUpdateModel="false"
             Action="removeCurrentRow"/>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action id="Rollback" RequiresUpdateModel="false" Action="rollbackTransaction" DataControl="AppsModuleDataControl"/>
@@ -502,5 +504,12 @@
       <NamedData NDName="AddressType" NDValue="#{AddressBean.type}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="AddressesVO1Iterator" id="Delete7" RequiresUpdateModel="false" Action="removeCurrentRow"/>
+    <action IterBinding="ContactsByCustomersVO2Iterator" id="Execute" RequiresUpdateModel="true"
+            Action="iteratorExecute"/>
+    <attributeValues IterBinding="CustomerTasksVO6Iterator" id="TaskName">
+      <AttrNames>
+        <Item Value="TaskName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

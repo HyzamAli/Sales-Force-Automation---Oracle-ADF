@@ -35,14 +35,16 @@
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="PRODUCTS_PER_OPPURTUNITY"/>
+    TableName="PRODUCTS_PER_OPPURTUNITY"
+    IsNotNull="true"/>
   <Attribute
     Name="ProductQuantity"
     ColumnName="PRODUCT_QUANTITY"
     SQLType="NUMERIC"
     Type="java.math.BigDecimal"
     ColumnType="NUMBER"
-    TableName="PRODUCTS_PER_OPPURTUNITY"/>
+    TableName="PRODUCTS_PER_OPPURTUNITY"
+    IsNotNull="true"/>
   <Attribute
     Name="ProductCategory"
     Precision="50"
@@ -101,6 +103,30 @@
     AssociationOtherEnd="model.EO.SysC0011006Assoc.ProductsPerOppurtunityEO"
     Type="oracle.jbo.server.EntityImpl"
     IsUpdateable="true"/>
+  <Key
+    Name="ProductsPerOppurtunityProductIdCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"PRODUCT_ID" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCTS_PER_OPPURTUNITY_PRODU"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.ProductsPerOppurtunityEO.ProductId"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductsPerOppurtunityProductQuantityCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"PRODUCT_QUANTITY" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCTS_PER_OPPURTUNITY_PRODU"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.ProductsPerOppurtunityEO.ProductQuantity"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="SysC0010993"
     PrimaryKey="true">

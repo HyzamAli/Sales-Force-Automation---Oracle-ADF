@@ -69,13 +69,14 @@
     <tree IterBinding="CustomerTasksVO8Iterator" id="CustomerTasksVO8">
       <nodeDefinition DefName="model.VO.CustomerTasksVO" Name="CustomerTasksVO80">
         <AttrNames>
+          <Item Value="TaskName"/>
           <Item Value="TaskDetails"/>
+          <Item Value="CustName"/>
+          <Item Value="OpName"/>
           <Item Value="CustomerId"/>
           <Item Value="OppurtunityId"/>
           <Item Value="Priority1"/>
           <Item Value="PercentageCompletion"/>
-          <Item Value="CustName"/>
-          <Item Value="OpName"/>
         </AttrNames>
       </nodeDefinition>
     </tree>
@@ -160,6 +161,7 @@
             Action="createWithParams">
       <NamedData NDName="CustomerId" NDValue="#{bindings.CustomerId.inputValue}" NDType="java.lang.String"/>
       <NamedData NDName="ContactId" NDValue="#{bindings.CcId.inputValue}" NDType="java.lang.String"/>
+      <NamedData NDName="TaskName" NDValue="#{TasksBean.taskName}" NDType="java.lang.String"/>
       <NamedData NDName="TaskDetails" NDValue="#{TasksBean.details}" NDType="java.lang.String"/>
       <NamedData NDName="Priority1" NDValue="#{TasksBean.priority}" NDType="java.lang.String"/>
       <NamedData NDName="PercentageCompletion" NDValue="#{TasksBean.percentageDone}" NDType="java.lang.String"/>
@@ -234,6 +236,11 @@
     <attributeValues IterBinding="CustomerAppointmentsVO6Iterator" id="AppointmentDirection">
       <AttrNames>
         <Item Value="AppointmentDirection"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="CustomerTasksVO8Iterator" id="TaskName">
+      <AttrNames>
+        <Item Value="TaskName"/>
       </AttrNames>
     </attributeValues>
   </bindings>

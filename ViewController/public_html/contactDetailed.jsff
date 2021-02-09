@@ -310,12 +310,19 @@
                         rowSelection="single" fetchSize="#{bindings.CustomerTasksVO8.rangeSize}" id="t2"
                         columnStretching="last" summary="Tasks by contacts list"
                         partialTriggers=":::b14 ::b2 :::b9 :::b15 :::p2 :::d2" width="1000">
-                <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="true"
-                           width="250" align="left">
+                <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskName.label}" id="c22" rowHeader="true"
+                           align="start" width="250">
+                  <af:link text="" id="l14">
+                    <af:outputText value="#{row.TaskName}"
+                                   shortDesc="#{bindings.CustomerTasksVO8.hints.TaskName.tooltip}" id="ot17"/>
+                    <af:showPopupBehavior popupId=":::p2"/>
+                  </af:link>
+                </af:column>
+                <af:column headerText="#{bindings.CustomerTasksVO8.hints.TaskDetails.label}" id="c6" rowHeader="false"
+                           width="250" align="left" rendered="false">
                   <af:link id="l2">
                     <af:outputText value="#{row.TaskDetails}"
                                    shortDesc="#{bindings.CustomerTasksVO8.hints.TaskDetails.tooltip}" id="ot4"/>
-                    <af:showPopupBehavior popupId=":::p2"/>
                   </af:link>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerTasksVO8.hints.CustName.label}" id="c13" width="175">
@@ -381,6 +388,13 @@
                 </af:button>
               </f:facet>
               <af:panelFormLayout id="pfl5" maxColumns="2" rows="3">
+                <af:inputText value="#{TasksBean.taskName}" label="#{bindings.TaskName.hints.label}"
+                              required="#{bindings.TaskName.hints.mandatory}"
+                              columns="#{bindings.TaskName.hints.displayWidth}"
+                              maximumLength="#{bindings.TaskName.hints.precision}"
+                              shortDesc="#{bindings.TaskName.hints.tooltip}" id="it9">
+                  <f:validator binding="#{bindings.TaskName.validator}"/>
+                </af:inputText>
                 <af:selectOneChoice value="#{TasksBean.priority}" label="Priority" id="soc15">
                   <f:validator binding="#{bindings.Priority1.validator}"/>
                   <af:selectItem label="Low" value="Low" id="si23"/>
@@ -435,6 +449,13 @@
                        affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
               <f:facet name="buttonBar"/>
               <af:panelFormLayout id="pfl3" maxColumns="2" rows="2">
+                <af:inputText value="#{bindings.TaskName.inputValue}" label="#{bindings.TaskName.hints.label}"
+                              required="#{bindings.TaskName.hints.mandatory}"
+                              columns="#{bindings.TaskName.hints.displayWidth}"
+                              maximumLength="#{bindings.TaskName.hints.precision}"
+                              shortDesc="#{bindings.TaskName.hints.tooltip}" id="it14">
+                  <f:validator binding="#{bindings.TaskName.validator}"/>
+                </af:inputText>
                 <af:inputDate value="#{bindings.DueDate.inputValue}" label="#{bindings.DueDate.hints.label}"
                               required="#{bindings.DueDate.hints.mandatory}"
                               columns="#{bindings.DueDate.hints.displayWidth}"

@@ -36,7 +36,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="ADDRESSES">
+    TableName="ADDRESSES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="40"/>
     </DesignTime>
@@ -89,6 +90,18 @@
       <Attr Name="_DisplaySize" Value="30"/>
     </DesignTime>
   </Attribute>
+  <Key
+    Name="AddressesAddressLine1Check">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"ADDRESS_LINE1" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="ADDRESSES_ADDRESS_LINE1CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.AddressEO.AddressLine1"/>
+    </AttrArray>
+  </Key>
   <Key
     Name="AddressesPk"
     PrimaryKey="true">
