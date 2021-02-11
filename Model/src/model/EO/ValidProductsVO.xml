@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ValidProductsVO"
+  Version="12.2.1.22.48"
+  InheritPersonalization="merge"
+  SelectList="ProductEO.CATEGORY_ID, 
+       ProductEO.END_DATE, 
+       ProductEO.PRODUCT_DESCRIPTION, 
+       ProductEO.PRODUCT_ID, 
+       ProductEO.PRODUCT_NAME, 
+       ProductEO.PRODUCT_PRICE, 
+       ProductEO.START_DATE"
+  FromList="PRODUCTS ProductEO"
+  Where="ProductEO.END_DATE IS NULL OR CURRENT_DATE &lt;= ProductEO.END_DATE"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.EO.ValidProductsVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="ProductEO"
+    Entity="model.EO.ProductEO"/>
+  <ViewAttribute
+    Name="CategoryId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="CategoryId"
+    EntityUsage="ProductEO"
+    AliasName="CATEGORY_ID"/>
+  <ViewAttribute
+    Name="EndDate"
+    PrecisionRule="true"
+    EntityAttrName="EndDate"
+    EntityUsage="ProductEO"
+    AliasName="END_DATE"/>
+  <ViewAttribute
+    Name="ProductDescription"
+    PrecisionRule="true"
+    EntityAttrName="ProductDescription"
+    EntityUsage="ProductEO"
+    AliasName="PRODUCT_DESCRIPTION"/>
+  <ViewAttribute
+    Name="ProductId"
+    IsUpdateable="false"
+    PrecisionRule="true"
+    EntityAttrName="ProductId"
+    EntityUsage="ProductEO"
+    AliasName="PRODUCT_ID"/>
+  <ViewAttribute
+    Name="ProductName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductName"
+    EntityUsage="ProductEO"
+    AliasName="PRODUCT_NAME"/>
+  <ViewAttribute
+    Name="ProductPrice"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="ProductPrice"
+    EntityUsage="ProductEO"
+    AliasName="PRODUCT_PRICE"/>
+  <ViewAttribute
+    Name="StartDate"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="StartDate"
+    EntityUsage="ProductEO"
+    AliasName="START_DATE"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

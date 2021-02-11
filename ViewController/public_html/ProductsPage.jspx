@@ -192,6 +192,21 @@
                                 <f:selectItems value="#{bindings.CategoryId1.items}" id="si2"/>
                                 <f:validator binding="#{bindings.CategoryId1.validator}"/>
                             </af:selectOneChoice>
+                            <af:inputDate value="#{ProductsBean.startDate}"
+                                          label="#{bindings.StartDate.hints.label}"
+                                          required="#{bindings.StartDate.hints.mandatory}"
+                                          columns="#{bindings.StartDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.StartDate.hints.tooltip}" id="id1">
+                                <f:validator binding="#{bindings.StartDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{ProductsBean.endDate}" label="#{bindings.EndDate.hints.label}"
+                                          required="#{bindings.EndDate.hints.mandatory}"
+                                          columns="#{bindings.EndDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.EndDate.hints.tooltip}" id="id2">
+                                <f:validator binding="#{bindings.EndDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                            </af:inputDate>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>
@@ -235,6 +250,21 @@
                                 <af:validateDoubleRange minimum="1.0" messageDetailMinimum="Should be greater than 0"/>
                                 <af:convertNumber groupingUsed="false" pattern="#{bindings.ProductPrice.format}"/>
                             </af:inputText>
+                            <af:inputDate value="#{bindings.StartDate.inputValue}"
+                                          label="#{bindings.StartDate.hints.label}"
+                                          required="#{bindings.StartDate.hints.mandatory}"
+                                          columns="#{bindings.StartDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.StartDate.hints.tooltip}" id="id3">
+                                <f:validator binding="#{bindings.StartDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.StartDate.format}"/>
+                            </af:inputDate>
+                            <af:inputDate value="#{bindings.EndDate.inputValue}" label="#{bindings.EndDate.hints.label}"
+                                          required="#{bindings.EndDate.hints.mandatory}"
+                                          columns="#{bindings.EndDate.hints.displayWidth}"
+                                          shortDesc="#{bindings.EndDate.hints.tooltip}" id="id4">
+                                <f:validator binding="#{bindings.EndDate.validator}"/>
+                                <af:convertDateTime pattern="#{bindings.EndDate.format}"/>
+                            </af:inputDate>
                         </af:panelFormLayout>
                     </af:dialog>
                 </af:popup>

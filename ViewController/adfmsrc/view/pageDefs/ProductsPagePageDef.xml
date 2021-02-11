@@ -52,6 +52,8 @@
       <NamedData NDName="ProductDescription" NDValue="#{ProductsBean.productDescription}" NDType="java.lang.String"/>
       <NamedData NDName="CategoryId" NDValue="#{ProductsBean.productCategory}" NDType="java.lang.String"/>
       <NamedData NDName="ProductPrice" NDValue="#{ProductsBean.productPrice}" NDType="java.lang.String"/>
+      <NamedData NDName="StartDate" NDValue="#{ProductsBean.startDate}" NDType="java.lang.String"/>
+      <NamedData NDName="EndDate" NDValue="#{ProductsBean.endDate}" NDType="java.lang.String"/>
     </action>
     <action id="Commit" RequiresUpdateModel="true" Action="commitTransaction" DataControl="AppsModuleDataControl"/>
     <action IterBinding="ProductsVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
@@ -87,5 +89,15 @@
         <Item Value="Category"/>
       </ListDisplayAttrNames>
     </list>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="StartDate">
+      <AttrNames>
+        <Item Value="StartDate"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="ProductsVO1Iterator" id="EndDate">
+      <AttrNames>
+        <Item Value="EndDate"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

@@ -204,6 +204,19 @@
         Type="notify"/>
     </Dependencies>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CountryCode"
+    PrecisionRule="true"
+    EntityAttrName="CountryCode"
+    EntityUsage="CustomerContactEO"
+    AliasName="COUNTRY_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.CustomerContactsVO.CountryCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="CustomerSearch"
     ViewObjectName="model.VO.CustomerContactsVO"

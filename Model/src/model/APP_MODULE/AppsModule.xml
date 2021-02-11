@@ -226,6 +226,9 @@
   <ViewUsage
     Name="AddressesVO1"
     ViewObjectName="model.VO.AddressesVO"/>
+  <ViewUsage
+    Name="ValidProductsVO1"
+    ViewObjectName="model.EO.ValidProductsVO"/>
   <ViewLinkUsage
     Name="SysC0011004Link1"
     ViewLinkObjectName="model.VO.SysC0011004Link"

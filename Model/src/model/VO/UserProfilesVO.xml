@@ -20,7 +20,8 @@
        UserProfileEO.END_DATE, 
        UserProfileEO.SUPERVISOR_ID, 
        UserProfileEO.EMAIL, 
-       UserProfileEO.PHONE_NUMBER"
+       UserProfileEO.PHONE_NUMBER, 
+       UserProfileEO.COUNTRY_CODE"
   FromList="USER_PROFILES UserProfileEO"
   Where="UserProfileEO.END_DATE is null or CURRENT_DATE &lt;= UserProfileEO.END_DATE">
   <Variable
@@ -264,6 +265,19 @@
       <SchemaBasedProperties>
         <LABEL
           ResId="model.VO.UserProfilesVO.PhoneNumber_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ViewAttribute
+    Name="CountryCode"
+    PrecisionRule="true"
+    EntityAttrName="CountryCode"
+    EntityUsage="UserProfileEO"
+    AliasName="COUNTRY_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.CountryCode_LABEL"/>
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>

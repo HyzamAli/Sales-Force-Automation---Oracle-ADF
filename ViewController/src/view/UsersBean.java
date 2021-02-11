@@ -22,6 +22,7 @@ public class UsersBean {
     private String phone;
     private RichDialog component;
     private RichDialog createComponent;
+    private String countryCode = "+91";
 
     public void setEmail(String email) {
         this.email = email;
@@ -142,5 +143,13 @@ public class UsersBean {
 
     public RichDialog getCreateComponent() {
         return createComponent;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
     }
 }

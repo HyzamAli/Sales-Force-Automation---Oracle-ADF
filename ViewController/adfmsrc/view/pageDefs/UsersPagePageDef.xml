@@ -84,6 +84,7 @@
       <NamedData NDName="RolesId" NDValue="#{UsersBean.role}" NDType="java.lang.String"/>
       <NamedData NDName="Password1" NDValue="#{UsersBean.password}" NDType="java.lang.String"/>
       <NamedData NDName="Email" NDValue="#{UsersBean.email}" NDType="java.lang.String"/>
+      <NamedData NDName="CountryCode" NDValue="#{UsersBean.countryCode}" NDType="java.lang.String"/>
       <NamedData NDName="PhoneNumber" NDValue="#{UsersBean.phone}" NDType="java.lang.String"/>
     </action>
     <action IterBinding="UserProfilesVO1Iterator" id="Delete" RequiresUpdateModel="false" Action="removeCurrentRow"/>
@@ -159,5 +160,10 @@
       </nodeDefinition>
     </tree>
     <action IterBinding="SupervisorsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <attributeValues IterBinding="UserProfilesVO1Iterator" id="CountryCode">
+      <AttrNames>
+        <Item Value="CountryCode"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>
