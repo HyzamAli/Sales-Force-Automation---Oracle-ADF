@@ -138,7 +138,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="USER_PROFILES">
+    TableName="USER_PROFILES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -167,7 +168,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="USER_PROFILES">
+    TableName="USER_PROFILES"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
@@ -251,6 +253,18 @@
     </AttrArray>
   </Key>
   <Key
+    Name="UserProfilesEmailCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"EMAIL" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_EMAIL_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.Email"/>
+    </AttrArray>
+  </Key>
+  <Key
     Name="UserProfilesNameFirstCheck">
     <DesignTime>
       <Attr Name="_isNotNull" Value="true"/>
@@ -284,6 +298,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.UserProfileEO.Password1"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="UserProfilesPhoneNumberCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"PHONE_NUMBER" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="USER_PROFILES_PHONE_NUMBER_CHE"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.UserProfileEO.PhoneNumber"/>
     </AttrArray>
   </Key>
   <Key
