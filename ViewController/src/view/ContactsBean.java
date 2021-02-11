@@ -15,6 +15,7 @@ public class ContactsBean {
     private String influenceLevel = "1";
     private String customerId;
     private RichDialog contactComponent;
+    private String countryCode = "+91";
 
     public ContactsBean() {
     }
@@ -88,5 +89,13 @@ public class ContactsBean {
         OperationBinding operationBinding = bindings.getOperationBinding("Commit");
         operationBinding.execute();
         return null;
+    }
+
+    public void setCountryCode(String countryCode) {
+        this.countryCode = countryCode;
+    }
+
+    public String getCountryCode() {
+        return countryCode;
     }
 }

@@ -37,6 +37,11 @@
                           shortDesc="#{bindings.ContactName.hints.tooltip}" id="it1" inlineStyle="width:60%;">
               <f:validator binding="#{bindings.ContactName.validator}"/>
             </af:inputText>
+            <af:selectOneChoice label="Country Code" value="#{bindings.CountryCode.inputValue}" id="soc13">
+              <af:selectItem label="+91 (India)" value="+91" id="si19"/>
+              <af:selectItem label="+44 (UK)" value="+44" id="si20"/>
+              <af:selectItem label="+1 (USA)" value="+1" id="si21"/>
+            </af:selectOneChoice>
             <af:inputText value="#{bindings.ContactPhone.inputValue}" label="#{bindings.ContactPhone.hints.label}"
                           required="#{bindings.ContactPhone.hints.mandatory}"
                           columns="#{bindings.ContactPhone.hints.displayWidth}"

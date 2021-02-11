@@ -127,6 +127,18 @@
     ColumnType="NUMBER"
     TableName="CUSTOMER_CONTACTS"
     DefaultValue="1"/>
+  <Attribute
+    Name="CountryCode"
+    Precision="20"
+    ColumnName="COUNTRY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="CUSTOMER_CONTACTS">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerEO"
     Association="model.EO.SysC0011002Assoc"

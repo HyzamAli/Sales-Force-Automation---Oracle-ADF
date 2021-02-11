@@ -155,6 +155,19 @@
     EntityAttrName="IsVisible"
     EntityUsage="CustomerContactEO"
     AliasName="IS_VISIBLE"/>
+  <ViewAttribute
+    Name="CountryCode"
+    PrecisionRule="true"
+    EntityAttrName="CountryCode"
+    EntityUsage="CustomerContactEO"
+    AliasName="COUNTRY_CODE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.ContactByIdVO.CountryCode_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.NotesByContactVO"
