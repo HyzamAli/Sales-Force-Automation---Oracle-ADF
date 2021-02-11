@@ -390,7 +390,8 @@
                             <af:selectOneChoice value="#{bindings.SupervisorId.inputValue}"
                                                 label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
-                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc4">
+                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc4"
+                                                readOnly="true">
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si4"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
