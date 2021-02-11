@@ -148,9 +148,9 @@
             <af:spacer id="s6" height="35px"/>
             <af:panelBox text="Products" id="pb4" showDisclosure="false">
               <af:panelGroupLayout id="pgl3" layout="vertical">
-                <af:query id="qryId3" headerText="Search" disclosed="true"
+                <af:query id="qryId3" headerText="Search" disclosed="true" styleClass="AFQueryHideAddFields"
                           value="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryDescriptor}"
-                          model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}"
+                          model="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.queryModel}" modeChangeVisible="false"
                           queryListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQuery}"
                           queryOperationListener="#{bindings.ProductsPerOppurtunitiesVOCriteriaQuery.processQueryOperation}"
                           inlineStyle="padding-bottom:010px; padding-left:010px; padding-right:010px; padding-top:010px;"
