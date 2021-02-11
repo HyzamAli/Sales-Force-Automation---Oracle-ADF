@@ -186,6 +186,18 @@
       Pattern="[0-9]{3}-?[0-9]{3}-?[0-9]{4}"
       Inverse="false"/>
   </Attribute>
+  <Attribute
+    Name="CountryCode"
+    Precision="20"
+    ColumnName="COUNTRY_CODE"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="USER_PROFILES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="20"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011012Assoc"

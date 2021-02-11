@@ -324,6 +324,11 @@
                                 <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
                                                    hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
                             </af:inputText>
+                            <af:selectOneChoice label="Country Code" value="#{UsersBean.countryCode}" id="soc3">
+                                <af:selectItem label="+91 (India)" value="+91" id="si3"/>
+                                <af:selectItem label="+44 (UK)" value="+44" id="si7"/>
+                                <af:selectItem label="+1 (USA)" value="+1" id="si8"/>
+                            </af:selectOneChoice>
                             <af:inputText value="#{UsersBean.phone}"
                                           required="#{bindings.PhoneNumber.hints.mandatory}"
                                           columns="#{bindings.PhoneNumber.hints.displayWidth}"
@@ -399,6 +404,12 @@
                                 <af:validateRegExp pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.[a-zA-Z]{2,4}"
                                                    hint="Eg: name@company.com" messageDetailNoMatch="Not a Valid Email"/>
                             </af:inputText>
+                            <af:selectOneChoice label="Country Code" value="#{bindings.CountryCode.inputValue}"
+                                                id="soc7">
+                                <af:selectItem label="+91 (India)" value="+91" id="si9"/>
+                                <af:selectItem label="+44 (UK)" value="+44" id="si10"/>
+                                <af:selectItem label="+1 (USA)" value="+1" id="si11"/>
+                            </af:selectOneChoice>
                             <af:inputText value="#{bindings.PhoneNumber.inputValue}"
                                           label="#{bindings.PhoneNumber.hints.label}"
                                           required="#{bindings.PhoneNumber.hints.mandatory}"
