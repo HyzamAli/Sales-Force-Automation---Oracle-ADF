@@ -1,10 +1,14 @@
 package view;
 
+import java.sql.Date;
+
 public class ProductsBean {
     private String productName;
     private String productPrice;
     private String productDescription;
     private String productCategory;
+    private Date startDate;
+    private Date endDate;
 
     public ProductsBean() {
     }
@@ -39,5 +43,21 @@ public class ProductsBean {
 
     public String getProductCategory() {
         return productCategory;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
     }
 }

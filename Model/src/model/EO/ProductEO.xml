@@ -80,6 +80,30 @@
     TableName="PRODUCTS"
     IsNotNull="true"
     IsUpdateable="while_insert"/>
+  <Attribute
+    Name="StartDate"
+    ColumnName="START_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PRODUCTS"
+    IsNotNull="true">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.EO.ProductEO.StartDate_LABEL"/>
+        <LABEL_PLURAL
+          ResId="model.EO.ProductEO.StartDate_LABEL_PLURAL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </Attribute>
+  <Attribute
+    Name="EndDate"
+    ColumnName="END_DATE"
+    SQLType="DATE"
+    Type="java.sql.Timestamp"
+    ColumnType="DATE"
+    TableName="PRODUCTS"/>
   <AccessorAttribute
     Name="ProductsPerOppurtunityEO"
     Association="model.EO.SysC0011006Assoc"
@@ -131,6 +155,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.ProductEO.ProductPrice"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="ProductsStartDateCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"START_DATE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="PRODUCTS_START_DATE_CHECK"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.ProductEO.StartDate"/>
     </AttrArray>
   </Key>
   <Key
