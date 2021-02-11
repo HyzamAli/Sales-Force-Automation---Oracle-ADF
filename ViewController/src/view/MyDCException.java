@@ -31,6 +31,9 @@ public class MyDCException extends DCErrorHandlerImpl {
         else if (error_message.startsWith("JBO-27024: Failed to validate")) {
             error_message="Ensure End date is before start date"; 
         }
+        else if (error_message.startsWith("JBO-26048: Constraint \"PRODUCTS_CHK1\" is violated")) {
+            error_message="Ensure End date is before start date"; 
+        }
         else if (error_message.startsWith("JBO-26048: Constraint \"CONTACT_CUST_UK1\" is violated")) {
             error_message="Contact is already added, try  adding a different contact"; 
         }
