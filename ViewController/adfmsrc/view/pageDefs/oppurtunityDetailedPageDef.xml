@@ -44,6 +44,8 @@
     <iterator Binds="UserProfilesVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="UserProfilesVO1Iterator"/>
     <iterator Binds="CustomerTasksVO1" RangeSize="25" DataControl="AppsModuleDataControl"
               id="CustomerTasksVO1Iterator"/>
+    <iterator Binds="ValidProductsVO1" RangeSize="-1" DataControl="AppsModuleDataControl"
+              id="ValidProductsVO1Iterator"/>
   </executables>
   <bindings>
         <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustomerId1">
@@ -244,7 +246,7 @@
     </action>
     <action IterBinding="CustomerTasksVO7Iterator" id="Delete1" RequiresUpdateModel="false" Action="removeCurrentRow"/>
     <list IterBinding="ProductsPerOppurtunitiesVO4Iterator" StaticList="false" id="ProductId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="ProductsVO1Iterator">
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="ValidProductsVO1Iterator">
       <AttrNames>
         <Item Value="ProductId"/>
       </AttrNames>
