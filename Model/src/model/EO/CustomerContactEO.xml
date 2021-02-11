@@ -71,7 +71,8 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CUSTOMER_CONTACTS">
+    TableName="CUSTOMER_CONTACTS"
+    IsNotNull="true">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -177,6 +178,18 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.CustomerContactEO.ContactName"/>
+    </AttrArray>
+  </Key>
+  <Key
+    Name="CustomerContactsContactPhoneCheck">
+    <DesignTime>
+      <Attr Name="_isNotNull" Value="true"/>
+      <Attr Name="_checkCondition" Value='"CONTACT_PHONE" IS NOT NULL'/>
+      <Attr Name="_isCheck" Value="true"/>
+      <Attr Name="_DBObjectName" Value="CUSTOMER_CONTACTS_CONTACT_PHON"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.EO.CustomerContactEO.ContactPhone"/>
     </AttrArray>
   </Key>
   <Key
