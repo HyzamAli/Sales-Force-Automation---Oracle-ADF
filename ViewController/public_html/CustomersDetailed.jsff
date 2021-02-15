@@ -191,13 +191,13 @@
                                     shortDesc="#{bindings.Country1.hints.tooltip}" id="it16">
                         <f:validator binding="#{bindings.Country1.validator}"/>
                       </af:inputText>
-                      <af:inputText value="#{AddressBean.type}" label="#{bindings.AddressType.hints.label}"
-                                    required="#{bindings.AddressType.hints.mandatory}"
-                                    columns="#{bindings.AddressType.hints.displayWidth}"
-                                    maximumLength="#{bindings.AddressType.hints.precision}"
-                                    shortDesc="#{bindings.AddressType.hints.tooltip}" id="it17">
-                        <f:validator binding="#{bindings.AddressType.validator}"/>
-                      </af:inputText>
+                      <af:selectOneChoice label="Address Type" value="#{AddressBean.type}" id="soc27">
+                        <af:selectItem label="Billing" value="Billing" id="si44"/>
+                        <af:selectItem label="Main" value="Main" id="si45"/>
+                        <af:selectItem label="Others" value="Others" id="si46"/>
+                        <af:selectItem label="Shipping" value="Shipping" id="si47"/>
+                        <af:selectItem label="Warehouse" value="Warehouse" id="si48"/>
+                      </af:selectOneChoice>
                     </af:panelFormLayout>
                   </af:dialog>
                 </af:popup>
@@ -237,14 +237,13 @@
                                     shortDesc="#{bindings.Country1.hints.tooltip}" id="it30">
                         <f:validator binding="#{bindings.Country1.validator}"/>
                       </af:inputText>
-                      <af:inputText value="#{bindings.AddressType.inputValue}"
-                                    label="#{bindings.AddressType.hints.label}"
-                                    required="#{bindings.AddressType.hints.mandatory}"
-                                    columns="#{bindings.AddressType.hints.displayWidth}"
-                                    maximumLength="#{bindings.AddressType.hints.precision}"
-                                    shortDesc="#{bindings.AddressType.hints.tooltip}" id="it35">
-                        <f:validator binding="#{bindings.AddressType.validator}"/>
-                      </af:inputText>
+                      <af:selectOneChoice label="Address Type" value="#{bindings.AddressType.inputValue}" id="soc28">
+                        <af:selectItem label="Billing" value="Billing" id="si49"/>
+                        <af:selectItem label="Main" value="Main" id="si50"/>
+                        <af:selectItem label="Others" value="Others" id="si51"/>
+                        <af:selectItem label="Shipping" value="Shipping" id="si52"/>
+                        <af:selectItem label="Warehouse" value="Warehouse" id="si53"/>
+                      </af:selectOneChoice>
                     </af:panelFormLayout>
                   </af:dialog>
                 </af:popup>

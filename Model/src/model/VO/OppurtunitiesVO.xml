@@ -66,6 +66,10 @@
     Name="opName2"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="customer"
+    Kind="viewcriteria"
+    Type="java.math.BigDecimal"/>
   <ViewAccessor
     Name="CustomerContactsVO1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -445,10 +449,18 @@
       Name="OppurtunitiesVOCriteria_row_0"
       UpperColumns="1">
       <ViewCriteriaItem
+        Name="CustomerId"
+        ViewAttribute="CustomerId"
+        Operator="="
+        Conjunction="AND"
+        Value=":customer"
+        IsBindVarValue="true"
+        Required="Optional"/>
+      <ViewCriteriaItem
         Name="OpName"
         ViewAttribute="OpName"
         Operator="STARTSWITH"
-        Conjunction="AND"
+        Conjunction="OR"
         Value=":opName2"
         IsBindVarValue="true"
         Required="Optional"/>

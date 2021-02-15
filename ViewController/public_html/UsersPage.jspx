@@ -124,7 +124,7 @@
                                         <af:outputText value="Are you sure?" id="ot6" inlineStyle="margin-right:50px;"/>
                                         <f:facet name="buttonBar">
                                             <af:button actionListener="#{bindings.Delete.execute}"
-                                                       action="#{UsersBean.closeDialogSave}" text="Yes"
+                                                       action="#{UsersBean.closeDialogSave}" text="OK"
                                                        id="b4" partialSubmit="false"/>
                                         </f:facet>
                                     </af:dialog>
@@ -200,7 +200,7 @@
                                                    binding="#{RPEBeans.component}">
                                             <f:facet name="buttonBar">
                                                 <af:button actionListener="#{bindings.CreateWithParams1.execute}"
-                                                           action="#{RPEBeans.closeDialog}" text="Add"
+                                                           action="#{RPEBeans.closeDialog}" text="OK"
                                                            disabled="#{!bindings.CreateWithParams1.enabled}" id="b8"
                                                            partialSubmit="false"/>
                                             </f:facet>
@@ -236,7 +236,7 @@
                             </af:panelBox>
                             
                             <af:popup childCreation="deferred" autoCancel="disabled" id="p5">
-                                <af:dialog id="d6" title="Delete" type="cancel" binding="#{RPEBeans.deleteComponent}">
+                                <af:dialog id="d6" title="Remove" type="cancel" binding="#{RPEBeans.deleteComponent}">
                                     <af:outputText value="Are you sure?" id="ot7" inlineStyle="margin-right:50px;"/>
                                     <f:facet name="buttonBar">
                                         <af:button actionListener="#{bindings.Delete1.execute}"
@@ -390,7 +390,8 @@
                             <af:selectOneChoice value="#{bindings.SupervisorId.inputValue}"
                                                 label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
-                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc4">
+                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc4"
+                                                readOnly="true">
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si4"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>
