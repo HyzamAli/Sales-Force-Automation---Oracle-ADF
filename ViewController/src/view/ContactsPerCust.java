@@ -79,7 +79,7 @@ public class ContactsPerCust {
         RowSetIterator rsi = iter.getRowSetIterator();
         Row row = rsi.getCurrentRow();
         if (row == null) return;
-        Row[] rows = rsi.getFilteredRows("IsPrimary", 1);
+        Row[] rows = rsi.getFilteredRowsInRange("IsPrimary", 1);
         if (rows != null && rows.length > 0) {
             Row row1 = rows[0];
             System.out.println(""+rows.length+" "+row1.getAttribute("Name"));
