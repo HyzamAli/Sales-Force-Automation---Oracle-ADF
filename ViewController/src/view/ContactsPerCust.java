@@ -1,5 +1,7 @@
 package view;
 
+import javax.faces.event.ActionEvent;
+
 import oracle.adf.model.BindingContext;
 import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.model.binding.DCIteratorBinding;
@@ -70,9 +72,31 @@ public class ContactsPerCust {
         return deleteComponent;
     }
     
+    public void updatePrimary(ActionEvent actionEvent) {
+        DCBindingContainer bc = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        DCIteratorBinding iter =
+              (DCIteratorBinding)bc.findIteratorBinding("ContactsByCustomersVO2Iterator");
+        RowSetIterator rsi = iter.getRowSetIterator();
+        Row row = rsi.getCurrentRow();
+        if (row == null) return;
+        Row[] rows = rsi.getFilteredRows("IsPrimary", 1);
+        if (rows != null && rows.length > 0) {
+            Row row1 = rows[0];
+            System.out.println(""+rows.length+" "+row1.getAttribute("Name"));
+            row1.setAttribute("IsPrimary", 0);
+        }
+        row.setAttribute("IsPrimary", 1);
+        OperationBinding operationBinding = bc.getOperationBinding("Commit");
+        operationBinding.execute();
+        operationBinding = bc.getOperationBinding("Execute");
+        operationBinding.execute();
+    }
+    
     public void closeDialog() {
         DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
         OperationBinding operationBinding = bindings.getOperationBinding("Commit");
+        operationBinding.execute();
+        operationBinding = bindings.getOperationBinding("Execute");
         operationBinding.execute();
         RichPopup rp = (RichPopup) component.getParent();
         rp.hide();        
@@ -105,4 +129,5 @@ public class ContactsPerCust {
     public String getIsPrimary() {
         return isPrimary;
     }
+
 }
