@@ -289,7 +289,11 @@
                                inlineStyle=" background-color:Red; color:White;" selected="true">
                       <af:showPopupBehavior popupId="p17"/>
                     </af:button>
-                    <af:button actionListener="#{bindings.Execute.execute}" text="Execute" id="b39"/>
+                    <af:button actionListener="#{bindings.Execute.execute}" text="Execute" id="b39" rendered="false"/>
+                    <af:button text="Make Primary" id="b40" partialTriggers="t9"
+                    inlineStyle=" background-color:Orange; color:White;" selected="true"
+                               actionListener="#{ContactsPerCust.updatePrimary}">
+                    </af:button>
                   </af:toolbar>
                 </f:facet>
                 <f:facet name="statusbar"/>
@@ -327,6 +331,12 @@
                                    shortDesc="#{bindings.ContactsByCustomersVO2.hints.ContactId.tooltip}" id="ot29">
                       <af:convertNumber groupingUsed="false"
                                         pattern="#{bindings.ContactsByCustomersVO2.hints.ContactId.format}"/>
+                    </af:outputText>
+                  </af:column>
+                  <af:column headerText="#{bindings.ContactsByCustomersVO2.hints.Id.label}" id="c28" rendered="false">
+                    <af:outputText value="#{row.Id}" shortDesc="#{bindings.ContactsByCustomersVO2.hints.Id.tooltip}" id="o455">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.ContactsByCustomersVO2.hints.Id.format}"/>
                     </af:outputText>
                   </af:column>
                 </af:table>
