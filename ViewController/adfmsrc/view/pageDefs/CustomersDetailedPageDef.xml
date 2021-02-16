@@ -420,10 +420,11 @@
       <nodeDefinition DefName="model.VO.ContactsByCustomersVO" Name="ContactsByCustomersVO20">
         <AttrNames>
           <Item Value="Name"/>
+          <Item Value="Checked"/>
           <Item Value="Email"/>
           <Item Value="Phone"/>
           <Item Value="ContactId"/>
-          <Item Value="Checked"/>
+          <Item Value="Id"/>
         </AttrNames>
       </nodeDefinition>
     </tree>

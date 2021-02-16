@@ -67,7 +67,8 @@
               <af:selectItem label="Medium" value="2" id="si13"/>
               <af:selectItem label="Strong" value="3" id="si14"/>
             </af:selectOneChoice>
-            <af:selectOneRadio label="Primary" id="sor1" value="#{bindings.IsPrimary.inputValue}" layout="horizontal">
+            <af:selectOneRadio label="Primary" id="sor1" value="#{bindings.IsPrimary.inputValue}" layout="horizontal"
+                               rendered="false">
               <af:selectItem label="Yes" value="1" id="si6"/>
               <af:selectItem label="No" value="0" id="si7"/>
             </af:selectOneRadio>

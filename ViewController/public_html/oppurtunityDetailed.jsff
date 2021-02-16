@@ -903,8 +903,8 @@
                       <af:showPopupBehavior popupId=":::p23"/>
                     </af:link>
                   </af:column>
-                  <af:column id="c17" headerText=" " width="450">
-                    <af:link text="Download File" id="l6">
+                  <af:column id="c17" headerText=" " width="450" align="center">
+                    <af:link text=" " id="l6" icon="#{resource['images:download.png']}">
                       <af:fileDownloadActionListener filename="#{row.FileName}" method="#{FilesBean.downloadBlobFile}"/>
                     </af:link>
                   </af:column>
