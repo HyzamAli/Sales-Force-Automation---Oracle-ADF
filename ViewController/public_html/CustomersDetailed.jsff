@@ -669,20 +669,13 @@
                     <af:setActionListener from="#{bindings.CustomerId.inputValue}" to="#{TasksBean.customerId}"/>
                   </af:button>
                 </f:facet>
-                <af:panelFormLayout id="pfl4">
+                <af:panelFormLayout id="pfl4" maxColumns="2" rows="4">
                   <af:inputText value="#{TasksBean.taskName}" label="#{bindings.TaskName.hints.label}"
                                 required="#{bindings.TaskName.hints.mandatory}"
                                 columns="#{bindings.TaskName.hints.displayWidth}"
                                 maximumLength="#{bindings.TaskName.hints.precision}"
                                 shortDesc="#{bindings.TaskName.hints.tooltip}" id="it36">
                     <f:validator binding="#{bindings.TaskName.validator}"/>
-                  </af:inputText>
-                  <af:inputText value="#{TasksBean.details}" label="#{bindings.TaskDetails.hints.label}"
-                                required="#{bindings.TaskDetails.hints.mandatory}"
-                                columns="#{bindings.TaskDetails.hints.displayWidth}"
-                                maximumLength="#{bindings.TaskDetails.hints.precision}"
-                                shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="8">
-                    <f:validator binding="#{bindings.TaskDetails.validator}"/>
                   </af:inputText>
                   <af:inputDate value="#{TasksBean.dueDate}" label="#{bindings.DueDate.hints.label}"
                                 required="#{bindings.DueDate.hints.mandatory}"
@@ -726,6 +719,16 @@
                     <f:selectItems value="#{bindings.CustomerId1.items}" id="si26"/>
                     <f:validator binding="#{bindings.CustomerId1.validator}"/>
                   </af:selectOneChoice>
+                </af:panelFormLayout>
+                <af:panelFormLayout id="pfl17">
+                  <f:facet name="footer"/>
+                  <af:inputText value="#{TasksBean.details}" label="#{bindings.TaskDetails.hints.label}"
+                                required="#{bindings.TaskDetails.hints.mandatory}"
+                                columns="#{bindings.TaskDetails.hints.displayWidth}"
+                                maximumLength="#{bindings.TaskDetails.hints.precision}"
+                                shortDesc="#{bindings.TaskDetails.hints.tooltip}" id="it22" rows="8">
+                    <f:validator binding="#{bindings.TaskDetails.validator}"/>
+                  </af:inputText>
                 </af:panelFormLayout>
               </af:dialog>
             </af:popup>
