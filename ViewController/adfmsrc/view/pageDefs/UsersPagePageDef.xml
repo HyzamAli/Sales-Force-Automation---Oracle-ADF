@@ -9,8 +9,8 @@
               id="RolesPerEmployeeVO2Iterator"/>
     <searchRegion Criteria="UsersSearch" Customizer="oracle.jbo.uicli.binding.JUSearchBindingCustomizer"
                   Binds="UserProfilesVO1Iterator" id="UserProfilesVOCriteriaQuery1"/>
-    <iterator Binds="SupervisorsVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="SupervisorsVO1Iterator"/>
     <iterator id="RoleProfilesVO1Iterator" Binds="RoleProfilesVO1" DataControl="AppsModuleDataControl" RangeSize="-1"/>
+    <iterator Binds="SupVO1" RangeSize="-1" DataControl="AppsModuleDataControl" id="SupVO1Iterator"/>
   </executables>
   <bindings>
     <attributeValues IterBinding="UserProfilesVO1Iterator" id="NameFirst">
@@ -49,12 +49,12 @@
       </AttrNames>
     </attributeValues>
     <list IterBinding="UserProfilesVO1Iterator" StaticList="false" id="SupervisorId"
-          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="SupervisorsVO1Iterator">
+          DTSupportsMRU="false" SelectItemValueMode="ListObject" ListIter="SupVO1Iterator">
       <AttrNames>
         <Item Value="SupervisorId"/>
       </AttrNames>
       <ListAttrNames>
-        <Item Value="UserId"/>
+        <Item Value="SupTracker"/>
       </ListAttrNames>
       <ListDisplayAttrNames>
         <Item Value="NameFirst"/>
@@ -159,7 +159,8 @@
         </AttrNames>
       </nodeDefinition>
     </tree>
-    <action IterBinding="SupervisorsVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"/>
+    <action IterBinding="SupVO1Iterator" id="Execute" RequiresUpdateModel="true" Action="iteratorExecute"
+            InstanceName="AppsModuleDataControl.SupVO1" DataControl="AppsModuleDataControl"/>
     <attributeValues IterBinding="UserProfilesVO1Iterator" id="CountryCode">
       <AttrNames>
         <Item Value="CountryCode"/>

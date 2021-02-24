@@ -21,6 +21,7 @@
     <DesignTime>
       <Attr Name="_AM" Value="true"/>
       <Attr Name="_VL" Value="true"/>
+      <Attr Name="_VO" Value="true"/>
     </DesignTime>
   </Containee>
   <Containee

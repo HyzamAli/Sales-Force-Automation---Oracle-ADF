@@ -19,7 +19,7 @@
         ResId="model.VO.SupervisorsVO_LABEL"/>
     </SchemaBasedProperties>
   </Properties>
-  <SQLQuery><![CDATA[select USER_PROFILES.*
+  <SQLQuery><![CDATA[select USER_PROFILES.USER_ID, USER_PROFILES.NAME_FIRST, USER_PROFILES.ROLES_ID, USER_PROFILES.SUP_TRACKER, USER_PROFILES.NAME_LAST, USER_PROFILES.NAME_MIDDLE
 from USER_PROFILES,ROLES_PER_EMPLOYEES
 where user_profiles.user_id = roles_per_employees.employee_id and roles_per_employees.role_id = 2]]></SQLQuery>
   <ViewAttribute
@@ -31,18 +31,6 @@ where user_profiles.user_id = roles_per_employees.employee_id and roles_per_empl
     ColumnType="BIGINT"
     AliasName="USER_ID"
     Expression="USER_ID"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="RolesId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="38"
-    Scale="0"
-    Type="java.math.BigInteger"
-    ColumnType="NUMBER"
-    AliasName="ROLES_ID"
-    Expression="ROLES_ID"
     SQLType="NUMERIC"/>
   <ViewAttribute
     Name="NameFirst"
@@ -59,6 +47,28 @@ where user_profiles.user_id = roles_per_employees.employee_id and roles_per_empl
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
   </ViewAttribute>
+  <ViewAttribute
+    Name="RolesId"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Precision="38"
+    Scale="0"
+    Type="java.math.BigInteger"
+    ColumnType="NUMBER"
+    AliasName="ROLES_ID"
+    Expression="ROLES_ID"
+    SQLType="NUMERIC"/>
+  <ViewAttribute
+    Name="SupTracker"
+    IsUpdateable="false"
+    IsPersistent="false"
+    PrecisionRule="true"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    AliasName="SUP_TRACKER"
+    Expression="SUP_TRACKER"
+    SQLType="NUMERIC"/>
   <ViewAttribute
     Name="NameLast"
     IsUpdateable="false"
@@ -87,83 +97,6 @@ where user_profiles.user_id = roles_per_employees.employee_id and roles_per_empl
     SQLType="VARCHAR">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="Password1"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="1000"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="PASSWORD1"
-    Expression="PASSWORD1"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="1000"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="StartDate"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    AliasName="START_DATE"
-    Expression="START_DATE"
-    SQLType="DATE"/>
-  <ViewAttribute
-    Name="EndDate"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Type="java.sql.Timestamp"
-    ColumnType="DATE"
-    AliasName="END_DATE"
-    Expression="END_DATE"
-    SQLType="DATE"/>
-  <ViewAttribute
-    Name="SupervisorId"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="38"
-    Scale="0"
-    Type="java.math.BigInteger"
-    ColumnType="NUMBER"
-    AliasName="SUPERVISOR_ID"
-    Expression="SUPERVISOR_ID"
-    SQLType="NUMERIC"/>
-  <ViewAttribute
-    Name="Email"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="20"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="EMAIL"
-    Expression="EMAIL"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="20"/>
-    </DesignTime>
-  </ViewAttribute>
-  <ViewAttribute
-    Name="PhoneNumber"
-    IsUpdateable="false"
-    IsPersistent="false"
-    PrecisionRule="true"
-    Precision="20"
-    Type="java.lang.String"
-    ColumnType="VARCHAR2"
-    AliasName="PHONE_NUMBER"
-    Expression="PHONE_NUMBER"
-    SQLType="VARCHAR">
-    <DesignTime>
-      <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </ViewAttribute>
   <AttrArray Name="KeyAttributes">
