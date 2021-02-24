@@ -257,6 +257,13 @@
                                        action="#{UsersBean.closeDialog}" partialSubmit="false"/>
                         </f:facet>
                         <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{UsersBean.userName}" label="#{bindings.Username.hints.label}"
+                                          required="#{bindings.Username.hints.mandatory}"
+                                          columns="#{bindings.Username.hints.displayWidth}"
+                                          maximumLength="#{bindings.Username.hints.precision}"
+                                          shortDesc="#{bindings.Username.hints.tooltip}" id="it12">
+                                <f:validator binding="#{bindings.Username.validator}"/>
+                            </af:inputText>
                             <af:inputText value="#{UsersBean.fname}" label="#{bindings.NameFirst.hints.label}"
                                           required="#{bindings.NameFirst.hints.mandatory}"
                                           columns="#{bindings.NameFirst.hints.displayWidth}"
@@ -348,6 +355,14 @@
                                affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
+                            <af:inputText value="#{bindings.Username.inputValue}"
+                                          label="#{bindings.Username.hints.label}"
+                                          required="#{bindings.Username.hints.mandatory}"
+                                          columns="#{bindings.Username.hints.displayWidth}"
+                                          maximumLength="#{bindings.Username.hints.precision}"
+                                          shortDesc="#{bindings.Username.hints.tooltip}" id="it13">
+                                <f:validator binding="#{bindings.Username.validator}"/>
+                            </af:inputText>
                             <af:inputText value="#{bindings.NameFirst.inputValue}"
                                           label="#{bindings.NameFirst.hints.label}"
                                           required="#{bindings.NameFirst.hints.mandatory}"

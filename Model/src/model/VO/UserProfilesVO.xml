@@ -22,7 +22,8 @@
        UserProfileEO.EMAIL, 
        UserProfileEO.PHONE_NUMBER, 
        UserProfileEO.COUNTRY_CODE, 
-       UserProfileEO.SUP_TRACKER"
+       UserProfileEO.SUP_TRACKER, 
+       UserProfileEO.USERNAME"
   FromList="USER_PROFILES UserProfileEO"
   Where="UserProfileEO.END_DATE is null or CURRENT_DATE &lt;= UserProfileEO.END_DATE">
   <Variable
@@ -294,6 +295,19 @@
     EntityAttrName="SupTracker"
     EntityUsage="UserProfileEO"
     AliasName="SUP_TRACKER"/>
+  <ViewAttribute
+    Name="Username"
+    PrecisionRule="true"
+    EntityAttrName="Username"
+    EntityUsage="UserProfileEO"
+    AliasName="USERNAME">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.UserProfilesVO.Username_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewCriteria
     Name="UsersSearch"
     ViewObjectName="model.VO.UserProfilesVO"

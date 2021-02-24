@@ -23,7 +23,7 @@ public class MyDCException extends DCErrorHandlerImpl {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
         if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_UK1\" is violated")) {
-            error_message="Email is already added, try  adding a different Email"; 
+            error_message="Username is already added, try  adding a different Username"; 
         }
         else if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_CHK1\" is violated")) {
             error_message="Ensure End date is before start date"; 
