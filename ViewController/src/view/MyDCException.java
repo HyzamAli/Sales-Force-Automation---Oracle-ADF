@@ -22,7 +22,10 @@ public class MyDCException extends DCErrorHandlerImpl {
     public void reportException(DCBindingContainer dCBindingContainer, Exception exception) {
         System.out.println("DEBUG "+ exception.getMessage());
         String error_message = exception.getMessage();
-        if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_UK1\" is violated")) {
+        if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_CHK2\" is violated")) {
+            error_message="Cannot be supervisor of the same user"; 
+        }
+        else if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_UK1\" is violated")) {
             error_message="Username is already added, try  adding a different Username"; 
         }
         else if (error_message.startsWith("JBO-26048: Constraint \"USER_PROFILES_CHK1\" is violated")) {
