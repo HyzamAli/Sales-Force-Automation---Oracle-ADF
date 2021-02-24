@@ -200,6 +200,13 @@
       <Attr Name="_DisplaySize" Value="20"/>
     </DesignTime>
   </Attribute>
+  <Attribute
+    Name="SupTracker"
+    ColumnName="SUP_TRACKER"
+    SQLType="NUMERIC"
+    Type="java.math.BigDecimal"
+    ColumnType="NUMBER"
+    TableName="USER_PROFILES"/>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011012Assoc"

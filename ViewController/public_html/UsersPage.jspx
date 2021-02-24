@@ -344,7 +344,7 @@
                 </af:popup>
                 <af:popup childCreation="deferred" autoCancel="enabled" id="p2" partialTriggers="pt1:pc1:t1"
                           resetEditableValues="whenCanceled">
-                    <af:dialog id="d2" title="Edit Users" dialogListener="#{DialogHandler.onUpdate}" type="yesNo"
+                    <af:dialog id="d2" title="Edit Users" dialogListener="#{UsersBean.onUpdate}" type="yesNo"
                                affirmativeTextAndAccessKey="OK" noTextAndAccessKey="Cancel">
                         <f:facet name="buttonBar"/>
                         <af:panelFormLayout id="pfl2">
@@ -390,8 +390,7 @@
                             <af:selectOneChoice value="#{bindings.SupervisorId.inputValue}"
                                                 label="#{bindings.SupervisorId.label}"
                                                 required="#{bindings.SupervisorId.hints.mandatory}"
-                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc4"
-                                                readOnly="true">
+                                                shortDesc="#{bindings.SupervisorId.hints.tooltip}" id="soc4">
                                 <f:selectItems value="#{bindings.SupervisorId.items}" id="si4"/>
                                 <f:validator binding="#{bindings.SupervisorId.validator}"/>
                             </af:selectOneChoice>

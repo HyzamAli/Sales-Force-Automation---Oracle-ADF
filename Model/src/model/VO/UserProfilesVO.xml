@@ -21,7 +21,8 @@
        UserProfileEO.SUPERVISOR_ID, 
        UserProfileEO.EMAIL, 
        UserProfileEO.PHONE_NUMBER, 
-       UserProfileEO.COUNTRY_CODE"
+       UserProfileEO.COUNTRY_CODE, 
+       UserProfileEO.SUP_TRACKER"
   FromList="USER_PROFILES UserProfileEO"
   Where="UserProfileEO.END_DATE is null or CURRENT_DATE &lt;= UserProfileEO.END_DATE">
   <Variable
@@ -57,8 +58,14 @@
     ViewObjectName="model.VO.RoleProfilesVO"
     RowLevelBinds="true"/>
   <ViewAccessor
-    Name="SupervisorsVO2"
-    ViewObjectName="model.VO.SupervisorsVO"
+    Name="AppsModule_SupVO1_1"
+    ViewObjectName="model.APP_MODULE.SupVO"
+    AMUsageName="AppsModule"
+    ViewInstanceName="SupVO1"
+    RowLevelBinds="true"/>
+  <ViewAccessor
+    Name="SupVO1"
+    ViewObjectName="model.APP_MODULE.SupVO"
     RowLevelBinds="true"/>
   <ListBinding
     Name="LOV_RolesId"
@@ -79,7 +86,7 @@
   </ListBinding>
   <ListBinding
     Name="LOV_SupervisorId"
-    ListVOName="SupervisorsVO2"
+    ListVOName="SupVO1"
     NullValueFlag="none"
     MRUCount="0">
     <AttrArray Name="AttrNames">
@@ -87,7 +94,7 @@
     </AttrArray>
     <AttrArray Name="AttrExpressions"/>
     <AttrArray Name="ListAttrNames">
-      <Item Value="UserId"/>
+      <Item Value="SupTracker"/>
     </AttrArray>
     <AttrArray Name="ListDisplayAttrNames">
       <Item Value="NameFirst"/>
@@ -281,6 +288,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="SupTracker"
+    PrecisionRule="true"
+    EntityAttrName="SupTracker"
+    EntityUsage="UserProfileEO"
+    AliasName="SUP_TRACKER"/>
   <ViewCriteria
     Name="UsersSearch"
     ViewObjectName="model.VO.UserProfilesVO"

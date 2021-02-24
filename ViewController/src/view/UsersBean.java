@@ -7,6 +7,8 @@ import oracle.adf.model.binding.DCBindingContainer;
 import oracle.adf.view.rich.component.rich.RichDialog;
 import oracle.adf.view.rich.component.rich.RichPopup;
 
+import oracle.adf.view.rich.event.DialogEvent;
+
 import oracle.binding.OperationBinding;
 
 public class UsersBean {
@@ -127,6 +129,21 @@ public class UsersBean {
         RichPopup rp = (RichPopup) createComponent.getParent();
         rp.hide();
         return null;
+    }
+    
+    public void onUpdate(DialogEvent dialogEvent) {
+        DCBindingContainer bindings = (DCBindingContainer)BindingContext.getCurrent().getCurrentBindingsEntry();
+        OperationBinding operationBinding;
+        if (dialogEvent.getOutcome() == DialogEvent.Outcome.yes)
+         {
+            operationBinding = bindings.getOperationBinding("Commit");
+            operationBinding.execute();
+            operationBinding = bindings.getOperationBinding("Execute");
+        } else {
+            operationBinding = bindings.getOperationBinding("Rollback");
+        }
+        operationBinding.execute();
+
     }
 
     public void setComponent(RichDialog component) {
