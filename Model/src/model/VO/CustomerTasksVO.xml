@@ -30,6 +30,10 @@
     Name="po"
     Kind="viewcriteria"
     Type="java.lang.String"/>
+  <Variable
+    Name="pNamee"
+    Kind="viewcriteria"
+    Type="java.lang.String"/>
   <ViewAccessor
     Name="AppsModule_CustomerContactsVO3_1"
     ViewObjectName="model.VO.CustomerContactsVO"
@@ -367,20 +371,20 @@
     <ViewCriteriaRow
       Name="CustomerTasksVOCriteria_row_0"
       UpperColumns="1">
+        <ViewCriteriaItem
+        Name="TaskName"
+        ViewAttribute="TaskName"
+        Operator="STARTSWITH"
+        Conjunction="AND"
+        Value=":pNamee"
+        IsBindVarValue="true"
+        Required="Optional"/>
       <ViewCriteriaItem
         Name="DueDate"
         ViewAttribute="DueDate"
         Operator="ONORAFTER"
         Conjunction="AND"
         Value=":pDue"
-        IsBindVarValue="true"
-        Required="Optional"/>
-      <ViewCriteriaItem
-        Name="IsCompleted"
-        ViewAttribute="IsCompleted"
-        Operator="="
-        Conjunction="AND"
-        Value=":po"
         IsBindVarValue="true"
         Required="Optional"/>
     </ViewCriteriaRow>

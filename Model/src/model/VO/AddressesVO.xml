@@ -34,13 +34,27 @@
     PrecisionRule="true"
     EntityAttrName="AddressLine1"
     EntityUsage="AddressEO"
-    AliasName="ADDRESS_LINE1"/>
+    AliasName="ADDRESS_LINE1">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.AddressesVO.AddressLine1_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="AddressLine2"
     PrecisionRule="true"
     EntityAttrName="AddressLine2"
     EntityUsage="AddressEO"
-    AliasName="ADDRESS_LINE2"/>
+    AliasName="ADDRESS_LINE2">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.AddressesVO.AddressLine2_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
   <ViewAttribute
     Name="Pin"
     PrecisionRule="true"
@@ -58,5 +72,16 @@
     PrecisionRule="true"
     EntityAttrName="AddressType"
     EntityUsage="AddressEO"
-    AliasName="ADDRESS_TYPE"/>
+    AliasName="ADDRESS_TYPE">
+    <Properties>
+      <SchemaBasedProperties>
+        <LABEL
+          ResId="model.VO.AddressesVO.AddressType_LABEL"/>
+      </SchemaBasedProperties>
+    </Properties>
+  </ViewAttribute>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
 </ViewObject>
