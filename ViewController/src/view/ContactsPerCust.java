@@ -1,5 +1,7 @@
 package view;
 
+import java.math.BigDecimal;
+
 import javax.faces.event.ActionEvent;
 
 import oracle.adf.model.BindingContext;
@@ -77,15 +79,18 @@ public class ContactsPerCust {
         DCIteratorBinding iter =
               (DCIteratorBinding)bc.findIteratorBinding("ContactsByCustomersVO2Iterator");
         RowSetIterator rsi = iter.getRowSetIterator();
-        Row row = rsi.getCurrentRow();
-        if (row == null) return;
-        Row[] rows = rsi.getFilteredRowsInRange("IsPrimary", 1);
-        if (rows != null && rows.length > 0) {
-            Row row1 = rows[0];
-            System.out.println(""+rows.length+" "+row1.getAttribute("Name"));
-            row1.setAttribute("IsPrimary", 0);
+        Row currentRow = rsi.getCurrentRow();
+        if (currentRow == null) return;
+        
+        Row[] rows = rsi.getAllRowsInRange();
+        for (Row row : rows) {
+            BigDecimal rowValue = (BigDecimal)row.getAttribute("IsPrimary");
+            if (rowValue.intValue() == 1) {
+                row.setAttribute("IsPrimary", 0);
+            }
         }
-        row.setAttribute("IsPrimary", 1);
+
+        currentRow.setAttribute("IsPrimary", 1);
         OperationBinding operationBinding = bc.getOperationBinding("Commit");
         operationBinding.execute();
         operationBinding = bc.getOperationBinding("Execute");

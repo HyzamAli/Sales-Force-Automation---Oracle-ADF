@@ -538,7 +538,7 @@
                   </af:outputText>
                 </af:column>
                 <af:column headerText="#{bindings.CustomerAppointmentsVO6.hints.AppName.label}" id="c16" width="275"
-                           rowHeader="true">
+                           rowHeader="true" align="left">
                   <af:link text="" id="l10">
                     <af:outputText value="#{row.AppName}"
                                    shortDesc="#{bindings.CustomerAppointmentsVO6.hints.AppName.tooltip}" id="ot12"/>
