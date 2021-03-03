@@ -262,6 +262,18 @@
     Type="oracle.jbo.domain.BlobDomain"
     ColumnType="BLOB"
     TableName="OPPURTUNITIES"/>
+  <Attribute
+    Name="CustName"
+    Precision="40"
+    ColumnName="CUST_NAME"
+    SQLType="VARCHAR"
+    Type="java.lang.String"
+    ColumnType="VARCHAR2"
+    TableName="OPPURTUNITIES">
+    <DesignTime>
+      <Attr Name="_DisplaySize" Value="40"/>
+    </DesignTime>
+  </Attribute>
   <AccessorAttribute
     Name="CustomerNoteEO"
     Association="model.EO.SysC0011001Assoc"

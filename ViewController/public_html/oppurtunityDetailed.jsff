@@ -42,6 +42,7 @@
                               shortDesc="#{bindings.OpName.hints.tooltip}" id="it16" inlineStyle="width:23%;">
                   <f:validator binding="#{bindings.OpName.validator}"/>
                 </af:inputText>
+                <af:inputText label="Customer" value="#{bindings.CustName.inputValue}" id="it32" readOnly="true"/>
                 <af:inputText value="#{bindings.Revenue.inputValue}" label="#{viewcontrollerBundle.REVENUE}"
                               required="#{bindings.Revenue.hints.mandatory}"
                               columns="#{bindings.Revenue.hints.displayWidth}"

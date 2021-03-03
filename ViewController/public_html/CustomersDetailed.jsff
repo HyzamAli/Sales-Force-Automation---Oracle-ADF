@@ -107,7 +107,7 @@
               </af:selectOneChoice>
               <af:selectOneChoice value="#{bindings.ParentAcc.inputValue}" label="#{bindings.ParentAcc.label}"
                                   required="#{bindings.ParentAcc.hints.mandatory}"
-                                  shortDesc="#{bindings.ParentAcc.hints.tooltip}" id="soc3">
+                                  shortDesc="#{bindings.ParentAcc.hints.tooltip}" id="soc3" rendered="false">
                 <f:selectItems value="#{bindings.ParentAcc.items}" id="si3"/>
                 <f:validator binding="#{bindings.ParentAcc.validator}"/>
               </af:selectOneChoice>
@@ -600,7 +600,8 @@
                           selectionListener="#{bindings.CustomerTasksVO61.collectionModel.makeCurrent}"
                           rowSelection="single" fetchSize="#{bindings.CustomerTasksVO61.rangeSize}" id="t1"
                           partialTriggers="::b18 :::b12 :::p6 :::d6 :::pc7:b22 :::b33" summary="Tasks List"
-                          inlineStyle="min-width:800pt; width:1000pt; margin-right:50px;" >
+                          inlineStyle="min-width:800pt; width:1000pt; margin-right:50px;" width="500"
+                          columnStretching="last">
                   <af:column headerText="#{bindings.CustomerTasksVO61.hints.TaskName.label}" id="c27" rowHeader="true"
                              width="250" minimumWidth="200" align="start">
                     <af:link text="" id="l10">

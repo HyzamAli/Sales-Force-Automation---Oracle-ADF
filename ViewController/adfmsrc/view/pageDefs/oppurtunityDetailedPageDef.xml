@@ -497,5 +497,10 @@
         <Item Value="TaskName"/>
       </AttrNames>
     </attributeValues>
+    <attributeValues IterBinding="OppurtunityByID1Iterator" id="CustName">
+      <AttrNames>
+        <Item Value="CustName"/>
+      </AttrNames>
+    </attributeValues>
   </bindings>
 </pageDefinition>

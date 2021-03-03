@@ -419,6 +419,12 @@
       </SchemaBasedProperties>
     </Properties>
   </ViewAttribute>
+  <ViewAttribute
+    Name="CustName"
+    PrecisionRule="true"
+    EntityAttrName="CustName"
+    EntityUsage="OppurtunitieEO"
+    AliasName="CUST_NAME"/>
   <ViewCriteria
     Name="OppurtunitiesVOCriteria"
     ViewObjectName="model.VO.OppurtunitiesVO"
