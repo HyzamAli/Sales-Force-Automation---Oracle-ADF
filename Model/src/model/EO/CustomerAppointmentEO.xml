@@ -86,8 +86,7 @@
     SQLType="VARCHAR"
     Type="java.lang.String"
     ColumnType="VARCHAR2"
-    TableName="CUSTOMER_APPOINTMENTS"
-    IsNotNull="true">
+    TableName="CUSTOMER_APPOINTMENTS">
     <DesignTime>
       <Attr Name="_DisplaySize" Value="1000"/>
     </DesignTime>
@@ -207,18 +206,6 @@
     </DesignTime>
     <AttrArray Name="Attributes">
       <Item Value="model.EO.CustomerAppointmentEO.AppName"/>
-    </AttrArray>
-  </Key>
-  <Key
-    Name="CustomerAppointmentsLocationCheck">
-    <DesignTime>
-      <Attr Name="_isNotNull" Value="true"/>
-      <Attr Name="_checkCondition" Value='"LOCATION" IS NOT NULL'/>
-      <Attr Name="_isCheck" Value="true"/>
-      <Attr Name="_DBObjectName" Value="CUSTOMER_APPOINTMENTS_LOCATION"/>
-    </DesignTime>
-    <AttrArray Name="Attributes">
-      <Item Value="model.EO.CustomerAppointmentEO.Location"/>
     </AttrArray>
   </Key>
   <Key

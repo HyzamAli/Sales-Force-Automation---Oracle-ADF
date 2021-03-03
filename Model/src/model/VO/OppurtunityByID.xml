@@ -373,6 +373,12 @@
     EntityAttrName="Attatchment"
     EntityUsage="OppurtunitieEO"
     AliasName="ATTATCHMENT"/>
+  <ViewAttribute
+    Name="CustName"
+    PrecisionRule="true"
+    EntityAttrName="CustName"
+    EntityUsage="OppurtunitieEO"
+    AliasName="CUST_NAME"/>
   <ViewLinkAccessor
     Name="CustomerNotesVO"
     ViewLink="model.VO.NotesByOppurtunity"
